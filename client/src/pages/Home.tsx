@@ -87,18 +87,18 @@ export default function Home() {
                   <span className="text-xs font-medium text-muted">Available for opportunities</span>
                 </div>
 
-                <div className="flex items-start gap-6">
+                <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6">
                   <div className="flex-1">
                     <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
                       AI Engineer &<br />
                       <span className="text-accent">Full-Stack Developer</span>
                     </h1>
                   </div>
-                  <div className="hidden lg:block flex-shrink-0">
+                  <div className="flex-shrink-0">
                     <img
                       src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663745791505/NFiqZRbGBApQcYsC.jpg"
                       alt="Samar Singh"
-                      className="w-32 h-40 object-cover rounded-lg border border-accent/30 shadow-lg"
+                      className="w-24 h-32 sm:w-32 sm:h-40 object-cover rounded-lg border border-accent/30 shadow-lg"
                     />
                   </div>
                 </div>
