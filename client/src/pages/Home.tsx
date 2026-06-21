@@ -96,7 +96,7 @@ export default function Home() {
                   </div>
                   <div className="hidden lg:block flex-shrink-0">
                     <img
-                      src="/manus-storage/Unknown_d89e7a91.jpg"
+                      src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663745791505/NFiqZRbGBApQcYsC.jpg"
                       alt="Samar Singh"
                       className="w-32 h-40 object-cover rounded-lg border border-accent/30 shadow-lg"
                     />
