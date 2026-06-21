@@ -43,15 +43,15 @@ export default function Home() {
     <div className="min-h-screen bg-background text-foreground">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-2">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-center md:justify-between">
+          <div className="flex items-center gap-2 md:flex-1">
             <div className="w-8 h-8 bg-accent rounded-lg flex items-center justify-center">
               <span className="text-accent-foreground font-bold text-sm">SS</span>
             </div>
-            <span className="font-bold text-lg hidden sm:inline">Samar Singh</span>
+            <span className="font-bold text-lg">Samar Singh</span>
           </div>
           
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-8 flex-1 justify-center">
             <a href="#about" className="text-sm text-muted hover:text-foreground transition-colors">About</a>
             <a href="#projects" className="text-sm text-muted hover:text-foreground transition-colors">Projects</a>
             <a href="#skills" className="text-sm text-muted hover:text-foreground transition-colors">Skills</a>
@@ -59,7 +59,7 @@ export default function Home() {
             <a href="#contact" className="text-sm text-muted hover:text-foreground transition-colors">Contact</a>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 md:flex-1 md:justify-end">
             <a href="https://github.com/Samarssj" target="_blank" rel="noopener noreferrer" className="p-2 hover:bg-secondary rounded-lg transition-colors">
               <Github className="w-5 h-5" />
             </a>
