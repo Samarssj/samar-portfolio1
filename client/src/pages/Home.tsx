@@ -87,10 +87,21 @@ export default function Home() {
                   <span className="text-xs font-medium text-muted">Available for opportunities</span>
                 </div>
 
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
-                  AI Engineer &<br />
-                  <span className="text-accent">Full-Stack Developer</span>
-                </h1>
+                <div className="flex items-start gap-6">
+                  <div className="flex-1">
+                    <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
+                      AI Engineer &<br />
+                      <span className="text-accent">Full-Stack Developer</span>
+                    </h1>
+                  </div>
+                  <div className="hidden lg:block flex-shrink-0">
+                    <img
+                      src="/manus-storage/Unknown_d89e7a91.jpg"
+                      alt="Samar Singh"
+                      className="w-32 h-40 object-cover rounded-lg border border-accent/30 shadow-lg"
+                    />
+                  </div>
+                </div>
 
                 <p className="text-lg text-muted leading-relaxed max-w-md">
                   Building intelligent systems, agentic AI solutions, and scalable software that transform ideas into real-world products.
@@ -393,35 +404,74 @@ export default function Home() {
 
           <div className="space-y-8">
             {/* Current Role */}
-            <div className="p-6 rounded-lg border border-accent/30 bg-accent/5">
-              <div className="flex items-start justify-between mb-3">
+            <div className="p-6 rounded-lg border border-accent/30 bg-accent/5 hover:border-accent/50 transition-colors">
+              <div className="flex items-start justify-between mb-4">
                 <div>
-                  <h3 className="text-lg font-semibold">AI Engineer Intern</h3>
-                  <p className="text-sm text-accent">EXL Service</p>
+                  <h3 className="text-lg font-semibold text-foreground">AI Engineer Intern</h3>
+                  <p className="text-sm text-accent font-medium">EXL Service</p>
                 </div>
-                <div className="text-xs text-muted">May 2026 - Present</div>
+                <div className="inline-block px-3 py-1 rounded-full bg-accent/20 text-xs font-semibold text-accent">May 2026 - Present</div>
               </div>
-              <ul className="space-y-2 text-sm text-muted">
-                <li>• Developed and deployed Generative AI solutions using Vertex AI, Dialogflow CX, and Cloud Run — reducing manual effort by 35%</li>
-                <li>• Designed LLM-powered conversational agents improving response accuracy by 40%</li>
-                <li>• Built API-driven AI workflows cutting processing time by 30%</li>
-                <li>• Implemented prompt engineering and evaluation frameworks for improved reliability</li>
+              <p className="text-sm text-muted mb-4 leading-relaxed">
+                Developing and deploying enterprise-grade Generative AI solutions on Google Cloud Platform. Specializing in building conversational AI agents, LLM-powered workflows, and intelligent automation systems that drive measurable business impact.
+              </p>
+              <ul className="space-y-2.5 text-sm text-muted">
+                <li className="flex gap-3">
+                  <span className="text-accent flex-shrink-0 mt-1">→</span>
+                  <span><strong className="text-foreground">Generative AI Solutions:</strong> Developed and deployed AI solutions using Vertex AI, Dialogflow CX, and Cloud Run, reducing manual effort by <strong className="text-accent">35%</strong></span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-accent flex-shrink-0 mt-1">→</span>
+                  <span><strong className="text-foreground">LLM-Powered Agents:</strong> Designed conversational agents with advanced NLU/NLP capabilities, improving response accuracy by <strong className="text-accent">40%</strong></span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-accent flex-shrink-0 mt-1">→</span>
+                  <span><strong className="text-foreground">API-Driven Workflows:</strong> Built scalable AI workflows integrating cloud services and enterprise systems, cutting processing time by <strong className="text-accent">30%</strong></span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-accent flex-shrink-0 mt-1">→</span>
+                  <span><strong className="text-foreground">Prompt Engineering & Evaluation:</strong> Implemented advanced prompt engineering techniques and evaluation frameworks to ensure model reliability and consistency</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-accent flex-shrink-0 mt-1">→</span>
+                  <span><strong className="text-foreground">Operational Impact:</strong> Contributed to <strong className="text-accent">25%</strong> reduction in operational turnaround through scalable AI application delivery</span>
+                </li>
               </ul>
             </div>
 
             {/* Previous Role */}
-            <div className="p-6 rounded-lg border border-border bg-background/50">
-              <div className="flex items-start justify-between mb-3">
+            <div className="p-6 rounded-lg border border-accent/30 bg-accent/5 hover:border-accent/50 transition-colors">
+              <div className="flex items-start justify-between mb-4">
                 <div>
-                  <h3 className="text-lg font-semibold">ABM Intern</h3>
-                  <p className="text-sm text-muted">HighRadius</p>
+                  <h3 className="text-lg font-semibold text-foreground">ABM Intern</h3>
+                  <p className="text-sm text-accent font-medium">HighRadius</p>
                 </div>
-                <div className="text-xs text-muted">Aug 2025 - Jan 2026</div>
+                <div className="inline-block px-3 py-1 rounded-full bg-accent/20 text-xs font-semibold text-accent">Aug 2025 - Jan 2026</div>
               </div>
-              <ul className="space-y-2 text-sm text-muted">
-                <li>• Analyzed enterprise account data to identify high-value prospects</li>
-                <li>• Automated campaign performance tracking reducing manual effort by 40%</li>
-                <li>• Boosted lead qualification accuracy by 30% through data-driven insights</li>
+              <p className="text-sm text-muted mb-4 leading-relaxed">
+                Contributed to Account-Based Marketing initiatives by leveraging data analytics and automation to identify high-value prospects and optimize campaign performance for enterprise clients.
+              </p>
+              <ul className="space-y-2.5 text-sm text-muted">
+                <li className="flex gap-3">
+                  <span className="text-accent flex-shrink-0 mt-1">→</span>
+                  <span><strong className="text-foreground">Enterprise Account Analysis:</strong> Analyzed enterprise account data and customer engagement metrics to identify high-value prospects and improve targeting precision</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-accent flex-shrink-0 mt-1">→</span>
+                  <span><strong className="text-foreground">Campaign Automation:</strong> Automated campaign performance tracking and reporting workflows, reducing manual effort by <strong className="text-accent">40%</strong></span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-accent flex-shrink-0 mt-1">→</span>
+                  <span><strong className="text-foreground">Lead Qualification:</strong> Worked with CRM and marketing platforms to generate actionable insights, boosting lead qualification accuracy by <strong className="text-accent">30%</strong></span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-accent flex-shrink-0 mt-1">→</span>
+                  <span><strong className="text-foreground">Cross-Functional Collaboration:</strong> Collaborated with sales and marketing teams to optimize outreach strategies and increase overall campaign efficiency</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-accent flex-shrink-0 mt-1">→</span>
+                  <span><strong className="text-foreground">Data-Driven Insights:</strong> Generated performance dashboards and insights to track KPIs and inform strategic decision-making</span>
+                </li>
               </ul>
             </div>
           </div>
@@ -442,7 +492,7 @@ export default function Home() {
               <p className="text-sm text-accent mb-3">B.E. Computer Science Engineering</p>
               <div className="space-y-2 text-sm text-muted">
                 <p><strong className="text-foreground">CGPA:</strong> 7.76</p>
-                <p><strong className="text-foreground">Duration:</strong> Aug 2022 – Aug 2026</p>
+                  <p><strong className="text-foreground">Expected Graduation:</strong> Aug 2026</p>
               </div>
             </div>
 
