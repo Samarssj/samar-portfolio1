@@ -14,4 +14,4 @@
 📂 Interactive Project Showcase
 
 Some of the projects highlighted include Behaviour IQ, an AI-driven behavioral analysis platform, and my full-stack E-Blogging application built with TypeScript and MongoDB.
-Building this portfolio was more than just creating a website—it was an opportunity to bring together everything I've learned so far and present it in a way that reflects my growth as an AI Engineer and Developer.
+Building this portfolio was more than just creating a website, it was an opportunity to bring together everything I've learned so far and present it in a way that reflects my growth as an AI Engineer and Developer.
