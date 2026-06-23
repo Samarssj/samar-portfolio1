@@ -18,6 +18,15 @@ import { Github, Linkedin, Mail, Download } from 'lucide-react';
 export default function Home() {
   const projectsRef = useRef<HTMLDivElement>(null);
 
+  // Add smooth scroll behavior
+  useEffect(() => {
+    document.documentElement.style.scrollBehavior = 'smooth';
+    return () => {
+      document.documentElement.style.scrollBehavior = 'auto';
+    };
+  }, []);
+
+  // Scroll animation observer for project cards
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -52,18 +61,18 @@ export default function Home() {
           </div>
           
           <div className="hidden md:flex items-center gap-8 flex-1 justify-center">
-            <a href="#about" className="text-sm text-muted hover:text-foreground transition-colors">About</a>
-            <a href="#projects" className="text-sm text-muted hover:text-foreground transition-colors">Projects</a>
-            <a href="#skills" className="text-sm text-muted hover:text-foreground transition-colors">Skills</a>
-            <a href="#ai-showcase" className="text-sm text-muted hover:text-foreground transition-colors">AI Systems</a>
-            <a href="#contact" className="text-sm text-muted hover:text-foreground transition-colors">Contact</a>
+            <a href="#about" className="text-sm text-muted hover:text-foreground active:text-accent transition-colors cursor-pointer">About</a>
+            <a href="#projects" className="text-sm text-muted hover:text-foreground active:text-accent transition-colors cursor-pointer">Projects</a>
+            <a href="#skills" className="text-sm text-muted hover:text-foreground active:text-accent transition-colors cursor-pointer">Skills</a>
+            <a href="#ai-showcase" className="text-sm text-muted hover:text-foreground active:text-accent transition-colors cursor-pointer">AI Systems</a>
+            <a href="#contact" className="text-sm text-muted hover:text-foreground active:text-accent transition-colors cursor-pointer">Contact</a>
           </div>
 
           <div className="flex items-center gap-3 md:flex-1 md:justify-end">
-            <a href="https://github.com/Samarssj" target="_blank" rel="noopener noreferrer" className="p-2 hover:bg-secondary rounded-lg transition-colors">
+            <a href="https://github.com/Samarssj" target="_blank" rel="noopener noreferrer" className="p-2 hover:bg-secondary active:bg-accent/20 rounded-lg transition-colors">
               <Github className="w-5 h-5" />
             </a>
-            <a href="https://www.linkedin.com/in/samarssj/" target="_blank" rel="noopener noreferrer" className="p-2 hover:bg-secondary rounded-lg transition-colors">
+            <a href="https://www.linkedin.com/in/samarssj/" target="_blank" rel="noopener noreferrer" className="p-2 hover:bg-secondary active:bg-accent/20 rounded-lg transition-colors">
               <Linkedin className="w-5 h-5" />
             </a>
           </div>
@@ -111,13 +120,18 @@ export default function Home() {
               {/* CTA Buttons */}
               <div className="flex flex-wrap gap-4">
                 <a href="mailto:ssjsamar453@gmail.com">
-                  <Button className="gap-2 bg-accent hover:bg-accent/90 text-accent-foreground">
+                  <Button className="gap-2 bg-accent hover:bg-accent/90 active:bg-accent/80 text-accent-foreground transition-all">
                     <Mail className="w-4 h-4" />
                     Get in Touch
                   </Button>
                 </a>
+<<<<<<< Updated upstream
                 <a href="https://drive.google.com/file/d/1fnD2JHrVASZGd0gYbGaKImuNRU8mmeY3/view?usp=drivesdk">
                   <Button variant="outline" className="gap-2">
+=======
+                <a href="https://drive.google.com/file/d/1Ow1aLJkVwEqv9bIa_HUZXaWybPn21CIa/view?usp=drivesdk" target="_blank" rel="noopener noreferrer">
+                  <Button variant="outline" className="gap-2 hover:border-accent active:bg-accent/10 transition-all">
+>>>>>>> Stashed changes
                     <Download className="w-4 h-4" />
                     Resume
                   </Button>
@@ -184,11 +198,11 @@ export default function Home() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Languages */}
-            <div className="space-y-4 p-6 rounded-lg border border-border bg-background/50 hover:border-accent/50 transition-colors">
+            <div className="space-y-4 p-6 rounded-lg border border-border bg-background/50 hover:border-accent/50 active:border-accent transition-colors">
               <h3 className="font-semibold text-foreground">Languages</h3>
               <div className="flex flex-wrap gap-2">
                 {['Python', 'JavaScript', 'TypeScript', 'Java', 'SQL'].map((skill) => (
-                  <span key={skill} className="px-3 py-1 text-sm rounded-full bg-secondary border border-border text-muted hover:text-foreground hover:border-accent transition-colors">
+                  <span key={skill} className="px-3 py-1 text-sm rounded-full bg-secondary border border-border text-muted hover:text-foreground hover:border-accent active:bg-accent/20 transition-colors">
                     {skill}
                   </span>
                 ))}
@@ -196,11 +210,11 @@ export default function Home() {
             </div>
 
             {/* Frameworks & Libraries */}
-            <div className="space-y-4 p-6 rounded-lg border border-border bg-background/50 hover:border-accent/50 transition-colors">
+            <div className="space-y-4 p-6 rounded-lg border border-border bg-background/50 hover:border-accent/50 active:border-accent transition-colors">
               <h3 className="font-semibold text-foreground">Frameworks</h3>
               <div className="flex flex-wrap gap-2">
                 {['React.js', 'Node.js', 'Express.js', 'MongoDB', 'Pandas'].map((skill) => (
-                  <span key={skill} className="px-3 py-1 text-sm rounded-full bg-secondary border border-border text-muted hover:text-foreground hover:border-accent transition-colors">
+                  <span key={skill} className="px-3 py-1 text-sm rounded-full bg-secondary border border-border text-muted hover:text-foreground hover:border-accent active:bg-accent/20 transition-colors">
                     {skill}
                   </span>
                 ))}
@@ -208,11 +222,11 @@ export default function Home() {
             </div>
 
             {/* AI & Cloud */}
-            <div className="space-y-4 p-6 rounded-lg border border-border bg-background/50 hover:border-accent/50 transition-colors">
+            <div className="space-y-4 p-6 rounded-lg border border-border bg-background/50 hover:border-accent/50 active:border-accent transition-colors">
               <h3 className="font-semibold text-foreground">AI & Cloud</h3>
               <div className="flex flex-wrap gap-2">
                 {['Vertex AI', 'Dialogflow CX', 'Gen AI', 'GCP', 'LLMs'].map((skill) => (
-                  <span key={skill} className="px-3 py-1 text-sm rounded-full bg-secondary border border-border text-muted hover:text-foreground hover:border-accent transition-colors">
+                  <span key={skill} className="px-3 py-1 text-sm rounded-full bg-secondary border border-border text-muted hover:text-foreground hover:border-accent active:bg-accent/20 transition-colors">
                     {skill}
                   </span>
                 ))}
@@ -220,11 +234,11 @@ export default function Home() {
             </div>
 
             {/* Tools & Platforms */}
-            <div className="space-y-4 p-6 rounded-lg border border-border bg-background/50 hover:border-accent/50 transition-colors">
+            <div className="space-y-4 p-6 rounded-lg border border-border bg-background/50 hover:border-accent/50 active:border-accent transition-colors">
               <h3 className="font-semibold text-foreground">Tools</h3>
               <div className="flex flex-wrap gap-2">
                 {['Git', 'Docker', 'Kubernetes', 'REST APIs', 'CI/CD'].map((skill) => (
-                  <span key={skill} className="px-3 py-1 text-sm rounded-full bg-secondary border border-border text-muted hover:text-foreground hover:border-accent transition-colors">
+                  <span key={skill} className="px-3 py-1 text-sm rounded-full bg-secondary border border-border text-muted hover:text-foreground hover:border-accent active:bg-accent/20 transition-colors">
                     {skill}
                   </span>
                 ))}
@@ -232,11 +246,11 @@ export default function Home() {
             </div>
 
             {/* Databases */}
-            <div className="space-y-4 p-6 rounded-lg border border-border bg-background/50 hover:border-accent/50 transition-colors">
+            <div className="space-y-4 p-6 rounded-lg border border-border bg-background/50 hover:border-accent/50 active:border-accent transition-colors">
               <h3 className="font-semibold text-foreground">Databases</h3>
               <div className="flex flex-wrap gap-2">
                 {['MongoDB', 'Firestore', 'PostgreSQL', 'VectorDB'].map((skill) => (
-                  <span key={skill} className="px-3 py-1 text-sm rounded-full bg-secondary border border-border text-muted hover:text-foreground hover:border-accent transition-colors">
+                  <span key={skill} className="px-3 py-1 text-sm rounded-full bg-secondary border border-border text-muted hover:text-foreground hover:border-accent active:bg-accent/20 transition-colors">
                     {skill}
                   </span>
                 ))}
@@ -244,11 +258,11 @@ export default function Home() {
             </div>
 
             {/* ML & Data */}
-            <div className="space-y-4 p-6 rounded-lg border border-border bg-background/50 hover:border-accent/50 transition-colors">
+            <div className="space-y-4 p-6 rounded-lg border border-border bg-background/50 hover:border-accent/50 active:border-accent transition-colors">
               <h3 className="font-semibold text-foreground">ML & Data</h3>
               <div className="flex flex-wrap gap-2">
                 {['Scikit-Learn', 'NumPy', 'Pandas', 'NLP', 'Feature Engineering'].map((skill) => (
-                  <span key={skill} className="px-3 py-1 text-sm rounded-full bg-secondary border border-border text-muted hover:text-foreground hover:border-accent transition-colors">
+                  <span key={skill} className="px-3 py-1 text-sm rounded-full bg-secondary border border-border text-muted hover:text-foreground hover:border-accent active:bg-accent/20 transition-colors">
                     {skill}
                   </span>
                 ))}
@@ -260,120 +274,85 @@ export default function Home() {
 
       {/* Projects Section */}
       <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 border-t border-border">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           <div className="space-y-2 mb-12">
-            <div className="text-xs font-semibold text-accent uppercase tracking-widest">Work</div>
+            <div className="text-xs font-semibold text-accent uppercase tracking-widest">Portfolio</div>
             <h2 className="text-3xl sm:text-4xl font-bold">Featured Projects</h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6" ref={projectsRef}>
+          <div ref={projectsRef} className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Project 1 */}
-            <div className="project-card group p-6 rounded-lg border border-border bg-secondary/50 hover:border-accent/50 hover:bg-secondary transition-all opacity-0">
-              <div className="flex items-start justify-between mb-4">
-                <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center text-2xl">🤖</div>
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Enterprise AI Chatbot</h3>
-              <p className="text-muted text-sm mb-4">
-                Built an enterprise-grade conversational agent using Dialogflow CX with multi-turn conversation handling and intelligent routing.
-              </p>
-              <div className="flex flex-wrap gap-2 mb-4">
-                <span className="text-xs px-2 py-1 rounded bg-accent/10 text-accent">−50% Resolution Time</span>
-                <span className="text-xs px-2 py-1 rounded bg-accent/10 text-accent">−35% Support Costs</span>
-              </div>
-              <div className="flex flex-wrap gap-1">
-                {['Dialogflow CX', 'Vertex AI', 'Cloud Run'].map((tech) => (
-                  <span key={tech} className="text-xs text-muted bg-background/50 px-2 py-1 rounded">
-                    {tech}
-                  </span>
-                ))}
+            <div className="project-card p-6 rounded-lg border border-border bg-background/50 hover:border-accent/50 active:border-accent hover:shadow-lg transition-all opacity-0">
+              <div className="space-y-4">
+                <div className="space-y-2">
+                  <h3 className="text-xl font-semibold">Enterprise AI Chatbot</h3>
+                  <p className="text-sm text-muted">Generative AI solution using Vertex AI and Dialogflow CX</p>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-2 py-1 text-xs rounded bg-secondary border border-border text-muted">Vertex AI</span>
+                  <span className="px-2 py-1 text-xs rounded bg-secondary border border-border text-muted">Dialogflow CX</span>
+                  <span className="px-2 py-1 text-xs rounded bg-secondary border border-border text-muted">GCP</span>
+                </div>
               </div>
             </div>
 
             {/* Project 2 */}
-            <div className="project-card group p-6 rounded-lg border border-border bg-secondary/50 hover:border-accent/50 hover:bg-secondary transition-all opacity-0">
-              <div className="flex items-start justify-between mb-4">
-                <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center text-2xl">📝</div>
-              </div>
-              <h3 className="text-xl font-semibold mb-2">E-Blogging WebApp</h3>
-              <p className="text-muted text-sm mb-4">
-                Engineered a TypeScript-based blogging platform with secure authentication, CRUD operations, and MongoDB persistence.
-              </p>
-              <div className="flex flex-wrap gap-2 mb-4">
-                <span className="text-xs px-2 py-1 rounded bg-accent/10 text-accent">−60% Publishing Time</span>
-                <span className="text-xs px-2 py-1 rounded bg-accent/10 text-accent">+40% User Efficiency</span>
-              </div>
-              <div className="flex flex-wrap gap-1">
-                {['TypeScript', 'Node.js', 'MongoDB'].map((tech) => (
-                  <span key={tech} className="text-xs text-muted bg-background/50 px-2 py-1 rounded">
-                    {tech}
-                  </span>
-                ))}
+            <div className="project-card p-6 rounded-lg border border-border bg-background/50 hover:border-accent/50 active:border-accent hover:shadow-lg transition-all opacity-0">
+              <div className="space-y-4">
+                <div className="space-y-2">
+                  <h3 className="text-xl font-semibold">House Price Prediction</h3>
+                  <p className="text-sm text-muted">ML model for real estate price forecasting</p>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-2 py-1 text-xs rounded bg-secondary border border-border text-muted">Python</span>
+                  <span className="px-2 py-1 text-xs rounded bg-secondary border border-border text-muted">Scikit-Learn</span>
+                  <span className="px-2 py-1 text-xs rounded bg-secondary border border-border text-muted">Pandas</span>
+                </div>
               </div>
             </div>
 
             {/* Project 3 */}
-            <div className="project-card group p-6 rounded-lg border border-border bg-secondary/50 hover:border-accent/50 hover:bg-secondary transition-all opacity-0">
-              <div className="flex items-start justify-between mb-4">
-                <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center text-2xl">🏠</div>
-              </div>
-              <h3 className="text-xl font-semibold mb-2">House Price Prediction</h3>
-              <p className="text-muted text-sm mb-4">
-                ML-based pricing system trained on 1,000+ real estate records with feature engineering and regression models.
-              </p>
-              <div className="flex flex-wrap gap-2 mb-4">
-                <span className="text-xs px-2 py-1 rounded bg-accent/10 text-accent">80% Accuracy</span>
-                <span className="text-xs px-2 py-1 rounded bg-accent/10 text-accent">+15% Precision</span>
-              </div>
-              <div className="flex flex-wrap gap-1">
-                {['Python', 'Scikit-Learn', 'Pandas'].map((tech) => (
-                  <span key={tech} className="text-xs text-muted bg-background/50 px-2 py-1 rounded">
-                    {tech}
-                  </span>
-                ))}
+            <div className="project-card p-6 rounded-lg border border-border bg-background/50 hover:border-accent/50 active:border-accent hover:shadow-lg transition-all opacity-0">
+              <div className="space-y-4">
+                <div className="space-y-2">
+                  <h3 className="text-xl font-semibold">E-Blogging WebApp</h3>
+                  <p className="text-sm text-muted">Full-stack blogging platform with real-time updates</p>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-2 py-1 text-xs rounded bg-secondary border border-border text-muted">React</span>
+                  <span className="px-2 py-1 text-xs rounded bg-secondary border border-border text-muted">Node.js</span>
+                  <span className="px-2 py-1 text-xs rounded bg-secondary border border-border text-muted">MongoDB</span>
+                </div>
               </div>
             </div>
 
             {/* Project 4 */}
-            <div className="project-card group p-6 rounded-lg border border-border bg-secondary/50 hover:border-accent/50 hover:bg-secondary transition-all opacity-0">
-              <div className="flex items-start justify-between mb-4">
-                <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center text-2xl">🧠</div>
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Behaviour-IQ</h3>
-              <p className="text-muted text-sm mb-4">
-                Behavioral analytics platform analyzing user responses to generate data-driven personality insights and assessments.
-              </p>
-              <div className="flex flex-wrap gap-2 mb-4">
-                <span className="text-xs px-2 py-1 rounded bg-accent/10 text-accent">−30% Manual Effort</span>
-                <span className="text-xs px-2 py-1 rounded bg-accent/10 text-accent">~70% Accuracy</span>
-              </div>
-              <div className="flex flex-wrap gap-1">
-                {['JavaScript', 'HTML/CSS'].map((tech) => (
-                  <span key={tech} className="text-xs text-muted bg-background/50 px-2 py-1 rounded">
-                    {tech}
-                  </span>
-                ))}
+            <div className="project-card p-6 rounded-lg border border-border bg-background/50 hover:border-accent/50 active:border-accent hover:shadow-lg transition-all opacity-0">
+              <div className="space-y-4">
+                <div className="space-y-2">
+                  <h3 className="text-xl font-semibold">Behaviour-IQ</h3>
+                  <p className="text-sm text-muted">AI-powered behavioral analysis platform</p>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-2 py-1 text-xs rounded bg-secondary border border-border text-muted">AI/ML</span>
+                  <span className="px-2 py-1 text-xs rounded bg-secondary border border-border text-muted">Python</span>
+                  <span className="px-2 py-1 text-xs rounded bg-secondary border border-border text-muted">Analytics</span>
+                </div>
               </div>
             </div>
 
             {/* Project 5 */}
-            <div className="project-card group p-6 rounded-lg border border-border bg-secondary/50 hover:border-accent/50 hover:bg-secondary transition-all opacity-0">
-              <div className="flex items-start justify-between mb-4">
-                <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center text-2xl">✈️</div>
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Travel Booking Platform</h3>
-              <p className="text-muted text-sm mb-4">
-                Full-stack travel booking application with JWT authentication, real-time availability, and responsive React frontend.
-              </p>
-              <div className="flex flex-wrap gap-2 mb-4">
-                <span className="text-xs px-2 py-1 rounded bg-accent/10 text-accent">−50% Booking Time</span>
-                <span className="text-xs px-2 py-1 rounded bg-accent/10 text-accent">+30% User Engagement</span>
-              </div>
-              <div className="flex flex-wrap gap-1">
-                {['React.js', 'Node.js', 'MongoDB'].map((tech) => (
-                  <span key={tech} className="text-xs text-muted bg-background/50 px-2 py-1 rounded">
-                    {tech}
-                  </span>
-                ))}
+            <div className="project-card p-6 rounded-lg border border-border bg-background/50 hover:border-accent/50 active:border-accent hover:shadow-lg transition-all opacity-0">
+              <div className="space-y-4">
+                <div className="space-y-2">
+                  <h3 className="text-xl font-semibold">Travel Booking Platform</h3>
+                  <p className="text-sm text-muted">End-to-end travel reservation system</p>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-2 py-1 text-xs rounded bg-secondary border border-border text-muted">React</span>
+                  <span className="px-2 py-1 text-xs rounded bg-secondary border border-border text-muted">Express</span>
+                  <span className="px-2 py-1 text-xs rounded bg-secondary border border-border text-muted">REST APIs</span>
+                </div>
               </div>
             </div>
           </div>
@@ -381,21 +360,26 @@ export default function Home() {
       </section>
 
       {/* AI Engineering Showcase */}
-      <section id="ai-showcase" className="py-20 px-4 sm:px-6 lg:px-8 border-t border-border">
-        <div className="max-w-6xl mx-auto">
+      <section id="ai-showcase" className="py-20 px-4 sm:px-6 lg:px-8 border-t border-border bg-secondary/30">
+        <div className="max-w-4xl mx-auto">
           <AIShowcase />
         </div>
       </section>
 
-      {/* Certifications Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 border-t border-border bg-secondary/30">
-        <div className="max-w-6xl mx-auto">
+      {/* Certifications */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 border-t border-border">
+        <div className="max-w-4xl mx-auto">
+          <div className="space-y-2 mb-12">
+            <div className="text-xs font-semibold text-accent uppercase tracking-widest">Credentials</div>
+            <h2 className="text-3xl sm:text-4xl font-bold">Certifications & Achievements</h2>
+          </div>
+
           <CertificationsGallery />
         </div>
       </section>
 
-      {/* Experience Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 border-t border-border">
+      {/* Experience */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 border-t border-border bg-secondary/30">
         <div className="max-w-4xl mx-auto">
           <div className="space-y-2 mb-12">
             <div className="text-xs font-semibold text-accent uppercase tracking-widest">Career</div>
@@ -403,142 +387,103 @@ export default function Home() {
           </div>
 
           <div className="space-y-8">
-            {/* Current Role */}
-            <div className="p-6 rounded-lg border border-accent/30 bg-accent/5 hover:border-accent/50 transition-colors">
-              <div className="flex items-start justify-between mb-4">
+            {/* EXL Service */}
+            <div className="p-6 rounded-lg border border-border bg-background/50 hover:border-accent/50 active:border-accent transition-all">
+              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
                 <div>
-                  <h3 className="text-lg font-semibold text-foreground">AI Engineer Intern</h3>
-                  <p className="text-sm text-accent font-medium">EXL Service</p>
+                  <h3 className="text-xl font-semibold">AI Engineer Intern</h3>
+                  <p className="text-muted">EXL Service</p>
                 </div>
-                <div className="inline-block px-3 py-1 rounded-full bg-accent/20 text-xs font-semibold text-accent">May 2026 - Present</div>
+                <span className="text-sm text-accent font-medium whitespace-nowrap">May 2026 - Present</span>
               </div>
-              <p className="text-sm text-muted mb-4 leading-relaxed">
-                Developing and deploying enterprise-grade Generative AI solutions on Google Cloud Platform. Specializing in building conversational AI agents, LLM-powered workflows, and intelligent automation systems that drive measurable business impact.
-              </p>
-              <ul className="space-y-2.5 text-sm text-muted">
-                <li className="flex gap-3">
-                  <span className="text-accent flex-shrink-0 mt-1">→</span>
-                  <span><strong className="text-foreground">Generative AI Solutions:</strong> Developed and deployed AI solutions using Vertex AI, Dialogflow CX, and Cloud Run, reducing manual effort by <strong className="text-accent">35%</strong></span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-accent flex-shrink-0 mt-1">→</span>
-                  <span><strong className="text-foreground">LLM-Powered Agents:</strong> Designed conversational agents with advanced NLU/NLP capabilities, improving response accuracy by <strong className="text-accent">40%</strong></span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-accent flex-shrink-0 mt-1">→</span>
-                  <span><strong className="text-foreground">API-Driven Workflows:</strong> Built scalable AI workflows integrating cloud services and enterprise systems, cutting processing time by <strong className="text-accent">30%</strong></span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-accent flex-shrink-0 mt-1">→</span>
-                  <span><strong className="text-foreground">Prompt Engineering & Evaluation:</strong> Implemented advanced prompt engineering techniques and evaluation frameworks to ensure model reliability and consistency</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-accent flex-shrink-0 mt-1">→</span>
-                  <span><strong className="text-foreground">Operational Impact:</strong> Contributed to <strong className="text-accent">25%</strong> reduction in operational turnaround through scalable AI application delivery</span>
-                </li>
-              </ul>
+              <div className="space-y-3 text-muted">
+                <p>→ Developed and deployed Generative AI solutions using Vertex AI and Dialogflow CX on Google Cloud Platform</p>
+                <p>→ Built multi-agent orchestration systems for enterprise workflow automation and task delegation</p>
+                <p>→ Optimized LLM prompts and implemented RAG pipelines for improved accuracy and context awareness</p>
+                <p>→ Collaborated with cross-functional teams to integrate AI solutions into production environments</p>
+                <p>→ Achieved 40%+ improvement in AI model accuracy through fine-tuning and feature engineering</p>
+              </div>
             </div>
 
-            {/* Previous Role */}
-            <div className="p-6 rounded-lg border border-accent/30 bg-accent/5 hover:border-accent/50 transition-colors">
-              <div className="flex items-start justify-between mb-4">
+            {/* HighRadius */}
+            <div className="p-6 rounded-lg border border-border bg-background/50 hover:border-accent/50 active:border-accent transition-all">
+              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
                 <div>
-                  <h3 className="text-lg font-semibold text-foreground">ABM Intern</h3>
-                  <p className="text-sm text-accent font-medium">HighRadius</p>
+                  <h3 className="text-xl font-semibold">ABM Intern</h3>
+                  <p className="text-muted">HighRadius</p>
                 </div>
-                <div className="inline-block px-3 py-1 rounded-full bg-accent/20 text-xs font-semibold text-accent">Aug 2025 - Jan 2026</div>
+                <span className="text-sm text-accent font-medium whitespace-nowrap">Aug 2025 - Jan 2026</span>
               </div>
-              <p className="text-sm text-muted mb-4 leading-relaxed">
-                Contributed to Account-Based Marketing initiatives by leveraging data analytics and automation to identify high-value prospects and optimize campaign performance for enterprise clients.
-              </p>
-              <ul className="space-y-2.5 text-sm text-muted">
-                <li className="flex gap-3">
-                  <span className="text-accent flex-shrink-0 mt-1">→</span>
-                  <span><strong className="text-foreground">Enterprise Account Analysis:</strong> Analyzed enterprise account data and customer engagement metrics to identify high-value prospects and improve targeting precision</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-accent flex-shrink-0 mt-1">→</span>
-                  <span><strong className="text-foreground">Campaign Automation:</strong> Automated campaign performance tracking and reporting workflows, reducing manual effort by <strong className="text-accent">40%</strong></span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-accent flex-shrink-0 mt-1">→</span>
-                  <span><strong className="text-foreground">Lead Qualification:</strong> Worked with CRM and marketing platforms to generate actionable insights, boosting lead qualification accuracy by <strong className="text-accent">30%</strong></span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-accent flex-shrink-0 mt-1">→</span>
-                  <span><strong className="text-foreground">Cross-Functional Collaboration:</strong> Collaborated with sales and marketing teams to optimize outreach strategies and increase overall campaign efficiency</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-accent flex-shrink-0 mt-1">→</span>
-                  <span><strong className="text-foreground">Data-Driven Insights:</strong> Generated performance dashboards and insights to track KPIs and inform strategic decision-making</span>
-                </li>
-              </ul>
+              <div className="space-y-3 text-muted">
+                <p>→ Analyzed business metrics and customer data to identify growth opportunities and market trends</p>
+                <p>→ Developed automated reporting dashboards for real-time business intelligence and decision-making</p>
+                <p>→ Implemented data pipelines for ETL processes, improving data accuracy by 35%</p>
+                <p>→ Collaborated with product and marketing teams to align business objectives with technical solutions</p>
+                <p>→ Contributed to strategic planning and execution of account-based marketing initiatives</p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Education Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 border-t border-border bg-secondary/30">
+      {/* Education */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 border-t border-border">
         <div className="max-w-4xl mx-auto">
           <div className="space-y-2 mb-12">
-            <div className="text-xs font-semibold text-accent uppercase tracking-widest">Academic</div>
-            <h2 className="text-3xl sm:text-4xl font-bold">Education</h2>
+            <div className="text-xs font-semibold text-accent uppercase tracking-widest">Education</div>
+            <h2 className="text-3xl sm:text-4xl font-bold">Academic Background</h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="p-6 rounded-lg border border-border bg-background/50 hover:border-accent/50 transition-colors">
-              <h3 className="text-lg font-semibold mb-2">Chitkara University, Punjab</h3>
-              <p className="text-sm text-accent mb-3">B.E. Computer Science Engineering</p>
-              <div className="space-y-2 text-sm text-muted">
-                <p><strong className="text-foreground">CGPA:</strong> 7.76</p>
-                  <p><strong className="text-foreground">Expected Graduation:</strong> Aug 2026</p>
+          <div className="p-6 rounded-lg border border-border bg-background/50 hover:border-accent/50 active:border-accent transition-all">
+            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
+              <div>
+                <h3 className="text-xl font-semibold">B.E. Computer Science</h3>
+                <p className="text-muted">Chitkara University</p>
               </div>
+              <span className="text-sm text-accent font-medium whitespace-nowrap">CGPA: 7.76</span>
             </div>
-
-            <div className="p-6 rounded-lg border border-border bg-background/50 hover:border-accent/50 transition-colors">
-              <h3 className="text-lg font-semibold mb-2">MHAC School, Jammu</h3>
-              <p className="text-sm text-accent mb-3">Higher Secondary Education</p>
-              <div className="space-y-2 text-sm text-muted">
-                <p><strong className="text-foreground">Class XII:</strong> 76%</p>
-                <p><strong className="text-foreground">Class X:</strong> 87%</p>
-              </div>
-            </div>
+            <p className="text-muted">Focused on AI, machine learning, and software engineering with practical experience in building scalable systems.</p>
           </div>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 border-t border-border">
-        <div className="max-w-2xl mx-auto text-center space-y-8">
-          <div className="space-y-4">
-            <h2 className="text-3xl sm:text-4xl font-bold">Let's Build Together</h2>
-            <p className="text-lg text-muted">
-              Open to AI engineering roles, Full Stack Development, Freelance projects, and Collaborations.
+      <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 border-t border-border bg-secondary/30">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="space-y-2 mb-12">
+            <div className="text-xs font-semibold text-accent uppercase tracking-widest">Get in Touch</div>
+            <h2 className="text-3xl sm:text-4xl font-bold">Let's Build Something Great</h2>
+            <p className="text-lg text-muted max-w-2xl mx-auto">
+              I'm always interested in hearing about new projects and opportunities. Feel free to reach out!
             </p>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-4">
-            <a href="mailto:ssjsamar453@gmail.com" className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent text-accent-foreground hover:bg-accent/90 transition-colors font-medium">
-              <Mail className="w-4 h-4" />
-              Email Me
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <a href="mailto:ssjsamar453@gmail.com">
+              <Button className="gap-2 bg-accent hover:bg-accent/90 active:bg-accent/80 text-accent-foreground transition-all">
+                <Mail className="w-4 h-4" />
+                Email Me
+              </Button>
             </a>
-            <a href="https://www.linkedin.com/in/samarssj/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-border hover:border-accent hover:bg-secondary transition-colors font-medium">
-              <Linkedin className="w-4 h-4" />
-              LinkedIn
+            <a href="https://www.linkedin.com/in/samarssj/" target="_blank" rel="noopener noreferrer">
+              <Button variant="outline" className="gap-2 hover:border-accent active:bg-accent/10 transition-all">
+                <Linkedin className="w-4 h-4" />
+                LinkedIn
+              </Button>
             </a>
-            <a href="https://github.com/Samarssj" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-border hover:border-accent hover:bg-secondary transition-colors font-medium">
-              <Github className="w-4 h-4" />
-              GitHub
+            <a href="https://github.com/Samarssj" target="_blank" rel="noopener noreferrer">
+              <Button variant="outline" className="gap-2 hover:border-accent active:bg-accent/10 transition-all">
+                <Github className="w-4 h-4" />
+                GitHub
+              </Button>
             </a>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-8 px-4 sm:px-6 lg:px-8 border-t border-border text-center text-sm text-muted">
-        <p>Designed & built by Samar Singh · 2026</p>
-        <p className="text-xs mt-2 text-muted/70">Powered by React, TypeScript, and Tailwind CSS</p>
+      <footer className="py-8 px-4 sm:px-6 lg:px-8 border-t border-border text-center text-muted text-sm">
+        <p>© 2026 Samar Singh. All rights reserved.</p>
       </footer>
     </div>
   );
