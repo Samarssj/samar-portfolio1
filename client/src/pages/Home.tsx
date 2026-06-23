@@ -277,33 +277,26 @@ export default function Home() {
 
           <div ref={projectsRef} className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Project 1 */}
-            <div className="project-card p-6 rounded-lg border border-border bg-background/50">
+<div className="project-card p-6 rounded-lg border border-border bg-background/50">
   <div className="space-y-4">
+    <h3 className="text-xl font-semibold">Enterprise AI Chatbot</h3>
 
-    <div>
-      <h3 className="text-xl font-semibold">
-        Enterprise AI Chatbot
-      </h3>
-
-      <p className="text-sm text-muted mt-2 leading-relaxed">
-        Built an enterprise-grade conversational AI platform capable of
-        automating customer support workflows, intent recognition,
-        knowledge retrieval, and escalation handling using Vertex AI
-        and Dialogflow CX.
-      </p>
-    </div>
+    <p className="text-sm text-muted leading-relaxed">
+      Built an enterprise-grade conversational AI platform capable of
+      automating customer support workflows, intent recognition,
+      knowledge retrieval, multi-turn conversations, and escalation
+      handling using Vertex AI and Dialogflow CX.
+    </p>
 
     <div className="grid grid-cols-3 gap-4 border-y border-border py-4">
       <div>
         <p className="text-accent text-xl font-bold">85%</p>
         <p className="text-xs text-muted">User Satisfaction</p>
       </div>
-
       <div>
         <p className="text-accent text-xl font-bold">40%</p>
         <p className="text-xs text-muted">Ticket Reduction</p>
       </div>
-
       <div>
         <p className="text-accent text-xl font-bold">60%</p>
         <p className="text-xs text-muted">Faster Resolution</p>
@@ -311,153 +304,156 @@ export default function Home() {
     </div>
 
     <div className="flex flex-wrap gap-2">
-      <span>Vertex AI </span>
-      <span>Dialogflow CX </span>
-      <span>GCP </span>
+      <span>Vertex AI</span>
+      <span>Dialogflow CX</span>
+      <span>GCP</span>
       <span>REST APIs</span>
     </div>
-
   </div>
 </div>
 
-            {/* Project 2 */}
-            <h3 className="text-xl font-semibold">
-  House Price Prediction
-</h3>
+{/* Project 2 */}
+<div className="project-card p-6 rounded-lg border border-border bg-background/50">
+  <div className="space-y-4">
+    <h3 className="text-xl font-semibold">House Price Prediction</h3>
 
-<p className="text-sm text-muted mt-2 leading-relaxed">
-  Developed a machine learning pipeline for real-estate valuation
-  using historical housing datasets, feature engineering,
-  regression models, and performance optimization techniques.
-</p>
+    <p className="text-sm text-muted leading-relaxed">
+      Developed a machine learning pipeline for real-estate valuation
+      using historical housing datasets, feature engineering,
+      regression algorithms, and predictive analytics to estimate
+      property prices with high accuracy.
+    </p>
 
-<div className="grid grid-cols-3 gap-4 border-y border-border py-4">
-  <div>
-    <p className="text-accent text-xl font-bold">92%</p>
-    <p className="text-xs text-muted">Prediction Accuracy</p>
-  </div>
+    <div className="grid grid-cols-3 gap-4 border-y border-border py-4">
+      <div>
+        <p className="text-accent text-xl font-bold">92%</p>
+        <p className="text-xs text-muted">Prediction Accuracy</p>
+      </div>
+      <div>
+        <p className="text-accent text-xl font-bold">15%</p>
+        <p className="text-xs text-muted">Lower MAE</p>
+      </div>
+      <div>
+        <p className="text-accent text-xl font-bold">50K+</p>
+        <p className="text-xs text-muted">Predictions Generated</p>
+      </div>
+    </div>
 
-  <div>
-    <p className="text-accent text-xl font-bold">15%</p>
-    <p className="text-xs text-muted">Lower MAE</p>
-  </div>
-
-  <div>
-    <p className="text-accent text-xl font-bold">50K+</p>
-    <p className="text-xs text-muted">Predictions Generated</p>
-  </div>
-</div>
-
-<div className="flex flex-wrap gap-2">
-  <span>Python </span>
-  <span>Scikit-Learn </span>
-  <span>Pandas </span>
-  <span>NumPy</span>
-</div>
-
-            {/* Project 3 */}
-            <h3 className="text-xl font-semibold">
-  E-Blogging WebApp
-</h3>
-
-<p className="text-sm text-muted mt-2 leading-relaxed">
-  Full-stack blogging platform featuring authentication,
-  post creation, editing, commenting, and responsive UI with
-  secure backend APIs and database integration.
-</p>
-
-<div className="grid grid-cols-3 gap-4 border-y border-border py-4">
-  <div>
-    <p className="text-accent text-xl font-bold">100+</p>
-    <p className="text-xs text-muted">Posts Managed</p>
-  </div>
-
-  <div>
-    <p className="text-accent text-xl font-bold">99.9%</p>
-    <p className="text-xs text-muted">System Availability</p>
-  </div>
-
-  <div>
-    <p className="text-accent text-xl font-bold">35%</p>
-    <p className="text-xs text-muted">Faster Page Loads</p>
+    <div className="flex flex-wrap gap-2">
+      <span>Python</span>
+      <span>Scikit-Learn</span>
+      <span>Pandas</span>
+      <span>NumPy</span>
+    </div>
   </div>
 </div>
 
-<div className="flex flex-wrap gap-2">
-  <span>TypeScript | </span>
-  <span>Node.js </span>
-  <span>MongoDB </span>
-  <span>REST APIs</span>
-</div>
+{/* Project 3 */}
+<div className="project-card p-6 rounded-lg border border-border bg-background/50">
+  <div className="space-y-4">
+    <h3 className="text-xl font-semibold">E-Blogging Platform</h3>
 
-            {/* Project 4 */}
-            <h3 className="text-xl font-semibold">
-  Behaviour-IQ
-</h3>
+    <p className="text-sm text-muted leading-relaxed">
+      Full-stack blogging platform featuring user authentication,
+      content management, CRUD operations, responsive UI, secure APIs,
+      and MongoDB integration for seamless content publishing.
+    </p>
 
-<p className="text-sm text-muted mt-2 leading-relaxed">
-  AI-powered behavioral analysis platform designed to process
-  user interaction patterns and generate actionable insights
-  through JavaScript based predictive analytics .
-</p>
+    <div className="grid grid-cols-3 gap-4 border-y border-border py-4">
+      <div>
+        <p className="text-accent text-xl font-bold">100+</p>
+        <p className="text-xs text-muted">Posts Managed</p>
+      </div>
+      <div>
+        <p className="text-accent text-xl font-bold">99.9%</p>
+        <p className="text-xs text-muted">Availability</p>
+      </div>
+      <div>
+        <p className="text-accent text-xl font-bold">35%</p>
+        <p className="text-xs text-muted">Faster Page Loads</p>
+      </div>
+    </div>
 
-<div className="grid grid-cols-3 gap-4 border-y border-border py-4">
-  <div>
-    <p className="text-accent text-xl font-bold">90%</p>
-    <p className="text-xs text-muted">Detection Accuracy</p>
-  </div>
-
-  <div>
-    <p className="text-accent text-xl font-bold">25%</p>
-    <p className="text-xs text-muted">Faster Analysis</p>
-  </div>
-
-  <div>
-    <p className="text-accent text-xl font-bold">5K+</p>
-    <p className="text-xs text-muted">Analyses Completed</p>
-  </div>
-</div>
-
-<div className="flex flex-wrap gap-2">
-  <span>JavaScript </span>
-  <span>HTML/CSS </span>
-  <span>Analytics</span>
-</div>
-
-            {/* Project 5 */}
-            <h3 className="text-xl font-semibold">
-  Travel Booking Platform
-</h3>
-
-<p className="text-sm text-muted mt-2 leading-relaxed">
-  End-to-end travel reservation system enabling users to browse,
-  book, and manage travel plans through a scalable backend and
-  API-driven architecture.
-</p>
-
-<div className="grid grid-cols-3 gap-4 border-y border-border py-4">
-  <div>
-    <p className="text-xs text-muted">Bookings Processed</p>
-  </div>
-
-  <div>
-    <p className="text-accent text-xl font-bold">98%</p>
-    <p className="text-xs text-muted">Success Rate</p>
-  </div>
-
-  <div>
-    <p className="text-accent text-xl font-bold">30%</p>
-    <p className="text-xs text-muted">Operational Savings</p>
+    <div className="flex flex-wrap gap-2">
+      <span>TypeScript</span>
+      <span>Node.js</span>
+      <span>MongoDB</span>
+      <span>REST APIs</span>
+    </div>
   </div>
 </div>
 
-<div className="flex flex-wrap gap-2">
-  <span>React.Js</span>
-  <span>Node.Js</span>
-  <span>REST APIs</span>
-  <span>MongoDB</span>
+{/* Project 4 */}
+<div className="project-card p-6 rounded-lg border border-border bg-background/50">
+  <div className="space-y-4">
+    <h3 className="text-xl font-semibold">Behaviour-IQ</h3>
+
+    <p className="text-sm text-muted leading-relaxed">
+      AI-powered behavioral analysis platform designed to evaluate
+      user interaction patterns and generate actionable insights
+      using data processing, predictive analytics, and intelligent
+      decision-making workflows.
+    </p>
+
+    <div className="grid grid-cols-3 gap-4 border-y border-border py-4">
+      <div>
+        <p className="text-accent text-xl font-bold">90%</p>
+        <p className="text-xs text-muted">Detection Accuracy</p>
+      </div>
+      <div>
+        <p className="text-accent text-xl font-bold">25%</p>
+        <p className="text-xs text-muted">Faster Analysis</p>
+      </div>
+      <div>
+        <p className="text-accent text-xl font-bold">5K+</p>
+        <p className="text-xs text-muted">Analyses Completed</p>
+      </div>
+    </div>
+
+    <div className="flex flex-wrap gap-2">
+      <span>JavaScript</span>
+      <span>HTML/CSS</span>
+      <span>Analytics</span>
+      <span>Data Processing</span>
+    </div>
+  </div>
 </div>
-      </section>
+
+{/* Project 5 */}
+<div className="project-card p-6 rounded-lg border border-border bg-background/50">
+  <div className="space-y-4">
+    <h3 className="text-xl font-semibold">Travel Booking Platform</h3>
+
+    <p className="text-sm text-muted leading-relaxed">
+      End-to-end travel reservation system enabling users to browse,
+      compare, and book travel services through a scalable backend,
+      secure APIs, and dynamic booking management workflows.
+    </p>
+
+    <div className="grid grid-cols-3 gap-4 border-y border-border py-4">
+      <div>
+        <p className="text-accent text-xl font-bold">5K+</p>
+        <p className="text-xs text-muted">Bookings Processed</p>
+      </div>
+      <div>
+        <p className="text-accent text-xl font-bold">98%</p>
+        <p className="text-xs text-muted">Success Rate</p>
+      </div>
+      <div>
+        <p className="text-accent text-xl font-bold">30%</p>
+        <p className="text-xs text-muted">Operational Savings</p>
+      </div>
+    </div>
+
+    <div className="flex flex-wrap gap-2">
+      <span>React.js</span>
+      <span>Node.js</span>
+      <span>REST APIs</span>
+      <span>MongoDB</span>
+    </div>
+  </div>
+</div>
+          </section>
 
       {/* AI Engineering Showcase */}
       <section id="ai-showcase" className="py-20 px-4 sm:px-6 lg:px-8 border-t border-border bg-secondary/30">
