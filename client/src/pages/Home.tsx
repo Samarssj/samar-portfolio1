@@ -277,7 +277,11 @@ export default function Home() {
 
           <div ref={projectsRef} className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Project 1 */}
-<div className="project-card p-6 rounded-lg border border-border bg-background/50">
+<div className="project-card p-6 rounded-lg border border-border bg-background/50
+hover:border-accent/50
+hover:-translate-y-2
+hover:shadow-[0_0_30px_rgba(34,197,94,0.15)]
+transition-all duration-300 cursor-pointer">
   <div className="space-y-4">
     <h3 className="text-xl font-semibold">Enterprise AI Chatbot</h3>
 
@@ -313,7 +317,11 @@ export default function Home() {
 </div>
 
 {/* Project 2 */}
-<div className="project-card p-6 rounded-lg border border-border bg-background/50">
+<div className="project-card p-6 rounded-lg border border-border bg-background/50
+hover:border-accent/50
+hover:-translate-y-2
+hover:shadow-[0_0_30px_rgba(34,197,94,0.15)]
+transition-all duration-300 cursor-pointer">
   <div className="space-y-4">
     <h3 className="text-xl font-semibold">House Price Prediction</h3>
 
@@ -349,7 +357,11 @@ export default function Home() {
 </div>
 
 {/* Project 3 */}
-<div className="project-card p-6 rounded-lg border border-border bg-background/50">
+<div className="project-card p-6 rounded-lg border border-border bg-background/50
+hover:border-accent/50
+hover:-translate-y-2
+hover:shadow-[0_0_30px_rgba(34,197,94,0.15)]
+transition-all duration-300 cursor-pointer">
   <div className="space-y-4">
     <h3 className="text-xl font-semibold">E-Blogging Platform</h3>
 
@@ -424,7 +436,11 @@ transition-all duration-300 cursor-pointer">
 </div>
 
 {/* Project 5 */}
-<div className="project-card p-6 rounded-lg border border-border bg-background/50">
+<div className="project-card p-6 rounded-lg border border-border bg-background/50
+hover:border-accent/50
+hover:-translate-y-2
+hover:shadow-[0_0_30px_rgba(34,197,94,0.15)]
+transition-all duration-300 cursor-pointer">
   <div className="space-y-4">
     <h3 className="text-xl font-semibold">Travel Booking Platform</h3>
 
