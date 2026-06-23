@@ -125,13 +125,8 @@ export default function Home() {
                     Get in Touch
                   </Button>
                 </a>
-<<<<<<< Updated upstream
-                <a href="https://drive.google.com/file/d/1fnD2JHrVASZGd0gYbGaKImuNRU8mmeY3/view?usp=drivesdk">
-                  <Button variant="outline" className="gap-2">
-=======
                 <a href="https://drive.google.com/file/d/1Ow1aLJkVwEqv9bIa_HUZXaWybPn21CIa/view?usp=drivesdk" target="_blank" rel="noopener noreferrer">
                   <Button variant="outline" className="gap-2 hover:border-accent active:bg-accent/10 transition-all">
->>>>>>> Stashed changes
                     <Download className="w-4 h-4" />
                     Resume
                   </Button>
