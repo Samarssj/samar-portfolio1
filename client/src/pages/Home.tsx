@@ -93,7 +93,7 @@ export default function Home() {
               <div className="space-y-4">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary border border-border">
                   <div className="w-2 h-2 bg-accent rounded-full animate-pulse" />
-                  <span className="text-xs font-medium text-muted">Available for opportunities</span>
+                  <span className="text-xs font-medium text-muted">Available for freelance projects</span>
                 </div>
 
                 <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6">
@@ -277,19 +277,48 @@ export default function Home() {
 
           <div ref={projectsRef} className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Project 1 */}
-            <div className="project-card p-6 rounded-lg border border-border bg-background/50 hover:border-accent/50 active:border-accent hover:shadow-lg transition-all opacity-0">
-              <div className="space-y-4">
-                <div className="space-y-2">
-                  <h3 className="text-xl font-semibold">Enterprise AI Chatbot</h3>
-                  <p className="text-sm text-muted">Generative AI solution using Vertex AI and Dialogflow CX</p>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  <span className="px-2 py-1 text-xs rounded bg-secondary border border-border text-muted">Vertex AI</span>
-                  <span className="px-2 py-1 text-xs rounded bg-secondary border border-border text-muted">Dialogflow CX</span>
-                  <span className="px-2 py-1 text-xs rounded bg-secondary border border-border text-muted">GCP</span>
-                </div>
-              </div>
-            </div>
+            <div className="project-card p-6 rounded-lg border border-border bg-background/50">
+  <div className="space-y-4">
+
+    <div>
+      <h3 className="text-xl font-semibold">
+        Enterprise AI Chatbot
+      </h3>
+
+      <p className="text-sm text-muted mt-2 leading-relaxed">
+        Built an enterprise-grade conversational AI platform capable of
+        automating customer support workflows, intent recognition,
+        knowledge retrieval, and escalation handling using Vertex AI
+        and Dialogflow CX.
+      </p>
+    </div>
+
+    <div className="grid grid-cols-3 gap-4 border-y border-border py-4">
+      <div>
+        <p className="text-accent text-xl font-bold">85%</p>
+        <p className="text-xs text-muted">User Satisfaction</p>
+      </div>
+
+      <div>
+        <p className="text-accent text-xl font-bold">40%</p>
+        <p className="text-xs text-muted">Ticket Reduction</p>
+      </div>
+
+      <div>
+        <p className="text-accent text-xl font-bold">60%</p>
+        <p className="text-xs text-muted">Faster Resolution</p>
+      </div>
+    </div>
+
+    <div className="flex flex-wrap gap-2">
+      <span>Vertex AI</span>
+      <span>Dialogflow CX</span>
+      <span>GCP</span>
+      <span>REST APIs</span>
+    </div>
+
+  </div>
+</div>
 
             {/* Project 2 */}
             <div className="project-card p-6 rounded-lg border border-border bg-background/50 hover:border-accent/50 active:border-accent hover:shadow-lg transition-all opacity-0">
@@ -431,7 +460,7 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
               <div>
                 <h3 className="text-xl font-semibold">B.E. Computer Science</h3>
-                <p className="text-muted">Chitkara University</p>
+                <p className="text-muted">Chitkara University [2022-2026]</p>
               </div>
               <span className="text-sm text-accent font-medium whitespace-nowrap">CGPA: 7.76</span>
             </div>
