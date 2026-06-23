@@ -384,7 +384,11 @@ export default function Home() {
 </div>
 
 {/* Project 4 */}
-<div className="project-card p-6 rounded-lg border border-border bg-background/50">
+<div className="project-card p-6 rounded-lg border border-border bg-background/50
+hover:border-accent/50
+hover:-translate-y-2
+hover:shadow-[0_0_30px_rgba(34,197,94,0.15)]
+transition-all duration-300 cursor-pointer">
   <div className="space-y-4">
     <h3 className="text-xl font-semibold">Behaviour-IQ</h3>
 
