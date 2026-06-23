@@ -311,9 +311,9 @@ export default function Home() {
     </div>
 
     <div className="flex flex-wrap gap-2">
-      <span>Vertex AI | </span>
-      <span>Dialogflow CX | </span>
-      <span>GCP | </span>
+      <span>Vertex AI </span>
+      <span>Dialogflow CX </span>
+      <span>GCP </span>
       <span>REST APIs</span>
     </div>
 
@@ -349,9 +349,9 @@ export default function Home() {
 </div>
 
 <div className="flex flex-wrap gap-2">
-  <span>Python | </span>
-  <span>Scikit-Learn | </span>
-  <span>Pandas | </span>
+  <span>Python </span>
+  <span>Scikit-Learn </span>
+  <span>Pandas </span>
   <span>NumPy</span>
 </div>
 
@@ -385,8 +385,8 @@ export default function Home() {
 
 <div className="flex flex-wrap gap-2">
   <span>TypeScript | </span>
-  <span>Node.js | </span>
-  <span>MongoDB | </span>
+  <span>Node.js </span>
+  <span>MongoDB </span>
   <span>REST APIs</span>
 </div>
 
@@ -419,8 +419,8 @@ export default function Home() {
 </div>
 
 <div className="flex flex-wrap gap-2">
-  <span>JavaScript | </span>
-  <span>HTML/CSS | </span>
+  <span>JavaScript </span>
+  <span>HTML/CSS </span>
   <span>Analytics</span>
 </div>
 
