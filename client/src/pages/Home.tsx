@@ -366,7 +366,6 @@ export default function Home() {
         <div className="max-w-4xl mx-auto">
           <div className="space-y-2 mb-12">
             <div className="text-xs font-semibold text-accent uppercase tracking-widest">Credentials</div>
-            <h2 className="text-3xl sm:text-4xl font-bold">Certifications & Achievements</h2>
           </div>
 
           <CertificationsGallery />
