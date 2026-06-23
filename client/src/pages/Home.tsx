@@ -445,7 +445,7 @@ export default function Home() {
       </div>
     </div>
 
-    <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-2">
       <span>React.js</span>
       <span>Node.js</span>
       <span>REST APIs</span>
@@ -453,7 +453,10 @@ export default function Home() {
     </div>
   </div>
 </div>
-          </section>
+
+          </div> {/* projects grid */}
+        </div>   {/* max-w-4xl */}
+      </section>
 
       {/* AI Engineering Showcase */}
       <section id="ai-showcase" className="py-20 px-4 sm:px-6 lg:px-8 border-t border-border bg-secondary/30">
