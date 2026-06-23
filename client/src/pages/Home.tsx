@@ -365,7 +365,6 @@ export default function Home() {
       <section className="py-20 px-4 sm:px-6 lg:px-8 border-t border-border">
         <div className="max-w-4xl mx-auto">
           <div className="space-y-2 mb-12">
-            <div className="text-xs font-semibold text-accent uppercase tracking-widest">Credentials</div>
           </div>
 
           <CertificationsGallery />
