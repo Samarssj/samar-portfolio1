@@ -26,27 +26,30 @@ export default function Home() {
     };
   }, []);
 
-  // Scroll animation observer for project cards
+  // Scroll animation observer for all content boxes with bidirectional scrolling
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry, index) => {
-          if (entry.isIntersecting) {
-            setTimeout(() => {
-              entry.target.classList.add('animate-fade-in-up');
-            }, index * 100);
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
-    );
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
 
-    const cards = projectsRef.current?.querySelectorAll('.project-card');
-    cards?.forEach((card) => observer.observe(card));
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          const animationClass = entry.target.getAttribute('data-animation') || 'animate-fade-in-up';
+          setTimeout(() => {
+            entry.target.classList.add(animationClass);
+          }, index * 80);
+        }
+      });
+    }, observerOptions);
+
+    // Observe all content boxes with data-animation attribute
+    const contentBoxes = document.querySelectorAll('[data-animation]');
+    contentBoxes.forEach((box) => observer.observe(box));
 
     return () => observer.disconnect();
-  });
+  }, []);
 
   // Form state management
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -199,7 +202,7 @@ export default function Home() {
       {/* About Section */}
       <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 border-t border-border">
         <div className="max-w-4xl mx-auto">
-          <div className="space-y-6">
+          <div className="space-y-6" data-animation="animate-fade-in-up">
             <div className="space-y-2">
               <div className="text-xs font-semibold text-accent uppercase tracking-widest">About</div>
               <h2 className="text-3xl sm:text-4xl font-bold">Who I Am</h2>
@@ -232,7 +235,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Languages */}
-            <div className="space-y-4 p-6 rounded-lg border border-border bg-background/50 hover:border-accent/50 active:border-accent transition-colors">
+            <div className="space-y-4 p-6 rounded-lg border border-border bg-background/50 card-hover" data-animation="animate-fade-in-scale">
               <h3 className="font-semibold text-foreground">Languages</h3>
               <div className="flex flex-wrap gap-2">
                 {['Python', 'JavaScript', 'TypeScript', 'Java', 'SQL'].map((skill) => (
@@ -244,7 +247,7 @@ export default function Home() {
             </div>
 
             {/* Frameworks & Libraries */}
-            <div className="space-y-4 p-6 rounded-lg border border-border bg-background/50 hover:border-accent/50 active:border-accent transition-colors">
+            <div className="space-y-4 p-6 rounded-lg border border-border bg-background/50 card-hover" data-animation="animate-fade-in-scale">
               <h3 className="font-semibold text-foreground">Frameworks</h3>
               <div className="flex flex-wrap gap-2">
                 {['React.js', 'Node.js', 'Express.js', 'MongoDB', 'Pandas'].map((skill) => (
@@ -256,7 +259,7 @@ export default function Home() {
             </div>
 
             {/* AI & Cloud */}
-            <div className="space-y-4 p-6 rounded-lg border border-border bg-background/50 hover:border-accent/50 active:border-accent transition-colors">
+            <div className="space-y-4 p-6 rounded-lg border border-border bg-background/50 card-hover" data-animation="animate-fade-in-scale">
               <h3 className="font-semibold text-foreground">AI & Cloud</h3>
               <div className="flex flex-wrap gap-2">
                 {['Vertex AI', 'Dialogflow CX', 'Gen AI', 'GCP', 'LLMs'].map((skill) => (
@@ -268,7 +271,7 @@ export default function Home() {
             </div>
 
             {/* Tools & Platforms */}
-            <div className="space-y-4 p-6 rounded-lg border border-border bg-background/50 hover:border-accent/50 active:border-accent transition-colors">
+            <div className="space-y-4 p-6 rounded-lg border border-border bg-background/50 card-hover" data-animation="animate-fade-in-scale">
               <h3 className="font-semibold text-foreground">Tools</h3>
               <div className="flex flex-wrap gap-2">
                 {['Git', 'Docker', 'Kubernetes', 'REST APIs', 'CI/CD'].map((skill) => (
@@ -280,7 +283,7 @@ export default function Home() {
             </div>
 
             {/* Databases */}
-            <div className="space-y-4 p-6 rounded-lg border border-border bg-background/50 hover:border-accent/50 active:border-accent transition-colors">
+            <div className="space-y-4 p-6 rounded-lg border border-border bg-background/50 card-hover" data-animation="animate-fade-in-scale">
               <h3 className="font-semibold text-foreground">Databases</h3>
               <div className="flex flex-wrap gap-2">
                 {['MongoDB', 'Firestore', 'PostgreSQL', 'VectorDB'].map((skill) => (
@@ -292,7 +295,7 @@ export default function Home() {
             </div>
 
             {/* ML & Data */}
-            <div className="space-y-4 p-6 rounded-lg border border-border bg-background/50 hover:border-accent/50 active:border-accent transition-colors">
+            <div className="space-y-4 p-6 rounded-lg border border-border bg-background/50 card-hover" data-animation="animate-fade-in-scale">
               <h3 className="font-semibold text-foreground">ML & Data</h3>
               <div className="flex flex-wrap gap-2">
                 {['Scikit-Learn', 'NumPy', 'Pandas', 'NLP', 'Feature Engineering'].map((skill) => (
@@ -316,11 +319,7 @@ export default function Home() {
 
           <div ref={projectsRef} className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Project 1 */}
-<div className="project-card p-6 rounded-lg border border-border bg-background/50
-hover:border-accent/50
-hover:-translate-y-2
-hover:shadow-[0_0_30px_rgba(34,197,94,0.15)]
-transition-all duration-300 cursor-pointer">
+<div className="project-card p-6 rounded-lg border border-border bg-background/50 card-hover glow-hover" data-animation="animate-fade-in-up">
   <div className="space-y-4">
     <h3 className="text-xl font-semibold">Enterprise AI Chatbot</h3>
 
@@ -356,11 +355,7 @@ transition-all duration-300 cursor-pointer">
 </div>
 
 {/* Project 2 */}
-<div className="project-card p-6 rounded-lg border border-border bg-background/50
-hover:border-accent/50
-hover:-translate-y-2
-hover:shadow-[0_0_30px_rgba(34,197,94,0.15)]
-transition-all duration-300 cursor-pointer">
+<div className="project-card p-6 rounded-lg border border-border bg-background/50 card-hover glow-hover" data-animation="animate-fade-in-up">
   <div className="space-y-4">
     <h3 className="text-xl font-semibold">House Price Prediction</h3>
 
@@ -396,11 +391,7 @@ transition-all duration-300 cursor-pointer">
 </div>
 
 {/* Project 3 */}
-<div className="project-card p-6 rounded-lg border border-border bg-background/50
-hover:border-accent/50
-hover:-translate-y-2
-hover:shadow-[0_0_30px_rgba(34,197,94,0.15)]
-transition-all duration-300 cursor-pointer">
+<div className="project-card p-6 rounded-lg border border-border bg-background/50 card-hover glow-hover" data-animation="animate-fade-in-up">
   <div className="space-y-4">
     <h3 className="text-xl font-semibold">E-Blogging Platform</h3>
 
@@ -435,11 +426,7 @@ transition-all duration-300 cursor-pointer">
 </div>
 
 {/* Project 4 */}
-<div className="project-card p-6 rounded-lg border border-border bg-background/50
-hover:border-accent/50
-hover:-translate-y-2
-hover:shadow-[0_0_30px_rgba(34,197,94,0.15)]
-transition-all duration-300 cursor-pointer">
+<div className="project-card p-6 rounded-lg border border-border bg-background/50 card-hover glow-hover" data-animation="animate-fade-in-up">
   <div className="space-y-4">
     <h3 className="text-xl font-semibold">Behaviour-IQ</h3>
 
@@ -475,11 +462,7 @@ transition-all duration-300 cursor-pointer">
 </div>
 
 {/* Project 5 */}
-<div className="project-card p-6 rounded-lg border border-border bg-background/50
-hover:border-accent/50
-hover:-translate-y-2
-hover:shadow-[0_0_30px_rgba(34,197,94,0.15)]
-transition-all duration-300 cursor-pointer">
+<div className="project-card p-6 rounded-lg border border-border bg-background/50 card-hover glow-hover" data-animation="animate-fade-in-up">
   <div className="space-y-4">
     <h3 className="text-xl font-semibold">Travel Booking Platform</h3>
 
