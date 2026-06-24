@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import AIOrchestration from '@/components/AIOrchestration';
 import AIShowcase from '@/components/AIShowcase';
@@ -46,7 +46,46 @@ export default function Home() {
     cards?.forEach((card) => observer.observe(card));
 
     return () => observer.disconnect();
-  }, []);
+  });
+
+  // Form state management
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  const handleFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      // Using Formspree API for email submission
+      const response = await fetch('https://formspree.io/f/xyzgqzpk', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', message: '' });
+        setTimeout(() => setSubmitStatus('idle'), 5000);
+      } else {
+        setSubmitStatus('error');
+        setTimeout(() => setSubmitStatus('idle'), 5000);
+      }
+    } catch (error) {
+      setSubmitStatus('error');
+      setTimeout(() => setSubmitStatus('idle'), 5000);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -566,33 +605,96 @@ transition-all duration-300 cursor-pointer">
 
       {/* Contact Section */}
       <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 border-t border-border bg-secondary/30">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="space-y-2 mb-12">
+        <div className="max-w-2xl mx-auto">
+          <div className="space-y-2 mb-12 text-center">
             <div className="text-xs font-semibold text-accent uppercase tracking-widest">Get in Touch</div>
             <h2 className="text-3xl sm:text-4xl font-bold">Let's Build Something Great</h2>
-            <p className="text-lg text-muted max-w-2xl mx-auto">
-              I'm always interested in hearing about new projects and opportunities. Feel free to reach out!
+            <p className="text-lg text-muted">
+              Have a project in mind or want to collaborate? Send me a message and I'll get back to you as soon as possible.
             </p>
           </div>
 
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <a href="mailto:ssjsamar453@gmail.com">
-              <Button className="gap-2 bg-accent hover:bg-accent/90 active:bg-accent/80 text-accent-foreground transition-all">
-                <Mail className="w-4 h-4" />
-                Email Me
-              </Button>
+          <form onSubmit={handleFormSubmit} className="space-y-6 p-8 rounded-lg border border-border bg-background/50 hover:border-accent/30 transition-colors">
+            {/* Name Field */}
+            <div className="space-y-2">
+              <label htmlFor="name" className="block text-sm font-medium text-foreground">Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value={formData.name}
+                onChange={handleFormChange}
+                required
+                placeholder="Your name"
+                className="w-full px-4 py-3 rounded-lg border border-border bg-background/50 text-foreground placeholder:text-muted focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/50 transition-colors"
+              />
+            </div>
+
+            {/* Email Field */}
+            <div className="space-y-2">
+              <label htmlFor="email" className="block text-sm font-medium text-foreground">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleFormChange}
+                required
+                placeholder="your@email.com"
+                className="w-full px-4 py-3 rounded-lg border border-border bg-background/50 text-foreground placeholder:text-muted focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/50 transition-colors"
+              />
+            </div>
+
+            {/* Message Field */}
+            <div className="space-y-2">
+              <label htmlFor="message" className="block text-sm font-medium text-foreground">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                value={formData.message}
+                onChange={handleFormChange}
+                required
+                placeholder="Tell me about your project or inquiry..."
+                rows={5}
+                className="w-full px-4 py-3 rounded-lg border border-border bg-background/50 text-foreground placeholder:text-muted focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/50 transition-colors resize-none"
+              />
+            </div>
+
+            {/* Status Messages */}
+            {submitStatus === 'success' && (
+              <div className="p-4 rounded-lg bg-accent/10 border border-accent/30 text-accent text-sm animate-fade-in">
+                ✓ Message sent successfully! I'll get back to you soon.
+              </div>
+            )}
+            {submitStatus === 'error' && (
+              <div className="p-4 rounded-lg bg-destructive/10 border border-destructive/30 text-destructive text-sm animate-fade-in">
+                ✗ Failed to send message. Please try again or email me directly.
+              </div>
+            )}
+
+            {/* Submit Button */}
+            <Button
+              type="submit"
+              disabled={isSubmitting}
+              className="w-full gap-2 bg-accent hover:bg-accent/90 active:bg-accent/80 text-accent-foreground transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {isSubmitting ? 'Sending...' : 'Send Message'}
+            </Button>
+          </form>
+
+          {/* Alternative Contact Methods */}
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
+            <a href="mailto:ssjsamar453@gmail.com" className="p-4 rounded-lg border border-border bg-background/50 hover:border-accent/50 active:border-accent transition-colors">
+              <div className="text-accent font-semibold mb-2">Email</div>
+              <div className="text-sm text-muted">ssjsamar453@gmail.com</div>
             </a>
-            <a href="https://www.linkedin.com/in/samarssj/" target="_blank" rel="noopener noreferrer">
-              <Button variant="outline" className="gap-2 hover:border-accent active:bg-accent/10 transition-all">
-                <Linkedin className="w-4 h-4" />
-                LinkedIn
-              </Button>
+            <a href="https://www.linkedin.com/in/samarssj/" target="_blank" rel="noopener noreferrer" className="p-4 rounded-lg border border-border bg-background/50 hover:border-accent/50 active:border-accent transition-colors">
+              <div className="text-accent font-semibold mb-2">LinkedIn</div>
+              <div className="text-sm text-muted">samarssj</div>
             </a>
-            <a href="https://github.com/Samarssj" target="_blank" rel="noopener noreferrer">
-              <Button variant="outline" className="gap-2 hover:border-accent active:bg-accent/10 transition-all">
-                <Github className="w-4 h-4" />
-                GitHub
-              </Button>
+            <a href="https://github.com/Samarssj" target="_blank" rel="noopener noreferrer" className="p-4 rounded-lg border border-border bg-background/50 hover:border-accent/50 active:border-accent transition-colors">
+              <div className="text-accent font-semibold mb-2">GitHub</div>
+              <div className="text-sm text-muted">Samarssj</div>
             </a>
           </div>
         </div>
