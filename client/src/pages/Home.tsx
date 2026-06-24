@@ -68,7 +68,7 @@ export default function Home() {
 
     try {
       // Using Formspree API for email submission
-      const response = await fetch('https://formspree.io/f/xyzgqzpk', {
+      const response = await fetch('https://formspree.io/f/xaqgqazr', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
