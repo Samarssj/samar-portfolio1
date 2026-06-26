@@ -291,7 +291,7 @@ export default function Home() {
             </div>
 
             {/* Databases */}
-            <div className="space-y-4 p-6 rounded-lg border border-border bg-background/50 card-hover" data-animation="animate-fade-in-scale">
+            <div className="p-6 rounded-lg border border-border bg-background/50 hover:scale-[1.01] hover:border-accent hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
               <h3 className="font-semibold text-foreground">Databases</h3>
               <div className="flex flex-wrap gap-2">
                 {['MongoDB', 'Firestore', 'PostgreSQL', 'VectorDB'].map((skill) => (
