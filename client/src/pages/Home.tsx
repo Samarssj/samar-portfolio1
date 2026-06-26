@@ -126,6 +126,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left: AI Orchestration Visualization */}
+            <div className="flex flex-col gap-4">
             <div className="h-96 lg:h-[500px] rounded-xl overflow-hidden">
               <AIOrchestration />
             </div>
