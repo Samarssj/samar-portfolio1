@@ -133,15 +133,18 @@ export default function Home() {
             {/* Right: Hero Content */}
             <div className="space-y-8">
               <div className="space-y-4">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary border border-border">
-                  <div className="relative flex h-2 w-2">
-  {/* Fast expanding radar ring */}
-                  <div className="animate-ping [animation-duration:0.6s] absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></div>
-  {/* Solid center dot */}
-                 <div className="relative inline-flex rounded-full h-2 w-2 bg-accent"></div>
-                </div>
-                  <span className="text-xs font-medium text-muted">Available for openings / freelance projects</span>
-                </div>
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-accent/20 bg-accent/5">
+  {/* 1. Glowing & Fast Expanding Dot */}
+  <div className="relative flex h-2 w-2">
+    <div className="animate-ping [animation-duration:0.7s] absolute inline-flex h-full w-full rounded-full bg-accent opacity-75 shadow-[0_0_12px_rgba(var(--accent),0.8)]"></div>
+    <div className="relative inline-flex rounded-full h-2 w-2 bg-accent shadow-[0_0_8px_rgba(var(--accent),1)]"></div>
+  </div>
+  
+  {/* 2. Pulsing & Glowing Text */}
+  <span className="text-xs font-semibold text-accent animate-pulse [animation-duration:1.5s] drop-shadow-[0_0_4px_rgba(var(--accent),0.5)]">
+    Available for work
+  </span>
+</div>
 
                 <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6">
                   <div className="flex-1">
