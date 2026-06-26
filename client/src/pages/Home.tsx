@@ -135,7 +135,7 @@ export default function Home() {
               <div className="space-y-4">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary border border-border">
                   <div className="w-2 h-2 bg-accent rounded-full animate-pulse" />
-                  <span className="text-xs font-medium text-muted">Available for freelance projects</span>
+                  <span className="text-xs font-medium text-muted">Available for openings / freelance projects</span>
                 </div>
 
                 <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6">
