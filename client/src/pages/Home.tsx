@@ -131,10 +131,11 @@ export default function Home() {
             </div>
 
             <div className="mt-3 text-center">
-        <p className="text-xs font-semibold uppercase tracking-widest text-accent drop-shadow-[0_0_8px_#22c55e]">
+             <p className="text-xs font-semibold uppercase tracking-widest text-accent drop-shadow-[0_0_8px_#22c55e]">
             Basic Agentic AI Workflow
             </p>
-             </div>
+         </div>
+        </div>
 
             {/* Right: Hero Content */}
             <div className="space-y-8">
