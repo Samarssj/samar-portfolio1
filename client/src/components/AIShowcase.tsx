@@ -161,7 +161,7 @@ export default function AIShowcase() {
       </div>
 
       {/* Tech Stack */}
-      <div className="p-8 rounded-lg border border-border bg-accent/5">
+      <div className="p-8 rounded-lg border border-accent/20 bg-accent/5 animate-pulse [animation-duration:4s] shadow-[0_0_25px_rgba(var(--accent),0.05)]">
         <h3 className="text-lg font-semibold mb-6">AI & Cloud Technologies</h3>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
           {[
