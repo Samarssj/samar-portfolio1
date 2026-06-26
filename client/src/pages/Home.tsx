@@ -535,7 +535,7 @@ export default function Home() {
 
           <div className="space-y-8">
             {/* EXL Service */}
-            <div className="p-6 rounded-lg border border-border bg-background/50 hover:border-accent/50 active:border-accent transition-all">
+            <div className="p-6 rounded-lg border border-border bg-background/50 hover:scale-[1.01] hover:border-accent hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
               <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
                 <div>
                   <h3 className="text-xl font-semibold">AI Engineer Intern</h3>
@@ -553,7 +553,7 @@ export default function Home() {
             </div>
 
             {/* HighRadius */}
-            <div className="p-6 rounded-lg border border-border bg-background/50 hover:border-accent/50 active:border-accent transition-all">
+            <div className="p-6 rounded-lg border border-border bg-background/50 hover:scale-[1.01] hover:border-accent hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
               <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
                 <div>
                   <h3 className="text-xl font-semibold">ABM Intern</h3>
