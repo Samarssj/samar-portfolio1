@@ -20,7 +20,7 @@ export default function AIShowcase() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Multi-Agent Architecture */}
-        <div className="p-6 rounded-lg border border-accent/20 bg-background/50 shadow-[0_0_15px_rgba(34,197,94,0.08)] active:bg-accent/10 active:border-accent active:scale-[0.99] md:shadow-none md:border-border hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-150"">
+        <div className="p-6 rounded-lg border border-accent/20 bg-background/50 shadow-[0_0_15px_rgba(34,197,94,0.08)] active:bg-accent/10 active:border-accent active:scale-[0.99] md:shadow-none md:border-border hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-150">
           <div className="mb-6">
             <div className="text-3xl mb-3">🔗</div>
             <h3 className="text-xl font-semibold mb-2">Multi-Agent Orchestration</h3>
