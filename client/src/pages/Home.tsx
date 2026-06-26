@@ -327,7 +327,7 @@ export default function Home() {
 
           <div ref={projectsRef} className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Project 1 */}
-<div className="project-card p-6 rounded-lg border border-border bg-background/50 card-hover glow-hover" data-animation="animate-fade-in-up">
+<div className="p-6 rounded-lg border border-border bg-background/50 hover:scale-[1.01] hover:border-accent hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
   <div className="space-y-4">
     <h3 className="text-xl font-semibold">Enterprise AI Chatbot</h3>
 
@@ -363,7 +363,7 @@ export default function Home() {
 </div>
 
 {/* Project 2 */}
-<div className="project-card p-6 rounded-lg border border-border bg-background/50 card-hover glow-hover" data-animation="animate-fade-in-up">
+<div className="p-6 rounded-lg border border-border bg-background/50 hover:scale-[1.01] hover:border-accent hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
   <div className="space-y-4">
     <h3 className="text-xl font-semibold">House Price Prediction</h3>
 
@@ -399,7 +399,7 @@ export default function Home() {
 </div>
 
 {/* Project 3 */}
-<div className="project-card p-6 rounded-lg border border-border bg-background/50 card-hover glow-hover" data-animation="animate-fade-in-up">
+<div className="p-6 rounded-lg border border-border bg-background/50 hover:scale-[1.01] hover:border-accent hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
   <div className="space-y-4">
     <h3 className="text-xl font-semibold">E-Blogging Platform</h3>
 
@@ -434,7 +434,7 @@ export default function Home() {
 </div>
 
 {/* Project 4 */}
-<div className="project-card p-6 rounded-lg border border-border bg-background/50 card-hover glow-hover" data-animation="animate-fade-in-up">
+<div className="p-6 rounded-lg border border-border bg-background/50 hover:scale-[1.01] hover:border-accent hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
   <div className="space-y-4">
     <h3 className="text-xl font-semibold">Behaviour-IQ</h3>
 
@@ -470,7 +470,7 @@ export default function Home() {
 </div>
 
 {/* Project 5 */}
-<div className="project-card p-6 rounded-lg border border-border bg-background/50 card-hover glow-hover" data-animation="animate-fade-in-up">
+<div className="p-6 rounded-lg border border-border bg-background/50 hover:scale-[1.01] hover:border-accent hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
   <div className="space-y-4">
     <h3 className="text-xl font-semibold">Travel Booking Platform</h3>
 
@@ -581,7 +581,7 @@ export default function Home() {
             <h2 className="text-3xl sm:text-4xl font-bold">Academic Background</h2>
           </div>
 
-          <div className="p-6 rounded-lg border border-border bg-background/50 hover:border-accent/50 active:border-accent transition-all">
+          <div className="p-6 rounded-lg border border-border bg-background/50 hover:scale-[1.01] hover:border-accent hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
             <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
               <div>
                 <h3 className="text-xl font-semibold">B.E. Computer Science</h3>
@@ -654,7 +654,7 @@ export default function Home() {
             {/* Status Messages */}
             {submitStatus === 'success' && (
               <div className="p-4 rounded-lg bg-accent/10 border border-accent/30 text-accent text-sm animate-fade-in">
-                ✓ Message sent successfully! I'll get back to you soon.
+                ✓ Message sent successfully fam! I'll get back to you soon.
               </div>
             )}
             {submitStatus === 'error' && (
