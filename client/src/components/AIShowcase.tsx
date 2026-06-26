@@ -55,7 +55,7 @@ export default function AIShowcase() {
         </div>
 
         {/* LLM & Prompt Engineering */}
-        <div className="p-6 rounded-lg border border-border bg-background/50 hover:scale-[1.01] hover:border-accent hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
+        <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
           <div className="mb-6">
             <div className="text-3xl mb-3">🧠</div>
             <h3 className="text-xl font-semibold mb-2">LLM & Prompt Engineering</h3>
@@ -90,7 +90,7 @@ export default function AIShowcase() {
         </div>
 
         {/* Tool Calling & API Integration */}
-        <div className="p-6 rounded-lg border border-border bg-background/50 hover:scale-[1.01] hover:border-accent hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
+        <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
           <div className="mb-6">
             <div className="text-3xl mb-3">🔧</div>
             <h3 className="text-xl font-semibold mb-2">Tool Calling & API Integration</h3>
@@ -125,7 +125,7 @@ export default function AIShowcase() {
         </div>
 
         {/* Conversational AI */}
-        <div className="p-6 rounded-lg border border-border bg-background/50 hover:scale-[1.01] hover:border-accent hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
+        <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
           <div className="mb-6">
             <div className="text-3xl mb-3">💬</div>
             <h3 className="text-xl font-semibold mb-2">Conversational AI Systems</h3>
