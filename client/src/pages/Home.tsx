@@ -251,7 +251,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Languages */}
-            <div className="p-6 rounded-lg border border-border bg-background/50 hover:scale-[1.01] hover:border-accent hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
+            <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
               <h3 className="font-semibold text-foreground">Languages</h3>
               <div className="flex flex-wrap gap-2">
                 {['Python', 'JavaScript', 'TypeScript', 'Java', 'SQL'].map((skill) => (
@@ -263,7 +263,7 @@ export default function Home() {
             </div>
 
             {/* Frameworks & Libraries */}
-            <div className="p-6 rounded-lg border border-border bg-background/50 hover:scale-[1.01] hover:border-accent hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
+            <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
               <h3 className="font-semibold text-foreground">Frameworks</h3>
               <div className="flex flex-wrap gap-2">
                 {['React.js', 'Node.js', 'Express.js', 'MongoDB', 'Pandas'].map((skill) => (
@@ -275,7 +275,7 @@ export default function Home() {
             </div>
 
             {/* AI & Cloud */}
-            <div className="p-6 rounded-lg border border-border bg-background/50 hover:scale-[1.01] hover:border-accent hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
+            <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
               <h3 className="font-semibold text-foreground">AI & Cloud</h3>
               <div className="flex flex-wrap gap-2">
                 {['Vertex AI', 'Dialogflow CX', 'Gen AI', 'GCP', 'LLMs'].map((skill) => (
@@ -287,7 +287,7 @@ export default function Home() {
             </div>
 
             {/* Tools & Platforms */}
-            <div className="p-6 rounded-lg border border-border bg-background/50 hover:scale-[1.01] hover:border-accent hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
+            <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
               <h3 className="font-semibold text-foreground">Tools</h3>
               <div className="flex flex-wrap gap-2">
                 {['Git', 'Docker', 'Kubernetes', 'REST APIs', 'CI/CD'].map((skill) => (
@@ -299,7 +299,7 @@ export default function Home() {
             </div>
 
             {/* Databases */}
-            <div className="p-6 rounded-lg border border-border bg-background/50 hover:scale-[1.01] hover:border-accent hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
+            <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
               <h3 className="font-semibold text-foreground">Databases</h3>
               <div className="flex flex-wrap gap-2">
                 {['MongoDB', 'Firestore', 'PostgreSQL', 'VectorDB'].map((skill) => (
@@ -311,7 +311,7 @@ export default function Home() {
             </div>
 
             {/* ML & Data */}
-            <div className="p-6 rounded-lg border border-border bg-background/50 hover:scale-[1.01] hover:border-accent hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
+            <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
               <h3 className="font-semibold text-foreground">ML & Data</h3>
               <div className="flex flex-wrap gap-2">
                 {['Scikit-Learn', 'NumPy', 'Pandas', 'NLP', 'Feature Engineering'].map((skill) => (
@@ -543,7 +543,7 @@ export default function Home() {
 
           <div className="space-y-8">
             {/* EXL Service */}
-            <div className="p-6 rounded-lg border border-border bg-background/50 hover:scale-[1.01] hover:border-accent hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
+            <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
               <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
                 <div>
                   <h3 className="text-xl font-semibold">AI Engineer Intern</h3>
@@ -561,7 +561,7 @@ export default function Home() {
             </div>
 
             {/* HighRadius */}
-            <div className="p-6 rounded-lg border border-border bg-background/50 hover:scale-[1.01] hover:border-accent hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
+            <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
               <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
                 <div>
                   <h3 className="text-xl font-semibold">ABM Intern</h3>
