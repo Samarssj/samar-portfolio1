@@ -134,7 +134,12 @@ export default function Home() {
             <div className="space-y-8">
               <div className="space-y-4">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary border border-border">
-                  <div className="w-2 h-2 bg-accent rounded-full animate-pulse" />
+                  <div className="relative flex h-2 w-2">
+  {/* Fast expanding radar ring */}
+                  <div className="animate-ping [animation-duration:0.6s] absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></div>
+  {/* Solid center dot */}
+                 <div className="relative inline-flex rounded-full h-2 w-2 bg-accent"></div>
+                </div>
                   <span className="text-xs font-medium text-muted">Available for openings / freelance projects</span>
                 </div>
 
