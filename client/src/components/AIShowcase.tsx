@@ -161,7 +161,7 @@ export default function AIShowcase() {
       </div>
 
       {/* Tech Stack */}
-      <div className="p-8 rounded-lg border border-accent/20 bg-accent/5 animate-pulse [animation-duration:4s] shadow-[0_0_25px_rgba(var(--accent),0.05)]">
+      <div className="p-8 rounded-lg border border-accent bg-accent/10 animate-pulse [animation-duration:1.2s] shadow-[0_0_25px_#22c55e,inset_0_0_15px_#22c55e]">
         <h3 className="text-lg font-semibold mb-6">AI & Cloud Technologies</h3>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
           {[
@@ -176,7 +176,7 @@ export default function AIShowcase() {
             { name: 'NLP/NLU', icon: '🧠' },
             { name: 'REST APIs', icon: '🔌' },
           ].map((tech) => (
-            <div key={tech.name} className="flex flex-col items-center gap-2 p-4 rounded-lg bg-background/50 hover:bg-background transition-colors">
+            <div key={tech.name} className="flex flex-col items-center gap-2 p-4 rounded-xl border border-accent/40 bg-accent/5 animate-pulse [animation-duration:1.2s] shadow-[0_0_12px_rgba(34,197,94,0.2),inset_0_0_8px_rgba(34,197,94,0.1)] hover:scale-105 hover:border-accent hover:shadow-[0_0_20px_#22c55e] transition-all duration-300">
               <div className="text-2xl">{tech.icon}</div>
               <p className="text-xs font-medium text-center text-muted">{tech.name}</p>
             </div>
