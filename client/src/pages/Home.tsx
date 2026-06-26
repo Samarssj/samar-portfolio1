@@ -142,7 +142,7 @@ export default function Home() {
   
   {/* 2. Pulsing & Glowing Text */}
   <span className="text-xs font-semibold text-accent animate-pulse [animation-duration:1.5s] drop-shadow-[0_0_4px_rgba(var(--accent),0.5)]">
-    Available for work
+    Available for work/freelance projects
   </span>
 </div>
 
