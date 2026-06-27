@@ -183,7 +183,7 @@ export default function Home() {
                     Get in Touch
                   </Button>
                 </a>
-                <a href="https://drive.google.com/file/d/1XTiuHuTFzJNMEnBajizVgxSOZ5z9MUCo/view?usp=drivesdk" target="_blank" rel="noopener noreferrer">
+                <a href="https://drive.google.com/file/d/1WV7I3yJStA5DheoDzPxdCWskGpviUPtQ/view?usp=drivesdk" target="_blank" rel="noopener noreferrer">
                   <Button variant="outline" className="gap-2 hover:border-accent active:bg-accent/10 transition-all">
                     <Download className="w-4 h-4" />
                     Resume
@@ -314,7 +314,7 @@ export default function Home() {
             <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
               <h3 className="font-semibold text-foreground">ML & Data</h3>
               <div className="flex flex-wrap gap-2">
-                {['Scikit-Learn', 'NumPy', 'Pandas', 'NLP', 'Feature & Prompt Engineering'].map((skill) => (
+                {['Scikit-Learn', 'NumPy', 'Pandas', 'NLP', 'EDA', 'Feature & Prompt Engineering'].map((skill) => (
                   <span key={skill} className="px-3 py-1 text-sm rounded-full bg-secondary border border-border text-muted hover:text-foreground hover:border-accent active:bg-accent/20 transition-colors">
                     {skill}
                   </span>
