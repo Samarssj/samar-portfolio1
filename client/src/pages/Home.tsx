@@ -678,7 +678,7 @@ export default function Home() {
             )}
             {submitStatus === 'error' && (
               <div className="p-4 rounded-lg bg-destructive/10 border border-destructive/30 text-destructive text-sm animate-fade-in">
-                ✗ Failed to send message. Please try again or email me directly.
+                ✗ BRUH failed to send. Please try again or just give up and email me directly.
               </div>
             )}
 
