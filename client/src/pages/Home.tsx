@@ -183,7 +183,7 @@ export default function Home() {
                     Get in Touch
                   </Button>
                 </a>
-                <a href="https://drive.google.com/file/d/1eHaPn1VAzZ4iLW3_YkqM5_fzIYbjFVT6/view?usp=drivesdk" target="_blank" rel="noopener noreferrer">
+                <a href="https://drive.google.com/file/d/1XTiuHuTFzJNMEnBajizVgxSOZ5z9MUCo/view?usp=drivesdk" target="_blank" rel="noopener noreferrer">
                   <Button variant="outline" className="gap-2 hover:border-accent active:bg-accent/10 transition-all">
                     <Download className="w-4 h-4" />
                     Resume
@@ -266,7 +266,7 @@ export default function Home() {
             <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
               <h3 className="font-semibold text-foreground">Frameworks</h3>
               <div className="flex flex-wrap gap-2">
-                {['React.js', 'Node.js', 'Express.js', 'MongoDB', 'Pandas'].map((skill) => (
+                {['React.js', 'Node.js', 'Express.js', 'React.Js', 'LangChain', 'JWTs'].map((skill) => (
                   <span key={skill} className="px-3 py-1 text-sm rounded-full bg-secondary border border-border text-muted hover:text-foreground hover:border-accent active:bg-accent/20 transition-colors">
                     {skill}
                   </span>
@@ -278,7 +278,7 @@ export default function Home() {
             <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
               <h3 className="font-semibold text-foreground">AI & Cloud</h3>
               <div className="flex flex-wrap gap-2">
-                {['Vertex AI', 'Dialogflow CX', 'Gen AI', 'GCP', 'LLMs'].map((skill) => (
+                {['Vertex AI', 'Dialogflow CX', 'Gen AI', 'GCP', 'LLMs', 'RAG', 'ADK'].map((skill) => (
                   <span key={skill} className="px-3 py-1 text-sm rounded-full bg-secondary border border-border text-muted hover:text-foreground hover:border-accent active:bg-accent/20 transition-colors">
                     {skill}
                   </span>
@@ -290,7 +290,7 @@ export default function Home() {
             <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
               <h3 className="font-semibold text-foreground">Tools</h3>
               <div className="flex flex-wrap gap-2">
-                {['Git', 'Docker', 'Kubernetes', 'REST APIs', 'CI/CD'].map((skill) => (
+                {['Git', 'Docker', 'Kubernetes', 'REST APIs', 'CI/CD', 'WebHooks'].map((skill) => (
                   <span key={skill} className="px-3 py-1 text-sm rounded-full bg-secondary border border-border text-muted hover:text-foreground hover:border-accent active:bg-accent/20 transition-colors">
                     {skill}
                   </span>
@@ -302,7 +302,7 @@ export default function Home() {
             <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
               <h3 className="font-semibold text-foreground">Databases</h3>
               <div className="flex flex-wrap gap-2">
-                {['MongoDB', 'Firestore', 'PostgreSQL', 'VectorDB'].map((skill) => (
+                {['MongoDB', 'Firestore', 'BigQuery', 'VectorDB'].map((skill) => (
                   <span key={skill} className="px-3 py-1 text-sm rounded-full bg-secondary border border-border text-muted hover:text-foreground hover:border-accent active:bg-accent/20 transition-colors">
                     {skill}
                   </span>
@@ -314,7 +314,7 @@ export default function Home() {
             <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
               <h3 className="font-semibold text-foreground">ML & Data</h3>
               <div className="flex flex-wrap gap-2">
-                {['Scikit-Learn', 'NumPy', 'Pandas', 'NLP', 'Feature Engineering'].map((skill) => (
+                {['Scikit-Learn', 'NumPy', 'Pandas', 'NLP', 'Feature & Prompt Engineering'].map((skill) => (
                   <span key={skill} className="px-3 py-1 text-sm rounded-full bg-secondary border border-border text-muted hover:text-foreground hover:border-accent active:bg-accent/20 transition-colors">
                     {skill}
                   </span>
@@ -549,7 +549,7 @@ export default function Home() {
                   <h3 className="text-xl font-semibold">AI Engineer Intern</h3>
                   <p className="text-muted">EXL Service</p>
                 </div>
-                <span className="text-sm text-accent font-medium whitespace-nowrap">May 2026 - Present</span>
+                <span className="text-sm text-accent font-medium whitespace-nowrap">April 2026 - Present</span>
               </div>
               <div className="space-y-3 text-muted">
                 <p>→ Developed and deployed Generative AI solutions using Vertex AI and Dialogflow CX on Google Cloud Platform</p>
@@ -606,7 +606,18 @@ export default function Home() {
       <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 border-t border-border bg-secondary/30">
         <div className="max-w-2xl mx-auto">
           <div className="space-y-2 mb-12 text-center">
-            <div className="text-xs font-semibold text-accent uppercase tracking-widest">Get in Touch</div>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-accent/20 bg-accent/5 mx-auto">
+  {/* 1. Glowing & Fast Expanding Radar Dot */}
+            <div className="relative flex h-2 w-2">
+            <div className="animate-ping [animation-duration:0.7s] absolute inline-flex h-full w-full rounded-full bg-accent opacity-75 shadow-[0_0_12px_#22c55e]"></div>
+             <div className="relative inline-flex rounded-full h-2 w-2 bg-accent shadow-[0_0_8px_#22c55e]"></div>
+           </div>
+  
+  {/* 2. Pulsing Subtitle Text */}
+     <span className="text-xs font-semibold uppercase tracking-widest text-accent animate-pulse [animation-duration:1.5s] drop-shadow-[0_0_4px_rgba(34,197,94,0.5)]">
+    Get in Touch
+  </span>
+</div>
             <h2 className="text-3xl sm:text-4xl font-bold">Let's Build Something Great</h2>
             <p className="text-lg text-muted">
               Have a project in mind or want to collaborate? Send me a message and I'll get back to you as soon as possible.
