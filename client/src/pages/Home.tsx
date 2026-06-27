@@ -202,11 +202,11 @@ export default function Home() {
                   <div className="text-xs text-muted uppercase tracking-wide">Projects</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-accent">9+</div>
+                  <div className="text-2xl font-bold text-accent">11+</div>
                   <div className="text-xs text-muted uppercase tracking-wide">Certifications</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-accent">40%↑</div>
+                  <div className="text-2xl font-bold text-accent">47%↑</div>
                   <div className="text-xs text-muted uppercase tracking-wide">AI Accuracy</div>
                 </div>
               </div>
@@ -266,7 +266,7 @@ export default function Home() {
             <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
               <h3 className="font-semibold text-foreground">Frameworks</h3>
               <div className="flex flex-wrap gap-2">
-                {['React.js', 'Node.js', 'Express.js', 'React.Js', 'LangChain', 'JWTs'].map((skill) => (
+                {['React.js', 'Node.js', 'Express.js', 'LangChain', 'JWTs'].map((skill) => (
                   <span key={skill} className="px-3 py-1 text-sm rounded-full bg-secondary border border-border text-muted hover:text-foreground hover:border-accent active:bg-accent/20 transition-colors">
                     {skill}
                   </span>
