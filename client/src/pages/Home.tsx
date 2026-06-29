@@ -624,7 +624,7 @@ export default function Home() {
             </p>
           </div>
 
-          <form onSubmit={handleFormSubmit} className="space-y-6 p-8 rounded-lg border border-border bg-background/50 hover:border-accent/30 transition-colors">
+          <form onSubmit={handleFormSubmit} className="space-y-6 p-8 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_30px_rgba(34,197,94,0.15)] transition-all duration-300">
             {/* Name Field */}
             <div className="space-y-2">
               <label htmlFor="name" className="block text-sm font-medium text-foreground">Name</label>
