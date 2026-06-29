@@ -624,7 +624,7 @@ export default function Home() {
             </p>
           </div>
 
-          <form onSubmit={handleFormSubmit} className="space-y-6 p-8 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_30px_rgba(34,197,94,0.15)] transition-all duration-300">
+          <form onSubmit={handleFormSubmit} className="p-8 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
             {/* Name Field */}
             <div className="space-y-2">
               <label htmlFor="name" className="block text-sm font-medium text-foreground">Name</label>
@@ -699,11 +699,11 @@ export default function Home() {
               <div className="text-accent font-semibold mb-2">Email</div>
               <div className="text-sm text-muted">ssjsamar453@gmail.com</div>
             </a>
-            <a href="https://www.linkedin.com/in/samarssj/" target="_blank" rel="noopener noreferrer" className="p-4 rounded-lg border border-border bg-background/50 hover:border-accent/50 active:border-accent transition-colors">
+            <a href="https://www.linkedin.com/in/samarssj/" target="_blank" rel="noopener noreferrer" className="p-4 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
               <div className="text-accent font-semibold mb-2">LinkedIn</div>
               <div className="text-sm text-muted">samarssj</div>
             </a>
-            <a href="https://github.com/Samarssj" target="_blank" rel="noopener noreferrer" className="p-4 rounded-lg border border-border bg-background/50 hover:border-accent/50 active:border-accent transition-colors">
+            <a href="https://github.com/Samarssj" target="_blank" rel="noopener noreferrer" className="p-4 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
               <div className="text-accent font-semibold mb-2">GitHub</div>
               <div className="text-sm text-muted">Samarssj</div>
             </a>
