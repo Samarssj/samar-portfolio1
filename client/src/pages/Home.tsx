@@ -695,7 +695,7 @@ export default function Home() {
           {/* Alternative Contact Methods */}
           <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
             <a href="mailto:ssjsamar453@gmail.com" className="p-4 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
-              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
+              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4"></div>
               <div className="text-accent font-semibold mb-2">Email</div>
               <div className="text-sm text-muted">ssjsamar453@gmail.com</div>
             </a>
