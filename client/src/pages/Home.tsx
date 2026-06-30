@@ -183,7 +183,7 @@ export default function Home() {
                     Get in Touch
                   </Button>
                 </a>
-                <a href="https://drive.google.com/file/d/1vI066XjmryRQB95oTzsPkLjJiZHNmA8i/view?usp=drivesdk" target="_blank" rel="noopener noreferrer">
+                <a href="https://drive.google.com/file/d/1chzEehbTXCBBkH1viaHfOW8C4BmhuJg7/view?usp=drivesdk" target="_blank" rel="noopener noreferrer">
                   <Button variant="outline" className="gap-2 hover:border-accent active:bg-accent/10 transition-all">
                     <Download className="w-4 h-4" />
                     Resume
@@ -370,7 +370,46 @@ export default function Home() {
   </div>
 </div>
 
-{/* Project 2 */}
+          {/* Project 2 */}
+<div className="p-6 rounded-lg border border-border bg-background/50 hover:scale-[1.01] hover:border-accent hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
+  <div className="space-y-4">
+    <h3 className="text-xl font-semibold">Movie Review Sentiment Analysis</h3>
+
+    <p className="text-sm text-muted leading-relaxed">
+      Developed an end-to-end NLP application that classifies movie
+      reviews into five sentiment categories using TF-IDF feature
+      extraction and machine learning. Compared multiple classification
+      models and deployed the best-performing model through an
+      interactive Streamlit web application for real-time predictions.
+    </p>
+
+    <div className="grid grid-cols-3 gap-4 border-y border-border py-4">
+      <div>
+        <p className="text-accent text-xl font-bold">5</p>
+        <p className="text-xs text-muted">Sentiment Classes</p>
+      </div>
+      <div>
+        <p className="text-accent text-xl font-bold">4</p>
+        <p className="text-xs text-muted">ML Models Compared</p>
+      </div>
+      <div>
+        <p className="text-accent text-xl font-bold">100%</p>
+        <p className="text-xs text-muted">Real-Time Predictions</p>
+      </div>
+    </div>
+
+    <div className="flex flex-wrap gap-2">
+      <span>Python</span>
+      <span>Scikit-Learn</span>
+      <span>Streamlit</span>
+      <span>TF-IDF</span>
+      <span>Pandas</span>
+      <span>NumPy</span>
+    </div>
+  </div>
+</div>
+
+{/* Project 3 */}
 <div className="p-6 rounded-lg border border-border bg-background/50 hover:scale-[1.01] hover:border-accent hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
   <div className="space-y-4">
     <h3 className="text-xl font-semibold">House Price Prediction</h3>
@@ -406,7 +445,7 @@ export default function Home() {
   </div>
 </div>
 
-{/* Project 3 */}
+{/* Project 4 */}
 <div className="p-6 rounded-lg border border-border bg-background/50 hover:scale-[1.01] hover:border-accent hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
   <div className="space-y-4">
     <h3 className="text-xl font-semibold">E-Blogging Platform</h3>
@@ -441,7 +480,7 @@ export default function Home() {
   </div>
 </div>
 
-{/* Project 4 */}
+{/* Project 5 */}
 <div className="p-6 rounded-lg border border-border bg-background/50 hover:scale-[1.01] hover:border-accent hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
   <div className="space-y-4">
     <h3 className="text-xl font-semibold">Behaviour-IQ</h3>
@@ -477,7 +516,7 @@ export default function Home() {
   </div>
 </div>
 
-{/* Project 5 */}
+{/* Project 6 */}
 <div className="p-6 rounded-lg border border-border bg-background/50 hover:scale-[1.01] hover:border-accent hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
   <div className="space-y-4">
     <h3 className="text-xl font-semibold">Travel Booking Platform</h3>
