@@ -371,16 +371,19 @@ export default function Home() {
 </div>
 
           {/* Project 2 */}
-<div className="p-6 rounded-lg border border-border bg-background/50 hover:scale-[1.01] hover:border-accent hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
+<div className="p-6 rounded-lg border border-border bg-background/50 hover:scale-[1.01] hover:border-accent hover:shadow-[0_0_20px_#22c55e] transition-all duration-300">
   <div className="space-y-4">
-    <h3 className="text-xl font-semibold">Movie Review Sentiment Analysis</h3>
+    <h3 className="text-xl font-semibold">
+      Movie Review Sentiment Analysis
+    </h3>
 
     <p className="text-sm text-muted leading-relaxed">
       Developed an end-to-end NLP application that classifies movie
       reviews into five sentiment categories using TF-IDF feature
       extraction and machine learning. Compared multiple classification
       models and deployed the best-performing model through an
-      interactive Streamlit web application for real-time predictions.
+      interactive Streamlit web application for real-time sentiment
+      prediction.
     </p>
 
     <div className="grid grid-cols-3 gap-4 border-y border-border py-4">
@@ -388,23 +391,57 @@ export default function Home() {
         <p className="text-accent text-xl font-bold">5</p>
         <p className="text-xs text-muted">Sentiment Classes</p>
       </div>
+
       <div>
         <p className="text-accent text-xl font-bold">4</p>
         <p className="text-xs text-muted">ML Models Compared</p>
       </div>
+
       <div>
-        <p className="text-accent text-xl font-bold">100%</p>
-        <p className="text-xs text-muted">Real-Time Predictions</p>
+        <p className="text-accent text-xl font-bold">TF-IDF</p>
+        <p className="text-xs text-muted">Feature Engineering</p>
       </div>
     </div>
 
     <div className="flex flex-wrap gap-2">
-      <span>Python</span>
-      <span>Scikit-Learn</span>
-      <span>Streamlit</span>
-      <span>TF-IDF</span>
-      <span>Pandas</span>
-      <span>NumPy</span>
+      <span className="px-3 py-1 text-xs rounded-full border border-border">
+        Python
+      </span>
+      <span className="px-3 py-1 text-xs rounded-full border border-border">
+        Scikit-Learn
+      </span>
+      <span className="px-3 py-1 text-xs rounded-full border border-border">
+        Streamlit
+      </span>
+      <span className="px-3 py-1 text-xs rounded-full border border-border">
+        TF-IDF
+      </span>
+      <span className="px-3 py-1 text-xs rounded-full border border-border">
+        Pandas
+      </span>
+      <span className="px-3 py-1 text-xs rounded-full border border-border">
+        NumPy
+      </span>
+    </div>
+
+    <div className="flex gap-3 pt-2">
+      <a
+        href="https://samarssj-movie-review-sentiment-analysis-appapp-z7ohdt.streamlit.app"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex-1 text-center px-4 py-2 rounded-lg bg-accent text-background font-medium hover:opacity-90 transition"
+      >
+        🚀 Live Demo
+      </a>
+
+      <a
+        href="https://github.com/Samarssj/movie-review-sentiment-analysis"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex-1 text-center px-4 py-2 rounded-lg border border-border hover:border-accent hover:text-accent transition"
+      >
+        💻 GitHub
+      </a>
     </div>
   </div>
 </div>
