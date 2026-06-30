@@ -376,7 +376,7 @@ export default function Home() {
         GCP
       </span>
       <span className="px-3 py-1 text-xs rounded-full border border-border">
-        REST APIs
+        OPEN API Tools
       </span>
     </div>
 
