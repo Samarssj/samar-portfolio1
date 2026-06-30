@@ -335,9 +335,11 @@ export default function Home() {
 
           <div ref={projectsRef} className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Project 1 */}
-<div className="p-6 rounded-lg border border-border bg-background/50 hover:scale-[1.01] hover:border-accent hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
+<div className="p-6 rounded-lg border border-border bg-background/50 hover:scale-[1.01] hover:border-accent hover:shadow-[0_0_20px_#22c55e] transition-all duration-300">
   <div className="space-y-4">
-    <h3 className="text-xl font-semibold">Enterprise AI Chatbot</h3>
+    <h3 className="text-xl font-semibold">
+      Enterprise AI Chatbot
+    </h3>
 
     <p className="text-sm text-muted leading-relaxed">
       Built an enterprise-grade conversational AI platform capable of
@@ -351,10 +353,12 @@ export default function Home() {
         <p className="text-accent text-xl font-bold">85%</p>
         <p className="text-xs text-muted">User Satisfaction</p>
       </div>
+
       <div>
         <p className="text-accent text-xl font-bold">40%</p>
         <p className="text-xs text-muted">Ticket Reduction</p>
       </div>
+
       <div>
         <p className="text-accent text-xl font-bold">60%</p>
         <p className="text-xs text-muted">Faster Resolution</p>
@@ -362,14 +366,32 @@ export default function Home() {
     </div>
 
     <div className="flex flex-wrap gap-2">
-      <span>Vertex AI</span>
-      <span>Dialogflow CX</span>
-      <span>GCP</span>
-      <span>REST APIs</span>
+      <span className="px-3 py-1 text-xs rounded-full border border-border">
+        Vertex AI
+      </span>
+      <span className="px-3 py-1 text-xs rounded-full border border-border">
+        Dialogflow CX
+      </span>
+      <span className="px-3 py-1 text-xs rounded-full border border-border">
+        GCP
+      </span>
+      <span className="px-3 py-1 text-xs rounded-full border border-border">
+        REST APIs
+      </span>
+    </div>
+
+    <div className="pt-2">
+      <a
+        href="https://github.com/Samarssj/healthcare_bot"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block w-full text-center px-4 py-2 rounded-lg border border-border hover:border-accent hover:text-accent transition"
+      >
+        💻 View on GitHub
+      </a>
     </div>
   </div>
 </div>
-
           {/* Project 2 */}
 <div className="p-6 rounded-lg border border-border bg-background/50 hover:scale-[1.01] hover:border-accent hover:shadow-[0_0_20px_#22c55e] transition-all duration-300">
   <div className="space-y-4">
@@ -447,143 +469,259 @@ export default function Home() {
 </div>
 
 {/* Project 3 */}
-<div className="p-6 rounded-lg border border-border bg-background/50 hover:scale-[1.01] hover:border-accent hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
+<div className="p-6 rounded-lg border border-border bg-background/50 hover:scale-[1.01] hover:border-accent hover:shadow-[0_0_20px_#22c55e] transition-all duration-300">
   <div className="space-y-4">
-    <h3 className="text-xl font-semibold">House Price Prediction</h3>
+    <h3 className="text-xl font-semibold">
+      House Price Prediction
+    </h3>
 
     <p className="text-sm text-muted leading-relaxed">
-      Developed a machine learning pipeline for real-estate valuation
-      using historical housing datasets, feature engineering,
-      regression algorithms, and predictive analytics to estimate
-      property prices with high accuracy.
+      Developed a machine learning pipeline for predicting house prices
+      using historical housing data, feature engineering, preprocessing,
+      and regression algorithms. Evaluated multiple models to generate
+      accurate property price predictions based on key housing features.
     </p>
 
     <div className="grid grid-cols-3 gap-4 border-y border-border py-4">
       <div>
-        <p className="text-accent text-xl font-bold">92%</p>
-        <p className="text-xs text-muted">Prediction Accuracy</p>
+        <p className="text-accent text-xl font-bold">4+</p>
+        <p className="text-xs text-muted">ML Models</p>
       </div>
+
       <div>
-        <p className="text-accent text-xl font-bold">15%</p>
-        <p className="text-xs text-muted">Lower MAE</p>
+        <p className="text-accent text-xl font-bold">Regression</p>
+        <p className="text-xs text-muted">Prediction Task</p>
       </div>
+
       <div>
-        <p className="text-accent text-xl font-bold">50K+</p>
-        <p className="text-xs text-muted">Predictions Generated</p>
+        <p className="text-accent text-xl font-bold">EDA</p>
+        <p className="text-xs text-muted">Feature Analysis</p>
       </div>
     </div>
 
     <div className="flex flex-wrap gap-2">
-      <span>Python</span>
-      <span>Scikit-Learn</span>
-      <span>Pandas</span>
-      <span>NumPy</span>
+      <span className="px-3 py-1 text-xs rounded-full border border-border">
+        Python
+      </span>
+      <span className="px-3 py-1 text-xs rounded-full border border-border">
+        Scikit-Learn
+      </span>
+      <span className="px-3 py-1 text-xs rounded-full border border-border">
+        Pandas
+      </span>
+      <span className="px-3 py-1 text-xs rounded-full border border-border">
+        NumPy
+      </span>
+      <span className="px-3 py-1 text-xs rounded-full border border-border">
+        Matplotlib
+      </span>
+    </div>
+
+    <div className="pt-2">
+      <a
+        href="https://github.com/Samarssj/Housing-price-predictor"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block w-full text-center px-4 py-2 rounded-lg border border-border hover:border-accent hover:text-accent transition"
+      >
+        💻 View on GitHub
+      </a>
     </div>
   </div>
 </div>
+  
 
 {/* Project 4 */}
-<div className="p-6 rounded-lg border border-border bg-background/50 hover:scale-[1.01] hover:border-accent hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
+<div className="p-6 rounded-lg border border-border bg-background/50 hover:scale-[1.01] hover:border-accent hover:shadow-[0_0_20px_#22c55e] transition-all duration-300">
   <div className="space-y-4">
-    <h3 className="text-xl font-semibold">E-Blogging Platform</h3>
+    <h3 className="text-xl font-semibold">
+      E-Blogging Platform
+    </h3>
 
     <p className="text-sm text-muted leading-relaxed">
-      Full-stack blogging platform featuring user authentication,
-      content management, CRUD operations, responsive UI, secure APIs,
-      and MongoDB integration for seamless content publishing.
+      Developed a full-stack blogging platform with secure user
+      authentication, CRUD functionality, responsive UI, RESTful APIs,
+      and MongoDB integration, enabling users to create, edit, and
+      manage blog posts seamlessly.
     </p>
 
     <div className="grid grid-cols-3 gap-4 border-y border-border py-4">
       <div>
-        <p className="text-accent text-xl font-bold">100+</p>
-        <p className="text-xs text-muted">Posts Managed</p>
+        <p className="text-accent text-xl font-bold">CRUD</p>
+        <p className="text-xs text-muted">Blog Management</p>
       </div>
+
       <div>
-        <p className="text-accent text-xl font-bold">99.9%</p>
-        <p className="text-xs text-muted">Availability</p>
+        <p className="text-accent text-xl font-bold">JWT</p>
+        <p className="text-xs text-muted">Authentication</p>
       </div>
+
       <div>
-        <p className="text-accent text-xl font-bold">35%</p>
-        <p className="text-xs text-muted">Faster Page Loads</p>
+        <p className="text-accent text-xl font-bold">REST</p>
+        <p className="text-xs text-muted">API Architecture</p>
       </div>
     </div>
 
     <div className="flex flex-wrap gap-2">
-      <span>TypeScript</span>
-      <span>Node.js</span>
-      <span>MongoDB</span>
-      <span>REST APIs</span>
+      <span className="px-3 py-1 text-xs rounded-full border border-border">
+        TypeScript
+      </span>
+      <span className="px-3 py-1 text-xs rounded-full border border-border">
+        Node.js
+      </span>
+      <span className="px-3 py-1 text-xs rounded-full border border-border">
+        Express.js
+      </span>
+      <span className="px-3 py-1 text-xs rounded-full border border-border">
+        MongoDB
+      </span>
+      <span className="px-3 py-1 text-xs rounded-full border border-border">
+        REST APIs
+      </span>
+      <span className="px-3 py-1 text-xs rounded-full border border-border">
+        Bootstrap
+      </span>
+    </div>
+
+    <div className="pt-2">
+      <a
+        href="https://github.com/Samarssj/eBlogging-webapp"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block w-full text-center px-4 py-2 rounded-lg border border-border hover:border-accent hover:text-accent transition"
+      >
+        💻 View on GitHub
+      </a>
     </div>
   </div>
 </div>
 
 {/* Project 5 */}
-<div className="p-6 rounded-lg border border-border bg-background/50 hover:scale-[1.01] hover:border-accent hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
+<div className="p-6 rounded-lg border border-border bg-background/50 hover:scale-[1.01] hover:border-accent hover:shadow-[0_0_20px_#22c55e] transition-all duration-300">
   <div className="space-y-4">
-    <h3 className="text-xl font-semibold">Behaviour-IQ</h3>
+    <h3 className="text-xl font-semibold">
+      Behaviour-IQ
+    </h3>
 
     <p className="text-sm text-muted leading-relaxed">
-      AI-powered behavioral analysis platform designed to evaluate
-      user interaction patterns and generate actionable insights
-      using data processing, predictive analytics, and intelligent
-      decision-making workflows.
+      Developed an AI-powered behavioral analysis platform that
+      evaluates user interaction patterns to generate actionable
+      insights using intelligent data processing, predictive analytics,
+      and interactive visualizations for data-driven decision making.
     </p>
 
     <div className="grid grid-cols-3 gap-4 border-y border-border py-4">
       <div>
-        <p className="text-accent text-xl font-bold">90%</p>
-        <p className="text-xs text-muted">Detection Accuracy</p>
+        <p className="text-accent text-xl font-bold">AI</p>
+        <p className="text-xs text-muted">Behavior Analysis</p>
       </div>
+
       <div>
-        <p className="text-accent text-xl font-bold">25%</p>
-        <p className="text-xs text-muted">Faster Analysis</p>
+        <p className="text-accent text-xl font-bold">Analytics</p>
+        <p className="text-xs text-muted">Data Insights</p>
       </div>
+
       <div>
-        <p className="text-accent text-xl font-bold">5K+</p>
-        <p className="text-xs text-muted">Analyses Completed</p>
+        <p className="text-accent text-xl font-bold">Real-Time</p>
+        <p className="text-xs text-muted">Visual Reports</p>
       </div>
     </div>
 
     <div className="flex flex-wrap gap-2">
-      <span>JavaScript</span>
-      <span>HTML/CSS</span>
-      <span>Analytics</span>
-      <span>Data Processing</span>
+      <span className="px-3 py-1 text-xs rounded-full border border-border">
+        JavaScript
+      </span>
+      <span className="px-3 py-1 text-xs rounded-full border border-border">
+        HTML
+      </span>
+      <span className="px-3 py-1 text-xs rounded-full border border-border">
+        CSS
+      </span>
+      <span className="px-3 py-1 text-xs rounded-full border border-border">
+        Data Analytics
+      </span>
+      <span className="px-3 py-1 text-xs rounded-full border border-border">
+        AI
+      </span>
+      <span className="px-3 py-1 text-xs rounded-full border border-border">
+        Data Processing
+      </span>
+    </div>
+
+    <div className="pt-2">
+      <a
+        href="https://github.com/Samarssj/BEHAVIOURiq"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block w-full text-center px-4 py-2 rounded-lg border border-border hover:border-accent hover:text-accent transition"
+      >
+        💻 View on GitHub
+      </a>
     </div>
   </div>
 </div>
 
 {/* Project 6 */}
-<div className="p-6 rounded-lg border border-border bg-background/50 hover:scale-[1.01] hover:border-accent hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
+<div className="p-6 rounded-lg border border-border bg-background/50 hover:scale-[1.01] hover:border-accent hover:shadow-[0_0_20px_#22c55e] transition-all duration-300">
   <div className="space-y-4">
-    <h3 className="text-xl font-semibold">Travel Booking Platform</h3>
+    <h3 className="text-xl font-semibold">
+      Travel Booking Platform
+    </h3>
 
     <p className="text-sm text-muted leading-relaxed">
-      End-to-end travel reservation system enabling users to browse,
-      compare, and book travel services through a scalable backend,
-      secure APIs, and dynamic booking management workflows.
+      Developed a full-stack travel booking platform that enables users
+      to browse destinations, search travel options, and manage bookings
+      through a responsive interface, secure REST APIs, and MongoDB-backed
+      data management.
     </p>
 
     <div className="grid grid-cols-3 gap-4 border-y border-border py-4">
       <div>
-        <p className="text-accent text-xl font-bold">5K+</p>
-        <p className="text-xs text-muted">Bookings Processed</p>
+        <p className="text-accent text-xl font-bold">CRUD</p>
+        <p className="text-xs text-muted">Booking Management</p>
       </div>
+
       <div>
-        <p className="text-accent text-xl font-bold">98%</p>
-        <p className="text-xs text-muted">Success Rate</p>
+        <p className="text-accent text-xl font-bold">REST</p>
+        <p className="text-xs text-muted">API Integration</p>
       </div>
+
       <div>
-        <p className="text-accent text-xl font-bold">30%</p>
-        <p className="text-xs text-muted">Operational Savings</p>
+        <p className="text-accent text-xl font-bold">Responsive</p>
+        <p className="text-xs text-muted">User Experience</p>
       </div>
     </div>
 
-        <div className="flex flex-wrap gap-2">
-      <span>React.js</span>
-      <span>Node.js</span>
-      <span>REST APIs</span>
-      <span>MongoDB</span>
+    <div className="flex flex-wrap gap-2">
+      <span className="px-3 py-1 text-xs rounded-full border border-border">
+        React.js
+      </span>
+      <span className="px-3 py-1 text-xs rounded-full border border-border">
+        Node.js
+      </span>
+      <span className="px-3 py-1 text-xs rounded-full border border-border">
+        Express.js
+      </span>
+      <span className="px-3 py-1 text-xs rounded-full border border-border">
+        MongoDB
+      </span>
+      <span className="px-3 py-1 text-xs rounded-full border border-border">
+        REST APIs
+      </span>
+      <span className="px-3 py-1 text-xs rounded-full border border-border">
+        React
+      </span>
+    </div>
+
+    <div className="pt-2">
+      <a
+        href="https://github.com/Samarssj/TEsystem"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block w-full text-center px-4 py-2 rounded-lg border border-border hover:border-accent hover:text-accent transition"
+      >
+        💻 View on GitHub
+      </a>
     </div>
   </div>
 </div>
