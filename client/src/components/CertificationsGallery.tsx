@@ -165,3 +165,7 @@ export default function CertificationsGallery() {
   </div>
 
 </div>
+    
+</div>
+  );
+}
