@@ -3,7 +3,8 @@ import { Button } from '@/components/ui/button';
 import AIOrchestration from '@/components/AIOrchestration';
 import AIShowcase from '@/components/AIShowcase';
 import CertificationsGallery from '@/components/CertificationsGallery';
-import { Github, Linkedin, Mail, Download } from 'lucide-react';
+import { Github, Linkedin, Mail, Download, Moon, Sun } from 'lucide-react';
+
 
 /**
  * Home Page - Premium AI Engineer Portfolio
@@ -16,7 +17,32 @@ import { Github, Linkedin, Mail, Download } from 'lucide-react';
  */
 
 export default function Home() {
+  const [isDark, setIsDark] = useState(true);
   const projectsRef = useRef<HTMLDivElement>(null);
+
+  // Toggle dark mode
+  const toggleDarkMode = () => {
+    setIsDark(!isDark);
+    if (!isDark) {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    }
+  };
+
+  // Load theme preference on mount
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+      setIsDark(false);
+      document.documentElement.classList.remove('dark');
+    } else {
+      setIsDark(true);
+      document.documentElement.classList.add('dark');
+    }
+  }, []);
 
   // Add smooth scroll behavior
   useEffect(() => {
@@ -111,6 +137,9 @@ export default function Home() {
           </div>
 
           <div className="flex items-center gap-3 md:flex-1 md:justify-end">
+            <button onClick={toggleDarkMode} className="p-2 hover:bg-secondary active:bg-accent/20 rounded-lg transition-colors" aria-label="Toggle dark mode">
+              {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+            </button>
             <a href="https://github.com/Samarssj" target="_blank" rel="noopener noreferrer" className="p-2 hover:bg-secondary active:bg-accent/20 rounded-lg transition-colors">
               <Github className="w-5 h-5" />
             </a>
