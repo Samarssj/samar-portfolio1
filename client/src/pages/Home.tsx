@@ -227,7 +227,7 @@ export default function Home() {
                   <div className="text-xs text-muted uppercase tracking-wide">Internships</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-accent">5+</div>
+                  <div className="text-2xl font-bold text-accent">7+</div>
                   <div className="text-xs text-muted uppercase tracking-wide">Projects</div>
                 </div>
                 <div>
