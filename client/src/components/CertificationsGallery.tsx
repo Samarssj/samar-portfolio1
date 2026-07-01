@@ -129,13 +129,23 @@ export default function CertificationsGallery() {
       </div>
 
       {/* Stats */}
-      <div className="grid grid-cols-3 gap-4 pt-8 border-t border-border">
-        <div className="text-center">
-          <div className="text-2xl font-bold text-accent">20+</div>
-          <div className="text-xs text-muted uppercase tracking-wide">
-            Certifications
-          </div>
-        </div>
+   <a
+  href="https://partner.skills.google/public_profiles/e2bb2abb-fb8a-4b51-882e-744f692fa177"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="group text-center rounded-lg p-3 transition-all duration-300 hover:bg-secondary/50 hover:scale-105 cursor-pointer"
+>
+  <div className="flex items-center justify-center gap-1">
+    <span className="text-2xl font-bold text-accent">40+</span>
+    <span className="text-xs opacity-0 group-hover:opacity-100 transition-opacity">
+      ↗
+    </span>
+  </div>
+
+  <div className="text-xs text-muted uppercase tracking-wide group-hover:text-accent transition-colors">
+    Certifications & Google badges
+  </div>
+</a>
 
         <div className="text-center">
           <div className="text-2xl font-bold text-accent">3</div>
