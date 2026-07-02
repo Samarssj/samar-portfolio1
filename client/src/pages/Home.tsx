@@ -1,8 +1,9 @@
-import { useRef, useEffect, useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import AIOrchestration from '@/components/AIOrchestration';
 import AIShowcase from '@/components/AIShowcase';
 import CertificationsGallery from '@/components/CertificationsGallery';
+import InteractiveParticleNetwork from '@/components/InteractiveParticleNetwork';
 import { Github, Linkedin, Mail, Download, Moon, Sun } from 'lucide-react';
 
 
@@ -118,7 +119,8 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background text-foreground relative">
+      <InteractiveParticleNetwork />
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-center md:justify-between">
