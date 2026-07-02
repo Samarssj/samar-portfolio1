@@ -424,7 +424,7 @@ export default function Home() {
   </div>
 </div>
           {/* Project 2 */}
-<div className="p-6 rounded-lg border border-border bg-background/50 hover:scale-[1.01] hover:border-accent hover:shadow-[0_0_20px_#22c55e] transition-all duration-300">
+            <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
   <div className="space-y-4">
     <h3 className="text-xl font-semibold">
       Movie Review Sentiment Analysis
@@ -500,7 +500,7 @@ export default function Home() {
 </div>
 
 {/* Project 3 */}
-<div className="p-6 rounded-lg border border-border bg-background/50 hover:scale-[1.01] hover:border-accent hover:shadow-[0_0_20px_#22c55e] transition-all duration-300">
+            <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
   <div className="space-y-4">
     <h3 className="text-xl font-semibold">
       House Price Prediction
@@ -563,7 +563,7 @@ export default function Home() {
   
 
 {/* Project 4 */}
-<div className="p-6 rounded-lg border border-border bg-background/50 hover:scale-[1.01] hover:border-accent hover:shadow-[0_0_20px_#22c55e] transition-all duration-300">
+            <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
   <div className="space-y-4">
     <h3 className="text-xl font-semibold">
       E-Blogging Platform
@@ -628,7 +628,7 @@ export default function Home() {
 </div>
 
 {/* Project 5 */}
-<div className="p-6 rounded-lg border border-border bg-background/50 hover:scale-[1.01] hover:border-accent hover:shadow-[0_0_20px_#22c55e] transition-all duration-300">
+            <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
   <div className="space-y-4">
     <h3 className="text-xl font-semibold">
       Behaviour-IQ
@@ -693,7 +693,7 @@ export default function Home() {
 </div>
 
 {/* Project 6 */}
-<div className="p-6 rounded-lg border border-border bg-background/50 hover:scale-[1.01] hover:border-accent hover:shadow-[0_0_20px_#22c55e] transition-all duration-300">
+            <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
   <div className="space-y-4">
     <h3 className="text-xl font-semibold">
       Travel Booking Platform
