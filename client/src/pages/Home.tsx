@@ -500,33 +500,36 @@ export default function Home() {
 </div>
 
 {/* Project 3 */}
-            <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
+           <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
   <div className="space-y-4">
     <h3 className="text-xl font-semibold">
-      House Price Prediction
+      News Pilot — Hybrid AI News Intelligence Platform
     </h3>
 
     <p className="text-sm text-muted leading-relaxed">
-      Developed a machine learning pipeline for predicting house prices
-      using historical housing data, feature engineering, preprocessing,
-      and regression algorithms. Evaluated multiple models to generate
-      accurate property price predictions based on key housing features.
+      Developed an intelligent Hybrid RAG-powered news assistant that
+      fetches live news from RSS feeds and NewsAPI, indexes articles in
+      ChromaDB using Sentence Transformers, and delivers source-backed
+      answers. The system intelligently falls back to Google Gemini's
+      general knowledge whenever relevant news is unavailable, ensuring
+      accurate and reliable responses through an interactive Streamlit
+      interface.
     </p>
 
     <div className="grid grid-cols-3 gap-4 border-y border-border py-4">
       <div>
-        <p className="text-accent text-xl font-bold">4+</p>
-        <p className="text-xs text-muted">ML Models</p>
+        <p className="text-accent text-xl font-bold">Hybrid</p>
+        <p className="text-xs text-muted">RAG + Gemini</p>
       </div>
 
       <div>
-        <p className="text-accent text-xl font-bold">Regression</p>
-        <p className="text-xs text-muted">Prediction Task</p>
+        <p className="text-accent text-xl font-bold">ChromaDB</p>
+        <p className="text-xs text-muted">Vector Store</p>
       </div>
 
       <div>
-        <p className="text-accent text-xl font-bold">EDA</p>
-        <p className="text-xs text-muted">Feature Analysis</p>
+        <p className="text-accent text-xl font-bold">Live</p>
+        <p className="text-xs text-muted">News Retrieval</p>
       </div>
     </div>
 
@@ -534,33 +537,57 @@ export default function Home() {
       <span className="px-3 py-1 text-xs rounded-full border border-border">
         Python
       </span>
+
       <span className="px-3 py-1 text-xs rounded-full border border-border">
-        Scikit-Learn
+        Streamlit
       </span>
+
       <span className="px-3 py-1 text-xs rounded-full border border-border">
-        Pandas
+        Gemini API
       </span>
+
       <span className="px-3 py-1 text-xs rounded-full border border-border">
-        NumPy
+        ChromaDB
       </span>
+
       <span className="px-3 py-1 text-xs rounded-full border border-border">
-        Matplotlib
+        Sentence Transformers
+      </span>
+
+      <span className="px-3 py-1 text-xs rounded-full border border-border">
+        RAG
+      </span>
+
+      <span className="px-3 py-1 text-xs rounded-full border border-border">
+        NewsAPI
+      </span>
+
+      <span className="px-3 py-1 text-xs rounded-full border border-border">
+        RSS Feeds
       </span>
     </div>
 
-    <div className="pt-2">
+    <div className="flex gap-3 pt-2">
       <a
-        href="https://github.com/Samarssj/Housing-price-predictor"
+        href="https://samarssj-newspilot-app-qbihoh.streamlit.app"
         target="_blank"
         rel="noopener noreferrer"
-        className="block w-full text-center px-4 py-2 rounded-lg border border-border hover:border-accent hover:text-accent transition"
+        className="flex-1 text-center px-4 py-2 rounded-lg bg-accent text-background font-medium hover:opacity-90 transition"
       >
-        💻 View on GitHub
+        🚀 Live Demo
+      </a>
+
+      <a
+        href="https://github.com/Samarssj/NewsPilot"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex-1 text-center px-4 py-2 rounded-lg border border-border hover:border-accent hover:text-accent transition"
+      >
+        💻 GitHub
       </a>
     </div>
   </div>
 </div>
-  
 
 {/* Project 4 */}
             <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
