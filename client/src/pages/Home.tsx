@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
+import { useAuth } from '@/_core/hooks/useAuth';
 import { Button } from '@/components/ui/button';
 import AIOrchestration from '@/components/AIOrchestration';
 import AIShowcase from '@/components/AIShowcase';
@@ -19,6 +20,10 @@ import { Github, Linkedin, Mail, Download, Moon, Sun } from 'lucide-react';
  */
 
 export default function Home() {
+  // The userAuth hooks provides authentication state
+  // To implement login/logout functionality, simply call logout() or redirect to getLoginUrl()
+  const { user, loading, error, isAuthenticated, logout } = useAuth();
+
   const [isDark, setIsDark] = useState(true);
   const projectsRef = useRef<HTMLDivElement>(null);
 
