@@ -709,7 +709,7 @@ export default function Home() {
 
     <div className="flex gap-3 pt-2">
       <a
-        href="https://behaviou-riq-oyk9.vercel.app"
+        href="https://behaviou-riq-hsrj.vercel.app"
         target="_blank"
         rel="noopener noreferrer"
         className="flex-1 text-center px-4 py-2 rounded-lg bg-accent text-background font-medium hover:opacity-90 transition"
