@@ -2,7 +2,7 @@ import { COOKIE_NAME } from "@shared/const";
 import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
 import { publicProcedure, router } from "./_core/trpc";
-import { searchSpotifySong, searchMultipleSongs } from "./spotify";
+
 import { z } from "zod";
 
 export const appRouter = router({
@@ -19,31 +19,7 @@ export const appRouter = router({
     }),
   }),
 
-  spotify: router({
-    search: publicProcedure
-      .input(z.object({ query: z.string() }))
-      .query(async ({ input }) => {
-        // Parse the query to extract title and artist
-        const parts = input.query.split(' - ');
-        const title = parts[0]?.trim() || input.query;
-        const artist = parts[1]?.trim() || '';
-        
-        const result = await searchSpotifySong(title, artist);
-        return result;
-      }),
-    
-    getTracks: publicProcedure
-      .input(z.object({ 
-        tracks: z.array(z.object({ 
-          title: z.string(), 
-          artist: z.string() 
-        })) 
-      }))
-      .query(async ({ input }) => {
-        const results = await searchMultipleSongs(input.tracks);
-        return results;
-      }),
-  }),
+
 });
 
 export type AppRouter = typeof appRouter;
