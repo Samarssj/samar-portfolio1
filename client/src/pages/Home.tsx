@@ -1,10 +1,9 @@
 import { useState, useRef, useEffect } from 'react';
-import { useAuth } from '@/_core/hooks/useAuth';
 import { Button } from '@/components/ui/button';
 import AIOrchestration from '@/components/AIOrchestration';
 import AIShowcase from '@/components/AIShowcase';
 import CertificationsGallery from '@/components/CertificationsGallery';
-
+import SpotifyWidget from '@/components/SpotifyWidget';
 import { Github, Linkedin, Mail, Download, Moon, Sun } from 'lucide-react';
 
 
@@ -20,10 +19,6 @@ import { Github, Linkedin, Mail, Download, Moon, Sun } from 'lucide-react';
  */
 
 export default function Home() {
-  // The userAuth hooks provides authentication state
-  // To implement login/logout functionality, simply call logout() or redirect to getLoginUrl()
-  const { user, loading, error, isAuthenticated, logout } = useAuth();
-
   const [isDark, setIsDark] = useState(true);
   const projectsRef = useRef<HTMLDivElement>(null);
 
@@ -125,7 +120,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-
+      <SpotifyWidget />
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-center md:justify-between">
@@ -714,7 +709,7 @@ export default function Home() {
 
     <div className="flex gap-3 pt-2">
       <a
-        href="https://behaviou-riq-hsrj.vercel.app"
+        href="https://behaviou-riq-oyk9.vercel.app"
         target="_blank"
         rel="noopener noreferrer"
         className="flex-1 text-center px-4 py-2 rounded-lg bg-accent text-background font-medium hover:opacity-90 transition"
@@ -733,149 +728,8 @@ export default function Home() {
     </div>
   </div>
 </div>
-            {/* Project 6 */}
 
-<div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
-  <div className="space-y-4">
-    <h3 className="text-xl font-semibold">
-      House Price Prediction
-    </h3>
-
-    <p className="text-sm text-muted leading-relaxed">
-      Developed an end-to-end machine learning application to predict residential property prices by comparing multiple regression models. Evaluated Linear Regression, Decision Tree, Random Forest, and XGBoost, then deployed the best-performing model through an interactive Streamlit web application for real-time price prediction.
-    </p>
-
-    <div className="grid grid-cols-3 gap-4 border-y border-border py-4">
-      <div>
-        <p className="text-accent text-xl font-bold">4</p>
-        <p className="text-xs text-muted">ML Models</p>
-      </div>
-
-      <div>
-        <p className="text-accent text-xl font-bold">XGBoost</p>
-        <p className="text-xs text-muted">Best Performer</p>
-      </div>
-
-      <div>
-        <p className="text-accent text-xl font-bold">Real-Time</p>
-        <p className="text-xs text-muted">Predictions</p>
-      </div>
-    </div>
-
-    <div className="flex flex-wrap gap-2">
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        Python
-      </span>
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        Scikit-Learn
-      </span>
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        XGBoost
-      </span>
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        Streamlit
-      </span>
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        Pandas
-      </span>
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        Machine Learning
-      </span>
-    </div>
-
-    <div className="flex gap-3 pt-2">
-      <a
-        href="https://house-price-predictor-pied.vercel.app"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex-1 text-center px-4 py-2 rounded-lg bg-accent text-background font-medium hover:opacity-90 transition"
-      >
-        🚀 Live Demo
-      </a>
-
-      <a
-        href="https://github.com/Samarssj/Housing-price-predictor"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex-1 text-center px-4 py-2 rounded-lg border border-border hover:border-accent hover:text-accent transition"
-      >
-        💻 GitHub
-      </a>
-    </div>
-  </div>
-</div>
-            {/* Project 7 */}
-            <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
-  <div className="space-y-4">
-    <h3 className="text-xl font-semibold">
-      Height Predictor
-    </h3>
-
-    <p className="text-sm text-muted leading-relaxed">
-      Developed a full-stack machine learning application that predicts a person's height using a Linear Regression model. Integrated a JavaScript frontend with a Node.js backend and REST API to deliver real-time predictions through an interactive web interface.
-    </p>
-
-    <div className="grid grid-cols-3 gap-4 border-y border-border py-4">
-      <div>
-        <p className="text-accent text-xl font-bold">ML</p>
-        <p className="text-xs text-muted">Linear Regression</p>
-      </div>
-
-      <div>
-        <p className="text-accent text-xl font-bold">REST API</p>
-        <p className="text-xs text-muted">Node Backend</p>
-      </div>
-
-      <div>
-        <p className="text-accent text-xl font-bold">Full Stack</p>
-        <p className="text-xs text-muted">Interactive UI</p>
-      </div>
-    </div>
-
-    <div className="flex flex-wrap gap-2">
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        JavaScript
-      </span>
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        Node.js
-      </span>
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        Express.js
-      </span>
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        Python
-      </span>
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        Linear Regression
-      </span>
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        REST API
-      </span>
-    </div>
-
-    <div className="flex gap-3 pt-2">
-      <a
-        href="https://heightpredictor.onrender.com"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex-1 text-center px-4 py-2 rounded-lg bg-accent text-background font-medium hover:opacity-90 transition"
-      >
-        🚀 Live Demo
-      </a>
-
-      <a
-        href="https://github.com/Samarssj/heightPredictor"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex-1 text-center px-4 py-2 rounded-lg border border-border hover:border-accent hover:text-accent transition"
-      >
-        💻 GitHub
-      </a>
-    </div>
-  </div>
-</div>
-          
-{/* Project 8 */}
+{/* Project 6 */}
             <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
   <div className="space-y-4">
     <h3 className="text-xl font-semibold">
