@@ -659,57 +659,54 @@ export default function Home() {
            <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
   <div className="space-y-4">
     <h3 className="text-xl font-semibold">
-      Behaviour-IQ
+      Clearance Desk
     </h3>
 
     <p className="text-sm text-muted leading-relaxed">
-      Developed an AI-powered behavioral analysis platform that
-      evaluates user interaction patterns to generate actionable
-      insights using intelligent data processing, predictive analytics,
-      and interactive visualizations for data-driven decision making.
+      Built an AI-powered resume parser and Job Description matcher that extracts candidate information using hybrid rule-based parsing with Gemini fallback, then scores resumes through semantic similarity, skill matching, and experience analysis.
     </p>
 
     <div className="grid grid-cols-3 gap-4 border-y border-border py-4">
       <div>
         <p className="text-accent text-xl font-bold">AI</p>
-        <p className="text-xs text-muted">Behavior Analysis</p>
+        <p className="text-xs text-muted">Resume Parsing</p>
       </div>
 
       <div>
-        <p className="text-accent text-xl font-bold">Analytics</p>
-        <p className="text-xs text-muted">Data Insights</p>
+        <p className="text-accent text-xl font-bold">Hybrid</p>
+        <p className="text-xs text-muted">Rule + LLM</p>
       </div>
 
       <div>
-        <p className="text-accent text-xl font-bold">Real-Time</p>
-        <p className="text-xs text-muted">Visual Reports</p>
+        <p className="text-accent text-xl font-bold">ATS</p>
+        <p className="text-xs text-muted">Resume Matching</p>
       </div>
     </div>
 
     <div className="flex flex-wrap gap-2">
       <span className="px-3 py-1 text-xs rounded-full border border-border">
-        JavaScript
+        Python
       </span>
       <span className="px-3 py-1 text-xs rounded-full border border-border">
-        HTML
+        Streamlit
       </span>
       <span className="px-3 py-1 text-xs rounded-full border border-border">
-        CSS
+        Gemini API
       </span>
       <span className="px-3 py-1 text-xs rounded-full border border-border">
-        Data Analytics
+        PDF Parsing
       </span>
       <span className="px-3 py-1 text-xs rounded-full border border-border">
-        AI
+        RapidFuzz
       </span>
       <span className="px-3 py-1 text-xs rounded-full border border-border">
-        Data Processing
+        NLP
       </span>
     </div>
 
     <div className="flex gap-3 pt-2">
       <a
-        href="https://behaviou-riq-oyk9.vercel.app"
+        href="https://samarssj-clerance-desk-app-4ik4yy.streamlit.app"
         target="_blank"
         rel="noopener noreferrer"
         className="flex-1 text-center px-4 py-2 rounded-lg bg-accent text-background font-medium hover:opacity-90 transition"
@@ -718,7 +715,7 @@ export default function Home() {
       </a>
 
       <a
-        href="https://github.com/Samarssj/BEHAVIOURiq"
+        href="https://github.com/Samarssj/Clearance_desk"
         target="_blank"
         rel="noopener noreferrer"
         className="flex-1 text-center px-4 py-2 rounded-lg border border-border hover:border-accent hover:text-accent transition"
