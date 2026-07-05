@@ -435,7 +435,7 @@ export default function Home() {
       Developed an end-to-end NLP application that classifies movie
       reviews into five sentiment categories using TF-IDF feature
       extraction and machine learning. Compared multiple classification
-      models and deployed the best-performing model through an
+      models and deployed the best-performing model (linear tuned SVM) through an
       interactive Streamlit web application for real-time sentiment
       prediction.
     </p>
@@ -737,7 +737,7 @@ export default function Home() {
     </h3>
 
     <p className="text-sm text-muted leading-relaxed">
-      Built a machine learning application with a sign up feature that predicts residential property prices using regression techniques. Trained and evaluated multiple models, then deployed the best-performing model (linear tuned SVM) through an interactive web interface for real-time predictions.
+      Built a machine learning application with a sign up feature that predicts residential property prices using regression techniques. Trained and evaluated multiple models, then deployed the best-performing model (XG Boost) through an interactive web interface for real-time predictions.
     </p>
 
     <div className="grid grid-cols-3 gap-4 border-y border-border py-4">
