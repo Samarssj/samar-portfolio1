@@ -447,7 +447,7 @@ export default function Home() {
       </div>
 
       <div>
-        <p className="text-accent text-xl font-bold">4</p>
+        <p className="text-accent text-xl font-bold">4+</p>
         <p className="text-xs text-muted">ML Models Compared</p>
       </div>
 
@@ -729,7 +729,78 @@ export default function Home() {
   </div>
 </div>
 
-{/* Project 6 */}
+         {/* Project 6 */}   
+<div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
+  <div className="space-y-4">
+    <h3 className="text-xl font-semibold">
+      House Price Prediction
+    </h3>
+
+    <p className="text-sm text-muted leading-relaxed">
+      Built a machine learning application with a sign up feature that predicts residential property prices using regression techniques. Trained and evaluated multiple models, then deployed the best-performing model (linear tuned SVM) through an interactive web interface for real-time predictions.
+    </p>
+
+    <div className="grid grid-cols-3 gap-4 border-y border-border py-4">
+      <div>
+        <p className="text-accent text-xl font-bold">4+ML models</p>
+        <p className="text-xs text-muted">Regression Model</p>
+      </div>
+
+      <div>
+        <p className="text-accent text-xl font-bold">Real-Time</p>
+        <p className="text-xs text-muted">Predictions</p>
+      </div>
+
+      <div>
+        <p className="text-accent text-xl font-bold">EDA</p>
+        <p className="text-xs text-muted">Data Analysis</p>
+      </div>
+    </div>
+
+    <div className="flex flex-wrap gap-2">
+      <span className="px-3 py-1 text-xs rounded-full border border-border">
+        Python
+      </span>
+      <span className="px-3 py-1 text-xs rounded-full border border-border">
+        Scikit-Learn
+      </span>
+      <span className="px-3 py-1 text-xs rounded-full border border-border">
+        Pandas
+      </span>
+      <span className="px-3 py-1 text-xs rounded-full border border-border">
+        NumPy
+      </span>
+      <span className="px-3 py-1 text-xs rounded-full border border-border">
+        Jupyter Notebook
+      </span>
+      <span className="px-3 py-1 text-xs rounded-full border border-border">
+        Machine Learning
+      </span>
+    </div>
+
+    <div className="flex gap-3 pt-2">
+      <a
+        href="https://house-price-predictor-pied.vercel.app"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex-1 text-center px-4 py-2 rounded-lg bg-accent text-background font-medium hover:opacity-90 transition"
+      >
+        🚀 Live Demo
+      </a>
+
+      <a
+        href="https://github.com/Samarssj/Housing-price-predictor"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex-1 text-center px-4 py-2 rounded-lg border border-border hover:border-accent hover:text-accent transition"
+      >
+        💻 GitHub
+      </a>
+    </div>
+  </div>
+</div>
+            
+{/* Project 7 */}
             <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
   <div className="space-y-4">
     <h3 className="text-xl font-semibold">
@@ -789,6 +860,75 @@ export default function Home() {
         className="block w-full text-center px-4 py-2 rounded-lg border border-border hover:border-accent hover:text-accent transition"
       >
         💻 View on GitHub
+      </a>
+    </div>
+  </div>
+</div>
+            <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
+  <div className="space-y-4">
+    <h3 className="text-xl font-semibold">
+      Height Predictor
+    </h3>
+
+    <p className="text-sm text-muted leading-relaxed">
+      Developed a full-stack machine learning application that predicts a person's height using a Linear Regression model. Integrated a JavaScript frontend with a Node.js backend and REST API to deliver real-time predictions through an interactive web interface supporting dark mode toggle.
+    </p>
+
+    <div className="grid grid-cols-3 gap-4 border-y border-border py-4">
+      <div>
+        <p className="text-accent text-xl font-bold">ML</p>
+        <p className="text-xs text-muted">Linear Regression</p>
+      </div>
+
+      <div>
+        <p className="text-accent text-xl font-bold">REST API</p>
+        <p className="text-xs text-muted">Node Backend</p>
+      </div>
+
+      <div>
+        <p className="text-accent text-xl font-bold">Full Stack</p>
+        <p className="text-xs text-muted">Interactive UI</p>
+      </div>
+    </div>
+
+    <div className="flex flex-wrap gap-2">
+      <span className="px-3 py-1 text-xs rounded-full border border-border">
+        JavaScript
+      </span>
+      <span className="px-3 py-1 text-xs rounded-full border border-border">
+        Node.js
+      </span>
+      <span className="px-3 py-1 text-xs rounded-full border border-border">
+        Express.js
+      </span>
+      <span className="px-3 py-1 text-xs rounded-full border border-border">
+        Python
+      </span>
+      <span className="px-3 py-1 text-xs rounded-full border border-border">
+        Linear Regression
+      </span>
+      <span className="px-3 py-1 text-xs rounded-full border border-border">
+        REST API
+      </span>
+    </div>
+
+    <div className="flex gap-3 pt-2">
+      <a
+        href="https://heightpredictor.onrender.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex-1 text-center px-4 py-2 rounded-lg bg-accent text-background font-medium hover:opacity-90 transition"
+      >
+        🚀 Live Demo
+      </a>
+
+      <a
+        href="https://github.com/Samarssj/heightPredictor"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex-1 text-center px-4 py-2 rounded-lg border border-border hover:border-accent hover:text-accent transition"
+      >
+        💻 GitHub
       </a>
     </div>
   </div>
