@@ -739,8 +739,8 @@ export default function Home() {
 
     <div className="grid grid-cols-3 gap-4 border-y border-border py-4">
       <div>
-        <p className="text-accent text-xl font-bold">4+ML models</p>
-        <p className="text-xs text-muted">Regression Model</p>
+        <p className="text-accent text-xl font-bold">Regression</p>
+        <p className="text-xs text-muted">4+ML models</p>
       </div>
 
       <div>
