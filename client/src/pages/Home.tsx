@@ -414,7 +414,7 @@ export default function Home() {
 
     <div className="pt-2">
       <a
-        href="https://github.com/Samarssj/healthcare_bot"
+        href="https://github.com/Samarssj/Enterprise-Agent"
         target="_blank"
         rel="noopener noreferrer"
         className="block w-full text-center px-4 py-2 rounded-lg border border-border hover:border-accent hover:text-accent transition"
