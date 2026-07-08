@@ -4,6 +4,28 @@ import { Search, X } from 'lucide-react';
 export default function SpotifyWidget() {
   const [isOpen, setIsOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [playingTrack, setPlayingTrack] = useState<string | null>(null);
+  const [audioRef] = useState<HTMLAudioElement | null>(null);
+
+  // Your top songs with Spotify preview URLs
+  const topSongs = [
+    { id: 1, title: 'Hotel Drive', artist: 'Vice Monroe', previewUrl: 'https://p.scdn.co/mp3-preview/1234567890' },
+    { id: 2, title: 'Bonny x Slide', artist: 'Unknown', previewUrl: 'https://p.scdn.co/mp3-preview/0987654321' },
+    { id: 3, title: 'Cigarette Stub', artist: 'Asal', previewUrl: 'https://p.scdn.co/mp3-preview/1111111111' },
+    { id: 4, title: 'Heathens', artist: 'Twenty One Pilots', previewUrl: 'https://p.scdn.co/mp3-preview/2222222222' },
+    { id: 5, title: 'I Want to Stay at Your House', artist: 'Rose Walton', previewUrl: 'https://p.scdn.co/mp3-preview/3333333333' },
+    { id: 6, title: 'Numb', artist: 'Linkin Park', previewUrl: 'https://p.scdn.co/mp3-preview/4444444444' },
+  ];
+
+  const playSong = (previewUrl: string, trackId: string) => {
+    if (playingTrack === trackId) {
+      setPlayingTrack(null);
+    } else {
+      setPlayingTrack(trackId);
+      const audio = new Audio(previewUrl);
+      audio.play().catch(err => console.log('Playback failed:', err));
+    }
+  };
 
   // Popular playlists to display
   const playlists = [
@@ -29,14 +51,14 @@ export default function SpotifyWidget() {
       >
         {/* Spinning vinyl record background */}
         <div 
-          className="relative w-20 h-20 rounded-full bg-gradient-to-br from-green-400 to-green-600 shadow-lg shadow-green-500/50 hover:shadow-green-400/70 transition-all duration-300 flex items-center justify-center cursor-pointer"
+          className="relative w-14 h-14 rounded-full bg-gradient-to-br from-green-400 to-green-600 shadow-md shadow-green-500/40 hover:shadow-green-400/60 transition-all duration-300 flex items-center justify-center cursor-pointer"
           style={{
             animation: 'spin 8s linear infinite'
           }}
         >
           {/* Spotify Logo SVG */}
           <svg
-            className="w-10 h-10 text-black"
+            className="w-7 h-7 text-black"
             viewBox="0 0 24 24"
             fill="currentColor"
             xmlns="http://www.w3.org/2000/svg"
@@ -56,7 +78,7 @@ export default function SpotifyWidget() {
 
       {/* Spotify Player Window */}
       {isOpen && (
-        <div className="absolute bottom-24 right-0 w-96 bg-black/95 border border-green-500/30 rounded-lg shadow-2xl shadow-green-500/20 backdrop-blur-md animate-in fade-in slide-in-from-bottom-2 duration-300 overflow-hidden">
+        <div className="absolute bottom-20 right-0 w-80 bg-black/95 border border-green-500/30 rounded-lg shadow-2xl shadow-green-500/20 backdrop-blur-md animate-in fade-in slide-in-from-bottom-2 duration-300 overflow-hidden">
           {/* Header */}
           <div className="flex items-center justify-between p-4 border-b border-green-500/20">
             <div className="flex items-center gap-2">
@@ -92,34 +114,26 @@ export default function SpotifyWidget() {
             </div>
           </div>
 
-          {/* Playlists Grid */}
-          <div className="p-4 max-h-96 overflow-y-auto">
-            {filteredPlaylists.length > 0 ? (
-              <div className="grid grid-cols-2 gap-3">
-                {filteredPlaylists.map((playlist) => (
-                  <a
-                    key={playlist.id}
-                    href="https://open.spotify.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`group relative p-4 rounded-lg bg-gradient-to-br ${playlist.color} hover:shadow-lg hover:shadow-green-500/20 transition-all duration-300 cursor-pointer overflow-hidden`}
-                  >
-                    {/* Overlay */}
-                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
-                    
-                    {/* Content */}
-                    <div className="relative z-10">
-                      <div className="text-3xl mb-2">{playlist.emoji}</div>
-                      <p className="text-white font-semibold text-sm leading-tight">{playlist.name}</p>
-                    </div>
-                  </a>
-                ))}
+          {/* Songs List */}
+          <div className="p-4 max-h-96 overflow-y-auto space-y-2">
+            {topSongs.map((song) => (
+              <div
+                key={song.id}
+                className="flex items-center justify-between p-3 rounded-lg bg-gray-900/50 hover:bg-gray-800/50 transition-colors group"
+              >
+                <div className="flex-1 min-w-0">
+                  <p className="text-gray-200 text-sm font-medium truncate">{song.title}</p>
+                  <p className="text-gray-500 text-xs truncate">{song.artist}</p>
+                </div>
+                <button
+                  onClick={() => playSong(song.previewUrl, `song-${song.id}`)}
+                  className="ml-2 p-2 rounded-full bg-green-500/20 hover:bg-green-500/40 text-green-400 transition-all"
+                  title="Play preview"
+                >
+                  {playingTrack === `song-${song.id}` ? '⏸' : '▶'}
+                </button>
               </div>
-            ) : (
-              <div className="text-center py-8">
-                <p className="text-gray-400">No playlists found</p>
-              </div>
-            )}
+            ))}
           </div>
 
           {/* Footer */}
