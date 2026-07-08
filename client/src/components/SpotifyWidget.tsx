@@ -16,7 +16,7 @@ export default function SpotifyWidget() {
     { id: 7, title: 'You Broke My Heart', artist: 'Myla', image: '/manus-storage/you-broke-my-heart_847a56ac.jpg', spotifyUrl: 'https://open.spotify.com/search/You%20Broke%20My%20Heart%20Myla' },
     { id: 8, title: 'Ride or Die Pt.2', artist: 'Unknown', image: '/manus-storage/ride-or-die_5b086413.jpg', spotifyUrl: 'https://open.spotify.com/search/Ride%20or%20Die%20Pt%202' },
     { id: 9, title: 'Him and I', artist: 'Halsey', image: '/manus-storage/him-and-i_ba307bad.jpg', spotifyUrl: 'https://open.spotify.com/search/Him%20and%20I%20Halsey' },
-    { id: 10, title: 'Poster Boy', artist: 'Darcy', image: '/manus-storage/poster-boy_64f068cc.jpg', spotifyUrl: 'https://open.spotify.com/search/Poster%20Boy%20Darcy' },
+    { id: 10, title: 'Poster Boy', artist: '2 Hollis', image: '/manus-storage/poster-boy_64f068cc.jpg', spotifyUrl: 'https://open.spotify.com/search/Poster%20Boy%202%20Hollis' },
     { id: 11, title: 'On My Own', artist: 'Darcy', image: '/manus-storage/on-my-own_52a270f6.jpg', spotifyUrl: 'https://open.spotify.com/search/On%20My%20Own%20Darcy' },
   ];
 
