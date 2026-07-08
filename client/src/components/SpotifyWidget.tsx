@@ -9,12 +9,12 @@ export default function SpotifyWidget() {
 
   // Your top songs with Spotify preview URLs and album art
   const topSongs = [
-    { id: 1, title: 'Hotel Drive', artist: 'Vice Monroe', previewUrl: 'https://p.scdn.co/mp3-preview/1234567890', image: 'https://i.scdn.co/image/ab67616d0000b273' },
-    { id: 2, title: 'Bonny x Slide', artist: 'Unknown', previewUrl: 'https://p.scdn.co/mp3-preview/0987654321', image: 'https://i.scdn.co/image/ab67616d0000b273' },
-    { id: 3, title: 'Cigarette Stub', artist: 'Asal', previewUrl: 'https://p.scdn.co/mp3-preview/1111111111', image: 'https://i.scdn.co/image/ab67616d0000b273' },
-    { id: 4, title: 'Heathens', artist: 'Twenty One Pilots', previewUrl: 'https://p.scdn.co/mp3-preview/2222222222', image: 'https://i.scdn.co/image/ab67616d0000b273' },
-    { id: 5, title: 'I Want to Stay at Your House', artist: 'Rose Walton', previewUrl: 'https://p.scdn.co/mp3-preview/3333333333', image: 'https://i.scdn.co/image/ab67616d0000b273' },
-    { id: 6, title: 'Numb', artist: 'Linkin Park', previewUrl: 'https://p.scdn.co/mp3-preview/4444444444', image: 'https://i.scdn.co/image/ab67616d0000b273' },
+    { id: 1, title: 'Hotel Drive', artist: 'Vice Monroe', previewUrl: 'https://p.scdn.co/mp3-preview/1234567890', image: '/manus-storage/hotel-drive_c64145e8.jpg' },
+    { id: 2, title: 'Bonny x Slide', artist: 'Unknown', previewUrl: 'https://p.scdn.co/mp3-preview/0987654321', image: '/manus-storage/bonny-slide_4be92ee8.jpg' },
+    { id: 3, title: 'Cigarette Stub', artist: 'Asal', previewUrl: 'https://p.scdn.co/mp3-preview/1111111111', image: '/manus-storage/cigarette-stub_7a636100.jpg' },
+    { id: 4, title: 'Heathens', artist: 'Twenty One Pilots', previewUrl: 'https://p.scdn.co/mp3-preview/2222222222', image: '/manus-storage/heathens_4a4b5dad.jpg' },
+    { id: 5, title: 'I Want to Stay at Your House', artist: 'Rose Walton', previewUrl: 'https://p.scdn.co/mp3-preview/3333333333', image: '/manus-storage/stay-at-house_60c32ae5.jpg' },
+    { id: 6, title: 'Numb', artist: 'Linkin Park', previewUrl: 'https://p.scdn.co/mp3-preview/4444444444', image: '/manus-storage/numb_bd6a21cb.jpg' },
   ];
 
   const playSong = (previewUrl: string, trackId: string) => {
