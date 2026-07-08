@@ -7,14 +7,14 @@ export default function SpotifyWidget() {
   const [playingTrack, setPlayingTrack] = useState<string | null>(null);
   const [audioRef] = useState<HTMLAudioElement | null>(null);
 
-  // Your top songs with Spotify preview URLs
+  // Your top songs with Spotify preview URLs and album art
   const topSongs = [
-    { id: 1, title: 'Hotel Drive', artist: 'Vice Monroe', previewUrl: 'https://p.scdn.co/mp3-preview/1234567890' },
-    { id: 2, title: 'Bonny x Slide', artist: 'Unknown', previewUrl: 'https://p.scdn.co/mp3-preview/0987654321' },
-    { id: 3, title: 'Cigarette Stub', artist: 'Asal', previewUrl: 'https://p.scdn.co/mp3-preview/1111111111' },
-    { id: 4, title: 'Heathens', artist: 'Twenty One Pilots', previewUrl: 'https://p.scdn.co/mp3-preview/2222222222' },
-    { id: 5, title: 'I Want to Stay at Your House', artist: 'Rose Walton', previewUrl: 'https://p.scdn.co/mp3-preview/3333333333' },
-    { id: 6, title: 'Numb', artist: 'Linkin Park', previewUrl: 'https://p.scdn.co/mp3-preview/4444444444' },
+    { id: 1, title: 'Hotel Drive', artist: 'Vice Monroe', previewUrl: 'https://p.scdn.co/mp3-preview/1234567890', image: 'https://i.scdn.co/image/ab67616d0000b273' },
+    { id: 2, title: 'Bonny x Slide', artist: 'Unknown', previewUrl: 'https://p.scdn.co/mp3-preview/0987654321', image: 'https://i.scdn.co/image/ab67616d0000b273' },
+    { id: 3, title: 'Cigarette Stub', artist: 'Asal', previewUrl: 'https://p.scdn.co/mp3-preview/1111111111', image: 'https://i.scdn.co/image/ab67616d0000b273' },
+    { id: 4, title: 'Heathens', artist: 'Twenty One Pilots', previewUrl: 'https://p.scdn.co/mp3-preview/2222222222', image: 'https://i.scdn.co/image/ab67616d0000b273' },
+    { id: 5, title: 'I Want to Stay at Your House', artist: 'Rose Walton', previewUrl: 'https://p.scdn.co/mp3-preview/3333333333', image: 'https://i.scdn.co/image/ab67616d0000b273' },
+    { id: 6, title: 'Numb', artist: 'Linkin Park', previewUrl: 'https://p.scdn.co/mp3-preview/4444444444', image: 'https://i.scdn.co/image/ab67616d0000b273' },
   ];
 
   const playSong = (previewUrl: string, trackId: string) => {
@@ -115,23 +115,32 @@ export default function SpotifyWidget() {
           </div>
 
           {/* Songs List */}
-          <div className="p-4 max-h-96 overflow-y-auto space-y-2">
+          <div className="p-4 max-h-96 overflow-y-auto space-y-3">
             {topSongs.map((song) => (
               <div
                 key={song.id}
-                className="flex items-center justify-between p-3 rounded-lg bg-gray-900/50 hover:bg-gray-800/50 transition-colors group"
+                className="flex items-center gap-3 p-3 rounded-lg bg-gray-900/50 hover:bg-gray-800/50 transition-colors group"
               >
+                {/* Album Art */}
+                <div className="flex-shrink-0 relative">
+                  <img
+                    src={song.image}
+                    alt={`${song.title} album art`}
+                    className="w-12 h-12 rounded-md object-cover"
+                  />
+                  <button
+                    onClick={() => playSong(song.previewUrl, `song-${song.id}`)}
+                    className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-all rounded-md"
+                    title="Play preview"
+                  >
+                    <span className="text-white text-lg">{playingTrack === `song-${song.id}` ? '⏸' : '▶'}</span>
+                  </button>
+                </div>
+                {/* Song Info */}
                 <div className="flex-1 min-w-0">
                   <p className="text-gray-200 text-sm font-medium truncate">{song.title}</p>
                   <p className="text-gray-500 text-xs truncate">{song.artist}</p>
                 </div>
-                <button
-                  onClick={() => playSong(song.previewUrl, `song-${song.id}`)}
-                  className="ml-2 p-2 rounded-full bg-green-500/20 hover:bg-green-500/40 text-green-400 transition-all"
-                  title="Play preview"
-                >
-                  {playingTrack === `song-${song.id}` ? '⏸' : '▶'}
-                </button>
               </div>
             ))}
           </div>
