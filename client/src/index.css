@@ -159,17 +159,40 @@ html:not(.dark) {
     scrollbar-color: #10b981 #1c1c28;
   }
   html::-webkit-scrollbar {
-    width: 8px;
+    width: 10px;
   }
   html::-webkit-scrollbar-track {
-    background: #1c1c28;
+    background: transparent;
   }
   html::-webkit-scrollbar-thumb {
     background: #10b981;
-    border-radius: 4px;
+    border-radius: 5px;
+    border: 2px solid transparent;
+    background-clip: content-box;
   }
   html::-webkit-scrollbar-thumb:hover {
     background: #059669;
+    background-clip: content-box;
+  }
+  body {
+    scrollbar-width: thin;
+    scrollbar-color: #10b981 #1c1c28;
+  }
+  body::-webkit-scrollbar {
+    width: 10px;
+  }
+  body::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  body::-webkit-scrollbar-thumb {
+    background: #10b981;
+    border-radius: 5px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+  body::-webkit-scrollbar-thumb:hover {
+    background: #059669;
+    background-clip: content-box;
   }
   body {
     @apply bg-background text-foreground;
