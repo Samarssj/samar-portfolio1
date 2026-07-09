@@ -136,7 +136,7 @@ export default function CertificationsGallery() {
     href="https://partner.skills.google/public_profiles/e2bb2abb-fb8a-4b51-882e-744f692fa177"
     target="_blank"
     rel="noopener noreferrer"
-    className="group text-center rounded-lg p-3 transition-all duration-300 hover:bg-secondary/50 hover:scale-105 cursor-pointer"
+    className="group text-center rounded-lg p-3 transition-all duration-300 border border-transparent hover:border-accent hover:bg-secondary/50 hover:scale-105 hover:shadow-[0_0_20px_#22c55e] cursor-pointer"
   >
     <div className="flex items-center justify-center gap-1">
       <span className="text-2xl font-bold text-accent">40+</span>
