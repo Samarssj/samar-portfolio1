@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import AIOrchestration from '@/components/AIOrchestration';
+import MultiAgentWorkflow from '@/components/MultiAgentWorkflow';
 import AIShowcase from '@/components/AIShowcase';
 import CertificationsGallery from '@/components/CertificationsGallery';
 import SpotifyWidget from '@/components/SpotifyWidget';
@@ -62,19 +63,19 @@ export default function Home() {
     };
 
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry, index) => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          const animationClass = entry.target.getAttribute('data-animation') || 'animate-fade-in-up';
-          setTimeout(() => {
-            entry.target.classList.add(animationClass);
-          }, index * 80);
+          entry.target.classList.add('active');
+        } else {
+          // Optional: remove to re-trigger animation when scrolling back up
+          // entry.target.classList.remove('active');
         }
       });
     }, observerOptions);
 
-    // Observe all content boxes with data-animation attribute
-    const contentBoxes = document.querySelectorAll('[data-animation]');
-    contentBoxes.forEach((box) => observer.observe(box));
+    // Observe all sections and cards for smooth reveal
+    const revealElements = document.querySelectorAll('.scroll-reveal');
+    revealElements.forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();
   }, []);
@@ -189,8 +190,41 @@ export default function Home() {
                 <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6">
                   <div className="flex-1">
                     <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
-                      AI Engineer &<br />
-                      <span className="text-accent">Full-Stack Developer</span>
+                      {["AI", "Engineer", "&"].map((word, wordIdx, words) => {
+                        const previousCharsCount = words.slice(0, wordIdx).join(" ").length + (wordIdx > 0 ? 1 : 0);
+                        return (
+                          <span key={wordIdx} className="inline-block whitespace-nowrap">
+                            {word.split("").map((char, charIdx) => (
+                              <span 
+                                key={charIdx} 
+                                className="animate-char-reveal" 
+                                style={{ animationDelay: `${(previousCharsCount + charIdx) * 0.05}s` }}
+                              >
+                                {char}
+                              </span>
+                            ))}
+                            {wordIdx < words.length - 1 && <span>&nbsp;</span>}
+                          </span>
+                        );
+                      })}
+                      <br />
+                      {["Full-Stack", "Developer"].map((word, wordIdx, words) => {
+                        const previousCharsCount = words.slice(0, wordIdx).join(" ").length + (wordIdx > 0 ? 1 : 0) + 13;
+                        return (
+                          <span key={wordIdx} className="inline-block whitespace-nowrap text-accent">
+                            {word.split("").map((char, charIdx) => (
+                              <span 
+                                key={charIdx} 
+                                className="animate-char-reveal" 
+                                style={{ animationDelay: `${(previousCharsCount + charIdx) * 0.05}s` }}
+                              >
+                                {char}
+                              </span>
+                            ))}
+                            {wordIdx < words.length - 1 && <span>&nbsp;</span>}
+                          </span>
+                        );
+                      })}
                     </h1>
                   </div>
                   <div className="flex-shrink-0">
@@ -248,9 +282,9 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 border-t border-border">
+      <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 border-t border-border scroll-reveal">
         <div className="max-w-4xl mx-auto">
-          <div className="space-y-6" data-animation="animate-fade-in-up">
+          <div className="space-y-6">
             <div className="space-y-2">
               <div className="text-xs font-semibold text-accent uppercase tracking-widest">About</div>
               <h2 className="text-3xl sm:text-4xl font-bold">Who I Am</h2>
@@ -274,7 +308,7 @@ export default function Home() {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-20 px-4 sm:px-6 lg:px-8 border-t border-border bg-secondary/30">
+      <section id="skills" className="py-20 px-4 sm:px-6 lg:px-8 border-t border-border bg-secondary/30 scroll-reveal">
         <div className="max-w-4xl mx-auto">
           <div className="space-y-2 mb-12">
             <div className="text-xs font-semibold text-accent uppercase tracking-widest">Toolkit</div>
@@ -358,7 +392,7 @@ export default function Home() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 border-t border-border">
+      <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 border-t border-border scroll-reveal">
         <div className="max-w-4xl mx-auto">
           <div className="space-y-2 mb-12">
             <div className="text-xs font-semibold text-accent uppercase tracking-widest">Portfolio</div>
@@ -367,7 +401,7 @@ export default function Home() {
 
           <div ref={projectsRef} className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Project 1 */}
-            <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
+            <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer scroll-reveal">
             <div className="space-y-4">
     <h3 className="text-xl font-semibold">
       Enterprise AI Chatbot
@@ -425,7 +459,7 @@ export default function Home() {
   </div>
 </div>
           {/* Project 2 */}
-            <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
+            <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer scroll-reveal">
   <div className="space-y-4">
     <h3 className="text-xl font-semibold">
       Movie Review Sentiment Analysis
@@ -501,7 +535,7 @@ export default function Home() {
 </div>
 
 {/* Project 3 */}
-           <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
+           <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer scroll-reveal">
   <div className="space-y-4">
     <h3 className="text-xl font-semibold">
       News Pilot — Hybrid AI News Intelligence Platform
@@ -591,7 +625,7 @@ export default function Home() {
 </div>
 
 {/* Project 4 */}
-            <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
+            <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer scroll-reveal">
   <div className="space-y-4">
     <h3 className="text-xl font-semibold">
       E-Blogging Platform
@@ -656,7 +690,7 @@ export default function Home() {
 </div>
 
 {/* Project 5 */}
-           <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
+           <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer scroll-reveal">
   <div className="space-y-4">
     <h3 className="text-xl font-semibold">
       Clearance Desk
@@ -727,7 +761,7 @@ export default function Home() {
 </div>
 
          {/* Project 6 */}   
-<div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
+<div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer scroll-reveal">
   <div className="space-y-4">
     <h3 className="text-xl font-semibold">
       House Price Prediction
@@ -798,7 +832,7 @@ export default function Home() {
 </div>
             
 {/* Project 7 */}
-            <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
+            <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer scroll-reveal">
   <div className="space-y-4">
     <h3 className="text-xl font-semibold">
       Travel Booking Platform
@@ -862,7 +896,7 @@ export default function Home() {
   </div>
 </div>
             {/* Project 8 */}
-            <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
+            <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer scroll-reveal">
   <div className="space-y-4">
     <h3 className="text-xl font-semibold">
       FlowCast
@@ -931,14 +965,14 @@ export default function Home() {
 </div> {/* max-w-4xl */}
 </section>
       {/* AI Engineering Showcase */}
-      <section id="ai-showcase" className="py-20 px-4 sm:px-6 lg:px-8 border-t border-border bg-secondary/30">
+      <section id="ai-showcase" className="py-20 px-4 sm:px-6 lg:px-8 border-t border-border bg-secondary/30 scroll-reveal">
         <div className="max-w-4xl mx-auto">
           <AIShowcase />
         </div>
       </section>
 
       {/* Certifications */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 border-t border-border">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 border-t border-border scroll-reveal">
         <div className="max-w-4xl mx-auto">
           <div className="space-y-2 mb-12">
           </div>
@@ -948,7 +982,7 @@ export default function Home() {
       </section>
 
       {/* Experience */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 border-t border-border bg-secondary/30">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 border-t border-border bg-secondary/30 scroll-reveal">
         <div className="max-w-4xl mx-auto">
           <div className="space-y-2 mb-12">
             <div className="text-xs font-semibold text-accent uppercase tracking-widest">Career</div>
@@ -957,7 +991,7 @@ export default function Home() {
 
           <div className="space-y-8">
             {/* EXL Service */}
-            <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
+            <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer scroll-reveal">
               <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
                 <div>
                   <h3 className="text-xl font-semibold">AI Engineer Intern</h3>
@@ -975,7 +1009,7 @@ export default function Home() {
             </div>
 
             {/* HighRadius */}
-            <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
+            <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer scroll-reveal">
               <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
                 <div>
                   <h3 className="text-xl font-semibold">ABM Intern</h3>
@@ -996,14 +1030,14 @@ export default function Home() {
       </section>
 
       {/* Education */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 border-t border-border">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 border-t border-border scroll-reveal">
         <div className="max-w-4xl mx-auto">
           <div className="space-y-2 mb-12">
             <div className="text-xs font-semibold text-accent uppercase tracking-widest">Education</div>
             <h2 className="text-3xl sm:text-4xl font-bold">Academic Background</h2>
           </div>
 
-          <div className="p-6 rounded-lg border border-border bg-background/50 hover:scale-[1.01] hover:border-accent hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
+          <div className="p-6 rounded-lg border border-border bg-background/50 hover:scale-[1.01] hover:border-accent hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer scroll-reveal">
             <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
               <div>
                 <h3 className="text-xl font-semibold">B.E. Computer Science</h3>
@@ -1017,7 +1051,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 border-t border-border bg-secondary/30">
+      <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 border-t border-border bg-secondary/30 scroll-reveal">
         <div className="max-w-2xl mx-auto">
           <div className="space-y-2 mb-12 text-center">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-accent/20 bg-accent/5 mx-auto">
@@ -1038,7 +1072,7 @@ export default function Home() {
             </p>
           </div>
 
-          <form onSubmit={handleFormSubmit} className="p-8 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
+          <form onSubmit={handleFormSubmit} className="p-8 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer scroll-reveal">
             {/* Name Field */}
             <div className="space-y-2">
               <label htmlFor="name" className="block text-sm font-medium text-foreground">Name</label>

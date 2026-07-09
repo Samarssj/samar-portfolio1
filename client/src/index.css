@@ -306,6 +306,43 @@ html:not(.dark) {
     animation: pulse-glow 2s ease-in-out infinite;
   }
 
+  @keyframes charReveal {
+    from {
+      opacity: 0;
+      transform: translateY(10px) rotateX(-90deg);
+      filter: blur(4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) rotateX(0);
+      filter: blur(0);
+    }
+  }
+
+  .animate-char-reveal {
+    opacity: 0;
+    display: inline-block;
+    animation: charReveal 0.4s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+    perspective: 1000px;
+  }
+
+  /* Enhanced Scroll Reveal */
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .scroll-reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Smooth scroll for all links */
+  * {
+    scroll-behavior: smooth !important;
+  }
+
   @keyframes fadeInDown {
     from {
       opacity: 0;
