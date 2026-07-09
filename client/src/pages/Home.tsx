@@ -904,7 +904,7 @@ export default function Home() {
         Feature Engineering
       </span>
     </div>
-    <div className="flex gap-3 pt-2">
+   <div className="flex gap-3 pt-2">
   <a
     href="https://period-predictor-kxssmdhkv2qxjqymovkkro.streamlit.app"
     target="_blank"
@@ -923,10 +923,13 @@ export default function Home() {
     💻 GitHub
   </a>
 </div>
-          </div> {/* projects grid */}
-        </div>   {/* max-w-4xl */}
-      </section>
 
+</div> {/* space-y-4 */}
+</div> {/* Project 8 */}
+
+</div> {/* projects grid */}
+</div> {/* max-w-4xl */}
+</section>
       {/* AI Engineering Showcase */}
       <section id="ai-showcase" className="py-20 px-4 sm:px-6 lg:px-8 border-t border-border bg-secondary/30">
         <div className="max-w-4xl mx-auto">
