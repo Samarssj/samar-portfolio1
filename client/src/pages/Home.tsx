@@ -905,24 +905,23 @@ export default function Home() {
       </span>
     </div>
     <div className="flex gap-3 pt-2">
-      
-        href="https://period-predictor-kxssmdhkv2qxjqymovkkro.streamlit.app"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex-1 text-center px-4 py-2 rounded-lg bg-accent text-background font-medium hover:opacity-90 transition"
-      >
-        🚀 Live Demo
-      </a>
-      
-        href="https://github.com/Samarssj/Period-Predictor"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex-1 text-center px-4 py-2 rounded-lg border border-border hover:border-accent hover:text-accent transition"
-      >
-        💻 GitHub
-      </a>
-    </div>
-  </div>
+  <a
+    href="https://period-predictor-kxssmdhkv2qxjqymovkkro.streamlit.app"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="flex-1 text-center px-4 py-2 rounded-lg bg-accent text-background font-medium hover:opacity-90 transition"
+  >
+    🚀 Live Demo
+  </a>
+
+  <a
+    href="https://github.com/Samarssj/Period-Predictor"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="flex-1 text-center px-4 py-2 rounded-lg border border-border hover:border-accent hover:text-accent transition"
+  >
+    💻 GitHub
+  </a>
 </div>
           </div> {/* projects grid */}
         </div>   {/* max-w-4xl */}
