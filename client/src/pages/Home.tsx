@@ -249,7 +249,7 @@ export default function Home() {
                     Get in Touch
                   </Button>
                 </a>
-                <a href="https://drive.google.com/file/d/1o_w_ES_hotYhv4HiPzucbpBy9P2WMpwP/view?usp=drivesdk" target="_blank" rel="noopener noreferrer">
+                <a href="https://drive.google.com/file/d/1NL-mNQrXzXZkrLSsiCaXGj7jbMng2F0d/view?usp=drivesdk" target="_blank" rel="noopener noreferrer">
                   <Button variant="outline" className="gap-2 hover:border-accent active:bg-accent/10 transition-all">
                     <Download className="w-4 h-4" />
                     Resume
