@@ -13,11 +13,11 @@ export default function SpotifyWidget() {
     { id: 4, title: 'Heathens', artist: 'Twenty One Pilots', image: '/album-art/heathens.jpg', spotifyUrl: 'https://open.spotify.com/track/6i0V126gy6B9oyZpA0i9Zq' },
     { id: 5, title: 'I Want to Stay at Your House', artist: 'Rose Walton', image: '/album-art/stay_at_your_house.jpg', spotifyUrl: 'https://open.spotify.com/track/7099v7f9y4v59V9y4v59V9' },
     { id: 6, title: 'Numb', artist: 'Linkin Park', image: '/album-art/numb.jpg', spotifyUrl: 'https://open.spotify.com/track/2EqlS6q6ORvA96tY66R2A9' },
-    { id: 7, title: 'You Broke My Heart', artist: 'Myla', image: 'https://i.scdn.co/image/ab67616d0000b273847a56acd231025e8122de47', spotifyUrl: 'https://open.spotify.com/search/You%20Broke%20My%20Heart%20Myla' },
-    { id: 8, title: 'Ride or Die Pt.2', artist: 'Unknown', image: 'https://i.scdn.co/image/ab67616d0000b2735b086413d231025e8122de47', spotifyUrl: 'https://open.spotify.com/search/Ride%20or%20Die%20Pt%202' },
-    { id: 9, title: 'Him and I', artist: 'Halsey', image: 'https://i.scdn.co/image/ab67616d0000b273ba307badd231025e8122de47', spotifyUrl: 'https://open.spotify.com/search/Him%20and%20I%20Halsey' },
-    { id: 10, title: 'Poster Boy', artist: '2 Hollis', image: 'https://i.scdn.co/image/ab67616d0000b27364f068ccd231025e8122de47', spotifyUrl: 'https://open.spotify.com/search/Poster%20Boy%202%20Hollis' },
-    { id: 11, title: 'On My Own', artist: 'Darcy', image: 'https://i.scdn.co/image/ab67616d0000b27352a270f6d231025e8122de47', spotifyUrl: 'https://open.spotify.com/search/On%20My%20Own%20Darcy' },
+    { id: 7, title: 'You Broke My Heart', artist: 'Myla', image: '/album-art/you_broke_my_heart.jpg', spotifyUrl: 'https://open.spotify.com/search/You%20Broke%20My%20Heart%20Myla' },
+    { id: 8, title: 'Ride or Die Pt.2', artist: 'Unknown', image: '/album-art/ride_or_die.jpg', spotifyUrl: 'https://open.spotify.com/search/Ride%20or%20Die%20Pt%202' },
+    { id: 9, title: 'Him and I', artist: 'Halsey', image: '/album-art/him_and_i.jpg', spotifyUrl: 'https://open.spotify.com/search/Him%20and%20I%20Halsey' },
+    { id: 10, title: 'Poster Boy', artist: '2 Hollis', image: '/album-art/poster_boy.jpg', spotifyUrl: 'https://open.spotify.com/search/Poster%20Boy%202%20Hollis' },
+    { id: 11, title: 'On My Own', artist: 'Darcy', image: '/album-art/on_my_own.jpg', spotifyUrl: 'https://open.spotify.com/search/On%20My%20Own%20Darcy' },
   ];
 
   const filteredSongs = topSongs.filter(song =>
