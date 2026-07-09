@@ -861,66 +861,60 @@ export default function Home() {
     </div>
   </div>
 </div>
+            {/* Project 8 */}
             <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
   <div className="space-y-4">
     <h3 className="text-xl font-semibold">
-      Height Predictor
+      FlowCast
     </h3>
-
     <p className="text-sm text-muted leading-relaxed">
-      Developed a full-stack machine learning application that predicts a person's height using a Linear Regression model. Integrated a JavaScript frontend with a Node.js backend and REST API to deliver real-time predictions through an interactive web interface supporting dark mode toggle.
+      Built an ML-powered menstrual cycle prediction app trained on real-world cycle data, combining a rolling-average baseline with a regression model to forecast next period start dates, complete with an interactive cycle logging and symptom-tracking dashboard.
     </p>
-
     <div className="grid grid-cols-3 gap-4 border-y border-border py-4">
       <div>
         <p className="text-accent text-xl font-bold">ML</p>
-        <p className="text-xs text-muted">Linear Regression</p>
+        <p className="text-xs text-muted">Cycle Prediction</p>
       </div>
-
       <div>
-        <p className="text-accent text-xl font-bold">REST API</p>
-        <p className="text-xs text-muted">Node Backend</p>
+        <p className="text-accent text-xl font-bold">±1.8d</p>
+        <p className="text-xs text-muted">Avg. Model Error</p>
       </div>
-
       <div>
-        <p className="text-accent text-xl font-bold">Full Stack</p>
-        <p className="text-xs text-muted">Interactive UI</p>
+        <p className="text-accent text-xl font-bold">159</p>
+        <p className="text-xs text-muted">Users in Training Data</p>
       </div>
     </div>
-
     <div className="flex flex-wrap gap-2">
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        JavaScript
-      </span>
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        Node.js
-      </span>
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        Express.js
-      </span>
       <span className="px-3 py-1 text-xs rounded-full border border-border">
         Python
       </span>
       <span className="px-3 py-1 text-xs rounded-full border border-border">
-        Linear Regression
+        Streamlit
       </span>
       <span className="px-3 py-1 text-xs rounded-full border border-border">
-        REST API
+        scikit-learn
+      </span>
+      <span className="px-3 py-1 text-xs rounded-full border border-border">
+        Pandas
+      </span>
+      <span className="px-3 py-1 text-xs rounded-full border border-border">
+        Regression
+      </span>
+      <span className="px-3 py-1 text-xs rounded-full border border-border">
+        Feature Engineering
       </span>
     </div>
-
     <div className="flex gap-3 pt-2">
-      <a
-        href="https://heightpredictor.onrender.com"
+      
+        href="https://period-predictor-kxssmdhkv2qxjqymovkkro.streamlit.app"
         target="_blank"
         rel="noopener noreferrer"
         className="flex-1 text-center px-4 py-2 rounded-lg bg-accent text-background font-medium hover:opacity-90 transition"
       >
         🚀 Live Demo
       </a>
-
-      <a
-        href="https://github.com/Samarssj/heightPredictor"
+      
+        href="https://github.com/Samarssj/Period-Predictor"
         target="_blank"
         rel="noopener noreferrer"
         className="flex-1 text-center px-4 py-2 rounded-lg border border-border hover:border-accent hover:text-accent transition"
@@ -930,7 +924,6 @@ export default function Home() {
     </div>
   </div>
 </div>
-
           </div> {/* projects grid */}
         </div>   {/* max-w-4xl */}
       </section>
