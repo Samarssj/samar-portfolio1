@@ -832,7 +832,7 @@ export default function Home() {
 </div>
             
 {/* Project 7 */}
-            <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer scroll-reveal">
+           <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer scroll-reveal">
   <div className="space-y-4">
     <h3 className="text-xl font-semibold">
       Travel Booking Platform
@@ -883,14 +883,23 @@ export default function Home() {
       </span>
     </div>
 
-    <div className="pt-2">
+    <div className="flex gap-3 pt-2">
+      <a
+        href="https://tesystem-1.onrender.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex-1 text-center px-4 py-2 rounded-lg bg-accent text-background font-medium hover:opacity-90 transition"
+      >
+        🚀 Live Demo
+      </a>
+
       <a
         href="https://github.com/Samarssj/TEsystem"
         target="_blank"
         rel="noopener noreferrer"
-        className="block w-full text-center px-4 py-2 rounded-lg border border-border hover:border-accent hover:text-accent transition"
+        className="flex-1 text-center px-4 py-2 rounded-lg border border-border hover:border-accent hover:text-accent transition"
       >
-        💻 View on GitHub
+        💻 GitHub
       </a>
     </div>
   </div>
