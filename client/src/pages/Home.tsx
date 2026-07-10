@@ -558,8 +558,8 @@ export default function Home() {
       </div>
 
       <div>
-        <p className="text-accent text-xl font-bold">ChromaDB</p>
-        <p className="text-xs text-muted">Vector Store</p>
+        <p className="text-accent text-xl font-bold">1.9 sec</p>
+        <p className="text-xs text-muted">Average Response Time</p>
       </div>
 
       <div>
@@ -782,7 +782,7 @@ export default function Home() {
 
     <div className="grid grid-cols-3 gap-4 border-y border-border py-4">
       <div>
-        <p className="text-accent text-xl font-bold">Regression</p>
+        <p className="text-accent text-xl font-bold">0.91-R^2</p>
         <p className="text-xs text-muted">4+ML models</p>
       </div>
 
@@ -866,7 +866,7 @@ export default function Home() {
       </div>
 
       <div>
-        <p className="text-accent text-xl font-bold">Responsive</p>
+        <p className="text-accent text-xl font-bold">Active</p>
         <p className="text-xs text-muted">User Experience</p>
       </div>
     </div>
