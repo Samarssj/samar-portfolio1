@@ -676,14 +676,23 @@ export default function Home() {
       </span>
     </div>
 
-    <div className="pt-2">
+    <div className="flex gap-3 pt-2">
+      <a
+        href="https://eblogging-webapp-1.onrender.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex-1 text-center px-4 py-2 rounded-lg bg-accent text-background font-medium hover:opacity-90 transition"
+      >
+        🚀 Live Demo
+      </a>
+
       <a
         href="https://github.com/Samarssj/eBlogging-webapp"
         target="_blank"
         rel="noopener noreferrer"
-        className="block w-full text-center px-4 py-2 rounded-lg border border-border hover:border-accent hover:text-accent transition"
+        className="flex-1 text-center px-4 py-2 rounded-lg border border-border hover:border-accent hover:text-accent transition"
       >
-        💻 View on GitHub
+        💻 GitHub
       </a>
     </div>
   </div>
