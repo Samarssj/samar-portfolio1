@@ -8,16 +8,16 @@ export default function SpotifyWidget() {
   // Your top songs with local album art paths for 100% reliability
   const topSongs = [
     { id: 1, title: 'Hotel Drive', artist: 'Vice Monroe', image: '/album-art/hotel_drive.jpg', spotifyUrl: 'https://open.spotify.com/track/7aTAGvaUGGxFV37c3Yl2ub' },
-    { id: 2, title: 'The Unknown', artist: 'Bonny X Clyde', image: '/album-art/the_unknown.jpg', spotifyUrl: 'https://open.spotify.com/search/The%20Unknown%20Bonny%20X%20Clyde' },
-    { id: 3, title: 'Cigarette Stub', artist: 'Asal', image: '/album-art/cigarette_stub.jpg', spotifyUrl: 'https://open.spotify.com/track/1a2vD77Gf9y4v59V9y4v59' },
+    { id: 2, title: 'The Unknown', artist: 'Bonny X Clyde', image: '/album-art/the_unknown.jpg', spotifyUrl: 'https://open.spotify.com/track/6wDTv2XSlz6e0KCXjbqyOG' },
+    { id: 3, title: 'Cigarette Stub', artist: 'Asal', image: '/album-art/cigarette_stub.jpg', spotifyUrl: 'https://open.spotify.com/track/0bCrjySLJB37HbwKd4wIun' },
     { id: 4, title: 'Heathens', artist: 'Twenty One Pilots', image: '/album-art/heathens.jpg', spotifyUrl: 'https://open.spotify.com/track/6i0V126gy6B9oyZpA0i9Zq' },
-    { id: 5, title: 'I Want to Stay at Your House', artist: 'Rose Walton', image: '/album-art/stay_at_your_house.jpg', spotifyUrl: 'https://open.spotify.com/track/7099v7f9y4v59V9y4v59V9' },
+    { id: 5, title: 'I Want to Stay at Your House', artist: 'Rose Walton', image: '/album-art/stay_at_your_house.jpg', spotifyUrl: 'https://open.spotify.com/track/7mykoq6R3BArsSpNDjFQTm' },
     { id: 6, title: 'Numb', artist: 'Linkin Park', image: '/album-art/numb.jpg', spotifyUrl: 'https://open.spotify.com/track/2EqlS6q6ORvA96tY66R2A9' },
-    { id: 7, title: 'You Broke My Heart', artist: 'Myla', image: '/album-art/you_broke_my_heart.jpg', spotifyUrl: 'https://open.spotify.com/search/You%20Broke%20My%20Heart%20Myla' },
-    { id: 8, title: 'Ride or Die Pt.2', artist: 'Unknown', image: '/album-art/ride_or_die.jpg', spotifyUrl: 'https://open.spotify.com/search/Ride%20or%20Die%20Pt%202' },
-    { id: 9, title: 'Him and I', artist: 'Halsey', image: '/album-art/him_and_i.jpg', spotifyUrl: 'https://open.spotify.com/search/Him%20and%20I%20Halsey' },
-    { id: 10, title: 'Poster Boy', artist: '2 Hollis', image: '/album-art/poster_boy.jpg', spotifyUrl: 'https://open.spotify.com/search/Poster%20Boy%202%20Hollis' },
-    { id: 11, title: 'On My Own', artist: 'Darcy', image: '/album-art/on_my_own.jpg', spotifyUrl: 'https://open.spotify.com/search/On%20My%20Own%20Darcy' },
+    { id: 7, title: 'You Broke My Heart', artist: 'Myla', image: '/album-art/you_broke_my_heart.jpg', spotifyUrl: 'https://open.spotify.com/track/1j1shw1drvJCIlOXEZY9BD' },
+    { id: 8, title: 'Ride or Die Pt.2', artist: 'Sevdaliza', image: '/album-art/ride_or_die.jpg', spotifyUrl: 'https://open.spotify.com/track/5oYVxFt2k4SkVp6wzVsFWN' },
+    { id: 9, title: 'Him and I', artist: 'G-Eazy & Halsey', image: '/album-art/him_and_i.jpg', spotifyUrl: 'https://open.spotify.com/track/5k38wzpLb15YgncyWdTZE4' },
+    { id: 10, title: 'Poster Boy', artist: '2hollis', image: '/album-art/poster_boy.jpg', spotifyUrl: 'https://open.spotify.com/track/0Gz4Q1Bmyef5yA0G6LIIQZ' },
+    { id: 11, title: 'On My Own', artist: 'Darci', image: '/album-art/on_my_own.jpg', spotifyUrl: 'https://open.spotify.com/track/0F4FejjWi3bf5vGOkuQwPS' },
   ];
 
   const filteredSongs = topSongs.filter(song =>
