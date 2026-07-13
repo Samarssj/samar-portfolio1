@@ -402,7 +402,7 @@ export default function Home() {
           <div ref={projectsRef} className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Project 1 */}
             <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer scroll-reveal">
-            <div className="space-y-4">
+  <div className="space-y-4">
     <h3 className="text-xl font-semibold">
       Enterprise AI Chatbot
     </h3>
@@ -436,24 +436,34 @@ export default function Home() {
         Vertex AI
       </span>
       <span className="px-3 py-1 text-xs rounded-full border border-border">
-        Dialogflow CX
+        CX Agent Studio
       </span>
       <span className="px-3 py-1 text-xs rounded-full border border-border">
         GCP
       </span>
       <span className="px-3 py-1 text-xs rounded-full border border-border">
-        OPEN API Tools
+        OpenAPI Tools
       </span>
     </div>
 
-    <div className="pt-2">
+    {/* Buttons */}
+    <div className="pt-2 grid grid-cols-2 gap-3">
+      <a
+        href="https://healthcare-card-portal.vercel.app"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center justify-center px-4 py-2 rounded-lg bg-accent text-background font-medium hover:opacity-90 transition-all duration-300"
+      >
+        🚀 Live Demo
+      </a>
+
       <a
         href="https://github.com/Samarssj/Enterprise-Agent"
         target="_blank"
         rel="noopener noreferrer"
-        className="block w-full text-center px-4 py-2 rounded-lg border border-border hover:border-accent hover:text-accent transition"
+        className="flex items-center justify-center px-4 py-2 rounded-lg border border-border hover:border-accent hover:text-accent transition-all duration-300"
       >
-        💻 View on GitHub
+        💻 GitHub
       </a>
     </div>
   </div>
