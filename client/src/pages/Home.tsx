@@ -840,6 +840,8 @@ export default function Home() {
     💻 GitHub
   </a>
 </div>
+    </div>
+</div>
             
 {/* Project 7 */}
            <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer scroll-reveal">
