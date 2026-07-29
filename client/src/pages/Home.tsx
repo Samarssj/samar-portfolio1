@@ -821,23 +821,25 @@ export default function Home() {
       </span>
     </div>
     {/* Buttons */}
-    <div className="pt-2 grid grid-cols-2 gap-3">
-      
-        href="https://health-buddy-hglg822fh6wt86qhrt6jp2.streamlit.app"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="flex items-center justify-center px-4 py-2 rounded-lg bg-accent text-background font-medium hover:opacity-90 transition-all duration-300"
->
-  🚀 Live Demo
-</a>
+   <div className="pt-2 grid grid-cols-2 gap-3">
+  <a
+    href="https://health-buddy-hglg822fh6wt86qhrt6jp2.streamlit.app"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="flex items-center justify-center px-4 py-2 rounded-lg bg-accent text-background font-medium hover:opacity-90 transition-all duration-300"
+  >
+    🚀 Live Demo
+  </a>
 
-  href="https://github.com/Samarssj/health-buddy"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="flex items-center justify-center px-4 py-2 rounded-lg border border-border hover:border-accent hover:text-accent transition-all duration-300"
->
-  💻 GitHub
-</a>
+  <a
+    href="https://github.com/Samarssj/health-buddy"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="flex items-center justify-center px-4 py-2 rounded-lg border border-border hover:border-accent hover:text-accent transition-all duration-300"
+  >
+    💻 GitHub
+  </a>
+</div>
             
 {/* Project 7 */}
            <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer scroll-reveal">
