@@ -783,66 +783,58 @@ export default function Home() {
 <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer scroll-reveal">
   <div className="space-y-4">
     <h3 className="text-xl font-semibold">
-      House Price Prediction
+      HealthBuddy — AI Health Information Assistant
     </h3>
-
     <p className="text-sm text-muted leading-relaxed">
-      Built a machine learning application with a sign up feature that predicts residential property prices using regression techniques. Trained and evaluated multiple models, then deployed the best-performing model (XG Boost) through an interactive web interface for real-time predictions.
+      Built a guardrailed healthcare chatbot combining RAG-based knowledge
+      retrieval with Gemini for grounded, multi-turn health guidance —
+      featuring emergency-input detection, diagnosis-request flagging, and
+      automatic medical disclaimers, deployed with fully server-side
+      credential handling.
     </p>
-
     <div className="grid grid-cols-3 gap-4 border-y border-border py-4">
       <div>
-        <p className="text-accent text-xl font-bold">0.91-R^2</p>
-        <p className="text-xs text-muted">4+ML models</p>
+        <p className="text-accent text-xl font-bold">RAG</p>
+        <p className="text-xs text-muted">Knowledge Retrieval</p>
       </div>
-
       <div>
-        <p className="text-accent text-xl font-bold">Real-Time</p>
-        <p className="text-xs text-muted">Predictions</p>
+        <p className="text-accent text-xl font-bold">Zero</p>
+        <p className="text-xs text-muted">Client-Side Keys</p>
       </div>
-
       <div>
-        <p className="text-accent text-xl font-bold">EDA</p>
-        <p className="text-xs text-muted">Data Analysis</p>
+        <p className="text-accent text-xl font-bold">Multi-turn</p>
+        <p className="text-xs text-muted">Conversation Memory</p>
       </div>
     </div>
-
     <div className="flex flex-wrap gap-2">
       <span className="px-3 py-1 text-xs rounded-full border border-border">
-        Python
+        Gemini API
       </span>
       <span className="px-3 py-1 text-xs rounded-full border border-border">
-        Scikit-Learn
+        RAG
       </span>
       <span className="px-3 py-1 text-xs rounded-full border border-border">
-        Pandas
+        Streamlit
       </span>
       <span className="px-3 py-1 text-xs rounded-full border border-border">
-        NumPy
-      </span>
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        Jupyter Notebook
-      </span>
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        Machine Learning
+        Guardrails
       </span>
     </div>
-
-    <div className="flex gap-3 pt-2">
-      <a
-        href="https://house-price-predictor-pied.vercel.app"
+    {/* Buttons */}
+    <div className="pt-2 grid grid-cols-2 gap-3">
+      
+        href="https://health-buddy-hglg822fh6wt86qhrt6jp2.streamlit.app"
         target="_blank"
         rel="noopener noreferrer"
-        className="flex-1 text-center px-4 py-2 rounded-lg bg-accent text-background font-medium hover:opacity-90 transition"
+        className="flex items-center justify-center px-4 py-2 rounded-lg bg-accent text-background font-medium hover:opacity-90 transition-all duration-300"
       >
         🚀 Live Demo
       </a>
-
-      <a
-        href="https://github.com/Samarssj/Housing-price-predictor"
+      
+        href="https://github.com/Samarssj/health-buddy"
         target="_blank"
         rel="noopener noreferrer"
-        className="flex-1 text-center px-4 py-2 rounded-lg border border-border hover:border-accent hover:text-accent transition"
+        className="flex items-center justify-center px-4 py-2 rounded-lg border border-border hover:border-accent hover:text-accent transition-all duration-300"
       >
         💻 GitHub
       </a>
