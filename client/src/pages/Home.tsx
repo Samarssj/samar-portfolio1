@@ -525,7 +525,7 @@ export default function Home() {
 
     <div className="flex gap-3 pt-2">
       <a
-        href="https://github.com/Samarssj/Jarvis-Prototype-"
+        href="https://github.com/Samarssj/Jarvis-prototype"
         target="_blank"
         rel="noopener noreferrer"
         className="w-full text-center px-4 py-2 rounded-lg border border-border hover:border-accent hover:text-accent transition"
