@@ -1,6 +1,6 @@
 # Samar Singh - AI Engineer & Full-Stack Developer Portfolio
 
-Welcome to my professional portfolio! This project showcases my journey as an AI Engineer and Developer, featuring a range of intelligent systems, full-stack applications, and cloud-based solutions[...]
+Welcome to my professional portfolio! This project showcases my journey as an AI Engineer and Developer, featuring a range of intelligent systems, full-stack applications, and cloud-based solutions.
 
 ## 🛠️ Tech Stack Used:
 - **Languages:** TypeScript, JavaScript, HTML, CSS
@@ -12,24 +12,21 @@ Welcome to my professional portfolio! This project showcases my journey as an AI
 - **Testing:** Vitest
 - **Deployment:** Vercel
 
-## 🚀 Featured Projects:
+## 🚀 Featured Projects
+Below are the projects showcased in this portfolio (live demos and GitHub links included where available):
 
-### 🧠 AI & NLP Systems
-* **Enterprise AI Chatbot:** Built an enterprise-grade conversational AI platform using Vertex AI and Dialogflow CX for customer support automation.
-* **News Pilot:** A hybrid RAG-powered news intelligence platform fetching live news via NewsAPI and indexing in ChromaDB.
-* **Clearance Desk:** AI-powered resume parser and Job Description matcher using Gemini API for semantic similarity scoring.
-* **Movie Review Sentiment Analysis:** End-to-end NLP application for 5-class sentiment classification using machine learning.
+- Enterprise AI Chatbot — An enterprise-grade conversational AI platform for customer support (Vertex AI, Dialogflow CX, GCP). Live demo & GitHub available.
+- Jarvis AI Voice Assistant — Modular desktop voice assistant with offline speech recognition, Gemini reasoning, and tool execution. (Prototype on GitHub)
+- Movie Review Sentiment Analysis — End-to-end NLP app classifying reviews into five sentiment categories; deployed as a Streamlit app.
+- News Pilot — Hybrid RAG-powered news intelligence platform (ChromaDB, Sentence Transformers, NewsAPI) with source-backed answers.
+- E-Blogging Platform — Full-stack blogging platform with secure JWT authentication, CRUD, and MongoDB integration.
+- Clearance Desk — AI-powered resume parser and job-description matcher using hybrid parsing and semantic scoring.
+- HealthBuddy — Guardrailed healthcare chatbot combining RAG retrieval with Gemini for grounded multi-turn guidance.
+- Travel Booking Platform — Full-stack travel booking system with responsive UI, secure REST APIs, and MongoDB.
+- Job-track — AI-powered job discovery and application tracker with resume scoring and Kanban-style workflow.
+- FlowCast — ML-powered menstrual cycle prediction app with regression models and user-facing dashboards.
 
-### 💻 Full-Stack & ML Applications
-* **FlowCast:** ML-powered menstrual cycle prediction app with symptom-tracking and forecast dashboards.
-* **House Price Prediction:** Machine learning application predicting property prices using XGBoost regression.
-* **E-Blogging Platform:** Full-stack blogging site with secure JWT authentication and MongoDB integration.
-* **Travel Booking Platform:** Comprehensive destination and booking management system built with the MERN stack.
-
-## 🏆 Highlights
-* **AI Accuracy:** Optimized models to achieve 74%+ accuracy in predictive tasks.
-* **Efficiency:** Reduced ticket resolution time by 60% through AI automation.
-* **Certifications:** 11+ professional certifications in AI, ML, and Cloud Infrastructure.
+If you'd like, I can add short links (live demo + GitHub) next to each project, include screenshots, or add project badges (Tech tags) to make this section more visual.
 
 ---
 
