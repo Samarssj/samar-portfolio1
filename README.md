@@ -35,6 +35,7 @@ Below are the projects showcased in this portfolio, grouped by primary tech focu
 ### ML / Data Science
 - **FlowCast** — ML‑powered menstrual cycle prediction app using regression models and user‑facing dashboards.
   Tags: Machine learning, Regression models, Data visualization, Python/ML libs
+- Movie Review Sentiment Analysis — End‑to‑end NLP app classifying reviews into five sentiment categories; deployed as a Streamlit app.   Tags: NLP, Sentiment analysis, Streamlit, Python, ML based classification models
 
 ### Full‑stack
 - **E‑Blogging Platform** — Full‑stack blogging platform with secure JWT authentication, CRUD, and MongoDB integration.
