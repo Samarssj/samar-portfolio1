@@ -249,7 +249,7 @@ export default function Home() {
                     Get in Touch
                   </Button>
                 </a>
-                <a href="https://drive.google.com/file/d/148lCLPb4VXuLBQn9zNN7LUHP4TEYDV6N/view?usp=drivesdk" target="_blank" rel="noopener noreferrer">
+                <a href="https://drive.google.com/file/d/1GXq-_5T2VYg4RUP9AKqnIXiZwOACUep6/view?usp=drivesdk" target="_blank" rel="noopener noreferrer">
                   <Button variant="outline" className="gap-2 hover:border-accent active:bg-accent/10 transition-all">
                     <Download className="w-4 h-4" />
                     Resume
@@ -292,7 +292,7 @@ export default function Home() {
 
             <div className="space-y-4 text-muted leading-relaxed">
               <p>
-                I'm an AI Engineer and Full-Stack Developer passionate about building intelligent systems that solve real-world problems. Currently working at <strong className="text-foreground">EXL Service</strong> as an AI Engineer Intern, where I develop and deploy Generative AI solutions using Google Cloud technologies.
+                I'm an AI Engineer and Full-Stack Developer passionate about building intelligent systems that solve real-world problems. With experience of <strong className="text-foreground">EXL Service</strong> as an AI Engineer Intern, where I developed and deployed Generative AI solutions using Google Cloud technologies.
               </p>
 
               <p>
@@ -468,7 +468,75 @@ export default function Home() {
     </div>
   </div>
 </div>
-          {/* Project 2 */}
+
+             {/* Project 2 */}
+<div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer scroll-reveal">
+  <div className="space-y-4">
+    <h3 className="text-xl font-semibold">
+      Jarvis AI Voice Assistant
+    </h3>
+
+    <p className="text-sm text-muted leading-relaxed">
+      Built a modular AI-powered desktop voice assistant inspired by Tony Stark's Jarvis, integrating offline speech recognition, Gemini-powered reasoning, tool execution, and text-to-speech to enable hands-free conversations, automation, and system control.
+    </p>
+
+    <div className="grid grid-cols-3 gap-4 border-y border-border py-4">
+      <div>
+        <p className="text-accent text-xl font-bold">AI</p>
+        <p className="text-xs text-muted">Voice Assistant</p>
+      </div>
+
+      <div>
+        <p className="text-accent text-xl font-bold">6+</p>
+        <p className="text-xs text-muted">Integrated Tools</p>
+      </div>
+
+      <div>
+        <p className="text-accent text-xl font-bold">Offline</p>
+        <p className="text-xs text-muted">Speech-to-Text</p>
+      </div>
+    </div>
+
+    <div className="flex flex-wrap gap-2">
+      <span className="px-3 py-1 text-xs rounded-full border border-border">
+        Python
+      </span>
+
+      <span className="px-3 py-1 text-xs rounded-full border border-border">
+        Gemini API
+      </span>
+
+      <span className="px-3 py-1 text-xs rounded-full border border-border">
+        Faster-Whisper
+      </span>
+
+      <span className="px-3 py-1 text-xs rounded-full border border-border">
+        Edge TTS
+      </span>
+
+      <span className="px-3 py-1 text-xs rounded-full border border-border">
+        SoundDevice
+      </span>
+
+      <span className="px-3 py-1 text-xs rounded-full border border-border">
+        Automation
+      </span>
+    </div>
+
+    <div className="flex gap-3 pt-2">
+      <a
+        href="https://github.com/Samarssj/Jarvis-Prototype-"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="w-full text-center px-4 py-2 rounded-lg border border-border hover:border-accent hover:text-accent transition"
+      >
+        💻 GitHub
+      </a>
+    </div>
+  </div>
+</div>
+            
+          {/* Project 3 */}
             <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer scroll-reveal">
   <div className="space-y-4">
     <h3 className="text-xl font-semibold">
@@ -544,7 +612,7 @@ export default function Home() {
   </div>
 </div>
 
-{/* Project 3 */}
+{/* Project 4 */}
            <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer scroll-reveal">
   <div className="space-y-4">
     <h3 className="text-xl font-semibold">
@@ -634,7 +702,7 @@ export default function Home() {
   </div>
 </div>
 
-{/* Project 4 */}
+{/* Project 5 */}
             <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer scroll-reveal">
   <div className="space-y-4">
     <h3 className="text-xl font-semibold">
@@ -708,7 +776,7 @@ export default function Home() {
   </div>
 </div>
 
-{/* Project 5 */}
+{/* Project 6 */}
            <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer scroll-reveal">
   <div className="space-y-4">
     <h3 className="text-xl font-semibold">
@@ -779,7 +847,7 @@ export default function Home() {
   </div>
 </div>
 
-         {/* Project 6 */}   
+         {/* Project 7 */}   
 <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer scroll-reveal">
   <div className="space-y-4">
     <h3 className="text-xl font-semibold">
@@ -843,7 +911,7 @@ export default function Home() {
     </div>
 </div>
             
-{/* Project 7 */}
+{/* Project 8 */}
            <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer scroll-reveal">
   <div className="space-y-4">
     <h3 className="text-xl font-semibold">
@@ -916,7 +984,74 @@ export default function Home() {
     </div>
   </div>
 </div>
-            {/* Project 8 */}
+
+            <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer scroll-reveal">
+  <div className="space-y-4">
+    <h3 className="text-xl font-semibold">
+      Job Applier & Tracker
+    </h3>
+
+    <p className="text-sm text-muted leading-relaxed">
+      Developed an AI-powered job search automation platform that discovers relevant job postings, scores them against a candidate's resume, and organizes applications through a Kanban-style tracking dashboard. Supports automated LinkedIn Easy Apply workflows while safely pre-filling external ATS applications for manual review.
+    </p>
+
+    <div className="grid grid-cols-3 gap-4 border-y border-border py-4">
+      <div>
+        <p className="text-accent text-xl font-bold">AI</p>
+        <p className="text-xs text-muted">Resume Matching</p>
+      </div>
+
+      <div>
+        <p className="text-accent text-xl font-bold">Auto</p>
+        <p className="text-xs text-muted">Job Discovery</p>
+      </div>
+
+      <div>
+        <p className="text-accent text-xl font-bold">Kanban</p>
+        <p className="text-xs text-muted">Application Tracker</p>
+      </div>
+    </div>
+
+    <div className="flex flex-wrap gap-2">
+      <span className="px-3 py-1 text-xs rounded-full border border-border">
+        Python
+      </span>
+
+      <span className="px-3 py-1 text-xs rounded-full border border-border">
+        Playwright
+      </span>
+
+      <span className="px-3 py-1 text-xs rounded-full border border-border">
+        Streamlit
+      </span>
+
+      <span className="px-3 py-1 text-xs rounded-full border border-border">
+        SQLite
+      </span>
+
+      <span className="px-3 py-1 text-xs rounded-full border border-border">
+        Gemini API
+      </span>
+
+      <span className="px-3 py-1 text-xs rounded-full border border-border">
+        Automation
+      </span>
+    </div>
+
+    <div className="flex gap-3 pt-2">
+      <a
+        href="https://github.com/Samarssj/job-track"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="w-full text-center px-4 py-2 rounded-lg border border-border hover:border-accent hover:text-accent transition"
+      >
+        💻 GitHub
+      </a>
+    </div>
+  </div>
+</div>
+        
+            {/* Project 9 */}
             <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer scroll-reveal">
   <div className="space-y-4">
     <h3 className="text-xl font-semibold">
@@ -1018,7 +1153,7 @@ export default function Home() {
                   <h3 className="text-xl font-semibold">AI Engineer Intern</h3>
                   <p className="text-muted">EXL Service</p>
                 </div>
-                <span className="text-sm text-accent font-medium whitespace-nowrap">April 2026 - Present</span>
+                <span className="text-sm text-accent font-medium whitespace-nowrap">April 2026 - July 2026</span>
               </div>
               <div className="space-y-3 text-muted">
                 <p>→ Developed and deployed Generative AI solutions using Vertex AI and Dialogflow CX on Google Cloud Platform</p>
