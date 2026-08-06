@@ -5,6 +5,7 @@ import MultiAgentWorkflow from '@/components/MultiAgentWorkflow';
 import AIShowcase from '@/components/AIShowcase';
 import CertificationsGallery from '@/components/CertificationsGallery';
 import SpotifyWidget from '@/components/SpotifyWidget';
+import HUDBackground from '@/components/HUDBackground';
 import { Github, Linkedin, Mail, Download, Moon, Sun } from 'lucide-react';
 
 
@@ -120,7 +121,9 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background text-foreground relative">
+      <HUDBackground />
+      <div className="relative z-10">
       <SpotifyWidget />
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
@@ -1319,6 +1322,7 @@ export default function Home() {
       <footer className="py-8 px-4 sm:px-6 lg:px-8 border-t border-border text-center text-muted text-sm">
         <p>© 2026 Samar Singh. All rights reserved.</p>
       </footer>
+      </div>
     </div>
   );
 }
