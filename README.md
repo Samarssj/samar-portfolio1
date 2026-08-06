@@ -42,10 +42,6 @@ Below are the projects showcased in this portfolio, grouped by primary tech focu
 - **Travel Booking Platform** — Full‑stack travel booking system with responsive UI, secure REST APIs, and MongoDB.
   Tags: Full‑stack, REST APIs, MongoDB, Responsive UI
 
-Notes
-- If you prefer mutually exclusive categories, I can move hybrid projects (e.g., Job‑track, Clearance Desk) into a separate "AI‑enabled Full‑stack" section instead.
-- I can also auto-add GitHub links, live demo links, short tech badges, or screenshots next to each bullet if you want the README to be more visual.
-
 ---
 
 Building this portfolio was an opportunity to bring together everything I've learned and present it in a way that reflects my growth as an AI Engineer and Developer.
