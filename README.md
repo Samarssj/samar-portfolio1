@@ -1,13 +1,16 @@
 # Samar Singh - AI Engineer & Full-Stack Developer Portfolio
 
-Welcome to my professional portfolio! This project showcases my journey as an AI Engineer and Developer, featuring a range of intelligent systems, full-stack applications, and cloud-based solutions.
+Welcome to my professional portfolio! This project showcases my journey as an AI Engineer and Developer, featuring a range of intelligent systems, full-stack applications, and cloud-based solutions[...]
 
 ## 🛠️ Tech Stack Used:
-* **Languages:** TypeScript, Python, JavaScript, Java, SQL
-* **Frontend:** React.js, Tailwind CSS, Framer Motion
-* **Backend:** Node.js, Express.js, MongoDB, Drizzle ORM
-* **AI & Cloud:** Vertex AI, Dialogflow CX, Gemini API, RAG, GCP
-* **ML Libraries:** Scikit-Learn, Pandas, NumPy, XGBoost
+- **Languages:** TypeScript, JavaScript, HTML, CSS
+- **Frontend:** React, Vite, Tailwind CSS, Framer Motion, Radix UI
+- **Backend:** Node.js, Express
+- **UI / Components:** Radix UI, Lucide Icons, Recharts
+- **State & Forms:** react-hook-form, Zod
+- **Build & Tooling:** Vite, TypeScript, pnpm, esbuild, PostCSS, Prettier
+- **Testing:** Vitest
+- **Deployment:** Vercel
 
 ## 🚀 Featured Projects:
 
