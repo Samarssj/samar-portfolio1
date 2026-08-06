@@ -1,6 +1,6 @@
 # Samar Singh - AI Engineer & Full-Stack Developer Portfolio
 
-Welcome to my professional portfolio! This project showcases my journey as an AI Engineer and Developer, featuring a range of intelligent systems, full-stack applications, and cloud-based solutions.
+Welcome to my professional portfolio! This project showcases my journey as an AI Engineer and Developer, featuring a range of intelligent systems, full-stack applications, and cloud-based solutions[...]
 
 ## 🛠️ Tech Stack Used:
 - **Languages:** TypeScript, JavaScript, HTML, CSS
@@ -12,21 +12,39 @@ Welcome to my professional portfolio! This project showcases my journey as an AI
 - **Testing:** Vitest
 - **Deployment:** Vercel
 
-## 🚀 Featured Projects
-Below are the projects showcased in this portfolio (live demos and GitHub links included where available):
+## 🚀 Projects — categorized by tech stack
 
-- Enterprise AI Chatbot — An enterprise-grade conversational AI platform for customer support (Vertex AI, Dialogflow CX, GCP). Live demo & GitHub available.
-- Jarvis AI Voice Assistant — Modular desktop voice assistant with offline speech recognition, Gemini reasoning, and tool execution. (Prototype on GitHub)
-- Movie Review Sentiment Analysis — End-to-end NLP app classifying reviews into five sentiment categories; deployed as a Streamlit app.
-- News Pilot — Hybrid RAG-powered news intelligence platform (ChromaDB, Sentence Transformers, NewsAPI) with source-backed answers.
-- E-Blogging Platform — Full-stack blogging platform with secure JWT authentication, CRUD, and MongoDB integration.
-- Clearance Desk — AI-powered resume parser and job-description matcher using hybrid parsing and semantic scoring.
-- HealthBuddy — Guardrailed healthcare chatbot combining RAG retrieval with Gemini for grounded multi-turn guidance.
-- Travel Booking Platform — Full-stack travel booking system with responsive UI, secure REST APIs, and MongoDB.
-- Job-track — AI-powered job discovery and application tracker with resume scoring and Kanban-style workflow.
-- FlowCast — ML-powered menstrual cycle prediction app with regression models and user-facing dashboards.
+Below are the projects showcased in this portfolio, grouped by primary tech focus. Each entry includes a short description and key tech tags; hybrid projects are noted where applicable.
 
-If you'd like, I can add short links (live demo + GitHub) next to each project, include screenshots, or add project badges (Tech tags) to make this section more visual.
+### AI / NLP
+- **Enterprise AI Chatbot** — An enterprise‑grade conversational AI platform for customer support. (Vertex AI, Dialogflow CX, GCP)
+  Tags: Conversational AI, Dialogflow, Vertex AI, GCP
+- **Jarvis AI Voice Assistant** — Modular desktop voice assistant with offline speech recognition, LLM reasoning and tool execution. (Prototype on GitHub)
+  Tags: Voice assistant, Speech recognition, LLMs
+- **Movie Review Sentiment Analysis** — End‑to‑end NLP app classifying reviews into five sentiment categories; deployed as a Streamlit app.
+  Tags: NLP, Sentiment analysis, Streamlit, Python
+- **News Pilot** — Hybrid RAG‑powered news intelligence platform with source‑backed answers (ChromaDB, Sentence Transformers, NewsAPI).
+  Tags: RAG, Vector DB (Chroma), Sentence Transformers, News API
+- **Clearance Desk** — AI‑powered resume parser and job‑description matcher using hybrid parsing and semantic scoring.
+  Tags: Information extraction, Semantic search, NLP
+- **HealthBuddy** — Guardrailed healthcare chatbot combining RAG retrieval with LLM reasoning for grounded multi‑turn guidance.
+  Tags: Healthcare chatbot, RAG, LLMs, Guardrails
+- **Job‑track** — AI‑powered job discovery and application tracker with resume scoring and Kanban workflow (AI‑enabled full‑stack).
+  Tags: Full‑stack, Semantic scoring, NLP, Kanban UI
+
+### ML / Data Science
+- **FlowCast** — ML‑powered menstrual cycle prediction app using regression models and user‑facing dashboards.
+  Tags: Machine learning, Regression models, Data visualization, Python/ML libs
+
+### Full‑stack
+- **E‑Blogging Platform** — Full‑stack blogging platform with secure JWT authentication, CRUD, and MongoDB integration.
+  Tags: Full‑stack, Node.js/Express, MongoDB, Authentication (JWT)
+- **Travel Booking Platform** — Full‑stack travel booking system with responsive UI, secure REST APIs, and MongoDB.
+  Tags: Full‑stack, REST APIs, MongoDB, Responsive UI
+
+Notes
+- If you prefer mutually exclusive categories, I can move hybrid projects (e.g., Job‑track, Clearance Desk) into a separate "AI‑enabled Full‑stack" section instead.
+- I can also auto-add GitHub links, live demo links, short tech badges, or screenshots next to each bullet if you want the README to be more visual.
 
 ---
 
