@@ -45,11 +45,11 @@ const certifications: Certification[] = [
   },
   {
     id: "gcp-agents",
-    title: "Certified Partner Specialist Gemini Enterprise Deployment",
+    title: "Certified Partner Specialist Gemini Enterprise Agent Development",
     provider: "Google Cloud",
     icon: "🤖",
     color: "from-red-500 to-orange-500",
-    url: "https://www.credly.com/badges/f0de046e-1a43-4e03-9393-2f8e69f4e5d9/public_url",
+    url: "https://www.credly.com/badges/2533a1d5-c98b-4102-b1f6-c73c983da84b/public_url",
   },
   {
     id: "gcp-scaling",
