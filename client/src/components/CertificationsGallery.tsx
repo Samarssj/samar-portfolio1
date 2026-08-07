@@ -45,11 +45,11 @@ const certifications: Certification[] = [
   },
   {
     id: "gcp-agents",
-    title: "Build Production-Ready Conversational Agents",
+    title: "Certified Partner Specialist Gemini Enterprise Deployment",
     provider: "Google Cloud",
     icon: "🤖",
     color: "from-red-500 to-orange-500",
-    url: "https://partner.skills.google/public_profiles/e2bb2abb-fb8a-4b51-882e-744f692fa177/badges/24379436",
+    url: "https://www.credly.com/badges/f0de046e-1a43-4e03-9393-2f8e69f4e5d9/public_url",
   },
   {
     id: "gcp-scaling",
@@ -77,11 +77,11 @@ const certifications: Certification[] = [
   },
   {
     id: "gcp-cx-studio",
-    title: "Build agents with CX Agent Studio",
+    title: "Certified Partner Specialist Gemini Enterprise Deployment",
     provider: "Google Cloud",
     icon: "🎯",
     color: "from-red-500 to-orange-500",
-    url: "https://partner.skills.google/public_profiles/e2bb2abb-fb8a-4b51-882e-744f692fa177/badges/24327489",
+    url: "https://www.credly.com/badges/f0de046e-1a43-4e03-9393-2f8e69f4e5d9/public_url",
   },
 ];
 
