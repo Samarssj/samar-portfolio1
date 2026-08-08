@@ -485,18 +485,18 @@ export default function Home() {
 
     <div className="grid grid-cols-3 gap-4 border-y border-border py-4">
       <div>
-        <p className="text-accent text-xl font-bold">AI</p>
-        <p className="text-xs text-muted">Voice Assistant</p>
+        <p className="text-accent text-xl font-bold">VAD</p>
+        <p className="text-xs text-muted">Voice Activity Detection</p>
       </div>
 
       <div>
-        <p className="text-accent text-xl font-bold">6+</p>
+        <p className="text-accent text-xl font-bold">7+</p>
         <p className="text-xs text-muted">Integrated Tools</p>
       </div>
 
       <div>
-        <p className="text-accent text-xl font-bold">Offline</p>
-        <p className="text-xs text-muted">Speech-to-Text</p>
+        <p className="text-accent text-xl font-bold">Edge-TTS</p>
+        <p className="text-xs text-muted">Text-to-Speech</p>
       </div>
     </div>
 
