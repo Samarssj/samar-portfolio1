@@ -260,23 +260,56 @@ export default function Home() {
                 </a>
               </div>
 
-              {/* Stats */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-8 border-t border-border">
-                <div>
-                  <div className="text-2xl font-bold text-accent">2+</div>
-                  <div className="text-xs text-muted uppercase tracking-wide">Internships</div>
-                </div>
-                <div>
-                  <div className="text-2xl font-bold text-accent">11+</div>
-                  <div className="text-xs text-muted uppercase tracking-wide">Projects</div>
-                </div>
-                <div>
-                  <div className="text-2xl font-bold text-accent">11+</div>
-                  <div className="text-xs text-muted uppercase tracking-wide">Certifications</div>
-                </div>
-                <div>
-                  <div className="text-2xl font-bold text-accent">74%↑</div>
-                  <div className="text-xs text-muted uppercase tracking-wide">AI Accuracy</div>
+              {/* Stats Live Banner */}
+              <div className="pt-8 border-t border-border overflow-hidden">
+                <div className="relative flex">
+                  <div className="flex animate-ticker whitespace-nowrap py-2 w-max">
+                    <div className="flex items-center flex-shrink-0 gap-32 pr-32">
+                      <div className="flex items-center gap-6">
+                        <span className="text-2xl font-bold text-accent drop-shadow-[0_0_12px_rgba(16,185,129,0.6)]">2+</span>
+                        <span className="text-xs font-bold text-muted uppercase tracking-[0.3em]">Internships</span>
+                      </div>
+                      <div className="w-2 h-2 rounded-full bg-accent/40" />
+                      <div className="flex items-center gap-6">
+                        <span className="text-2xl font-bold text-accent drop-shadow-[0_0_12px_rgba(16,185,129,0.6)]">11+</span>
+                        <span className="text-xs font-bold text-muted uppercase tracking-[0.3em]">Projects</span>
+                      </div>
+                      <div className="w-2 h-2 rounded-full bg-accent/40" />
+                      <div className="flex items-center gap-6">
+                        <span className="text-2xl font-bold text-accent drop-shadow-[0_0_12px_rgba(16,185,129,0.6)]">11+</span>
+                        <span className="text-xs font-bold text-muted uppercase tracking-[0.3em]">Certifications</span>
+                      </div>
+                      <div className="w-2 h-2 rounded-full bg-accent/40" />
+                      <div className="flex items-center gap-6">
+                        <span className="text-2xl font-bold text-accent drop-shadow-[0_0_12px_rgba(16,185,129,0.6)]">74%↑</span>
+                        <span className="text-xs font-bold text-muted uppercase tracking-[0.3em]">AI Accuracy</span>
+                      </div>
+                      <div className="w-2 h-2 rounded-full bg-accent/40" />
+                    </div>
+                    {/* Duplicate for seamless loop */}
+                    <div className="flex items-center flex-shrink-0 gap-32 pr-32">
+                      <div className="flex items-center gap-6">
+                        <span className="text-2xl font-bold text-accent drop-shadow-[0_0_12px_rgba(16,185,129,0.6)]">2+</span>
+                        <span className="text-xs font-bold text-muted uppercase tracking-[0.3em]">Internships</span>
+                      </div>
+                      <div className="w-2 h-2 rounded-full bg-accent/40" />
+                      <div className="flex items-center gap-6">
+                        <span className="text-2xl font-bold text-accent drop-shadow-[0_0_12px_rgba(16,185,129,0.6)]">11+</span>
+                        <span className="text-xs font-bold text-muted uppercase tracking-[0.3em]">Projects</span>
+                      </div>
+                      <div className="w-2 h-2 rounded-full bg-accent/40" />
+                      <div className="flex items-center gap-6">
+                        <span className="text-2xl font-bold text-accent drop-shadow-[0_0_12px_rgba(16,185,129,0.6)]">11+</span>
+                        <span className="text-xs font-bold text-muted uppercase tracking-[0.3em]">Certifications</span>
+                      </div>
+                      <div className="w-2 h-2 rounded-full bg-accent/40" />
+                      <div className="flex items-center gap-6">
+                        <span className="text-2xl font-bold text-accent drop-shadow-[0_0_12px_rgba(16,185,129,0.6)]">74%↑</span>
+                        <span className="text-xs font-bold text-muted uppercase tracking-[0.3em]">AI Accuracy</span>
+                      </div>
+                      <div className="w-2 h-2 rounded-full bg-accent/40" />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -285,26 +318,28 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 border-t border-border scroll-reveal">
+      <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 border-t border-border">
         <div className="max-w-4xl mx-auto">
-          <div className="space-y-6">
-            <div className="space-y-2">
-              <div className="text-xs font-semibold text-accent uppercase tracking-widest">About</div>
-              <h2 className="text-3xl sm:text-4xl font-bold">Who I Am</h2>
-            </div>
+          <div className="p-8 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer scroll-reveal">
+            <div className="space-y-6">
+              <div className="space-y-2">
+                <div className="text-xs font-semibold text-accent uppercase tracking-widest">About</div>
+                <h2 className="text-3xl sm:text-4xl font-bold">Who I Am</h2>
+              </div>
 
-            <div className="space-y-4 text-muted leading-relaxed">
-              <p>
-                I'm an AI Engineer and Full-Stack Developer passionate about building intelligent systems that solve real-world problems. With experience of <strong className="text-foreground">EXL Service</strong> as an AI Engineer Intern, where I developed and deployed Generative AI solutions using Google Cloud technologies.
-              </p>
+              <div className="space-y-4 text-muted leading-relaxed">
+                <p>
+                  I'm an AI Engineer and Full-Stack Developer passionate about building intelligent systems that solve real-world problems. With experience of <strong className="text-foreground">EXL Service</strong> as an AI Engineer Intern, where I developed and deployed Generative AI solutions using Google Cloud technologies.
+                </p>
 
-              <p>
-                My expertise spans across AI/ML, cloud computing, and modern web development. I specialize in building agentic AI workflows, LLM-powered applications, and scalable backend systems. I'm particularly interested in autonomous agent orchestration, prompt engineering, and production-ready AI systems.
-              </p>
+                <p>
+                  My expertise spans across AI/ML, cloud computing, and modern web development. I specialize in building agentic AI workflows, LLM-powered applications, and scalable backend systems. I'm particularly interested in autonomous agent orchestration, prompt engineering, and production-ready AI systems.
+                </p>
 
-              <p>
-                I hold multiple certifications in AI, machine learning, and Google Cloud infrastructure, and I'm continuously learning and experimenting with cutting-edge technologies.
-              </p>
+                <p>
+                  I hold multiple certifications in AI, machine learning, and Google Cloud infrastructure, and I'm continuously learning and experimenting with cutting-edge technologies.
+                </p>
+              </div>
             </div>
           </div>
         </div>
