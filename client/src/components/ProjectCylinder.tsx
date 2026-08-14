@@ -1,3 +1,4 @@
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 
 interface ProjectMetric {
@@ -142,7 +143,9 @@ export default function ProjectCylinder() {
   const cylinderRef = useRef<HTMLDivElement>(null);
   const frameRef = useRef<number | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [mobileIndex, setMobileIndex] = useState(0);
   const activeIndexRef = useRef(0);
+  const touchStartXRef = useRef<number | null>(null);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -189,6 +192,16 @@ export default function ProjectCylinder() {
       if (frameRef.current !== null) window.cancelAnimationFrame(frameRef.current);
     };
   }, []);
+
+  const previousMobileProject = () => {
+    setMobileIndex((current) => (current - 1 + projects.length) % projects.length);
+  };
+
+  const nextMobileProject = () => {
+    setMobileIndex((current) => (current + 1) % projects.length);
+  };
+
+  const mobileProject = projects[mobileIndex];
 
   return (
     <>
@@ -298,22 +311,99 @@ export default function ProjectCylinder() {
         </div>
       </div>
 
-      <div className="space-y-6 md:hidden">
-        <div className="text-xs font-semibold text-accent uppercase tracking-[0.28em]">Selected Work</div>
-        {projects.map((project, index) => (
-          <article key={project.title} className="rounded-xl border border-border bg-card/90 p-6">
-            <p className="font-mono text-xs text-accent">{String(index + 1).padStart(2, '0')} — PROJECT</p>
-            <h3 className="mt-2 text-xl font-semibold">{project.title}</h3>
-            <p className="mt-3 text-sm leading-relaxed text-muted">{project.description}</p>
-            <div className="mt-4 flex flex-wrap gap-2">
-              {project.tech.slice(0, 4).map((item) => <span key={item} className="rounded-full border border-border px-2.5 py-1 text-[11px] text-muted">{item}</span>)}
+      <div className="md:hidden">
+        <style>{`
+          @keyframes mobile-project-rotate-in {
+            from { opacity: 0; transform: rotateX(-14deg) translateY(22px) scale(0.97); }
+            to { opacity: 1; transform: rotateX(0deg) translateY(0) scale(1); }
+          }
+          @media (prefers-reduced-motion: reduce) {
+            .mobile-project-card { animation: none !important; }
+          }
+        `}</style>
+
+        <div className="rounded-2xl border border-border bg-accent/5 p-4 sm:p-5">
+          <div className="flex items-start justify-between gap-4">
+            <div>
+              <div className="text-xs font-semibold text-accent uppercase tracking-[0.28em]">Swipe to rotate</div>
+              <p className="mt-1 text-xs text-muted">Browse all selected projects</p>
             </div>
-            <div className="mt-5 flex gap-3">
-              {project.demo && <a href={project.demo} target="_blank" rel="noopener noreferrer" className="flex-1 rounded-lg bg-accent px-4 py-2.5 text-center text-sm font-medium text-accent-foreground">Live Demo</a>}
-              <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex-1 rounded-lg border border-border px-4 py-2.5 text-center text-sm font-medium">GitHub</a>
+            <div className="font-mono text-xs text-accent">{String(mobileIndex + 1).padStart(2, '0')} / {String(projects.length).padStart(2, '0')}</div>
+          </div>
+
+          <div
+            className="mt-5"
+            style={{ perspective: '1000px', touchAction: 'pan-y' }}
+            onTouchStart={(event) => {
+              touchStartXRef.current = event.touches[0]?.clientX ?? null;
+            }}
+            onTouchEnd={(event) => {
+              const startX = touchStartXRef.current;
+              const endX = event.changedTouches[0]?.clientX;
+              touchStartXRef.current = null;
+              if (startX === null || endX === undefined) return;
+              if (endX - startX > 42) previousMobileProject();
+              if (startX - endX > 42) nextMobileProject();
+            }}
+          >
+            <article
+              key={mobileProject.title}
+              className="mobile-project-card overflow-hidden rounded-xl border border-accent/35 bg-card/95 p-5 shadow-[0_0_28px_rgba(16,185,129,0.16)]"
+              style={{ animation: 'mobile-project-rotate-in 420ms cubic-bezier(0.23, 1, 0.32, 1)', transformStyle: 'preserve-3d', willChange: 'transform, opacity' }}
+            >
+              <p className="font-mono text-xs text-accent">{String(mobileIndex + 1).padStart(2, '0')} — SELECTED BUILD</p>
+              <h3 className="mt-2 text-xl font-semibold leading-tight">{mobileProject.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted">{mobileProject.description}</p>
+
+              <div className="mt-4 grid grid-cols-3 divide-x divide-border border-y border-border">
+                {mobileProject.metrics.map((metric) => (
+                  <div key={metric.label} className="px-2 py-3 first:pl-0 last:pr-0">
+                    <p className="text-sm font-bold text-accent">{metric.value}</p>
+                    <p className="mt-0.5 text-[9px] leading-tight text-muted">{metric.label}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-4 flex flex-wrap gap-1.5">
+                {mobileProject.tech.map((item) => (
+                  <span key={item} className="rounded-full border border-border px-2 py-1 text-[10px] text-muted">{item}</span>
+                ))}
+              </div>
+
+              <div className="mt-5 flex gap-3">
+                {mobileProject.demo && (
+                  <a href={mobileProject.demo} target="_blank" rel="noopener noreferrer" className="flex-1 rounded-lg bg-accent px-4 py-2.5 text-center text-sm font-medium text-accent-foreground active:scale-[0.97]">
+                    Live Demo
+                  </a>
+                )}
+                <a href={mobileProject.github} target="_blank" rel="noopener noreferrer" className="flex-1 rounded-lg border border-border px-4 py-2.5 text-center text-sm font-medium active:scale-[0.97]">
+                  GitHub
+                </a>
+              </div>
+            </article>
+          </div>
+
+          <div className="mt-5 flex items-center justify-between gap-3">
+            <button type="button" onClick={previousMobileProject} aria-label="Show previous project" className="flex h-10 w-10 items-center justify-center rounded-full border border-border transition-colors hover:border-accent hover:text-accent active:scale-[0.97]">
+              <ChevronLeft size={18} aria-hidden="true" />
+            </button>
+            <div className="flex items-center gap-1.5" aria-label={`Project ${mobileIndex + 1} of ${projects.length}`}>
+              {projects.map((project, index) => (
+                <button
+                  key={project.title}
+                  type="button"
+                  onClick={() => setMobileIndex(index)}
+                  aria-label={`Show project ${index + 1}: ${project.title}`}
+                  aria-current={index === mobileIndex ? 'true' : undefined}
+                  className={`h-1.5 rounded-full transition-all duration-300 ${index === mobileIndex ? 'w-6 bg-accent' : 'w-1.5 bg-border'}`}
+                />
+              ))}
             </div>
-          </article>
-        ))}
+            <button type="button" onClick={nextMobileProject} aria-label="Show next project" className="flex h-10 w-10 items-center justify-center rounded-full border border-border transition-colors hover:border-accent hover:text-accent active:scale-[0.97]">
+              <ChevronRight size={18} aria-hidden="true" />
+            </button>
+          </div>
+        </div>
       </div>
     </>
   );
