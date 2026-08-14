@@ -206,11 +206,10 @@ export default function ProjectCylinder() {
       if (!mobileQuery.matches) return;
 
       const rect = section.getBoundingClientRect();
-      const scrollRange = Math.max(section.offsetHeight - window.innerHeight, 1);
-      const progress = Math.min(Math.max(-rect.top / scrollRange, 0), 1);
+      const completedScrollSteps = Math.floor(Math.max(-rect.top, 0) / Math.max(window.innerHeight, 1));
       const nextIndex = reducedMotion.matches
         ? 0
-        : Math.min(Math.round(progress * (projects.length - 1)), projects.length - 1);
+        : Math.min(completedScrollSteps, projects.length - 1);
 
       setMobileIndex((current) => (current === nextIndex ? current : nextIndex));
     };
@@ -346,7 +345,7 @@ export default function ProjectCylinder() {
         </div>
       </div>
 
-      <div ref={mobileSectionRef} className="relative h-[480vh] md:hidden" aria-label="Scroll-driven mobile project carousel">
+      <div ref={mobileSectionRef} className="relative h-[1000svh] md:hidden" aria-label="Scroll-driven mobile project carousel">
         <style>{`
           @keyframes mobile-project-rotate-in {
             from { opacity: 0; transform: rotateY(26deg) translate3d(28px, 14px, 0) scale(0.96); }
@@ -362,7 +361,7 @@ export default function ProjectCylinder() {
             <div className="flex items-start justify-between gap-4">
             <div>
               <div className="text-xs font-semibold text-accent uppercase tracking-[0.28em]">Scroll down to rotate</div>
-              <p className="mt-1 text-xs text-muted">Projects advance automatically as you scroll</p>
+              <p className="mt-1 text-xs text-muted">One project advances with each full screen of scroll</p>
             </div>
             <div className="font-mono text-xs text-accent">{String(mobileIndex + 1).padStart(2, '0')} / {String(projects.length).padStart(2, '0')}</div>
           </div>
