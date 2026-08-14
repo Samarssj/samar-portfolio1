@@ -145,6 +145,7 @@ export default function ProjectCylinder() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [mobileIndex, setMobileIndex] = useState(0);
   const activeIndexRef = useRef(0);
+  const swipeStartRef = useRef<{ x: number; y: number } | null>(null);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -264,6 +265,10 @@ export default function ProjectCylinder() {
       if (settleTimer !== null) window.clearTimeout(settleTimer);
     };
   }, []);
+
+  const changeMobileProject = (direction: number) => {
+    setMobileIndex((current) => Math.min(Math.max(current + direction, 0), projects.length - 1));
+  };
 
   const mobileProject = projects[mobileIndex];
 
@@ -390,15 +395,36 @@ export default function ProjectCylinder() {
           <div className="w-full rounded-2xl border border-border bg-accent/5 p-4 sm:p-5">
             <div className="flex items-start justify-between gap-4">
             <div>
-              <div className="text-xs font-semibold text-accent uppercase tracking-[0.28em]">Scroll down to rotate</div>
-              <p className="mt-1 text-xs text-muted">Projects advance smoothly as you scroll</p>
+              <div className="text-xs font-semibold text-accent uppercase tracking-[0.28em]">Scroll or swipe to rotate</div>
+              <p className="mt-1 text-xs text-muted">Projects advance by scrolling or swiping left and right</p>
             </div>
             <div className="font-mono text-xs text-accent">{String(mobileIndex + 1).padStart(2, '0')} / {String(projects.length).padStart(2, '0')}</div>
           </div>
 
           <div
             className="mt-5"
-            style={{ perspective: '1000px' }}
+            style={{ perspective: '1000px', touchAction: 'pan-y' }}
+            onPointerDown={(event) => {
+              if (event.pointerType === 'mouse') return;
+              swipeStartRef.current = { x: event.clientX, y: event.clientY };
+              event.currentTarget.setPointerCapture(event.pointerId);
+            }}
+            onPointerUp={(event) => {
+              const start = swipeStartRef.current;
+              swipeStartRef.current = null;
+              if (event.currentTarget.hasPointerCapture(event.pointerId)) {
+                event.currentTarget.releasePointerCapture(event.pointerId);
+              }
+              if (!start) return;
+
+              const deltaX = event.clientX - start.x;
+              const deltaY = event.clientY - start.y;
+              if (Math.abs(deltaX) < 48 || Math.abs(deltaX) <= Math.abs(deltaY)) return;
+              changeMobileProject(deltaX < 0 ? 1 : -1);
+            }}
+            onPointerCancel={() => {
+              swipeStartRef.current = null;
+            }}
           >
             <article
               key={mobileProject.title}
