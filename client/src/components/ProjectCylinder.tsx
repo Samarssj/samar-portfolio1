@@ -1,4 +1,3 @@
-import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 
 interface ProjectMetric {
@@ -136,16 +135,17 @@ const projects: Project[] = [
   },
 ];
 
-const cylinderRadius = 700;
+const horizontalCylinderRadius = 700;
 
 export default function ProjectCylinder() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const cylinderRef = useRef<HTMLDivElement>(null);
+  const mobileSectionRef = useRef<HTMLDivElement>(null);
   const frameRef = useRef<number | null>(null);
+  const mobileFrameRef = useRef<number | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [mobileIndex, setMobileIndex] = useState(0);
   const activeIndexRef = useRef(0);
-  const touchStartXRef = useRef<number | null>(null);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -157,17 +157,18 @@ export default function ProjectCylinder() {
     const updateCylinder = () => {
       frameRef.current = null;
       if (reducedMotion.matches) {
-        cylinder.style.transform = 'rotateX(0deg)';
+        cylinder.style.transform = 'rotateY(0deg)';
         return;
       }
 
       const rect = section.getBoundingClientRect();
       const scrollRange = Math.max(section.offsetHeight - window.innerHeight, 1);
       const progress = Math.min(Math.max(-rect.top / scrollRange, 0), 1);
-      const rotation = progress * 360;
-      cylinder.style.transform = `rotateX(${-rotation}deg)`;
+      const maxRotation = (360 / projects.length) * (projects.length - 1);
+      const rotation = progress * maxRotation;
+      cylinder.style.transform = `rotateY(${-rotation}deg)`;
 
-      const nextIndex = Math.round(progress * projects.length) % projects.length;
+      const nextIndex = Math.min(Math.round(progress * (projects.length - 1)), projects.length - 1);
       if (nextIndex !== activeIndexRef.current) {
         activeIndexRef.current = nextIndex;
         setActiveIndex(nextIndex);
@@ -193,24 +194,58 @@ export default function ProjectCylinder() {
     };
   }, []);
 
-  const previousMobileProject = () => {
-    setMobileIndex((current) => (current - 1 + projects.length) % projects.length);
-  };
+  useEffect(() => {
+    const section = mobileSectionRef.current;
+    if (!section) return;
 
-  const nextMobileProject = () => {
-    setMobileIndex((current) => (current + 1) % projects.length);
-  };
+    const mobileQuery = window.matchMedia('(max-width: 767px)');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    const updateMobileProject = () => {
+      mobileFrameRef.current = null;
+      if (!mobileQuery.matches) return;
+
+      const rect = section.getBoundingClientRect();
+      const scrollRange = Math.max(section.offsetHeight - window.innerHeight, 1);
+      const progress = Math.min(Math.max(-rect.top / scrollRange, 0), 1);
+      const nextIndex = reducedMotion.matches
+        ? 0
+        : Math.min(Math.round(progress * (projects.length - 1)), projects.length - 1);
+
+      setMobileIndex((current) => (current === nextIndex ? current : nextIndex));
+    };
+
+    const onScroll = () => {
+      if (mobileFrameRef.current === null) {
+        mobileFrameRef.current = window.requestAnimationFrame(updateMobileProject);
+      }
+    };
+
+    updateMobileProject();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    mobileQuery.addEventListener('change', onScroll);
+    reducedMotion.addEventListener('change', onScroll);
+
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+      mobileQuery.removeEventListener('change', onScroll);
+      reducedMotion.removeEventListener('change', onScroll);
+      if (mobileFrameRef.current !== null) window.cancelAnimationFrame(mobileFrameRef.current);
+    };
+  }, []);
 
   const mobileProject = projects[mobileIndex];
 
   return (
     <>
-      <div ref={sectionRef} className="hidden md:block relative h-[280vh]" aria-label="Scroll-driven project carousel">
+      <div ref={sectionRef} className="hidden md:block relative h-[520vh]" aria-label="Scroll-driven horizontal project cylinder">
         <div className="sticky top-0 h-screen overflow-hidden flex flex-col items-center justify-center py-20" style={{ perspective: '1800px' }}>
           <div className="absolute inset-x-0 top-16 flex items-start justify-between px-10 lg:px-16 pointer-events-none">
             <div>
-              <div className="text-xs font-semibold text-accent uppercase tracking-[0.28em]">Scroll to rotate</div>
-              <p className="mt-2 text-sm text-muted">A vertical 3D archive of selected work</p>
+              <div className="text-xs font-semibold text-accent uppercase tracking-[0.28em]">Scroll down to spin</div>
+              <p className="mt-2 text-sm text-muted">A horizontal 3D cylinder of selected work</p>
             </div>
             <div className="text-right">
               <div className="font-mono text-sm text-accent">PROJECT {String(activeIndex + 1).padStart(2, '0')} / {String(projects.length).padStart(2, '0')}</div>
@@ -232,7 +267,7 @@ export default function ProjectCylinder() {
               className="absolute inset-0"
               style={{
                 transformStyle: 'preserve-3d',
-                transform: 'rotateX(0deg)',
+                transform: 'rotateY(0deg)',
                 willChange: 'transform',
               }}
             >
@@ -244,7 +279,7 @@ export default function ProjectCylinder() {
                     key={project.title}
                     className="absolute inset-0 overflow-hidden rounded-2xl border border-accent/30 bg-card/95 p-5 shadow-2xl transition-[opacity,border-color,box-shadow] duration-500"
                     style={{
-                      transform: `rotateX(${angle}deg) translateZ(${cylinderRadius}px)`,
+                      transform: `rotateY(${angle}deg) translateZ(${horizontalCylinderRadius}px)`,
                       backfaceVisibility: 'hidden',
                       WebkitBackfaceVisibility: 'hidden',
                       pointerEvents: isActive ? 'auto' : 'none',
@@ -307,44 +342,34 @@ export default function ProjectCylinder() {
             </div>
           </div>
 
-          <p className="mt-12 text-xs uppercase tracking-[0.24em] text-muted">Scroll downward to rotate the cylinder</p>
+          <p className="mt-12 text-xs uppercase tracking-[0.24em] text-muted">Scroll downward to spin through the horizontal project cylinder</p>
         </div>
       </div>
 
-      <div className="md:hidden">
+      <div ref={mobileSectionRef} className="relative h-[480vh] md:hidden" aria-label="Scroll-driven mobile project carousel">
         <style>{`
           @keyframes mobile-project-rotate-in {
-            from { opacity: 0; transform: rotateX(-14deg) translateY(22px) scale(0.97); }
-            to { opacity: 1; transform: rotateX(0deg) translateY(0) scale(1); }
+            from { opacity: 0; transform: rotateY(26deg) translate3d(28px, 14px, 0) scale(0.96); }
+            to { opacity: 1; transform: rotateY(0deg) translate3d(0, 0, 0) scale(1); }
           }
           @media (prefers-reduced-motion: reduce) {
             .mobile-project-card { animation: none !important; }
           }
         `}</style>
 
-        <div className="rounded-2xl border border-border bg-accent/5 p-4 sm:p-5">
-          <div className="flex items-start justify-between gap-4">
+        <div className="sticky top-0 flex h-[100svh] items-center px-4 py-20">
+          <div className="w-full rounded-2xl border border-border bg-accent/5 p-4 sm:p-5">
+            <div className="flex items-start justify-between gap-4">
             <div>
-              <div className="text-xs font-semibold text-accent uppercase tracking-[0.28em]">Swipe to rotate</div>
-              <p className="mt-1 text-xs text-muted">Browse all selected projects</p>
+              <div className="text-xs font-semibold text-accent uppercase tracking-[0.28em]">Scroll down to rotate</div>
+              <p className="mt-1 text-xs text-muted">Projects advance automatically as you scroll</p>
             </div>
             <div className="font-mono text-xs text-accent">{String(mobileIndex + 1).padStart(2, '0')} / {String(projects.length).padStart(2, '0')}</div>
           </div>
 
           <div
             className="mt-5"
-            style={{ perspective: '1000px', touchAction: 'pan-y' }}
-            onTouchStart={(event) => {
-              touchStartXRef.current = event.touches[0]?.clientX ?? null;
-            }}
-            onTouchEnd={(event) => {
-              const startX = touchStartXRef.current;
-              const endX = event.changedTouches[0]?.clientX;
-              touchStartXRef.current = null;
-              if (startX === null || endX === undefined) return;
-              if (endX - startX > 42) previousMobileProject();
-              if (startX - endX > 42) nextMobileProject();
-            }}
+            style={{ perspective: '1000px' }}
           >
             <article
               key={mobileProject.title}
@@ -383,25 +408,15 @@ export default function ProjectCylinder() {
             </article>
           </div>
 
-          <div className="mt-5 flex items-center justify-between gap-3">
-            <button type="button" onClick={previousMobileProject} aria-label="Show previous project" className="flex h-10 w-10 items-center justify-center rounded-full border border-border transition-colors hover:border-accent hover:text-accent active:scale-[0.97]">
-              <ChevronLeft size={18} aria-hidden="true" />
-            </button>
-            <div className="flex items-center gap-1.5" aria-label={`Project ${mobileIndex + 1} of ${projects.length}`}>
-              {projects.map((project, index) => (
-                <button
-                  key={project.title}
-                  type="button"
-                  onClick={() => setMobileIndex(index)}
-                  aria-label={`Show project ${index + 1}: ${project.title}`}
-                  aria-current={index === mobileIndex ? 'true' : undefined}
-                  className={`h-1.5 rounded-full transition-all duration-300 ${index === mobileIndex ? 'w-6 bg-accent' : 'w-1.5 bg-border'}`}
-                />
-              ))}
-            </div>
-            <button type="button" onClick={nextMobileProject} aria-label="Show next project" className="flex h-10 w-10 items-center justify-center rounded-full border border-border transition-colors hover:border-accent hover:text-accent active:scale-[0.97]">
-              <ChevronRight size={18} aria-hidden="true" />
-            </button>
+          <div className="mt-5 flex items-center justify-center gap-1.5" aria-label={`Project ${mobileIndex + 1} of ${projects.length}`}>
+            {projects.map((project, index) => (
+              <span
+                key={project.title}
+                aria-hidden="true"
+                className={`h-1.5 rounded-full transition-all duration-300 ${index === mobileIndex ? 'w-6 bg-accent' : 'w-1.5 bg-border'}`}
+              />
+            ))}
+          </div>
           </div>
         </div>
       </div>
