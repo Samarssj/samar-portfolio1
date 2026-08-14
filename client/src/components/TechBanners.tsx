@@ -2,23 +2,22 @@ import { useEffect, useRef, useState } from 'react';
 
 type Technology = {
   name: string;
-  icon: string;
 };
 
 const movingRight: Technology[] = [
-  { name: 'Vertex AI', icon: '🎯' },
-  { name: 'Dialogflow CX', icon: '💬' },
-  { name: 'Gemini', icon: '✨' },
-  { name: 'Cloud Run', icon: '🚀' },
-  { name: 'Firestore', icon: '🗄️' },
+  { name: 'Vertex AI' },
+  { name: 'Dialogflow CX' },
+  { name: 'Gemini' },
+  { name: 'Cloud Run' },
+  { name: 'Firestore' },
 ];
 
 const movingLeft: Technology[] = [
-  { name: 'Vector DB', icon: '📊' },
-  { name: 'Prompt Eng.', icon: '✍️' },
-  { name: 'Feature Eng.', icon: '⚙️' },
-  { name: 'NLP/NLU', icon: '🧠' },
-  { name: 'REST APIs', icon: '🔌' },
+  { name: 'Vector DB' },
+  { name: 'Prompt Eng.' },
+  { name: 'Feature Eng.' },
+  { name: 'NLP/NLU' },
+  { name: 'REST APIs' },
 ];
 
 function TechnologyGroup({ technologies }: { technologies: Technology[] }) {
@@ -27,10 +26,9 @@ function TechnologyGroup({ technologies }: { technologies: Technology[] }) {
       {technologies.map((tech) => (
         <div
           key={tech.name}
-          className="flex w-44 flex-shrink-0 items-center gap-3 rounded-xl border border-border bg-background/70 px-4 py-3 transition-colors duration-300 hover:border-accent/70"
+          className="flex w-44 flex-shrink-0 items-center justify-center rounded-xl border border-border bg-background/70 px-4 py-3 text-center transition-colors duration-300 hover:border-accent/70"
         >
-          <span className="text-xl" aria-hidden="true">{tech.icon}</span>
-          <span className="text-xs font-semibold text-muted whitespace-nowrap">{tech.name}</span>
+          <span className="text-sm font-semibold text-muted whitespace-nowrap">{tech.name}</span>
         </div>
       ))}
     </>

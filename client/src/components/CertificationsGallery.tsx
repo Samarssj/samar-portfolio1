@@ -5,7 +5,6 @@ interface Certification {
   id: string;
   title: string;
   provider: string;
-  icon: string;
   color: string;
   url: string;
 }
@@ -15,7 +14,6 @@ const certifications: Certification[] = [
     id: "ibm-ml",
     title: "IBM Machine Learning Professional Certificate",
     provider: "IBM",
-    icon: "🤖",
     color: "from-blue-500 to-blue-600",
     url: "https://coursera.org/share/4d0f5b448eb9bf8b202cfcd075bf925b",
   },
@@ -23,7 +21,6 @@ const certifications: Certification[] = [
     id: "ibm-ai",
     title: "IBM AI Enterprise Workflow Specialization",
     provider: "IBM",
-    icon: "🧠",
     color: "from-blue-500 to-blue-600",
     url: "https://coursera.org/share/b0e3b089723ce42f0aa3308a38d36f1e",
   },
@@ -31,7 +28,6 @@ const certifications: Certification[] = [
     id: "coursera-ai",
     title: "AI for Scientific Research Specialization",
     provider: "Coursera",
-    icon: "🔬",
     color: "from-purple-500 to-purple-600",
     url: "https://coursera.org/share/b14960a82bbb4a4e70b912c1141a92c6",
   },
@@ -39,7 +35,6 @@ const certifications: Certification[] = [
     id: "gcp-infra",
     title: "Essential Google Cloud Infrastructure: Core Services",
     provider: "Google Cloud",
-    icon: "☁️",
     color: "from-red-500 to-orange-500",
     url: "https://partner.skills.google/public_profiles/e2bb2abb-fb8a-4b51-882e-744f692fa177/badges/24584405",
   },
@@ -47,7 +42,6 @@ const certifications: Certification[] = [
     id: "gcp-agents",
     title: "Certified Partner Specialist Gemini Enterprise Agent Development",
     provider: "Google Cloud",
-    icon: "🤖",
     color: "from-red-500 to-orange-500",
     url: "https://www.credly.com/badges/2533a1d5-c98b-4102-b1f6-c73c983da84b/public_url",
   },
@@ -55,7 +49,6 @@ const certifications: Certification[] = [
     id: "gcp-scaling",
     title: "Elastic Google Cloud Infrastructure: Scaling and Automation",
     provider: "Google Cloud",
-    icon: "⚙️",
     color: "from-red-500 to-orange-500",
     url: "https://partner.skills.google/public_profiles/e2bb2abb-fb8a-4b51-882e-744f692fa177/badges/24370472",
   },
@@ -63,7 +56,6 @@ const certifications: Certification[] = [
     id: "gcp-k8s",
     title: "Getting Started with Google Kubernetes Engine",
     provider: "Google Cloud",
-    icon: "🐳",
     color: "from-red-500 to-orange-500",
     url: "https://partner.skills.google/public_profiles/e2bb2abb-fb8a-4b51-882e-744f692fa177/badges/24453923",
   },
@@ -71,7 +63,6 @@ const certifications: Certification[] = [
     id: "gcp-prompt",
     title: "Text Prompt Engineering Techniques",
     provider: "Google Cloud",
-    icon: "✍️",
     color: "from-red-500 to-orange-500",
     url: "https://partner.skills.google/public_profiles/e2bb2abb-fb8a-4b51-882e-744f692fa177/badges/24421265",
   },
@@ -79,7 +70,6 @@ const certifications: Certification[] = [
     id: "gcp-cx-studio",
     title: "Certified Partner Specialist Gemini Enterprise Deployment",
     provider: "Google Cloud",
-    icon: "🎯",
     color: "from-red-500 to-orange-500",
     url: "https://www.credly.com/badges/f0de046e-1a43-4e03-9393-2f8e69f4e5d9/public_url",
   },
@@ -106,10 +96,8 @@ export default function CertificationsGallery() {
             rel="noopener noreferrer"
             className="group block p-5 rounded-lg border border-border bg-secondary/50 hover:border-accent hover:bg-secondary hover:-translate-y-1 hover:shadow-lg transition-all duration-300"
           >
-            <div className="flex items-start gap-4">
-              <div className="text-3xl flex-shrink-0">{cert.icon}</div>
-
-              <div className="flex-1 min-w-0">
+            <div>
+              <div className="min-w-0">
                 <p className="text-sm font-semibold text-foreground leading-tight mb-1 group-hover:text-accent transition-colors">
                   {cert.title}
                 </p>
