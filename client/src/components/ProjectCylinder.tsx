@@ -142,7 +142,6 @@ export default function ProjectCylinder() {
   const cylinderRef = useRef<HTMLDivElement>(null);
   const mobileSectionRef = useRef<HTMLDivElement>(null);
   const frameRef = useRef<number | null>(null);
-  const mobileFrameRef = useRef<number | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [mobileIndex, setMobileIndex] = useState(0);
   const activeIndexRef = useRef(0);
@@ -200,38 +199,69 @@ export default function ProjectCylinder() {
 
     const mobileQuery = window.matchMedia('(max-width: 767px)');
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const scrollStep = 40;
+    let lastScrollY = window.scrollY;
+    let accumulatedDistance = 0;
+    let locked = false;
+    let settleTimer: number | null = null;
 
-    const updateMobileProject = () => {
-      mobileFrameRef.current = null;
-      if (!mobileQuery.matches) return;
-
-      const rect = section.getBoundingClientRect();
-      const completedScrollSteps = Math.floor(Math.max(-rect.top, 0) / Math.max(window.innerHeight, 1));
-      const nextIndex = reducedMotion.matches
-        ? 0
-        : Math.min(completedScrollSteps, projects.length - 1);
-
-      setMobileIndex((current) => (current === nextIndex ? current : nextIndex));
+    const unlockAfterScrollSettles = () => {
+      if (settleTimer !== null) window.clearTimeout(settleTimer);
+      settleTimer = window.setTimeout(() => {
+        locked = false;
+        accumulatedDistance = 0;
+      }, 150);
     };
 
     const onScroll = () => {
-      if (mobileFrameRef.current === null) {
-        mobileFrameRef.current = window.requestAnimationFrame(updateMobileProject);
+      const currentScrollY = window.scrollY;
+      const scrollDelta = currentScrollY - lastScrollY;
+      lastScrollY = currentScrollY;
+
+      if (!mobileQuery.matches || reducedMotion.matches) {
+        accumulatedDistance = 0;
+        return;
       }
+
+      const rect = section.getBoundingClientRect();
+      const sectionIsActive = rect.top <= window.innerHeight * 0.95 && rect.bottom >= window.innerHeight * 0.05;
+      if (!sectionIsActive || scrollDelta === 0) {
+        accumulatedDistance = 0;
+        return;
+      }
+
+      if (locked) {
+        unlockAfterScrollSettles();
+        return;
+      }
+
+      accumulatedDistance += scrollDelta;
+      if (Math.abs(accumulatedDistance) < scrollStep) return;
+
+      const direction = accumulatedDistance > 0 ? 1 : -1;
+      accumulatedDistance = 0;
+      locked = true;
+      setMobileIndex((current) => Math.min(Math.max(current + direction, 0), projects.length - 1));
+      unlockAfterScrollSettles();
     };
 
-    updateMobileProject();
+    const resetTracking = () => {
+      lastScrollY = window.scrollY;
+      accumulatedDistance = 0;
+    };
+
+    resetTracking();
     window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onScroll, { passive: true });
-    mobileQuery.addEventListener('change', onScroll);
-    reducedMotion.addEventListener('change', onScroll);
+    window.addEventListener('resize', resetTracking, { passive: true });
+    mobileQuery.addEventListener('change', resetTracking);
+    reducedMotion.addEventListener('change', resetTracking);
 
     return () => {
       window.removeEventListener('scroll', onScroll);
-      window.removeEventListener('resize', onScroll);
-      mobileQuery.removeEventListener('change', onScroll);
-      reducedMotion.removeEventListener('change', onScroll);
-      if (mobileFrameRef.current !== null) window.cancelAnimationFrame(mobileFrameRef.current);
+      window.removeEventListener('resize', resetTracking);
+      mobileQuery.removeEventListener('change', resetTracking);
+      reducedMotion.removeEventListener('change', resetTracking);
+      if (settleTimer !== null) window.clearTimeout(settleTimer);
     };
   }, []);
 
@@ -345,7 +375,7 @@ export default function ProjectCylinder() {
         </div>
       </div>
 
-      <div ref={mobileSectionRef} className="relative h-[1000svh] md:hidden" aria-label="Scroll-driven mobile project carousel">
+      <div ref={mobileSectionRef} className="relative h-[260svh] md:hidden" aria-label="Scroll-driven mobile project carousel">
         <style>{`
           @keyframes mobile-project-rotate-in {
             from { opacity: 0; transform: rotateY(26deg) translate3d(28px, 14px, 0) scale(0.96); }
@@ -361,7 +391,7 @@ export default function ProjectCylinder() {
             <div className="flex items-start justify-between gap-4">
             <div>
               <div className="text-xs font-semibold text-accent uppercase tracking-[0.28em]">Scroll down to rotate</div>
-              <p className="mt-1 text-xs text-muted">One project advances with each full screen of scroll</p>
+              <p className="mt-1 text-xs text-muted">Projects advance smoothly as you scroll</p>
             </div>
             <div className="font-mono text-xs text-accent">{String(mobileIndex + 1).padStart(2, '0')} / {String(projects.length).padStart(2, '0')}</div>
           </div>
@@ -373,7 +403,7 @@ export default function ProjectCylinder() {
             <article
               key={mobileProject.title}
               className="mobile-project-card overflow-hidden rounded-xl border border-accent/35 bg-card/95 p-5 shadow-[0_0_28px_rgba(16,185,129,0.16)]"
-              style={{ animation: 'mobile-project-rotate-in 420ms cubic-bezier(0.23, 1, 0.32, 1)', transformStyle: 'preserve-3d', willChange: 'transform, opacity' }}
+              style={{ animation: 'mobile-project-rotate-in 280ms cubic-bezier(0.23, 1, 0.32, 1)', transformStyle: 'preserve-3d', willChange: 'transform, opacity' }}
             >
               <p className="font-mono text-xs text-accent">{String(mobileIndex + 1).padStart(2, '0')} — SELECTED BUILD</p>
               <h3 className="mt-2 text-xl font-semibold leading-tight">{mobileProject.title}</h3>
