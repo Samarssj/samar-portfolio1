@@ -1,5 +1,6 @@
 import React from 'react';
 import MultiAgentWorkflow from './MultiAgentWorkflow';
+import TechBanners from './TechBanners';
 
 /**
  * AI Engineering Showcase Component
@@ -174,29 +175,8 @@ export default function AIShowcase() {
         </div>
       </div>
 
-      {/* Tech Stack */}
-      <div className="p-8 rounded-lg border border-border bg-accent/5 hover:border-accent hover:shadow-[0_0_25px_#22c55e] transition-all duration-300">
-        <h3 className="text-lg font-semibold mb-6">AI & Cloud Technologies</h3>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-          {[
-            { name: 'Vertex AI', icon: '🎯' },
-            { name: 'Dialogflow CX', icon: '💬' },
-            { name: 'Gemini', icon: '✨' },
-            { name: 'Cloud Run', icon: '🚀' },
-            { name: 'Firestore', icon: '🗄️' },
-            { name: 'Vector DB', icon: '📊' },
-            { name: 'Prompt Eng.', icon: '✍️' },
-            { name: 'Feature Eng.', icon: '⚙️' },
-            { name: 'NLP/NLU', icon: '🧠' },
-            { name: 'REST APIs', icon: '🔌' },
-          ].map((tech) => (
-            <div key={tech.name} className="flex flex-col items-center gap-2 p-4 rounded-xl border border-border bg-background/50 hover:scale-105 hover:border-accent hover:shadow-[0_0_15px_#22c55e] transition-all duration-300 cursor-pointer">
-              <div className="text-2xl">{tech.icon}</div>
-              <p className="text-xs font-medium text-center text-muted">{tech.name}</p>
-            </div>
-          ))}
-        </div>
-      </div>
+      {/* Tech Stack — two seamless counter-moving banners */}
+      <TechBanners />
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, type CSSProperties } from 'react';
 import { Button } from '@/components/ui/button';
 import AIOrchestration from '@/components/AIOrchestration';
 import MultiAgentWorkflow from '@/components/MultiAgentWorkflow';
@@ -6,6 +6,8 @@ import AIShowcase from '@/components/AIShowcase';
 import CertificationsGallery from '@/components/CertificationsGallery';
 import SpotifyWidget from '@/components/SpotifyWidget';
 import HUDBackground from '@/components/HUDBackground';
+import ProjectCylinder from '@/components/ProjectCylinder';
+import OmnitrixEmblem from '@/components/OmnitrixEmblem';
 import { Github, Linkedin, Mail, Download, Moon, Sun } from 'lucide-react';
 
 
@@ -22,7 +24,27 @@ import { Github, Linkedin, Mail, Download, Moon, Sun } from 'lucide-react';
 
 export default function Home() {
   const [isDark, setIsDark] = useState(true);
-  const projectsRef = useRef<HTMLDivElement>(null);
+  const statsTrackRef = useRef<HTMLDivElement>(null);
+  const [statsLoopDistance, setStatsLoopDistance] = useState(0);
+
+  const stats = [
+    { value: '2+', label: 'Internships' },
+    { value: '11+', label: 'Projects' },
+    { value: '11+', label: 'Certifications' },
+    { value: '74%↑', label: 'AI Accuracy' },
+  ];
+
+  useEffect(() => {
+    const track = statsTrackRef.current;
+    if (!track) return;
+
+    const updateLoopDistance = () => setStatsLoopDistance(track.getBoundingClientRect().width);
+    updateLoopDistance();
+
+    const observer = new ResizeObserver(updateLoopDistance);
+    observer.observe(track);
+    return () => observer.disconnect();
+  }, []);
 
   // Toggle dark mode
   const toggleDarkMode = () => {
@@ -129,9 +151,7 @@ export default function Home() {
       <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-center md:justify-between">
           <div className="flex items-center gap-2 md:flex-1">
-            <div className="w-8 h-8 bg-accent rounded-lg flex items-center justify-center">
-              <span className="text-accent-foreground font-bold text-sm">SS</span>
-            </div>
+            <OmnitrixEmblem />
             <span className="font-bold text-lg">Samar Singh</span>
           </div>
           
@@ -230,12 +250,17 @@ export default function Home() {
                       })}
                     </h1>
                   </div>
-                  <div className="flex-shrink-0">
-                    <img
-                      src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663745791505/NFiqZRbGBApQcYsC.jpg"
-                      alt="Samar Singh"
-                      className="w-24 h-32 sm:w-32 sm:h-40 object-cover rounded-lg border border-accent/30 shadow-lg"
-                    />
+                  <div className="group/profile relative flex-shrink-0">
+                    <div className="absolute -inset-[3px] rounded-xl opacity-0 blur-[1px] transition-opacity duration-300 group-hover/profile:opacity-100">
+                      <div className="h-full w-full rounded-xl bg-[conic-gradient(from_0deg,#10b981,#a3e635,#10b981,#065f46,#10b981)] group-hover/profile:animate-[spin_1.8s_linear_infinite]" />
+                    </div>
+                    <div className="relative overflow-hidden rounded-lg border border-accent/30 shadow-lg transition-transform duration-300 group-hover/profile:scale-[1.02]">
+                      <img
+                        src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663745791505/NFiqZRbGBApQcYsC.jpg"
+                        alt="Samar Singh"
+                        className="w-24 h-32 sm:w-32 sm:h-40 object-cover"
+                      />
+                    </div>
                   </div>
                 </div>
 
@@ -262,52 +287,45 @@ export default function Home() {
 
               {/* Stats Live Banner */}
               <div className="pt-8 border-t border-border overflow-hidden">
-                <div className="relative flex">
-                  <div className="flex animate-ticker whitespace-nowrap py-2 w-max">
-                    <div className="flex items-center flex-shrink-0 gap-32 pr-32">
-                      <div className="flex items-center gap-6">
-                        <span className="text-2xl font-bold text-accent drop-shadow-[0_0_12px_rgba(16,185,129,0.6)]">2+</span>
-                        <span className="text-xs font-bold text-muted uppercase tracking-[0.3em]">Internships</span>
-                      </div>
-                      <div className="w-2 h-2 rounded-full bg-accent/40" />
-                      <div className="flex items-center gap-6">
-                        <span className="text-2xl font-bold text-accent drop-shadow-[0_0_12px_rgba(16,185,129,0.6)]">11+</span>
-                        <span className="text-xs font-bold text-muted uppercase tracking-[0.3em]">Projects</span>
-                      </div>
-                      <div className="w-2 h-2 rounded-full bg-accent/40" />
-                      <div className="flex items-center gap-6">
-                        <span className="text-2xl font-bold text-accent drop-shadow-[0_0_12px_rgba(16,185,129,0.6)]">11+</span>
-                        <span className="text-xs font-bold text-muted uppercase tracking-[0.3em]">Certifications</span>
-                      </div>
-                      <div className="w-2 h-2 rounded-full bg-accent/40" />
-                      <div className="flex items-center gap-6">
-                        <span className="text-2xl font-bold text-accent drop-shadow-[0_0_12px_rgba(16,185,129,0.6)]">74%↑</span>
-                        <span className="text-xs font-bold text-muted uppercase tracking-[0.3em]">AI Accuracy</span>
-                      </div>
-                      <div className="w-2 h-2 rounded-full bg-accent/40" />
+                <div
+                  className="flex py-2"
+                  style={{ maskImage: 'linear-gradient(to right, transparent, black 8%, black 92%, transparent)' } as CSSProperties}
+                >
+                  {/* Outer wrapper drives the animation using the exact measured width of one copy */}
+                  <div
+                    className="flex"
+                    style={{
+                      willChange: 'transform',
+                      backfaceVisibility: 'hidden',
+                      '--stats-loop-distance': `-${statsLoopDistance}px`,
+                      animation: statsLoopDistance
+                        ? 'stats-marquee 12s linear infinite'
+                        : 'none',
+                    } as CSSProperties}
+                  >
+                    {/* First copy — measured by ref */}
+                    <div ref={statsTrackRef} className="flex items-center flex-shrink-0">
+                      {stats.map((stat, i) => (
+                        <>
+                          <div key={stat.label} className="flex items-center" style={{ gap: '1.25rem', paddingRight: '3rem' }}>
+                            <span className="text-2xl font-bold text-accent" style={{ textShadow: '0 0 12px rgba(16,185,129,0.6)' }}>{stat.value}</span>
+                            <span className="text-xs font-bold text-muted uppercase" style={{ letterSpacing: '0.3em' }}>{stat.label}</span>
+                          </div>
+                          <div key={`dot-${i}`} className="w-2 h-2 rounded-full bg-accent/40" style={{ marginRight: '3rem', flexShrink: 0 }} />
+                        </>
+                      ))}
                     </div>
-                    {/* Duplicate for seamless loop */}
-                    <div className="flex items-center flex-shrink-0 gap-32 pr-32">
-                      <div className="flex items-center gap-6">
-                        <span className="text-2xl font-bold text-accent drop-shadow-[0_0_12px_rgba(16,185,129,0.6)]">2+</span>
-                        <span className="text-xs font-bold text-muted uppercase tracking-[0.3em]">Internships</span>
-                      </div>
-                      <div className="w-2 h-2 rounded-full bg-accent/40" />
-                      <div className="flex items-center gap-6">
-                        <span className="text-2xl font-bold text-accent drop-shadow-[0_0_12px_rgba(16,185,129,0.6)]">11+</span>
-                        <span className="text-xs font-bold text-muted uppercase tracking-[0.3em]">Projects</span>
-                      </div>
-                      <div className="w-2 h-2 rounded-full bg-accent/40" />
-                      <div className="flex items-center gap-6">
-                        <span className="text-2xl font-bold text-accent drop-shadow-[0_0_12px_rgba(16,185,129,0.6)]">11+</span>
-                        <span className="text-xs font-bold text-muted uppercase tracking-[0.3em]">Certifications</span>
-                      </div>
-                      <div className="w-2 h-2 rounded-full bg-accent/40" />
-                      <div className="flex items-center gap-6">
-                        <span className="text-2xl font-bold text-accent drop-shadow-[0_0_12px_rgba(16,185,129,0.6)]">74%↑</span>
-                        <span className="text-xs font-bold text-muted uppercase tracking-[0.3em]">AI Accuracy</span>
-                      </div>
-                      <div className="w-2 h-2 rounded-full bg-accent/40" />
+                    {/* Exact duplicate — same content, same spacing */}
+                    <div className="flex items-center flex-shrink-0">
+                      {stats.map((stat, i) => (
+                        <>
+                          <div key={stat.label} className="flex items-center" style={{ gap: '1.25rem', paddingRight: '3rem' }}>
+                            <span className="text-2xl font-bold text-accent" style={{ textShadow: '0 0 12px rgba(16,185,129,0.6)' }}>{stat.value}</span>
+                            <span className="text-xs font-bold text-muted uppercase" style={{ letterSpacing: '0.3em' }}>{stat.label}</span>
+                          </div>
+                          <div key={`dot-${i}`} className="w-2 h-2 rounded-full bg-accent/40" style={{ marginRight: '3rem', flexShrink: 0 }} />
+                        </>
+                      ))}
                     </div>
                   </div>
                 </div>
@@ -430,734 +448,18 @@ export default function Home() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 border-t border-border scroll-reveal">
-        <div className="max-w-4xl mx-auto">
-          <div className="space-y-2 mb-12">
-            <div className="text-xs font-semibold text-accent uppercase tracking-widest">Portfolio</div>
-            <h2 className="text-3xl sm:text-4xl font-bold">Featured Projects</h2>
+      <section id="projects" className="relative border-t border-border bg-secondary/30">
+        <div className="px-4 pt-20 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-4xl">
+            <div className="space-y-2">
+              <div className="text-xs font-semibold text-accent uppercase tracking-widest">Portfolio</div>
+              <h2 className="text-3xl sm:text-4xl font-bold">Featured Projects</h2>
+            </div>
           </div>
+        </div>
+        <ProjectCylinder />
+      </section>
 
-          <div ref={projectsRef} className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Project 1 */}
-            <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer scroll-reveal">
-  <div className="space-y-4">
-    <h3 className="text-xl font-semibold">
-      Enterprise AI Chatbot
-    </h3>
-
-    <p className="text-sm text-muted leading-relaxed">
-      Built an enterprise-grade conversational AI platform capable of
-      automating customer support workflows, intent recognition,
-      knowledge retrieval, multi-turn conversations, and escalation
-      handling using Vertex AI and Dialogflow CX.
-    </p>
-
-    <div className="grid grid-cols-3 gap-4 border-y border-border py-4">
-      <div>
-        <p className="text-accent text-xl font-bold">85%</p>
-        <p className="text-xs text-muted">User Satisfaction</p>
-      </div>
-
-      <div>
-        <p className="text-accent text-xl font-bold">40%</p>
-        <p className="text-xs text-muted">Ticket Reduction</p>
-      </div>
-
-      <div>
-        <p className="text-accent text-xl font-bold">60%</p>
-        <p className="text-xs text-muted">Faster Resolution</p>
-      </div>
-    </div>
-
-    <div className="flex flex-wrap gap-2">
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        Vertex AI
-      </span>
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        CX Agent Studio
-      </span>
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        GCP
-      </span>
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        OpenAPI Tools
-      </span>
-    </div>
-
-    {/* Buttons */}
-    <div className="pt-2 grid grid-cols-2 gap-3">
-      <a
-        href="https://healthcare-card-portal.vercel.app"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex items-center justify-center px-4 py-2 rounded-lg bg-accent text-background font-medium hover:opacity-90 transition-all duration-300"
-      >
-        🚀 Live Demo
-      </a>
-
-      <a
-        href="https://github.com/Samarssj/Enterprise-Agent"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex items-center justify-center px-4 py-2 rounded-lg border border-border hover:border-accent hover:text-accent transition-all duration-300"
-      >
-        💻 GitHub
-      </a>
-    </div>
-  </div>
-</div>
-
-             {/* Project 2 */}
-<div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer scroll-reveal">
-  <div className="space-y-4">
-    <h3 className="text-xl font-semibold">
-      Jarvis AI Voice Assistant
-    </h3>
-
-    <p className="text-sm text-muted leading-relaxed">
-      Built a modular AI-powered desktop voice assistant inspired by Tony Stark's Jarvis, integrating offline speech recognition, Gemini-powered reasoning, tool execution, and text-to-speech to enable hands-free conversations, automation, and system control.
-    </p>
-
-    <div className="grid grid-cols-3 gap-4 border-y border-border py-4">
-      <div>
-        <p className="text-accent text-xl font-bold">VAD</p>
-        <p className="text-xs text-muted">Voice Activity Detection</p>
-      </div>
-
-      <div>
-        <p className="text-accent text-xl font-bold">7+</p>
-        <p className="text-xs text-muted">Integrated Tools</p>
-      </div>
-
-      <div>
-        <p className="text-accent text-xl font-bold">Edge-TTS</p>
-        <p className="text-xs text-muted">Text-to-Speech</p>
-      </div>
-    </div>
-
-    <div className="flex flex-wrap gap-2">
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        Python
-      </span>
-
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        Gemini API
-      </span>
-
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        Faster-Whisper
-      </span>
-
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        Edge TTS
-      </span>
-
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        SoundDevice
-      </span>
-
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        Automation
-      </span>
-    </div>
-
-    <div className="flex gap-3 pt-2">
-      <a
-        href="https://github.com/Samarssj/Jarvis-prototype"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="w-full text-center px-4 py-2 rounded-lg border border-border hover:border-accent hover:text-accent transition"
-      >
-        💻 GitHub
-      </a>
-    </div>
-  </div>
-</div>
-            
-          {/* Project 3 */}
-            <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer scroll-reveal">
-  <div className="space-y-4">
-    <h3 className="text-xl font-semibold">
-      Movie Review Sentiment Analysis
-    </h3>
-
-    <p className="text-sm text-muted leading-relaxed">
-      Developed an end-to-end NLP application that classifies movie
-      reviews into five sentiment categories using TF-IDF feature
-      extraction and machine learning. Compared multiple classification
-      models and deployed the best-performing model (linear tuned SVM) through an
-      interactive Streamlit web application for real-time sentiment
-      prediction.
-    </p>
-
-    <div className="grid grid-cols-3 gap-4 border-y border-border py-4">
-      <div>
-        <p className="text-accent text-xl font-bold">5</p>
-        <p className="text-xs text-muted">Sentiment Classes</p>
-      </div>
-
-      <div>
-        <p className="text-accent text-xl font-bold">4+</p>
-        <p className="text-xs text-muted">ML Models Compared</p>
-      </div>
-
-      <div>
-        <p className="text-accent text-xl font-bold">TF-IDF</p>
-        <p className="text-xs text-muted">Feature Engineering</p>
-      </div>
-    </div>
-
-    <div className="flex flex-wrap gap-2">
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        Python
-      </span>
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        Scikit-Learn
-      </span>
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        Streamlit
-      </span>
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        TF-IDF
-      </span>
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        Pandas
-      </span>
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        NumPy
-      </span>
-    </div>
-
-    <div className="flex gap-3 pt-2">
-      <a
-        href="https://samarssj-movie-review-sentiment-analysis-appapp-z7ohdt.streamlit.app"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex-1 text-center px-4 py-2 rounded-lg bg-accent text-background font-medium hover:opacity-90 transition"
-      >
-        🚀 Live Demo
-      </a>
-
-      <a
-        href="https://github.com/Samarssj/movie-review-sentiment-analysis"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex-1 text-center px-4 py-2 rounded-lg border border-border hover:border-accent hover:text-accent transition"
-      >
-        💻 GitHub
-      </a>
-    </div>
-  </div>
-</div>
-
-{/* Project 4 */}
-           <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer scroll-reveal">
-  <div className="space-y-4">
-    <h3 className="text-xl font-semibold">
-      News Pilot — Hybrid AI News Intelligence Platform
-    </h3>
-
-    <p className="text-sm text-muted leading-relaxed">
-      Developed an intelligent Hybrid RAG-powered news assistant that
-      fetches live news from RSS feeds and NewsAPI, indexes articles in
-      ChromaDB using Sentence Transformers, and delivers source-backed
-      answers. The system intelligently falls back to Google Gemini's
-      general knowledge whenever relevant news is unavailable, ensuring
-      accurate and reliable responses through an interactive Streamlit
-      interface.
-    </p>
-
-    <div className="grid grid-cols-3 gap-4 border-y border-border py-4">
-      <div>
-        <p className="text-accent text-xl font-bold">Hybrid</p>
-        <p className="text-xs text-muted">RAG + Gemini</p>
-      </div>
-
-      <div>
-        <p className="text-accent text-xl font-bold">1.9 sec</p>
-        <p className="text-xs text-muted">Average Response Time</p>
-      </div>
-
-      <div>
-        <p className="text-accent text-xl font-bold">Live</p>
-        <p className="text-xs text-muted">News Retrieval</p>
-      </div>
-    </div>
-
-    <div className="flex flex-wrap gap-2">
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        Python
-      </span>
-
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        Streamlit
-      </span>
-
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        Gemini API
-      </span>
-
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        ChromaDB
-      </span>
-
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        Sentence Transformers
-      </span>
-
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        RAG
-      </span>
-
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        NewsAPI
-      </span>
-
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        RSS Feeds
-      </span>
-    </div>
-
-    <div className="flex gap-3 pt-2">
-      <a
-        href="https://samarssj-newspilot-app-qbihoh.streamlit.app"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex-1 text-center px-4 py-2 rounded-lg bg-accent text-background font-medium hover:opacity-90 transition"
-      >
-        🚀 Live Demo
-      </a>
-
-      <a
-        href="https://github.com/Samarssj/NewsPilot"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex-1 text-center px-4 py-2 rounded-lg border border-border hover:border-accent hover:text-accent transition"
-      >
-        💻 GitHub
-      </a>
-    </div>
-  </div>
-</div>
-
-{/* Project 5 */}
-            <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer scroll-reveal">
-  <div className="space-y-4">
-    <h3 className="text-xl font-semibold">
-      E-Blogging Platform
-    </h3>
-
-    <p className="text-sm text-muted leading-relaxed">
-      Developed a full-stack blogging platform with secure user
-      authentication, CRUD functionality, responsive UI, RESTful APIs,
-      and MongoDB integration, enabling users to create, edit, and
-      manage blog posts seamlessly.
-    </p>
-
-    <div className="grid grid-cols-3 gap-4 border-y border-border py-4">
-      <div>
-        <p className="text-accent text-xl font-bold">CRUD</p>
-        <p className="text-xs text-muted">Blog Management</p>
-      </div>
-
-      <div>
-        <p className="text-accent text-xl font-bold">JWT</p>
-        <p className="text-xs text-muted">Authentication</p>
-      </div>
-
-      <div>
-        <p className="text-accent text-xl font-bold">REST</p>
-        <p className="text-xs text-muted">API Architecture</p>
-      </div>
-    </div>
-
-    <div className="flex flex-wrap gap-2">
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        TypeScript
-      </span>
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        Node.js
-      </span>
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        Express.js
-      </span>
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        MongoDB
-      </span>
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        REST APIs
-      </span>
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        Bootstrap
-      </span>
-    </div>
-
-    <div className="flex gap-3 pt-2">
-      <a
-        href="https://eblogging-webapp-1.onrender.com"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex-1 text-center px-4 py-2 rounded-lg bg-accent text-background font-medium hover:opacity-90 transition"
-      >
-        🚀 Live Demo
-      </a>
-
-      <a
-        href="https://github.com/Samarssj/eBlogging-webapp"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex-1 text-center px-4 py-2 rounded-lg border border-border hover:border-accent hover:text-accent transition"
-      >
-        💻 GitHub
-      </a>
-    </div>
-  </div>
-</div>
-
-{/* Project 6 */}
-           <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer scroll-reveal">
-  <div className="space-y-4">
-    <h3 className="text-xl font-semibold">
-      Clearance Desk
-    </h3>
-
-    <p className="text-sm text-muted leading-relaxed">
-      Built an AI-powered resume parser and Job Description matcher that extracts candidate information using hybrid rule-based parsing with Gemini fallback, then scores resumes through semantic similarity, skill matching, and experience analysis.
-    </p>
-
-    <div className="grid grid-cols-3 gap-4 border-y border-border py-4">
-      <div>
-        <p className="text-accent text-xl font-bold">AI</p>
-        <p className="text-xs text-muted">Resume Parsing</p>
-      </div>
-
-      <div>
-        <p className="text-accent text-xl font-bold">Hybrid</p>
-        <p className="text-xs text-muted">Rule + LLM</p>
-      </div>
-
-      <div>
-        <p className="text-accent text-xl font-bold">ATS</p>
-        <p className="text-xs text-muted">Resume Matching</p>
-      </div>
-    </div>
-
-    <div className="flex flex-wrap gap-2">
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        Python
-      </span>
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        Streamlit
-      </span>
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        Gemini API
-      </span>
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        PDF Parsing
-      </span>
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        RapidFuzz
-      </span>
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        NLP
-      </span>
-    </div>
-
-    <div className="flex gap-3 pt-2">
-      <a
-        href="https://samarssj-clerance-desk-app-4ik4yy.streamlit.app"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex-1 text-center px-4 py-2 rounded-lg bg-accent text-background font-medium hover:opacity-90 transition"
-      >
-        🚀 Live Demo
-      </a>
-
-      <a
-        href="https://github.com/Samarssj/Clearance_desk"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex-1 text-center px-4 py-2 rounded-lg border border-border hover:border-accent hover:text-accent transition"
-      >
-        💻 GitHub
-      </a>
-    </div>
-  </div>
-</div>
-
-         {/* Project 7 */}   
-<div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer scroll-reveal">
-  <div className="space-y-4">
-    <h3 className="text-xl font-semibold">
-      HealthBuddy — AI Health Information Assistant
-    </h3>
-    <p className="text-sm text-muted leading-relaxed">
-      Built a guardrailed healthcare chatbot combining RAG-based knowledge
-      retrieval with Gemini for grounded, multi-turn health guidance —
-      featuring emergency-input detection, diagnosis-request flagging, and
-      automatic medical disclaimers, deployed with fully server-side
-      credential handling.
-    </p>
-    <div className="grid grid-cols-3 gap-4 border-y border-border py-4">
-      <div>
-        <p className="text-accent text-xl font-bold">RAG</p>
-        <p className="text-xs text-muted">Knowledge Retrieval</p>
-      </div>
-      <div>
-        <p className="text-accent text-xl font-bold">Zero</p>
-        <p className="text-xs text-muted">Client-Side Keys</p>
-      </div>
-      <div>
-        <p className="text-accent text-xl font-bold">Multi-turn</p>
-        <p className="text-xs text-muted">Conversation Memory</p>
-      </div>
-    </div>
-    <div className="flex flex-wrap gap-2">
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        Gemini API
-      </span>
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        RAG
-      </span>
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        Streamlit
-      </span>
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        Guardrails
-      </span>
-    </div>
-    {/* Buttons */}
-   <div className="pt-2 grid grid-cols-2 gap-3">
-  <a
-    href="https://health-buddy-hglg822fh6wt86qhrt6jp2.streamlit.app"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="flex items-center justify-center px-4 py-2 rounded-lg bg-accent text-background font-medium hover:opacity-90 transition-all duration-300"
-  >
-    🚀 Live Demo
-  </a>
-
-  <a
-    href="https://github.com/Samarssj/health-buddy"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="flex items-center justify-center px-4 py-2 rounded-lg border border-border hover:border-accent hover:text-accent transition-all duration-300"
-  >
-    💻 GitHub
-  </a>
-</div>
-    </div>
-</div>
-            
-{/* Project 8 */}
-           <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer scroll-reveal">
-  <div className="space-y-4">
-    <h3 className="text-xl font-semibold">
-      Travel Booking Platform
-    </h3>
-
-    <p className="text-sm text-muted leading-relaxed">
-      Developed a full-stack travel booking platform that enables users
-      to browse destinations, search travel options, and manage bookings
-      through a responsive interface, secure REST APIs, and MongoDB-backed
-      data management.
-    </p>
-
-    <div className="grid grid-cols-3 gap-4 border-y border-border py-4">
-      <div>
-        <p className="text-accent text-xl font-bold">CRUD</p>
-        <p className="text-xs text-muted">Booking Management</p>
-      </div>
-
-      <div>
-        <p className="text-accent text-xl font-bold">REST</p>
-        <p className="text-xs text-muted">API Integration</p>
-      </div>
-
-      <div>
-        <p className="text-accent text-xl font-bold">Active</p>
-        <p className="text-xs text-muted">User Experience</p>
-      </div>
-    </div>
-
-    <div className="flex flex-wrap gap-2">
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        React.js
-      </span>
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        Node.js
-      </span>
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        Express.js
-      </span>
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        MongoDB
-      </span>
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        REST APIs
-      </span>
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        React
-      </span>
-    </div>
-
-    <div className="flex gap-3 pt-2">
-      <a
-        href="https://tesystem-1.onrender.com"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex-1 text-center px-4 py-2 rounded-lg bg-accent text-background font-medium hover:opacity-90 transition"
-      >
-        🚀 Live Demo
-      </a>
-
-      <a
-        href="https://github.com/Samarssj/TEsystem"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex-1 text-center px-4 py-2 rounded-lg border border-border hover:border-accent hover:text-accent transition"
-      >
-        💻 GitHub
-      </a>
-    </div>
-  </div>
-</div>
-{/* Project 9 */}
-            <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer scroll-reveal">
-  <div className="space-y-4">
-    <h3 className="text-xl font-semibold">
-      Job-track
-    </h3>
-
-    <p className="text-sm text-muted leading-relaxed">
-      Developed an AI-powered job search automation platform that discovers relevant job postings, scores them against a candidate's resume, and organizes applications through a Kanban-style tracking dashboard. Supports automated LinkedIn Easy Apply workflows while safely pre-filling external ATS applications for manual review.
-    </p>
-
-    <div className="grid grid-cols-3 gap-4 border-y border-border py-4">
-      <div>
-        <p className="text-accent text-xl font-bold">AI</p>
-        <p className="text-xs text-muted">Resume Matching</p>
-      </div>
-
-      <div>
-        <p className="text-accent text-xl font-bold">Auto</p>
-        <p className="text-xs text-muted">Job Discovery</p>
-      </div>
-
-      <div>
-        <p className="text-accent text-xl font-bold">Kanban</p>
-        <p className="text-xs text-muted">Application Tracker</p>
-      </div>
-    </div>
-
-    <div className="flex flex-wrap gap-2">
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        Python
-      </span>
-
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        Playwright
-      </span>
-
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        Streamlit
-      </span>
-
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        SQLite
-      </span>
-
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        Gemini API
-      </span>
-
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        Automation
-      </span>
-    </div>
-
-    <div className="flex gap-3 pt-2">
-      <a
-        href="https://github.com/Samarssj/job-track"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="w-full text-center px-4 py-2 rounded-lg border border-border hover:border-accent hover:text-accent transition"
-      >
-        💻 GitHub
-      </a>
-    </div>
-  </div>
-</div>
-        
-            {/* Project 10 */}
-            <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer scroll-reveal">
-  <div className="space-y-4">
-    <h3 className="text-xl font-semibold">
-      FlowCast
-    </h3>
-    <p className="text-sm text-muted leading-relaxed">
-      Built an ML-powered menstrual cycle prediction app trained on real-world cycle data, combining a rolling-average baseline with a regression model to forecast next period start dates, complete with an interactive cycle logging and symptom-tracking dashboard.
-    </p>
-    <div className="grid grid-cols-3 gap-4 border-y border-border py-4">
-      <div>
-        <p className="text-accent text-xl font-bold">ML</p>
-        <p className="text-xs text-muted">Cycle Prediction</p>
-      </div>
-      <div>
-        <p className="text-accent text-xl font-bold">±1.8d</p>
-        <p className="text-xs text-muted">Avg. Model Error</p>
-      </div>
-      <div>
-        <p className="text-accent text-xl font-bold">159</p>
-        <p className="text-xs text-muted">Users in Training Data</p>
-      </div>
-    </div>
-    <div className="flex flex-wrap gap-2">
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        Python
-      </span>
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        Streamlit
-      </span>
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        scikit-learn
-      </span>
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        Pandas
-      </span>
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        Regression
-      </span>
-      <span className="px-3 py-1 text-xs rounded-full border border-border">
-        Feature Engineering
-      </span>
-    </div>
-   <div className="flex gap-3 pt-2">
-  <a
-    href="https://period-predictor-kxssmdhkv2qxjqymovkkro.streamlit.app"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="flex-1 text-center px-4 py-2 rounded-lg bg-accent text-background font-medium hover:opacity-90 transition"
-  >
-    🚀 Live Demo
-  </a>
-
-  <a
-    href="https://github.com/Samarssj/Period-Predictor"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="flex-1 text-center px-4 py-2 rounded-lg border border-border hover:border-accent hover:text-accent transition"
-  >
-    💻 GitHub
-  </a>
-</div>
-
-</div> {/* space-y-4 */}
-</div> {/* Project 8 */}
-
-</div> {/* projects grid */}
-</div> {/* max-w-4xl */}
-</section>
       {/* AI Engineering Showcase */}
       <section id="ai-showcase" className="py-20 px-4 sm:px-6 lg:px-8 border-t border-border bg-secondary/30 scroll-reveal">
         <div className="max-w-4xl mx-auto">
@@ -1184,7 +486,24 @@ export default function Home() {
           </div>
 
           <div className="space-y-8">
-            {/* EXL Service */}
+            {/* EXL Service — Current Role */}
+            <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer scroll-reveal">
+              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
+                <div>
+                  <h3 className="text-xl font-semibold">Associate Developer</h3>
+                  <p className="text-muted">EXL Service</p>
+                </div>
+                <span className="text-sm text-accent font-medium whitespace-nowrap">August 2026 - Present</span>
+              </div>
+              <div className="space-y-3 text-muted">
+                <p>→ Develop and enhance agentic AI automation solutions on Google Cloud Platform for enterprise workflows</p>
+                <p>→ Build scalable multi-agent workflows for task orchestration, intelligent routing, and human-in-the-loop operations</p>
+                <p>→ Integrate Vertex AI, cloud services, and APIs to deliver reliable, production-ready automation systems</p>
+                <p>→ Collaborate with cross-functional teams to translate business processes into secure, measurable AI-enabled solutions</p>
+              </div>
+            </div>
+
+            {/* EXL Service — Internship */}
             <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer scroll-reveal">
               <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
                 <div>

@@ -26,10 +26,24 @@ export default function HUDBackground() {
         .animate-hud-scan { animation: hud-scan 10s linear infinite; transform-origin: center; }
         
         .hud-layer { will-change: transform; transform-origin: center; }
+
+        /* Light mode retains content clarity while giving the HUD a visible emerald presence. */
+        html:not(.dark) .hud-main {
+          opacity: 0.52 !important;
+        }
+        html:not(.dark) .hud-main svg {
+          filter: drop-shadow(0 0 6px rgba(5, 150, 105, 0.42)) drop-shadow(0 0 13px rgba(16, 185, 129, 0.20)) !important;
+        }
+        html:not(.dark) .hud-grid {
+          opacity: 0.055 !important;
+        }
+        html:not(.dark) .hud-vignette {
+          background: radial-gradient(circle at center, rgba(247, 251, 248, 0) 24%, rgba(218, 235, 223, 0.30) 100%) !important;
+        }
       `}</style>
 
       {/* Main Container - Centered in Viewport */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] opacity-[1.0]">
+      <div className="hud-main absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] opacity-[1.0]">
         <svg viewBox="0 0 1000 1000" className="w-full h-full" style={{ filter: 'drop-shadow(0 0 6px rgba(16, 185, 129, 0.5))' }}>
           {/* Outer Ring 1 - Dashed */}
           <circle
@@ -71,14 +85,14 @@ export default function HUDBackground() {
             <defs>
               <linearGradient id="scanGradient" x1="0%" y1="0%" x2="100%" y2="0%">
                 <stop offset="0%" stopColor="#10b981" stopOpacity="0" />
-                <stop offset="100%" stopColor="#10b981" stopOpacity="0.3" />
+                <stop offset="100%" stopColor="#10b981" stopOpacity="0.48" />
               </linearGradient>
             </defs>
             <path
               d="M 500 500 L 500 20 A 480 480 0 0 1 850 200 Z"
               fill="url(#scanGradient)"
             />
-            <line x1="500" y1="500" x2="500" y2="20" stroke="#10b981" strokeWidth="1.5" opacity="0.6" />
+            <line x1="500" y1="500" x2="500" y2="20" stroke="#10b981" strokeWidth="2" opacity="0.82" />
           </g>
 
           {/* Inner Complex Geometry */}
@@ -106,7 +120,7 @@ export default function HUDBackground() {
 
       {/* Static Grid Overlay - Optimized */}
       <div 
-        className="absolute inset-0 opacity-[0.03]"
+        className="hud-grid absolute inset-0 opacity-[0.03]"
         style={{
           backgroundImage: `linear-gradient(#10b981 1px, transparent 1px), linear-gradient(90deg, #10b981 1px, transparent 1px)`,
           backgroundSize: '50px 50px'
@@ -114,7 +128,7 @@ export default function HUDBackground() {
       />
 
       {/* Radial Vignette */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(10,10,15,0.9)_100%)]" />
+      <div className="hud-vignette absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(10,10,15,0.9)_100%)]" />
     </div>
   );
 }
