@@ -347,7 +347,7 @@ export default function Home() {
 
               <div className="space-y-4 text-muted leading-relaxed">
                 <p>
-                  I'm an AI Engineer and Full-Stack Developer passionate about building intelligent systems that solve real-world problems. With experience of <strong className="text-foreground">EXL Service</strong> as an AI Engineer Intern, where I developed and deployed Generative AI solutions using Google Cloud technologies.
+                  I'm an AI Engineer and Full-Stack Developer passionate about building intelligent systems that solve real-world problems. With experience of <strong className="text-foreground">EXL Service</strong> as an AI Engineer Intern and then being transitioned to Associate Developer, where I develop and deploy Generative AI solutions using Google Cloud technologies.
                 </p>
 
                 <p>
