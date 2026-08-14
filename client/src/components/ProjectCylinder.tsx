@@ -396,7 +396,6 @@ export default function ProjectCylinder() {
             <div className="flex items-start justify-between gap-4">
             <div>
               <div className="text-xs font-semibold text-accent uppercase tracking-[0.28em]">Scroll or swipe to rotate</div>
-              <p className="mt-1 text-xs text-muted">Projects advance by scrolling or swiping left and right</p>
             </div>
             <div className="font-mono text-xs text-accent">{String(mobileIndex + 1).padStart(2, '0')} / {String(projects.length).padStart(2, '0')}</div>
           </div>
