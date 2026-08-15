@@ -26,7 +26,7 @@ export default function SpotifyWidget() {
   );
 
   return (
-    <div className="fixed bottom-8 right-8 z-40">
+    <div className="fixed bottom-[calc(5rem+env(safe-area-inset-bottom))] right-[calc(1rem+env(safe-area-inset-right))] z-40 sm:bottom-8 sm:right-8">
       {/* Spotify Widget Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}

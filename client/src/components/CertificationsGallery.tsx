@@ -148,7 +148,7 @@ export default function CertificationsGallery() {
         </h2>
       </div>
 
-      <div ref={galleryRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div ref={galleryRef} className="grid grid-cols-1 gap-4 overflow-x-hidden md:grid-cols-2 lg:grid-cols-3">
         {certifications.map((cert, index) => {
           const movesFromRight = getEntranceDirection(index) === "right";
           const entranceClass = hasEntered

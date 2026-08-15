@@ -8,7 +8,7 @@ import SpotifyWidget from '@/components/SpotifyWidget';
 import HUDBackground from '@/components/HUDBackground';
 import ProjectCylinder from '@/components/ProjectCylinder';
 import OmnitrixEmblem from '@/components/OmnitrixEmblem';
-import { Github, Linkedin, Mail, Download, Moon, Sun } from 'lucide-react';
+import { Github, Linkedin, Mail, Download, Moon, Sun, Menu, X } from 'lucide-react';
 
 
 
@@ -24,6 +24,7 @@ import { Github, Linkedin, Mail, Download, Moon, Sun } from 'lucide-react';
 
 export default function Home() {
   const [isDark, setIsDark] = useState(true);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const statsTrackRef = useRef<HTMLDivElement>(null);
   const [statsLoopDistance, setStatsLoopDistance] = useState(0);
 
@@ -149,7 +150,7 @@ export default function Home() {
       <SpotifyWidget />
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-center md:justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2 md:flex-1">
             <OmnitrixEmblem />
             <span className="font-bold text-lg">Samar Singh</span>
@@ -163,18 +164,73 @@ export default function Home() {
             <a href="#contact" className="text-sm text-muted hover:text-foreground active:text-accent transition-colors cursor-pointer">Contact</a>
           </div>
 
-          <div className="flex items-center gap-3 md:flex-1 md:justify-end">
+          <div className="flex items-center gap-2 sm:gap-3 md:flex-1 md:justify-end">
             <button onClick={toggleDarkMode} className="p-2 hover:bg-secondary active:bg-accent/20 rounded-lg transition-colors" aria-label="Toggle dark mode">
               {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
             </button>
-            <a href="https://github.com/Samarssj" target="_blank" rel="noopener noreferrer" className="p-2 hover:bg-secondary active:bg-accent/20 rounded-lg transition-colors">
+            <a href="https://github.com/Samarssj" target="_blank" rel="noopener noreferrer" className="p-2 hover:bg-secondary active:bg-accent/20 rounded-lg transition-colors" aria-label="GitHub">
               <Github className="w-5 h-5" />
             </a>
-            <a href="https://www.linkedin.com/in/samarssj/" target="_blank" rel="noopener noreferrer" className="p-2 hover:bg-secondary active:bg-accent/20 rounded-lg transition-colors">
+            <a href="https://www.linkedin.com/in/samarssj/" target="_blank" rel="noopener noreferrer" className="p-2 hover:bg-secondary active:bg-accent/20 rounded-lg transition-colors" aria-label="LinkedIn">
               <Linkedin className="w-5 h-5" />
             </a>
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden p-2 hover:bg-secondary active:bg-accent/20 rounded-lg transition-colors text-green-400"
+              aria-label="Toggle mobile menu"
+            >
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
           </div>
         </div>
+
+        {/* Mobile Navigation Dropdown Menu */}
+        {mobileMenuOpen && (
+          <div className="md:hidden border-t border-border bg-background/95 backdrop-blur-xl px-6 py-6 space-y-4 shadow-2xl animate-in slide-in-from-top-2 duration-200">
+            <div className="flex flex-col space-y-3">
+              <a
+                href="#about"
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-base font-semibold text-foreground hover:text-green-400 transition-colors py-2 px-3 rounded-lg hover:bg-secondary/50 flex items-center justify-between"
+              >
+                <span>About</span>
+                <span className="text-xs text-green-500 font-mono">01</span>
+              </a>
+              <a
+                href="#projects"
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-base font-semibold text-foreground hover:text-green-400 transition-colors py-2 px-3 rounded-lg hover:bg-secondary/50 flex items-center justify-between"
+              >
+                <span>Projects</span>
+                <span className="text-xs text-green-500 font-mono">02</span>
+              </a>
+              <a
+                href="#skills"
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-base font-semibold text-foreground hover:text-green-400 transition-colors py-2 px-3 rounded-lg hover:bg-secondary/50 flex items-center justify-between"
+              >
+                <span>Skills</span>
+                <span className="text-xs text-green-500 font-mono">03</span>
+              </a>
+              <a
+                href="#ai-showcase"
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-base font-semibold text-foreground hover:text-green-400 transition-colors py-2 px-3 rounded-lg hover:bg-secondary/50 flex items-center justify-between"
+              >
+                <span>AI Systems</span>
+                <span className="text-xs text-green-500 font-mono">04</span>
+              </a>
+              <a
+                href="#contact"
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-base font-semibold text-foreground hover:text-green-400 transition-colors py-2 px-3 rounded-lg hover:bg-secondary/50 flex items-center justify-between"
+              >
+                <span>Contact</span>
+                <span className="text-xs text-green-500 font-mono">05</span>
+              </a>
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* Hero Section */}
