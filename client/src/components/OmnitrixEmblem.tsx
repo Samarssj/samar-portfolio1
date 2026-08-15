@@ -1,9 +1,14 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 
 export default function OmnitrixEmblem() {
   const [flashActive, setFlashActive] = useState(false);
   const [flashKey, setFlashKey] = useState(0);
+  const controlRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    controlRef.current?.removeAttribute('title');
+  }, []);
 
   const activateFlash = () => {
     setFlashKey((key) => key + 1);
@@ -13,11 +18,12 @@ export default function OmnitrixEmblem() {
   return (
     <>
       <button
+        ref={controlRef}
         type="button"
+        onPointerEnter={(event) => event.currentTarget.removeAttribute('title')}
+        onFocus={(event) => event.currentTarget.removeAttribute('title')}
         onClick={activateFlash}
-        className="omnitrix-shell relative flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lime-300 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-        aria-label="Activate emerald transformation flash"
-        title="Activate transformation flash"
+        className="omnitrix-shell group relative flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lime-300 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
       >
         <style>{`
           @keyframes omnitrix-spin {
@@ -123,6 +129,7 @@ export default function OmnitrixEmblem() {
             <circle cx="7" cy="50" r="4.5" fill="#9bea00" />
           </g>
         </svg>
+        <span className="sr-only">Activate transformation flash</span>
       </button>
 
       {flashActive && createPortal(
