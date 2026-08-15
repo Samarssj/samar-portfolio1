@@ -14,7 +14,10 @@ export default function AIShowcase() {
     <div className="space-y-12">
       <div className="space-y-2">
         <div className="text-xs font-semibold text-accent uppercase tracking-widest">Expertise</div>
-        <h2 className="text-3xl sm:text-4xl font-bold">AI Engineering Showcase</h2>
+        <h2 className="text-3xl sm:text-4xl font-bold flex items-center gap-3">
+          AI Engineering Showcase
+          <span className="animate-vibrate" style={{ animationDelay: '0.1s' }}>🚀</span>
+        </h2>
         <p className="text-lg text-muted max-w-2xl">
           Specialized in building production-grade AI systems, autonomous agent orchestration, and intelligent automation platforms.
         </p>
@@ -26,7 +29,9 @@ export default function AIShowcase() {
           {/* Multi-Agent Architecture */}
           <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
             <div className="mb-6">
-              <div className="text-3xl mb-3">🔗</div>
+              <div className="text-3xl mb-3">
+                <span className="animate-vibrate">🔗</span>
+              </div>
               <h3 className="text-xl font-semibold mb-2">Multi-Agent Orchestration</h3>
               <p className="text-sm text-muted">
                 Design and deployment of autonomous agent systems with intelligent task routing, inter-agent communication, and distributed decision-making.
@@ -61,7 +66,9 @@ export default function AIShowcase() {
           {/* LLM & Prompt Engineering */}
           <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
             <div className="mb-6">
-              <div className="text-3xl mb-3">🧠</div>
+              <div className="text-3xl mb-3">
+                <span className="animate-vibrate" style={{ animationDelay: '0.2s' }}>🧠</span>
+              </div>
               <h3 className="text-xl font-semibold mb-2">LLM & Prompt Engineering</h3>
               <p className="text-sm text-muted">
                 Advanced prompt engineering, fine-tuning strategies, and evaluation frameworks for production LLM applications.
@@ -106,7 +113,9 @@ export default function AIShowcase() {
           {/* Tool Calling & API Integration */}
           <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
             <div className="mb-6">
-              <div className="text-3xl mb-3">🔧</div>
+              <div className="text-3xl mb-3">
+                <span className="animate-vibrate" style={{ animationDelay: '0.4s' }}>🔧</span>
+              </div>
               <h3 className="text-xl font-semibold mb-2">Tool Calling & API Integration</h3>
               <p className="text-sm text-muted">
                 Seamless integration of external APIs, tools, and services with intelligent agent decision-making.
@@ -141,7 +150,9 @@ export default function AIShowcase() {
           {/* Conversational AI */}
           <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
             <div className="mb-6">
-              <div className="text-3xl mb-3">💬</div>
+              <div className="text-3xl mb-3">
+                <span className="animate-vibrate" style={{ animationDelay: '0.6s' }}>💬</span>
+              </div>
               <h3 className="text-xl font-semibold mb-2">Conversational AI Systems</h3>
               <p className="text-sm text-muted">
                 Enterprise-grade chatbots and conversational agents with context awareness and multi-turn dialogue management.
