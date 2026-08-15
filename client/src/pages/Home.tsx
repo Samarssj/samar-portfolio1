@@ -9,9 +9,6 @@ import HUDBackground from '@/components/HUDBackground';
 import ProjectCylinder from '@/components/ProjectCylinder';
 import OmnitrixEmblem from '@/components/OmnitrixEmblem';
 import { Github, Linkedin, Mail, Download, Moon, Sun, Menu, X } from 'lucide-react';
-
-
-
 /**
  * Home Page - Premium AI Engineer Portfolio
  * 
@@ -20,13 +17,51 @@ import { Github, Linkedin, Mail, Download, Moon, Sun, Menu, X } from 'lucide-rea
  * - Live AI orchestration visualization in hero
  * - Smooth animations and micro-interactions
  * - Professional, technical, forward-thinking
- */
+ * */
+
+/** The timeline uses a requestAnimationFrame-throttled scroll link for reliable mobile and desktop updates. */
 
 export default function Home() {
   const [isDark, setIsDark] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const statsTrackRef = useRef<HTMLDivElement>(null);
+  const experienceRef = useRef<HTMLDivElement>(null);
+  const timelineContainerRef = useRef<HTMLDivElement>(null);
+  const timelineLineRef = useRef<HTMLDivElement>(null);
   const [statsLoopDistance, setStatsLoopDistance] = useState(0);
+
+  useEffect(() => {
+    const timeline = timelineContainerRef.current;
+    const line = timelineLineRef.current;
+    if (!timeline || !line) return;
+
+    let frame = 0;
+    const updateTimeline = () => {
+      frame = 0;
+      const timelineTop = timeline.getBoundingClientRect().top;
+      const startPosition = window.innerHeight;
+      const endPosition = 96;
+      const progress = Math.min(
+        1,
+        Math.max(0, (startPosition - timelineTop) / (startPosition - endPosition))
+      );
+      line.style.transform = `scaleY(${progress})`;
+    };
+
+    const handleScroll = () => {
+      if (!frame) frame = requestAnimationFrame(updateTimeline);
+    };
+
+    updateTimeline();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', updateTimeline);
+
+    return () => {
+      if (frame) cancelAnimationFrame(frame);
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', updateTimeline);
+    };
+  }, []);
 
   const stats = [
     { value: '2+', label: 'Internships' },
@@ -531,64 +566,87 @@ export default function Home() {
       </section>
 
       {/* Experience */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 border-t border-border bg-secondary/30 scroll-reveal">
+      <section ref={experienceRef} id="experience" className="py-20 px-4 sm:px-6 lg:px-8 border-t border-border bg-secondary/30 scroll-reveal">
         <div className="max-w-4xl mx-auto">
           <div className="space-y-2 mb-12">
             <div className="text-xs font-semibold text-accent uppercase tracking-widest">Career</div>
             <h2 className="text-3xl sm:text-4xl font-bold">Work Experience</h2>
           </div>
 
-          <div className="space-y-8">
+          <div ref={timelineContainerRef} className="relative space-y-24 pl-8 md:pl-12">
+            {/* Vertical Connecting Line */}
+            <div className="absolute left-[15px] md:left-[23px] top-8 bottom-8 w-[6px] bg-accent/20">
+              <div
+                ref={timelineLineRef}
+                className="w-full h-full bg-accent origin-bottom shadow-[0_0_30px_#10b981] will-change-transform"
+              />
+            </div>
+
             {/* EXL Service — Current Role */}
-            <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer scroll-reveal">
-              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
-                <div>
-                  <h3 className="text-xl font-semibold">Associate Developer</h3>
-                  <p className="text-muted">EXL Service</p>
+            <div className="relative">
+              {/* Timeline Dot */}
+              <div className="absolute -left-[25px] md:-left-[33px] top-8 w-4 h-4 rounded-full bg-background border-2 border-accent z-10 shadow-[0_0_12px_#10b981]" />
+
+              <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer scroll-reveal">
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
+                  <div>
+                    <h3 className="text-xl font-semibold">Associate Developer</h3>
+                    <p className="text-muted">EXL Service</p>
+                  </div>
+                  <span className="text-sm text-accent font-medium whitespace-nowrap">August 2026 - Present</span>
                 </div>
-                <span className="text-sm text-accent font-medium whitespace-nowrap">August 2026 - Present</span>
-              </div>
-              <div className="space-y-3 text-muted">
-                <p>→ Develop and enhance agentic AI automation solutions on Google Cloud Platform for enterprise workflows</p>
-                <p>→ Build scalable multi-agent workflows for task orchestration, intelligent routing, and human-in-the-loop operations</p>
-                <p>→ Integrate Vertex AI, cloud services, and APIs to deliver reliable, production-ready automation systems</p>
-                <p>→ Collaborate with cross-functional teams to translate business processes into secure, measurable AI-enabled solutions</p>
+                <div className="space-y-3 text-muted">
+                  <p>→ Develop and enhance agentic AI automation solutions on Google Cloud Platform for enterprise workflows</p>
+                  <p>→ Build scalable multi-agent workflows for task orchestration, intelligent routing, and human-in-the-loop operations</p>
+                  <p>→ Integrate Vertex AI, cloud services, and APIs to deliver reliable, production-ready automation systems</p>
+                  <p>→ Collaborate with cross-functional teams to translate business processes into secure, measurable AI-enabled solutions</p>
+                </div>
               </div>
             </div>
 
             {/* EXL Service — Internship */}
-            <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer scroll-reveal">
-              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
-                <div>
-                  <h3 className="text-xl font-semibold">AI Engineer Intern</h3>
-                  <p className="text-muted">EXL Service</p>
+            <div className="relative">
+              {/* Timeline Dot */}
+              <div className="absolute -left-[25px] md:-left-[33px] top-8 w-4 h-4 rounded-full bg-background border-2 border-accent z-10 shadow-[0_0_12px_#10b981]" />
+
+              <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer scroll-reveal">
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
+                  <div>
+                    <h3 className="text-xl font-semibold">AI Engineer Intern</h3>
+                    <p className="text-muted">EXL Service</p>
+                  </div>
+                  <span className="text-sm text-accent font-medium whitespace-nowrap">April 2026 - July 2026</span>
                 </div>
-                <span className="text-sm text-accent font-medium whitespace-nowrap">April 2026 - July 2026</span>
-              </div>
-              <div className="space-y-3 text-muted">
-                <p>→ Developed and deployed Generative AI solutions using Vertex AI and Dialogflow CX on Google Cloud Platform</p>
-                <p>→ Built multi-agent orchestration systems for enterprise workflow automation and task delegation</p>
-                <p>→ Optimized LLM prompts and implemented RAG pipelines for improved accuracy and context awareness</p>
-                <p>→ Collaborated with cross-functional teams to integrate AI solutions into production environments</p>
-                <p>→ Achieved 40%+ improvement in AI model accuracy through fine-tuning and feature engineering</p>
+                <div className="space-y-3 text-muted">
+                  <p>→ Developed and deployed Generative AI solutions using Vertex AI and Dialogflow CX on Google Cloud Platform</p>
+                  <p>→ Built multi-agent orchestration systems for enterprise workflow automation and task delegation</p>
+                  <p>→ Optimized LLM prompts and implemented RAG pipelines for improved accuracy and context awareness</p>
+                  <p>→ Collaborated with cross-functional teams to integrate AI solutions into production environments</p>
+                  <p>→ Achieved 40%+ improvement in AI model accuracy through fine-tuning and feature engineering</p>
+                </div>
               </div>
             </div>
 
             {/* HighRadius */}
-            <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer scroll-reveal">
-              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
-                <div>
-                  <h3 className="text-xl font-semibold">ABM Intern</h3>
-                  <p className="text-muted">HighRadius</p>
+            <div className="relative">
+              {/* Timeline Dot */}
+              <div className="absolute -left-[25px] md:-left-[33px] top-8 w-4 h-4 rounded-full bg-background border-2 border-accent z-10 shadow-[0_0_12px_#10b981]" />
+
+              <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer scroll-reveal">
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
+                  <div>
+                    <h3 className="text-xl font-semibold">ABM Intern</h3>
+                    <p className="text-muted">HighRadius</p>
+                  </div>
+                  <span className="text-sm text-accent font-medium whitespace-nowrap">Aug 2025 - Jan 2026</span>
                 </div>
-                <span className="text-sm text-accent font-medium whitespace-nowrap">Aug 2025 - Jan 2026</span>
-              </div>
-              <div className="space-y-3 text-muted">
-                <p>→ Analyzed business metrics and customer data to identify growth opportunities and market trends</p>
-                <p>→ Developed automated reporting dashboards for real-time business intelligence and decision-making</p>
-                <p>→ Implemented data pipelines for ETL processes, improving data accuracy by 35%</p>
-                <p>→ Collaborated with product and marketing teams to align business objectives with technical solutions</p>
-                <p>→ Contributed to strategic planning and execution of account-based marketing initiatives</p>
+                <div className="space-y-3 text-muted">
+                  <p>→ Analyzed business metrics and customer data to identify growth opportunities and market trends</p>
+                  <p>→ Developed automated reporting dashboards for real-time business intelligence and decision-making</p>
+                  <p>→ Implemented data pipelines for ETL processes, improving data accuracy by 35%</p>
+                  <p>→ Collaborated with product and marketing teams to align business objectives with technical solutions</p>
+                  <p>→ Contributed to strategic planning and execution of account-based marketing initiatives</p>
+                </div>
               </div>
             </div>
           </div>
