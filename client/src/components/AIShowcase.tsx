@@ -127,7 +127,7 @@ export default function AIShowcase() {
                 <div className="w-2 h-2 rounded-full bg-accent mt-1.5 flex-shrink-0" />
                 <div>
                   <p className="font-medium text-foreground">Function Calling</p>
-                  <p className="text-xs text-muted mt-0.5">OpenAI function calling, Gemini tool use, and custom schemas</p>
+                  <p className="text-xs text-muted mt-0.5">OpenAPI function calling, Gemini tool use, and custom schemas</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
