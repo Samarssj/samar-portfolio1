@@ -79,25 +79,25 @@ export default function MultiAgentWorkflow() {
       {agents.map((agent) => (
         <div
           key={agent.id}
-          className="absolute flex flex-col items-center justify-center gap-1"
+          className="absolute flex flex-col items-center justify-center gap-0.5"
           style={{ left: agent.x, top: agent.y, transform: 'translate(-50%, -50%)' }}
         >
           <div 
-            className="w-8 h-8 rounded-lg border-2 flex items-center justify-center bg-background shadow-lg transition-colors duration-300"
+            className="w-5 h-5 rounded-md border flex items-center justify-center bg-background shadow-[0_0_8px_rgba(16,185,129,0.12)] transition-colors duration-300"
             style={{ borderColor: agent.color, boxShadow: `0 0 10px ${agent.color}20` }}
           >
             <div className="w-1 h-1 rounded-full" style={{ backgroundColor: agent.color }} />
           </div>
-          <span className="text-[8px] font-bold uppercase tracking-tighter text-muted-foreground whitespace-nowrap">
+          <span className="text-[5px] font-bold uppercase tracking-[-0.02em] text-muted-foreground whitespace-nowrap">
             {agent.label}
           </span>
         </div>
       ))}
 
       {/* Overlay status - Repositioned much lower to avoid overlap */}
-      <div className="absolute bottom-0 w-full flex justify-center items-center gap-1 translate-y-6">
+      <div className="absolute bottom-1 w-full flex justify-center items-center gap-1">
         <div className="w-1 h-1 rounded-full bg-accent animate-pulse" />
-        <span className="text-[7px] text-accent/90 font-mono tracking-[0.2em]">AGENT_HUB_ACTIVE</span>
+        <span className="text-[6px] text-accent/90 font-mono tracking-[0.12em]">AGENT_HUB_ACTIVE</span>
       </div>
     </div>
   );

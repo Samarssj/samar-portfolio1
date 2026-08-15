@@ -583,7 +583,7 @@ export default function Home() {
                       </div>
                       <div className="h-2 overflow-hidden rounded-full bg-accent/10 ring-1 ring-inset ring-accent/10">
                         <div
-                          className={`h-full origin-left rounded-full bg-gradient-to-r from-emerald-600 via-emerald-400 to-cyan-300 shadow-[0_0_12px_rgba(16,185,129,0.55)] transition-[transform,filter] duration-[1000ms] ease-out group-hover:brightness-125 ${skillsVisible ? 'scale-x-100' : 'scale-x-0'}`}
+                          className={`h-full origin-left rounded-full bg-gradient-to-r from-emerald-600 via-emerald-400 to-cyan-300 shadow-[0_0_12px_rgba(16,185,129,0.55)] transition-transform duration-[1000ms] ease-out group-hover:brightness-125 ${skillsVisible ? 'scale-x-100' : 'scale-x-0'}`}
                           style={{ width: `${skill.level}%`, transitionDelay: `${groupIndex * 90 + skillIndex * 55}ms` }}
                         />
                       </div>

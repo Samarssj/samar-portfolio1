@@ -102,7 +102,7 @@ export default function AIShowcase() {
         </div>
 
         {/* Central Hub Diagram */}
-        <div className="lg:absolute lg:top-1/2 lg:left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 w-full max-w-[280px] lg:w-44 h-48 lg:h-40 z-20 pointer-events-none my-8 lg:my-0 order-2 lg:order-none">
+        <div className="lg:absolute lg:top-1/2 lg:left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 w-full max-w-[220px] lg:w-32 h-36 lg:h-28 z-20 pointer-events-none my-4 lg:my-0 order-2 lg:order-none">
           <div className="w-full h-full pointer-events-auto">
             <MultiAgentWorkflow />
           </div>
