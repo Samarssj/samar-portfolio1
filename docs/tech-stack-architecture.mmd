@@ -1,0 +1,37 @@
+%% Samar Singh Portfolio — technology architecture chart
+flowchart TB
+    portfolio["Samar Singh Portfolio<br/>React 19 + TypeScript"]
+
+    portfolio --> ui["Interface Layer"]
+    portfolio --> motion["Motion & Interaction"]
+    portfolio --> showcase["AI / Portfolio Showcase"]
+    portfolio --> delivery["Build & Delivery"]
+
+    ui --> react["React 19"]
+    ui --> vite["Vite"]
+    ui --> tailwind["Tailwind CSS 4"]
+    ui --> radix["Radix UI"]
+    ui --> lucide["Lucide Icons"]
+
+    motion --> framer["Framer Motion"]
+    motion --> scroll["Intersection Observer<br/>Scroll-linked animation"]
+    motion --> svg["SVG / CSS animation"]
+    motion --> touch["Pointer + touch interactions"]
+
+    showcase --> agents["Multi-agent workflow"]
+    showcase --> projects["3D project cylinder"]
+    showcase --> skills["Animated skill bars"]
+    showcase --> hud["Emerald HUD background"]
+    showcase --> spotify["Spotify track launcher"]
+
+    delivery --> pnpm["pnpm"]
+    delivery --> typescript["TypeScript check"]
+    delivery --> vercel["Vercel"]
+    delivery --> github["GitHub"]
+
+    classDef root fill:#062e2b,stroke:#34d399,color:#ecfdf5,stroke-width:3px;
+    classDef group fill:#0b1f1b,stroke:#10b981,color:#d1fae5,stroke-width:2px;
+    classDef leaf fill:#111827,stroke:#2dd4bf,color:#ccfbf1;
+    class portfolio root;
+    class ui,motion,showcase,delivery group;
+    class react,vite,tailwind,radix,lucide,framer,scroll,svg,touch,agents,projects,skills,hud,spotify,pnpm,typescript,vercel,github leaf;
