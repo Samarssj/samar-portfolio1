@@ -130,6 +130,12 @@ export default function OmnitrixEmblem() {
           </g>
         </svg>
         <span className="sr-only">Activate transformation flash</span>
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute left-0 top-[calc(100%+0.6rem)] z-[110] translate-y-1 whitespace-nowrap font-mono text-[9px] font-semibold leading-none tracking-[0.08em] text-emerald-300 opacity-0 drop-shadow-[0_0_6px_rgba(16,185,129,0.7)] transition-[opacity,transform] duration-200 [transition-timing-function:cubic-bezier(0.23,1,0.32,1)] will-change-[opacity,transform] group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100 motion-reduce:transition-none"
+        >
+          Activate transformation flash
+        </span>
       </button>
 
       {flashActive && createPortal(

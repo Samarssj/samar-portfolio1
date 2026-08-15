@@ -468,11 +468,8 @@ export default function Home() {
       </section>
 
       {/* Certifications */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 border-t border-border scroll-reveal">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 border-t border-border">
         <div className="max-w-4xl mx-auto">
-          <div className="space-y-2 mb-12">
-          </div>
-
           <CertificationsGallery />
         </div>
       </section>
