@@ -8,6 +8,7 @@ import SpotifyWidget from '@/components/SpotifyWidget';
 import HUDBackground from '@/components/HUDBackground';
 import ProjectCylinder from '@/components/ProjectCylinder';
 import OmnitrixEmblem from '@/components/OmnitrixEmblem';
+import CursorFollower from '@/components/CursorFollower';
 import { Github, Linkedin, Mail, Download, Moon, Sun, Menu, X } from 'lucide-react';
 /**
  * Home Page - Premium AI Engineer Portfolio
@@ -178,9 +179,98 @@ export default function Home() {
     }
   };
 
+  const skillGroups = [
+    {
+      title: 'Languages',
+      marker: '</>',
+      skills: [
+        { name: 'Python', level: 96 },
+        { name: 'JavaScript', level: 92 },
+        { name: 'TypeScript', level: 90 },
+        { name: 'Java', level: 84 },
+        { name: 'SQL', level: 91 },
+      ],
+    },
+    {
+      title: 'Frameworks',
+      marker: '◈',
+      skills: [
+        { name: 'React.js', level: 93 },
+        { name: 'Node.js', level: 91 },
+        { name: 'Express.js', level: 88 },
+        { name: 'LangChain', level: 90 },
+        { name: 'JWTs', level: 84 },
+      ],
+    },
+    {
+      title: 'AI & Cloud',
+      marker: '✦',
+      skills: [
+        { name: 'Vertex AI', level: 96 },
+        { name: 'Dialogflow CX', level: 88 },
+        { name: 'Gen AI', level: 94 },
+        { name: 'GCP', level: 92 },
+        { name: 'LLMs', level: 97 },
+        { name: 'RAG', level: 93 },
+        { name: 'ADK', level: 86 },
+      ],
+    },
+    {
+      title: 'Tools',
+      marker: '⌘',
+      skills: [
+        { name: 'Git', level: 95 },
+        { name: 'Docker', level: 88 },
+        { name: 'Kubernetes', level: 84 },
+        { name: 'REST APIs', level: 92 },
+        { name: 'CI/CD', level: 86 },
+        { name: 'WebHooks', level: 82 },
+      ],
+    },
+    {
+      title: 'Databases',
+      marker: '◇',
+      skills: [
+        { name: 'MongoDB', level: 87 },
+        { name: 'Firestore', level: 92 },
+        { name: 'BigQuery', level: 85 },
+        { name: 'VectorDB', level: 88 },
+      ],
+    },
+    {
+      title: 'ML & Data',
+      marker: '∿',
+      skills: [
+        { name: 'Scikit-Learn', level: 89 },
+        { name: 'NumPy', level: 92 },
+        { name: 'Pandas', level: 91 },
+        { name: 'NLP', level: 88 },
+        { name: 'EDA', level: 86 },
+        { name: 'Feature & Prompt Engineering', level: 94 },
+      ],
+    },
+  ];
+
+  const skillsRef = useRef<HTMLElement>(null);
+  const [skillsVisible, setSkillsVisible] = useState(false);
+
+  useEffect(() => {
+    const section = skillsRef.current;
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setSkillsVisible(entry.isIntersecting),
+      { threshold: 0.18, rootMargin: '0px 0px -8% 0px' }
+    );
+
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="min-h-screen bg-background text-foreground relative">
       <HUDBackground />
+      <CursorFollower />
       <div className="relative z-10">
       <SpotifyWidget />
       {/* Navigation */}
@@ -455,85 +545,53 @@ export default function Home() {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-20 px-4 sm:px-6 lg:px-8 border-t border-border bg-secondary/30 scroll-reveal">
-        <div className="max-w-4xl mx-auto">
-          <div className="space-y-2 mb-12">
-            <div className="text-xs font-semibold text-accent uppercase tracking-widest">Toolkit</div>
-            <h2 className="text-3xl sm:text-4xl font-bold">Skills & Expertise</h2>
+      <section ref={skillsRef} id="skills" className="relative overflow-hidden border-t border-border bg-secondary/30 px-4 py-20 sm:px-6 lg:px-8">
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/70 to-transparent" />
+        <div className="pointer-events-none absolute -left-28 top-20 h-64 w-64 rounded-full bg-accent/10 blur-3xl" />
+        <div className="pointer-events-none absolute -right-28 bottom-10 h-72 w-72 rounded-full bg-cyan-400/5 blur-3xl" />
+
+        <div className="relative mx-auto max-w-6xl">
+          <div className="mb-10 space-y-3">
+            <div className="text-xs font-semibold uppercase tracking-[0.28em] text-accent">Toolkit</div>
+            <h2 className="text-3xl font-bold sm:text-4xl">Skills & Expertise</h2>
+            <p className="max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
+              A live view of the technologies I use to design, build, and ship intelligent systems.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* Languages */}
-            <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
-              <h3 className="font-semibold text-foreground">Languages</h3>
-              <div className="flex flex-wrap gap-2">
-                {['Python', 'JavaScript', 'TypeScript', 'Java', 'SQL'].map((skill) => (
-                  <span key={skill} className="px-3 py-1 text-sm rounded-full bg-secondary border border-border text-muted hover:text-foreground hover:border-accent active:bg-accent/20 transition-colors">
-                    {skill}
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
+            {skillGroups.map((group, groupIndex) => (
+              <article
+                key={group.title}
+                className={`group relative overflow-hidden rounded-2xl border border-accent/25 bg-background/65 p-5 shadow-[0_0_24px_rgba(16,185,129,0.08)] transition-[transform,opacity,box-shadow,border-color,background-color] duration-700 ease-out hover:-translate-y-2 hover:scale-[1.025] hover:border-accent hover:bg-accent/[0.06] hover:shadow-[0_0_42px_rgba(16,185,129,0.28)] hover:ring-1 hover:ring-accent/40 sm:p-6 ${skillsVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}
+                style={{ transitionDelay: `${groupIndex * 90}ms` }}
+              >
+                <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent to-transparent opacity-80" />
+                <div className="mb-6 flex items-center gap-3">
+                  <span className="grid h-10 w-10 place-items-center rounded-xl border border-accent/40 bg-accent/10 font-mono text-sm font-bold text-accent shadow-[0_0_18px_rgba(16,185,129,0.16)] transition-[transform,box-shadow,background-color] duration-300 group-hover:rotate-6 group-hover:scale-110 group-hover:bg-accent/20 group-hover:shadow-[0_0_26px_rgba(16,185,129,0.42)]">
+                    {group.marker}
                   </span>
-                ))}
-              </div>
-            </div>
+                  <h3 className="text-lg font-semibold text-foreground sm:text-xl">{group.title}</h3>
+                </div>
 
-            {/* Frameworks & Libraries */}
-            <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
-              <h3 className="font-semibold text-foreground">Frameworks</h3>
-              <div className="flex flex-wrap gap-2">
-                {['React.js', 'Node.js', 'Express.js', 'LangChain', 'JWTs'].map((skill) => (
-                  <span key={skill} className="px-3 py-1 text-sm rounded-full bg-secondary border border-border text-muted hover:text-foreground hover:border-accent active:bg-accent/20 transition-colors">
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            {/* AI & Cloud */}
-            <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
-              <h3 className="font-semibold text-foreground">AI & Cloud</h3>
-              <div className="flex flex-wrap gap-2">
-                {['Vertex AI', 'Dialogflow CX', 'Gen AI', 'GCP', 'LLMs', 'RAG', 'ADK'].map((skill) => (
-                  <span key={skill} className="px-3 py-1 text-sm rounded-full bg-secondary border border-border text-muted hover:text-foreground hover:border-accent active:bg-accent/20 transition-colors">
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            {/* Tools & Platforms */}
-            <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
-              <h3 className="font-semibold text-foreground">Tools</h3>
-              <div className="flex flex-wrap gap-2">
-                {['Git', 'Docker', 'Kubernetes', 'REST APIs', 'CI/CD', 'WebHooks'].map((skill) => (
-                  <span key={skill} className="px-3 py-1 text-sm rounded-full bg-secondary border border-border text-muted hover:text-foreground hover:border-accent active:bg-accent/20 transition-colors">
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            {/* Databases */}
-            <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
-              <h3 className="font-semibold text-foreground">Databases</h3>
-              <div className="flex flex-wrap gap-2">
-                {['MongoDB', 'Firestore', 'BigQuery', 'VectorDB'].map((skill) => (
-                  <span key={skill} className="px-3 py-1 text-sm rounded-full bg-secondary border border-border text-muted hover:text-foreground hover:border-accent active:bg-accent/20 transition-colors">
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            {/* ML & Data */}
-            <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
-              <h3 className="font-semibold text-foreground">ML & Data</h3>
-              <div className="flex flex-wrap gap-2">
-                {['Scikit-Learn', 'NumPy', 'Pandas', 'NLP', 'EDA', 'Feature & Prompt Engineering'].map((skill) => (
-                  <span key={skill} className="px-3 py-1 text-sm rounded-full bg-secondary border border-border text-muted hover:text-foreground hover:border-accent active:bg-accent/20 transition-colors">
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
+                <div className="space-y-5">
+                  {group.skills.map((skill, skillIndex) => (
+                    <div key={skill.name} className="space-y-2">
+                      <div className="flex items-center justify-between gap-3 text-sm">
+                        <span className="min-w-0 truncate text-foreground/90">{skill.name}</span>
+                        <span className="shrink-0 font-mono text-xs font-semibold text-accent">{skill.level}%</span>
+                      </div>
+                      <div className="h-2 overflow-hidden rounded-full bg-accent/10 ring-1 ring-inset ring-accent/10">
+                        <div
+                          className={`h-full origin-left rounded-full bg-gradient-to-r from-emerald-600 via-emerald-400 to-cyan-300 shadow-[0_0_12px_rgba(16,185,129,0.55)] transition-[transform,filter] duration-[1000ms] ease-out group-hover:brightness-125 ${skillsVisible ? 'scale-x-100' : 'scale-x-0'}`}
+                          style={{ width: `${skill.level}%`, transitionDelay: `${groupIndex * 90 + skillIndex * 55}ms` }}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
