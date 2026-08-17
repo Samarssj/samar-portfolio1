@@ -207,7 +207,7 @@ export default function Home() {
       marker: '✦',
       skills: [
         { name: 'Vertex AI', level: 96 },
-        { name: 'Dialogflow CX', level: 88 },
+        { name: 'CX Agent Studio', level: 88 },
         { name: 'Gen AI', level: 94 },
         { name: 'GCP', level: 92 },
         { name: 'LLMs', level: 97 },
