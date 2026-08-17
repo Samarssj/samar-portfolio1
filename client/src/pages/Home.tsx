@@ -9,6 +9,7 @@ import HUDBackground from '@/components/HUDBackground';
 import ProjectCylinder from '@/components/ProjectCylinder';
 import OmnitrixEmblem from '@/components/OmnitrixEmblem';
 import CursorFollower from '@/components/CursorFollower';
+import TechIcon from '@/components/TechIcon';
 import { Github, Linkedin, Mail, Download, Moon, Sun, Menu, X } from 'lucide-react';
 /**
  * Home Page - Premium AI Engineer Portfolio
@@ -184,69 +185,69 @@ export default function Home() {
       title: 'Languages',
       marker: '</>',
       skills: [
-        { name: 'Python', level: 96 },
-        { name: 'JavaScript', level: 92 },
-        { name: 'TypeScript', level: 90 },
-        { name: 'Java', level: 84 },
-        { name: 'SQL', level: 91 },
+        { name: 'Python', level: 96, slug: 'python', color: '3776AB' },
+        { name: 'JavaScript', level: 92, slug: 'javascript', color: 'F7DF1E' },
+        { name: 'TypeScript', level: 90, slug: 'typescript', color: '3178C6' },
+        { name: 'Java', level: 84, slug: 'openjdk', color: 'ED8B00' },
+        { name: 'SQL', level: 91, slug: 'sqlite', color: '003B57' },
       ],
     },
     {
       title: 'Frameworks',
       marker: '◈',
       skills: [
-        { name: 'React.js', level: 93 },
-        { name: 'Node.js', level: 91 },
-        { name: 'Express.js', level: 88 },
-        { name: 'LangChain', level: 90 },
-        { name: 'JWTs', level: 84 },
+        { name: 'React.js', level: 93, slug: 'react', color: '61DAFB' },
+        { name: 'Node.js', level: 91, slug: 'nodedotjs', color: '339933' },
+        { name: 'Express.js', level: 88, slug: 'express', color: 'F7F7F7', fallback: 'server' },
+        { name: 'LangChain', level: 90, slug: 'langchain', color: '1C3C3C' },
+        { name: 'JWTs', level: 84, slug: 'jsonwebtokens', color: 'F7F7F7', fallback: 'key' },
       ],
     },
     {
       title: 'AI & Cloud',
       marker: '✦',
       skills: [
-        { name: 'Vertex AI', level: 96 },
-        { name: 'CX Agent Studio', level: 88 },
-        { name: 'Gen AI', level: 94 },
-        { name: 'GCP', level: 92 },
-        { name: 'LLMs', level: 97 },
-        { name: 'RAG', level: 93 },
-        { name: 'ADK', level: 86 },
+        { name: 'Vertex AI', level: 96, slug: 'googlecloud', color: '4285F4' },
+        { name: 'CX Agent Studio', level: 88, slug: 'dialogflow', color: 'FF9800' },
+        { name: 'Gen AI', level: 94, slug: 'googlegemini', color: '8E75B2' },
+        { name: 'GCP', level: 92, slug: 'googlecloud', color: '4285F4' },
+        { name: 'LLMs', level: 97, slug: 'openai', color: '412991' },
+        { name: 'RAG', level: 93, fallback: 'network' },
+        { name: 'ADK', level: 86, slug: 'googlecloud', color: '34A853' },
       ],
     },
     {
       title: 'Tools',
       marker: '⌘',
       skills: [
-        { name: 'Git', level: 95 },
-        { name: 'Docker', level: 88 },
-        { name: 'Kubernetes', level: 84 },
-        { name: 'REST APIs', level: 92 },
-        { name: 'CI/CD', level: 86 },
-        { name: 'WebHooks', level: 82 },
+        { name: 'Git', level: 95, slug: 'git', color: 'F05032' },
+        { name: 'Docker', level: 88, slug: 'docker', color: '2496ED' },
+        { name: 'Kubernetes', level: 84, slug: 'kubernetes', color: '326CE5' },
+        { name: 'REST APIs', level: 92, slug: 'postman', color: 'FF6C37' },
+        { name: 'CI/CD', level: 86, slug: 'githubactions', color: '2088FF' },
+        { name: 'WebHooks', level: 82, fallback: 'webhook' },
       ],
     },
     {
       title: 'Databases',
       marker: '◇',
       skills: [
-        { name: 'MongoDB', level: 87 },
-        { name: 'Firestore', level: 92 },
-        { name: 'BigQuery', level: 85 },
-        { name: 'VectorDB', level: 88 },
+        { name: 'MongoDB', level: 87, slug: 'mongodb', color: '47A248' },
+        { name: 'Firestore', level: 92, slug: 'firebase', color: 'FFCA28' },
+        { name: 'BigQuery', level: 85, slug: 'googlebigquery', color: '669DF6' },
+        { name: 'VectorDB', level: 88, fallback: 'database' },
       ],
     },
     {
       title: 'ML & Data',
       marker: '∿',
       skills: [
-        { name: 'Scikit-Learn', level: 89 },
-        { name: 'NumPy', level: 92 },
-        { name: 'Pandas', level: 91 },
-        { name: 'NLP', level: 88 },
-        { name: 'EDA', level: 86 },
-        { name: 'Feature & Prompt Engineering', level: 94 },
+        { name: 'Scikit-Learn', level: 89, slug: 'scikitlearn', color: 'F7931E' },
+        { name: 'NumPy', level: 92, slug: 'numpy', color: '013243' },
+        { name: 'Pandas', level: 91, slug: 'pandas', color: '150458' },
+        { name: 'NLP', level: 88, slug: 'huggingface', color: 'FFD21E' },
+        { name: 'EDA', level: 86, slug: 'plotly', color: '3F4F75' },
+        { name: 'Feature & Prompt Engineering', level: 94, fallback: 'sparkles' },
       ],
     },
   ];
@@ -578,7 +579,10 @@ export default function Home() {
                   {group.skills.map((skill, skillIndex) => (
                     <div key={skill.name} className="space-y-2">
                       <div className="flex items-center justify-between gap-3 text-sm">
-                        <span className="min-w-0 truncate text-foreground/90">{skill.name}</span>
+                        <span className="flex min-w-0 items-center gap-2 truncate text-foreground/90">
+                          <TechIcon name={skill.name} slug={skill.slug} color={skill.color} fallback={skill.fallback} />
+                          <span className="truncate">{skill.name}</span>
+                        </span>
                         <span className="shrink-0 font-mono text-xs font-semibold text-accent">{skill.level}%</span>
                       </div>
                       <div className="h-2 overflow-hidden rounded-full bg-accent/10 ring-1 ring-inset ring-accent/10">

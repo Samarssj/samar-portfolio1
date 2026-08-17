@@ -7,6 +7,10 @@ interface Certification {
   provider: string;
   color: string;
   url: string;
+  image?: {
+    src: string;
+    alt: string;
+  };
 }
 
 const certifications: Certification[] = [
@@ -16,6 +20,10 @@ const certifications: Certification[] = [
     provider: "IBM",
     color: "from-blue-500 to-blue-600",
     url: "https://coursera.org/share/4d0f5b448eb9bf8b202cfcd075bf925b",
+    image: {
+      src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663824498893/VbVCwNRlQUEDwIvb.png",
+      alt: "IBM Machine Learning Professional Certificate awarded to Samar Singh",
+    },
   },
   {
     id: "ibm-ai",
@@ -23,6 +31,10 @@ const certifications: Certification[] = [
     provider: "IBM",
     color: "from-blue-500 to-blue-600",
     url: "https://coursera.org/share/b0e3b089723ce42f0aa3308a38d36f1e",
+    image: {
+      src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663824498893/dYUJSmIuBZHqXBGJ.png",
+      alt: "IBM AI Enterprise Workflow certificate awarded to Samar Singh",
+    },
   },
   {
     id: "coursera-ai",
@@ -30,6 +42,10 @@ const certifications: Certification[] = [
     provider: "Coursera",
     color: "from-purple-500 to-purple-600",
     url: "https://coursera.org/share/b14960a82bbb4a4e70b912c1141a92c6",
+    image: {
+      src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663824498893/uZTZTuiBiwYwLmpv.png",
+      alt: "AI for Scientific Research certificate awarded to Samar Singh",
+    },
   },
   {
     id: "gcp-infra",
@@ -37,6 +53,10 @@ const certifications: Certification[] = [
     provider: "Google Cloud",
     color: "from-red-500 to-orange-500",
     url: "https://partner.skills.google/public_profiles/e2bb2abb-fb8a-4b51-882e-744f692fa177/badges/24584405",
+    image: {
+      src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663824498893/YzYCDaxmmnzhMQnC.png",
+      alt: "Essential Google Cloud Infrastructure Core Services completion badge",
+    },
   },
   {
     id: "gcp-agents",
@@ -44,6 +64,10 @@ const certifications: Certification[] = [
     provider: "Google Cloud",
     color: "from-red-500 to-orange-500",
     url: "https://www.credly.com/badges/2533a1d5-c98b-4102-b1f6-c73c983da84b/public_url",
+    image: {
+      src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663824498893/wLgNNBKHzylYuyrd.png",
+      alt: "Gemini Enterprise Agent Development certified partner specialist badge",
+    },
   },
   {
     id: "gcp-scaling",
@@ -51,6 +75,10 @@ const certifications: Certification[] = [
     provider: "Google Cloud",
     color: "from-red-500 to-orange-500",
     url: "https://partner.skills.google/public_profiles/e2bb2abb-fb8a-4b51-882e-744f692fa177/badges/24370472",
+    image: {
+      src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663824498893/sArmNHbHlWFTSUoC.png",
+      alt: "Elastic Google Cloud Infrastructure Scaling and Automation completion badge",
+    },
   },
   {
     id: "gcp-k8s",
@@ -58,6 +86,10 @@ const certifications: Certification[] = [
     provider: "Google Cloud",
     color: "from-red-500 to-orange-500",
     url: "https://partner.skills.google/public_profiles/e2bb2abb-fb8a-4b51-882e-744f692fa177/badges/24453923",
+    image: {
+      src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663824498893/UaGPDRcNRpyGemGz.png",
+      alt: "Getting Started with Google Kubernetes Engine completion badge",
+    },
   },
   {
     id: "gcp-prompt",
@@ -65,6 +97,10 @@ const certifications: Certification[] = [
     provider: "Google Cloud",
     color: "from-red-500 to-orange-500",
     url: "https://partner.skills.google/public_profiles/e2bb2abb-fb8a-4b51-882e-744f692fa177/badges/24421265",
+    image: {
+      src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663824498893/RtdRHhLehuDPhPuq.png",
+      alt: "Text Prompt Engineering Techniques skill badge",
+    },
   },
   {
     id: "gcp-cx-studio",
@@ -72,6 +108,10 @@ const certifications: Certification[] = [
     provider: "Google Cloud",
     color: "from-red-500 to-orange-500",
     url: "https://www.credly.com/badges/f0de046e-1a43-4e03-9393-2f8e69f4e5d9/public_url",
+    image: {
+      src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663824498893/VzMUBebqDPYYobbr.png",
+      alt: "Gemini Enterprise Deployment certified partner specialist badge",
+    },
   },
 ];
 
@@ -148,7 +188,7 @@ export default function CertificationsGallery() {
         </h2>
       </div>
 
-      <div ref={galleryRef} className="grid grid-cols-1 gap-4 overflow-x-hidden md:grid-cols-2 lg:grid-cols-3">
+      <div ref={galleryRef} className="grid grid-cols-1 gap-4 overflow-x-hidden sm:grid-cols-2 lg:grid-cols-3">
         {certifications.map((cert, index) => {
           const movesFromRight = getEntranceDirection(index) === "right";
           const entranceClass = hasEntered
@@ -167,22 +207,41 @@ export default function CertificationsGallery() {
                 href={cert.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group block rounded-lg border border-border bg-secondary/50 p-5 transition-[transform,border-color,background-color,box-shadow] duration-300 hover:-translate-y-1 hover:border-accent hover:bg-secondary hover:shadow-lg"
+                aria-label={`View ${cert.title} credential`}
+                className="group relative block aspect-square overflow-hidden rounded-2xl border border-border bg-secondary/50 transition-[transform,border-color,background-color,box-shadow] duration-300 hover:-translate-y-1 hover:border-emerald-300 hover:bg-secondary hover:shadow-[0_0_0_1px_rgba(52,211,153,0.8),0_0_32px_-6px_rgba(16,185,129,0.85)]"
               >
-                <div className="min-w-0">
-                  <p className="mb-1 text-sm font-semibold leading-tight text-foreground transition-colors group-hover:text-accent">
-                    {cert.title}
-                  </p>
+                {cert.image ? (
+                  <>
+                    <img
+                      src={cert.image.src}
+                      alt={cert.image.alt}
+                      loading="lazy"
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.035]"
+                    />
+                    <span className="pointer-events-none absolute inset-0 z-10 rounded-[inherit] border-2 border-emerald-300 opacity-0 shadow-[inset_0_0_14px_rgba(16,185,129,0.35)] transition-[opacity,box-shadow] duration-300 group-hover:opacity-100 group-hover:shadow-[inset_0_0_22px_rgba(16,185,129,0.5)]" aria-hidden="true" />
+                    <span className="sr-only">View {cert.title} credential</span>
+                  </>
+                ) : (
+                  <>
+                    <span className="pointer-events-none absolute inset-0 z-10 rounded-[inherit] border-2 border-emerald-300 opacity-0 shadow-[inset_0_0_14px_rgba(16,185,129,0.35)] transition-[opacity,box-shadow] duration-300 group-hover:opacity-100 group-hover:shadow-[inset_0_0_22px_rgba(16,185,129,0.5)]" aria-hidden="true" />
+                    <div className="flex h-full flex-col justify-between p-5">
+                    <div>
+                      <p className="text-sm font-semibold leading-tight text-foreground transition-colors group-hover:text-accent">
+                        {cert.title}
+                      </p>
 
-                  <p className="mb-3 text-xs text-muted">
-                    {cert.provider}
-                  </p>
+                      <p className="mt-2 text-xs text-muted">
+                        {cert.provider}
+                      </p>
+                    </div>
 
-                  <div className="flex items-center gap-1 text-xs font-medium text-accent opacity-0 transition-opacity group-hover:opacity-100">
-                    View Credential
-                    <ExternalLink size={14} />
-                  </div>
-                </div>
+                    <div className="flex items-center gap-1 text-xs font-medium text-accent opacity-70 transition-opacity group-hover:opacity-100">
+                      View Credential
+                      <ExternalLink size={14} />
+                    </div>
+                    </div>
+                  </>
+                )}
               </a>
             </div>
           );

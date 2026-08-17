@@ -12,6 +12,10 @@ interface Project {
   tech: string[];
   demo?: string;
   github: string;
+  preview?: {
+    src: string;
+    alt: string;
+  };
 }
 
 const projects: Project[] = [
@@ -26,6 +30,10 @@ const projects: Project[] = [
     tech: ['Vertex AI', 'CX Agent Studio', 'GCP', 'OpenAPI Tools'],
     demo: 'https://healthcare-card-portal.vercel.app',
     github: 'https://github.com/Samarssj/Enterprise-Agent',
+    preview: {
+      src: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663824498893/wuVvQqlcCyzdShcJ.png',
+      alt: 'Healthcare Card Portal homepage preview',
+    },
   },
   {
     title: 'Jarvis AI Voice Assistant',
@@ -37,6 +45,10 @@ const projects: Project[] = [
     ],
     tech: ['Python', 'Gemini API', 'Faster-Whisper', 'Edge TTS', 'SoundDevice', 'Automation'],
     github: 'https://github.com/Samarssj/Jarvis-prototype',
+    preview: {
+      src: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663824498893/DGgDjeXQZTJAkjud.png',
+      alt: 'JARVIS tactical interface preview',
+    },
   },
   {
     title: 'Movie Review Sentiment Analysis',
@@ -49,6 +61,10 @@ const projects: Project[] = [
     tech: ['Python', 'Scikit-Learn', 'Streamlit', 'TF-IDF', 'Pandas', 'NumPy'],
     demo: 'https://samarssj-movie-review-sentiment-analysis-appapp-z7ohdt.streamlit.app',
     github: 'https://github.com/Samarssj/movie-review-sentiment-analysis',
+    preview: {
+      src: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663824498893/EYlmIGkIwxSjIjxi.png',
+      alt: 'ReelFeel movie review sentiment analysis preview',
+    },
   },
   {
     title: 'News Pilot — Hybrid AI News Intelligence Platform',
@@ -61,6 +77,10 @@ const projects: Project[] = [
     tech: ['Python', 'Streamlit', 'Gemini API', 'ChromaDB', 'Sentence Transformers', 'RAG'],
     demo: 'https://samarssj-newspilot-app-qbihoh.streamlit.app',
     github: 'https://github.com/Samarssj/NewsPilot',
+    preview: {
+      src: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663824498893/REhIlLAmPJdxmWME.png',
+      alt: 'NewsPilot intelligence workspace preview',
+    },
   },
   {
     title: 'E-Blogging Platform',
@@ -73,6 +93,10 @@ const projects: Project[] = [
     tech: ['TypeScript', 'Node.js', 'Express.js', 'MongoDB', 'REST APIs', 'Bootstrap'],
     demo: 'https://eblogging-webapp-1.onrender.com',
     github: 'https://github.com/Samarssj/eBlogging-webapp',
+    preview: {
+      src: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663824498893/PsTCLtFXbkaQZnpK.png',
+      alt: 'eBlogging homepage preview',
+    },
   },
   {
     title: 'Clearance Desk',
@@ -85,6 +109,10 @@ const projects: Project[] = [
     tech: ['Python', 'Streamlit', 'Gemini API', 'PDF Parsing', 'RapidFuzz', 'NLP'],
     demo: 'https://samarssj-clerance-desk-app-4ik4yy.streamlit.app',
     github: 'https://github.com/Samarssj/Clearance_desk',
+    preview: {
+      src: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663824498893/lbxnxokwKhgfXaIY.png',
+      alt: 'Clearance Desk resume intelligence preview',
+    },
   },
   {
     title: 'HealthBuddy — AI Health Information Assistant',
@@ -97,6 +125,10 @@ const projects: Project[] = [
     tech: ['Gemini API', 'RAG', 'Streamlit', 'Guardrails'],
     demo: 'https://health-buddy-hglg822fh6wt86qhrt6jp2.streamlit.app',
     github: 'https://github.com/Samarssj/health-buddy',
+    preview: {
+      src: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663824498893/JEQsyEIGRzrienaQ.png',
+      alt: 'HealthBuddy health information assistant preview',
+    },
   },
   {
     title: 'Travel Booking Platform',
@@ -109,6 +141,10 @@ const projects: Project[] = [
     tech: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'REST APIs'],
     demo: 'https://tesystem-1.onrender.com',
     github: 'https://github.com/Samarssj/TEsystem',
+    preview: {
+      src: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663824498893/cyPFSEHPABFrYAPc.png',
+      alt: 'TourET travel booking homepage preview',
+    },
   },
   {
     title: 'Job-track',
@@ -120,6 +156,10 @@ const projects: Project[] = [
     ],
     tech: ['Python', 'Playwright', 'Streamlit', 'SQLite', 'Gemini API', 'Automation'],
     github: 'https://github.com/Samarssj/job-track',
+    preview: {
+      src: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663824498893/FHXbMjCuFVKIelbX.webp',
+      alt: 'Job-track recruiting command center preview',
+    },
   },
   {
     title: 'FlowCast',
@@ -132,6 +172,10 @@ const projects: Project[] = [
     tech: ['Python', 'Streamlit', 'scikit-learn', 'Pandas', 'Regression', 'Feature Engineering'],
     demo: 'https://period-predictor-kxssmdhkv2qxjqymovkkro.streamlit.app',
     github: 'https://github.com/Samarssj/Period-Predictor',
+    preview: {
+      src: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663824498893/cUDOhCtajxSzwbrN.png',
+      alt: 'FlowCast cycle health dashboard preview',
+    },
   },
 ];
 
@@ -323,11 +367,24 @@ export default function ProjectCylinder() {
                     aria-hidden={!isActive}
                   >
                     <div className="flex h-full flex-col">
-                      <div className="flex items-start justify-between gap-5">
-                        <div>
+                      <div className="flex items-start justify-between gap-4">
+                        <div className="min-w-0">
                           <p className="font-mono text-xs text-accent">{String(index + 1).padStart(2, '0')} — SELECTED BUILD</p>
                           <h3 className="mt-2 text-2xl font-semibold leading-tight">{project.title}</h3>
                         </div>
+                        {project.preview && (
+                          <a
+                            href={project.demo}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            tabIndex={isActive ? 0 : -1}
+                            className="group/preview relative block w-40 shrink-0 overflow-hidden rounded-xl border border-accent/35 bg-background shadow-[0_0_18px_rgba(16,185,129,0.12)] transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-0.5 hover:border-accent hover:shadow-[0_0_24px_rgba(16,185,129,0.28)]"
+                            aria-label={`Open ${project.title} live preview`}
+                          >
+                            <img src={project.preview.src} alt={project.preview.alt} loading="lazy" className="aspect-video w-full object-cover transition-transform duration-500 group-hover/preview:scale-105" />
+                            <span className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/25 to-transparent px-2 py-1.5 text-[9px] font-semibold uppercase tracking-[0.14em] text-white">Live preview</span>
+                          </a>
+                        )}
                       </div>
 
                       <p className="mt-4 line-clamp-3 text-sm leading-relaxed text-muted">{project.description}</p>
@@ -430,8 +487,24 @@ export default function ProjectCylinder() {
               className="mobile-project-card overflow-hidden rounded-xl border border-accent/35 bg-card/95 p-5 shadow-[0_0_28px_rgba(16,185,129,0.16)]"
               style={{ animation: 'mobile-project-rotate-in 280ms cubic-bezier(0.23, 1, 0.32, 1)', transformStyle: 'preserve-3d', willChange: 'transform, opacity' }}
             >
-              <p className="font-mono text-xs text-accent">{String(mobileIndex + 1).padStart(2, '0')} — SELECTED BUILD</p>
-              <h3 className="mt-2 text-xl font-semibold leading-tight">{mobileProject.title}</h3>
+              <div className="flex items-start justify-between gap-3">
+                <div className="min-w-0">
+                  <p className="font-mono text-xs text-accent">{String(mobileIndex + 1).padStart(2, '0')} — SELECTED BUILD</p>
+                  <h3 className="mt-2 text-xl font-semibold leading-tight">{mobileProject.title}</h3>
+                </div>
+                {mobileProject.preview && (
+                  <a
+                    href={mobileProject.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group/preview relative block w-28 shrink-0 overflow-hidden rounded-lg border border-accent/35 bg-background shadow-[0_0_14px_rgba(16,185,129,0.12)]"
+                    aria-label={`Open ${mobileProject.title} live preview`}
+                  >
+                    <img src={mobileProject.preview.src} alt={mobileProject.preview.alt} loading="lazy" className="aspect-video w-full object-cover transition-transform duration-500 group-hover/preview:scale-105" />
+                    <span className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent px-1.5 py-1 text-[8px] font-semibold uppercase tracking-[0.1em] text-white">Preview</span>
+                  </a>
+                )}
+              </div>
               <p className="mt-3 text-sm leading-relaxed text-muted">{mobileProject.description}</p>
 
               <div className="mt-4 grid grid-cols-3 divide-x divide-border border-y border-border">
