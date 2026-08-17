@@ -198,7 +198,7 @@ export default function CertificationsGallery() {
           className="group cursor-pointer rounded-lg border border-transparent p-3 text-center transition-all duration-300 hover:scale-105 hover:border-accent hover:bg-secondary/50 hover:shadow-[0_0_20px_#22c55e]"
         >
           <div className="flex items-center justify-center gap-1">
-            <span className="text-2xl font-bold text-accent">40+</span>
+            <span className="text-2xl font-bold text-accent">45+</span>
             <span className="text-xs opacity-0 transition-opacity group-hover:opacity-100">
               ↗
             </span>
