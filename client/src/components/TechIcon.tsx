@@ -30,19 +30,28 @@ const fallbackIcons: Record<string, LucideIcon> = {
   braces: Braces,
 };
 
+export type TechIconFallback = keyof typeof fallbackIcons;
+
 type TechIconProps = {
   name: string;
   slug?: string;
   color?: string;
-  fallback?: keyof typeof fallbackIcons;
+  fallback?: TechIconFallback;
+  sizeClass?: string;
 };
 
-export default function TechIcon({ name, slug, color = '10b981', fallback = 'code' }: TechIconProps) {
+export default function TechIcon({
+  name,
+  slug,
+  color = '10b981',
+  fallback = 'code',
+  sizeClass = 'h-4 w-4',
+}: TechIconProps) {
   const [iconUnavailable, setIconUnavailable] = useState(false);
   const FallbackIcon = fallbackIcons[fallback] ?? Code2;
 
   if (!slug || iconUnavailable) {
-    return <FallbackIcon className="h-4 w-4 shrink-0 text-accent" aria-hidden="true" />;
+    return <FallbackIcon className={`${sizeClass} shrink-0 text-accent`} aria-hidden="true" />;
   }
 
   return (
@@ -50,7 +59,7 @@ export default function TechIcon({ name, slug, color = '10b981', fallback = 'cod
       src={`https://cdn.simpleicons.org/${slug}/${color}`}
       alt=""
       aria-label={`${name} icon`}
-      className="h-4 w-4 shrink-0 object-contain"
+      className={`${sizeClass} shrink-0 object-contain`}
       loading="lazy"
       onError={() => setIconUnavailable(true)}
     />
