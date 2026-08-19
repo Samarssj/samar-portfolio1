@@ -10,6 +10,7 @@ import ProjectCylinder from '@/components/ProjectCylinder';
 import OmnitrixEmblem from '@/components/OmnitrixEmblem';
 import CursorFollower from '@/components/CursorFollower';
 import TechIcon from '@/components/TechIcon';
+import GithubAnalytics from '@/components/GithubAnalytics';
 import { Github, Linkedin, Mail, Download, Moon, Sun, Menu, X } from 'lucide-react';
 /**
  * Home Page - Premium AI Engineer Portfolio
@@ -514,6 +515,7 @@ export default function Home() {
               </div>
             </div>
           </div>
+          <GithubAnalytics />
         </div>
       </section>
 
