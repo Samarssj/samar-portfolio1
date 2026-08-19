@@ -529,7 +529,7 @@ export default function Home() {
 
               <div className="space-y-4 text-muted leading-relaxed">
                 <p>
-                  I'm an AI Engineer and Full-Stack Developer passionate about building intelligent systems that solve real-world problems. With experience of <strong className="text-foreground">EXL Service</strong> as an AI Engineer Intern and then being transitioned to Associate Developer, where I develop and deploy Generative AI solutions using Google Cloud technologies.
+                  I'm an AI Engineer and Full-Stack Developer passionate about building intelligent systems that solve real-world problems. With experience of <strong className="text-foreground">EXL Service</strong> as an AI Engineer Intern and then being transitioned to Associate AI Developer, where I develop and deploy Generative AI solutions using Google Cloud technologies.
                 </p>
 
                 <p>
@@ -652,7 +652,7 @@ export default function Home() {
               <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer scroll-reveal">
                 <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
                   <div>
-                    <h3 className="text-xl font-semibold">Associate Developer</h3>
+                    <h3 className="text-xl font-semibold">Associate AI Developer</h3>
                     <p className="text-muted">EXL Service</p>
                   </div>
                   <span className="text-sm text-accent font-medium whitespace-nowrap">August 2026 - Present</span>
