@@ -435,13 +435,13 @@ export default function Home() {
                   </div>
                   <div className="group/profile relative flex-shrink-0">
                     <div className="absolute -inset-[3px] rounded-xl opacity-0 blur-[1px] transition-opacity duration-300 group-hover/profile:opacity-100">
-                      <div className="h-full w-full rounded-xl bg-[conic-gradient(from_0deg,#10b981,#a3e635,#10b981,#065f46,#10b981)] group-hover/profile:animate-[spin_1.8s_linear_infinite]" />
+                      <div className="h-full w-full rounded-xl bg-[conic-gradient(from_0deg,#ff3b30,#ff6b35,#ffd166,#d7263d,#ff3b30)] group-hover/profile:animate-[spin_1.8s_linear_infinite]" />
                     </div>
-                    <div className="relative overflow-hidden rounded-lg border border-accent/30 shadow-lg transition-transform duration-300 group-hover/profile:scale-[1.02]">
+                    <div className="relative overflow-hidden rounded-lg border border-orange-500/50 shadow-lg transition-transform duration-300 group-hover/profile:scale-[1.02]">
                       <img
-                        src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663745791505/NFiqZRbGBApQcYsC.jpg"
+                        src="/samar-profile.webp"
                         alt="Samar Singh"
-                        className="w-24 h-32 sm:w-32 sm:h-40 object-cover"
+                        className="w-48 h-48 sm:w-56 sm:h-56 object-cover object-[80%_100%] -translate-x-6 scale-[1.3] origin-bottom"
                       />
                     </div>
                   </div>

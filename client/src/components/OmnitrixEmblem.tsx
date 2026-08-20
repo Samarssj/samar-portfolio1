@@ -4,15 +4,35 @@ import { createPortal } from 'react-dom';
 export default function OmnitrixEmblem() {
   const [flashActive, setFlashActive] = useState(false);
   const [flashKey, setFlashKey] = useState(0);
+  const [redActive, setRedActive] = useState(false);
   const controlRef = useRef<HTMLButtonElement>(null);
+  const redTimeoutRef = useRef<number | null>(null);
 
   useEffect(() => {
     controlRef.current?.removeAttribute('title');
   }, []);
 
+  useEffect(() => {
+    return () => {
+      if (redTimeoutRef.current !== null) {
+        window.clearTimeout(redTimeoutRef.current);
+      }
+    };
+  }, []);
+
   const activateFlash = () => {
     setFlashKey((key) => key + 1);
     setFlashActive(true);
+    setRedActive(true);
+
+    if (redTimeoutRef.current !== null) {
+      window.clearTimeout(redTimeoutRef.current);
+    }
+
+    redTimeoutRef.current = window.setTimeout(() => {
+      setRedActive(false);
+      redTimeoutRef.current = null;
+    }, 10_000);
   };
 
   return (
@@ -23,6 +43,7 @@ export default function OmnitrixEmblem() {
         onPointerEnter={(event) => event.currentTarget.removeAttribute('title')}
         onFocus={(event) => event.currentTarget.removeAttribute('title')}
         onClick={activateFlash}
+        data-red-state={redActive}
         className="omnitrix-shell group relative flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lime-300 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
       >
         <style>{`
@@ -54,6 +75,7 @@ export default function OmnitrixEmblem() {
             transition: filter 240ms cubic-bezier(0.23, 1, 0.32, 1), fill 240ms cubic-bezier(0.23, 1, 0.32, 1), stroke 240ms cubic-bezier(0.23, 1, 0.32, 1);
           }
 
+
           .omnitrix-shell:hover .omnitrix-glow,
           .omnitrix-shell:focus-visible .omnitrix-glow {
             filter: drop-shadow(0 0 3px rgba(190, 242, 100, 0.98)) drop-shadow(0 0 7px rgba(132, 204, 22, 0.82));
@@ -64,6 +86,16 @@ export default function OmnitrixEmblem() {
           .omnitrix-shell:focus-visible .omnitrix-core {
             fill: #bef264;
             filter: drop-shadow(0 0 4px rgba(190, 242, 100, 0.98));
+          }
+
+          .omnitrix-shell[data-red-state="true"] .omnitrix-core {
+            fill: #ef4444;
+            filter: drop-shadow(0 0 4px rgba(239, 68, 68, 0.98));
+          }
+
+          .omnitrix-shell[data-red-state="true"] .omnitrix-glow {
+            filter: drop-shadow(0 0 3px rgba(248, 113, 113, 0.98)) drop-shadow(0 0 7px rgba(220, 38, 38, 0.82));
+            stroke: #fecaca;
           }
 
           .omnitrix-shell:active .omnitrix-rotor {
@@ -111,7 +143,7 @@ export default function OmnitrixEmblem() {
           <circle cx="50" cy="50" r="29" fill="#666d6c" stroke="#06090a" strokeWidth="4" />
           <circle cx="50" cy="50" r="24" fill="#080b0b" stroke="#0f1615" strokeWidth="2" />
 
-          {/* Green hourglass core */}
+          {/* Hourglass core: green normally, red for ten seconds after each click */}
           <path d="M29 27 H71 L57 50 L71 73 H29 L43 50 Z" fill="#9bea00" stroke="#050807" strokeWidth="2.5" className="omnitrix-core" />
           <path d="M29 31 L43 50 L29 69 Z" fill="#050807" />
           <path d="M71 31 L57 50 L71 69 Z" fill="#050807" />
