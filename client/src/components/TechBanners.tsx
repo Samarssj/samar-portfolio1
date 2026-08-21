@@ -42,10 +42,6 @@ function TechnologyGroup({ technologies }: { technologies: Technology[] }) {
             />
           </div>
           <div className="min-w-0 text-left">
-            <div className="mb-0.5 flex items-center gap-1.5">
-              <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.95)] motion-safe:animate-pulse" />
-              <span className="font-mono text-[9px] font-bold tracking-[0.16em] text-emerald-300/80">LIVE</span>
-            </div>
             <span className="block truncate text-[15px] font-bold leading-tight text-foreground drop-shadow-sm">
               {tech.name}
             </span>
