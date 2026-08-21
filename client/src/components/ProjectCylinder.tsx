@@ -147,18 +147,19 @@ const projects: Project[] = [
     },
   },
   {
-    title: 'Job-track',
-    description: 'AI-powered job discovery and application tracker that scores roles against a resume, organizes applications in a Kanban board, and assists with application workflows.',
+    title: 'AutoApply — AI Job Matching & Application Tracker',
+    description: 'Full-stack AI job matching workspace that extracts structured data from resumes, aggregates 1,200+ roles across remote, hybrid, and on-site feeds, scores opportunities against a candidate profile, generates tailored pitches, and tracks application progress.',
     metrics: [
-      { value: 'AI', label: 'Resume Matching' },
-      { value: 'Auto', label: 'Job Discovery' },
-      { value: 'Kanban', label: 'Application Tracker' },
+      { value: '1,200+', label: 'Jobs Aggregated' },
+      { value: 'ATS', label: 'Resume Matching' },
+      { value: 'AI', label: 'Scoring & Pitches' },
     ],
-    tech: ['Python', 'Playwright', 'Streamlit', 'SQLite', 'Gemini API', 'Automation'],
-    github: 'https://github.com/Samarssj/job-track',
+    tech: ['React', 'TypeScript', 'Node.js', 'Express', 'Gemini API', 'MongoDB', 'PDF Parsing'],
+    demo: 'https://auto-apply-datn.onrender.com',
+    github: 'https://github.com/Samarssj/Auto-Apply',
     preview: {
-      src: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663824498893/FHXbMjCuFVKIelbX.webp',
-      alt: 'Job-track recruiting command center preview',
+      src: '/autoapply-preview.webp',
+      alt: 'AutoApply AI job radar with resume matching and ATS scoring preview',
     },
   },
   {
