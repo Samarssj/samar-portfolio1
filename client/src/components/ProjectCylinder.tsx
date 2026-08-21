@@ -51,21 +51,22 @@ const projects: Project[] = [
     },
   },
   {
-    title: 'Movie Review Sentiment Analysis',
-    description: 'End-to-end NLP application that classifies movie reviews into five sentiment categories with TF-IDF features and a tuned linear SVM, deployed through Streamlit.',
+    title: 'AutoApply — AI Job Matching & Application Tracker',
+    description: 'Full-stack AI job matching workspace that extracts structured data from resumes, aggregates 1,200+ roles across remote, hybrid, and on-site feeds, scores opportunities against a candidate profile, generates tailored pitches, and tracks application progress.',
     metrics: [
-      { value: '5', label: 'Sentiment Classes' },
-      { value: '4+', label: 'ML Models Compared' },
-      { value: 'TF-IDF', label: 'Feature Engineering' },
+      { value: '1,200+', label: 'Jobs Aggregated' },
+      { value: 'ATS', label: 'Resume Matching' },
+      { value: 'AI', label: 'Scoring & Pitches' },
     ],
-    tech: ['Python', 'Scikit-Learn', 'Streamlit', 'TF-IDF', 'Pandas', 'NumPy'],
-    demo: 'https://samarssj-movie-review-sentiment-analysis-appapp-z7ohdt.streamlit.app',
-    github: 'https://github.com/Samarssj/movie-review-sentiment-analysis',
+    tech: ['React', 'TypeScript', 'Node.js', 'Express', 'Gemini API', 'MongoDB', 'PDF Parsing'],
+    demo: 'https://auto-apply-datn.onrender.com',
+    github: 'https://github.com/Samarssj/Auto-Apply',
     preview: {
-      src: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663824498893/EYlmIGkIwxSjIjxi.png',
-      alt: 'ReelFeel movie review sentiment analysis preview',
+      src: '/autoapply-preview.webp',
+      alt: 'AutoApply AI job radar with resume matching and ATS scoring preview',
     },
   },
+
   {
     title: 'News Pilot — Hybrid AI News Intelligence Platform',
     description: 'Hybrid RAG news assistant that indexes live RSS and NewsAPI articles in ChromaDB, provides source-backed answers, and intelligently falls back to Gemini knowledge when needed.',
@@ -80,6 +81,22 @@ const projects: Project[] = [
     preview: {
       src: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663824498893/REhIlLAmPJdxmWME.png',
       alt: 'NewsPilot intelligence workspace preview',
+    },
+  },
+  {
+    title: 'Movie Review Sentiment Analysis',
+    description: 'End-to-end NLP application that classifies movie reviews into five sentiment categories with TF-IDF features and a tuned linear SVM, deployed through Streamlit.',
+    metrics: [
+      { value: '5', label: 'Sentiment Classes' },
+      { value: '4+', label: 'ML Models Compared' },
+      { value: 'TF-IDF', label: 'Feature Engineering' },
+    ],
+    tech: ['Python', 'Scikit-Learn', 'Streamlit', 'TF-IDF', 'Pandas', 'NumPy'],
+    demo: 'https://samarssj-movie-review-sentiment-analysis-appapp-z7ohdt.streamlit.app',
+    github: 'https://github.com/Samarssj/movie-review-sentiment-analysis',
+    preview: {
+      src: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663824498893/EYlmIGkIwxSjIjxi.png',
+      alt: 'ReelFeel movie review sentiment analysis preview',
     },
   },
   {
@@ -114,22 +131,7 @@ const projects: Project[] = [
       alt: 'Step Pulse real-time fitness intelligence dashboard preview',
     },
   },
-  {
-    title: 'HealthBuddy — AI Health Information Assistant',
-    description: 'Guardrailed health-information chatbot combining RAG retrieval with Gemini, emergency-input detection, diagnosis-request flagging, disclaimers, and server-side credential handling.',
-    metrics: [
-      { value: 'RAG', label: 'Knowledge Retrieval' },
-      { value: 'Zero', label: 'Client-Side Keys' },
-      { value: 'Multi-turn', label: 'Conversation Memory' },
-    ],
-    tech: ['Gemini API', 'RAG', 'Streamlit', 'Guardrails'],
-    demo: 'https://health-buddy-hglg822fh6wt86qhrt6jp2.streamlit.app',
-    github: 'https://github.com/Samarssj/health-buddy',
-    preview: {
-      src: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663824498893/JEQsyEIGRzrienaQ.png',
-      alt: 'HealthBuddy health information assistant preview',
-    },
-  },
+
   {
     title: 'Travel Booking Platform',
     description: 'Full-stack travel booking platform for browsing destinations, searching options, and managing bookings through a responsive UI and MongoDB-backed REST APIs.',
@@ -146,22 +148,7 @@ const projects: Project[] = [
       alt: 'TourET travel booking homepage preview',
     },
   },
-  {
-    title: 'AutoApply — AI Job Matching & Application Tracker',
-    description: 'Full-stack AI job matching workspace that extracts structured data from resumes, aggregates 1,200+ roles across remote, hybrid, and on-site feeds, scores opportunities against a candidate profile, generates tailored pitches, and tracks application progress.',
-    metrics: [
-      { value: '1,200+', label: 'Jobs Aggregated' },
-      { value: 'ATS', label: 'Resume Matching' },
-      { value: 'AI', label: 'Scoring & Pitches' },
-    ],
-    tech: ['React', 'TypeScript', 'Node.js', 'Express', 'Gemini API', 'MongoDB', 'PDF Parsing'],
-    demo: 'https://auto-apply-datn.onrender.com',
-    github: 'https://github.com/Samarssj/Auto-Apply',
-    preview: {
-      src: '/autoapply-preview.webp',
-      alt: 'AutoApply AI job radar with resume matching and ATS scoring preview',
-    },
-  },
+
   {
     title: 'CreditGuard',
     description: 'Production-style credit-card fraud screening console that compares imbalance-aware machine-learning models, selects the strongest validated pipeline, and routes high-risk transactions for review.',
@@ -176,6 +163,22 @@ const projects: Project[] = [
     preview: {
       src: '/assets/creditguard-preview.webp',
       alt: 'CreditGuard green fraud detection risk console preview',
+    },
+  },
+  {
+    title: 'HealthBuddy — AI Health Information Assistant',
+    description: 'Guardrailed health-information chatbot combining RAG retrieval with Gemini, emergency-input detection, diagnosis-request flagging, disclaimers, and server-side credential handling.',
+    metrics: [
+      { value: 'RAG', label: 'Knowledge Retrieval' },
+      { value: 'Zero', label: 'Client-Side Keys' },
+      { value: 'Multi-turn', label: 'Conversation Memory' },
+    ],
+    tech: ['Gemini API', 'RAG', 'Streamlit', 'Guardrails'],
+    demo: 'https://health-buddy-hglg822fh6wt86qhrt6jp2.streamlit.app',
+    github: 'https://github.com/Samarssj/health-buddy',
+    preview: {
+      src: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663824498893/JEQsyEIGRzrienaQ.png',
+      alt: 'HealthBuddy health information assistant preview',
     },
   },
 ];
@@ -356,7 +359,7 @@ export default function ProjectCylinder() {
                 return (
                   <article
                     key={project.title}
-                    className="absolute inset-0 overflow-hidden rounded-2xl border border-accent/30 bg-card/95 p-5 shadow-2xl transition-[opacity,border-color,box-shadow] duration-500"
+                    className="absolute inset-0 overflow-y-auto rounded-2xl border border-accent/30 bg-card/95 p-5 shadow-2xl transition-[opacity,border-color,box-shadow] duration-500"
                     style={{
                       transform: `rotateY(${angle}deg) translateZ(${horizontalCylinderRadius}px)`,
                       backfaceVisibility: 'hidden',
@@ -388,7 +391,7 @@ export default function ProjectCylinder() {
                         )}
                       </div>
 
-                      <p className="mt-4 line-clamp-3 text-sm leading-relaxed text-muted">{project.description}</p>
+                      <p className="mt-4 text-sm leading-relaxed text-muted">{project.description}</p>
 
                       <div className="mt-4 grid grid-cols-3 divide-x divide-border border-y border-border">
                         {project.metrics.map((metric) => (
@@ -485,7 +488,7 @@ export default function ProjectCylinder() {
           >
             <article
               key={mobileProject.title}
-              className="mobile-project-card overflow-hidden rounded-xl border border-accent/35 bg-card/95 p-5 shadow-[0_0_28px_rgba(16,185,129,0.16)]"
+              className="mobile-project-card max-h-[calc(100svh-14rem)] overflow-y-auto rounded-xl border border-accent/35 bg-card/95 p-5 shadow-[0_0_28px_rgba(16,185,129,0.16)]"
               style={{ animation: 'mobile-project-rotate-in 280ms cubic-bezier(0.23, 1, 0.32, 1)', transformStyle: 'preserve-3d', willChange: 'transform, opacity' }}
             >
               <div className="flex items-start justify-between gap-3">
