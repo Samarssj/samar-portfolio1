@@ -11,7 +11,7 @@ import OmnitrixEmblem from '@/components/OmnitrixEmblem';
 import CursorFollower from '@/components/CursorFollower';
 import TechIcon from '@/components/TechIcon';
 import GithubAnalytics from '@/components/GithubAnalytics';
-import { Github, Linkedin, Mail, Download, Moon, Sun, Menu, X } from 'lucide-react';
+import { ArrowUpRight, Github, Linkedin, Mail, Download, Moon, Sun, Menu, X } from 'lucide-react';
 /**
  * Home Page - Premium AI Engineer Portfolio
  * 
@@ -602,6 +602,29 @@ export default function Home() {
         </div>
       </section>
 
+      {/* SamarScope AI Personal RAG Assistant */}
+      <section id="samarscope" className="border-t border-border bg-background/80 px-4 py-10 sm:px-6 lg:px-8 scroll-reveal">
+        <div className="mx-auto max-w-6xl">
+          <a
+            href="https://personal-rag-bot.onrender.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open SamarScope AI Personal RAG Assistant"
+            className="group relative flex flex-col gap-5 overflow-hidden rounded-2xl border border-accent/30 bg-accent/[0.06] p-6 shadow-[0_0_28px_rgba(16,185,129,0.08)] transition-[transform,box-shadow,border-color,background-color] duration-300 hover:-translate-y-1 hover:border-accent/70 hover:bg-accent/[0.1] hover:shadow-[0_0_40px_rgba(16,185,129,0.2)] sm:flex-row sm:items-center sm:justify-between sm:p-7"
+          >
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent to-transparent opacity-80" />
+            <div className="space-y-2">
+              <div className="text-xs font-semibold uppercase tracking-[0.28em] text-accent">Personal AI</div>
+              <h2 className="text-xl font-bold text-foreground sm:text-2xl">Get to know me more personally through SamarScope AI — Personal RAG Assistant</h2>
+              <p className="text-sm leading-relaxed text-muted sm:text-base">Score my resume against any JD or another user&apos;s resume with a built-in Gemini-powered ATS scoring system.</p>
+            </div>
+            <span className="inline-flex w-fit shrink-0 items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-4 py-2 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-accent transition-[transform,background-color,box-shadow] duration-300 group-hover:translate-x-1 group-hover:bg-accent/20 group-hover:shadow-[0_0_20px_rgba(16,185,129,0.25)]">
+              Click to try SamarScope
+              <ArrowUpRight className="h-4 w-4" />
+            </span>
+          </a>
+        </div>
+      </section>
       {/* Projects Section */}
       <section id="projects" className="relative border-t border-border bg-secondary/30">
         <div className="px-4 pt-20 sm:px-6 lg:px-8">
