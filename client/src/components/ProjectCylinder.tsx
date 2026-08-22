@@ -318,6 +318,25 @@ export default function ProjectCylinder() {
     setMobileIndex((current) => Math.min(Math.max(current + direction, 0), projects.length - 1));
   };
 
+  const lastSwipeChangeRef = useRef(0);
+
+  const beginSwipe = (x: number, y: number) => {
+    swipeStartRef.current = { x, y };
+  };
+
+  const endSwipe = (x: number, y: number) => {
+    const start = swipeStartRef.current;
+    swipeStartRef.current = null;
+    if (!start || Date.now() - lastSwipeChangeRef.current < 350) return;
+
+    const deltaX = x - start.x;
+    const deltaY = y - start.y;
+    if (Math.abs(deltaX) < 48 || Math.abs(deltaX) <= Math.abs(deltaY)) return;
+
+    lastSwipeChangeRef.current = Date.now();
+    changeMobileProject(deltaX < 0 ? 1 : -1);
+  };
+
   const mobileProject = projects[mobileIndex];
 
   return (
@@ -466,30 +485,34 @@ export default function ProjectCylinder() {
             style={{ perspective: '1000px', touchAction: 'pan-y' }}
             onPointerDown={(event) => {
               if (event.pointerType === 'mouse') return;
-              swipeStartRef.current = { x: event.clientX, y: event.clientY };
+              beginSwipe(event.clientX, event.clientY);
               event.currentTarget.setPointerCapture(event.pointerId);
             }}
             onPointerUp={(event) => {
-              const start = swipeStartRef.current;
-              swipeStartRef.current = null;
               if (event.currentTarget.hasPointerCapture(event.pointerId)) {
                 event.currentTarget.releasePointerCapture(event.pointerId);
               }
-              if (!start) return;
-
-              const deltaX = event.clientX - start.x;
-              const deltaY = event.clientY - start.y;
-              if (Math.abs(deltaX) < 48 || Math.abs(deltaX) <= Math.abs(deltaY)) return;
-              changeMobileProject(deltaX < 0 ? 1 : -1);
+              endSwipe(event.clientX, event.clientY);
             }}
             onPointerCancel={() => {
+              swipeStartRef.current = null;
+            }}
+            onTouchStart={(event) => {
+              const touch = event.changedTouches[0];
+              if (touch) beginSwipe(touch.clientX, touch.clientY);
+            }}
+            onTouchEnd={(event) => {
+              const touch = event.changedTouches[0];
+              if (touch) endSwipe(touch.clientX, touch.clientY);
+            }}
+            onTouchCancel={() => {
               swipeStartRef.current = null;
             }}
           >
             <article
               key={mobileProject.title}
               className="mobile-project-card max-h-[calc(100svh-14rem)] overflow-y-auto rounded-xl border border-accent/35 bg-card/95 p-5 shadow-[0_0_28px_rgba(16,185,129,0.16)]"
-              style={{ animation: 'mobile-project-rotate-in 280ms cubic-bezier(0.23, 1, 0.32, 1)', transformStyle: 'preserve-3d', willChange: 'transform, opacity' }}
+              style={{ animation: 'mobile-project-rotate-in 280ms cubic-bezier(0.23, 1, 0.32, 1)', transformStyle: 'preserve-3d', willChange: 'transform, opacity', touchAction: 'pan-y' }}
             >
               <div className="flex items-start justify-between gap-3">
                 <div className="min-w-0">
