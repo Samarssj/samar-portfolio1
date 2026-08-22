@@ -190,6 +190,7 @@ export default function ProjectCylinder() {
   const cylinderRef = useRef<HTMLDivElement>(null);
   const mobileSectionRef = useRef<HTMLDivElement>(null);
   const frameRef = useRef<number | null>(null);
+  const scrollFrameRef = useRef<number | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [mobileIndex, setMobileIndex] = useState(0);
   const activeIndexRef = useRef(0);
@@ -201,10 +202,14 @@ export default function ProjectCylinder() {
     if (!section || !cylinder) return;
 
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const maxRotation = (360 / projects.length) * (projects.length - 1);
+    let targetRotation = 0;
+    let currentRotation = 0;
 
-    const updateCylinder = () => {
-      frameRef.current = null;
+    const updateTarget = () => {
       if (reducedMotion.matches) {
+        targetRotation = 0;
+        currentRotation = 0;
         cylinder.style.transform = 'rotateY(0deg)';
         return;
       }
@@ -212,9 +217,7 @@ export default function ProjectCylinder() {
       const rect = section.getBoundingClientRect();
       const scrollRange = Math.max(section.offsetHeight - window.innerHeight, 1);
       const progress = Math.min(Math.max(-rect.top / scrollRange, 0), 1);
-      const maxRotation = (360 / projects.length) * (projects.length - 1);
-      const rotation = progress * maxRotation;
-      cylinder.style.transform = `rotateY(${-rotation}deg)`;
+      targetRotation = progress * maxRotation;
 
       const nextIndex = Math.min(Math.round(progress * (projects.length - 1)), projects.length - 1);
       if (nextIndex !== activeIndexRef.current) {
@@ -223,21 +226,43 @@ export default function ProjectCylinder() {
       }
     };
 
-    const onScroll = () => {
-      if (frameRef.current === null) {
-        frameRef.current = window.requestAnimationFrame(updateCylinder);
+    const animateCylinder = () => {
+      frameRef.current = null;
+      if (reducedMotion.matches) {
+        cylinder.style.transform = 'rotateY(0deg)';
+        return;
+      }
+
+      const difference = targetRotation - currentRotation;
+      currentRotation += difference * 0.16;
+      if (Math.abs(difference) < 0.05) currentRotation = targetRotation;
+      cylinder.style.transform = `rotateY(${-currentRotation}deg)`;
+
+      if (currentRotation !== targetRotation) {
+        frameRef.current = window.requestAnimationFrame(animateCylinder);
       }
     };
 
-    updateCylinder();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onScroll, { passive: true });
-    reducedMotion.addEventListener('change', onScroll);
+    const requestUpdate = () => {
+      if (scrollFrameRef.current !== null) return;
+      scrollFrameRef.current = window.requestAnimationFrame(() => {
+        scrollFrameRef.current = null;
+        updateTarget();
+        if (frameRef.current === null) frameRef.current = window.requestAnimationFrame(animateCylinder);
+      });
+    };
+
+    updateTarget();
+    animateCylinder();
+    window.addEventListener('scroll', requestUpdate, { passive: true });
+    window.addEventListener('resize', requestUpdate, { passive: true });
+    reducedMotion.addEventListener('change', requestUpdate);
 
     return () => {
-      window.removeEventListener('scroll', onScroll);
-      window.removeEventListener('resize', onScroll);
-      reducedMotion.removeEventListener('change', onScroll);
+      window.removeEventListener('scroll', requestUpdate);
+      window.removeEventListener('resize', requestUpdate);
+      reducedMotion.removeEventListener('change', requestUpdate);
+      if (scrollFrameRef.current !== null) window.cancelAnimationFrame(scrollFrameRef.current);
       if (frameRef.current !== null) window.cancelAnimationFrame(frameRef.current);
     };
   }, []);
@@ -259,7 +284,7 @@ export default function ProjectCylinder() {
       settleTimer = window.setTimeout(() => {
         locked = false;
         accumulatedDistance = 0;
-      }, 150);
+      }, 320);
     };
 
     const onScroll = () => {
@@ -512,7 +537,7 @@ export default function ProjectCylinder() {
             <article
               key={mobileProject.title}
               className="mobile-project-card max-h-[calc(100svh-14rem)] overflow-y-auto rounded-xl border border-accent/35 bg-card/95 p-5 shadow-[0_0_28px_rgba(16,185,129,0.16)]"
-              style={{ animation: 'mobile-project-rotate-in 280ms cubic-bezier(0.23, 1, 0.32, 1)', transformStyle: 'preserve-3d', willChange: 'transform, opacity', touchAction: 'pan-y' }}
+              style={{ animation: 'mobile-project-rotate-in 500ms cubic-bezier(0.22, 1, 0.36, 1)', transformStyle: 'preserve-3d', willChange: 'transform, opacity', touchAction: 'pan-y' }}
             >
               <div className="flex items-start justify-between gap-3">
                 <div className="min-w-0">
