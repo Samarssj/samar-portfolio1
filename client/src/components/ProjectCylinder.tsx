@@ -298,7 +298,7 @@ export default function ProjectCylinder() {
       }
 
       const rect = section.getBoundingClientRect();
-      const sectionIsActive = rect.top <= window.innerHeight * 0.95 && rect.bottom >= window.innerHeight * 0.05;
+      const sectionIsActive = rect.top <= 0 && rect.bottom > 0;
       if (!sectionIsActive || scrollDelta === 0) {
         accumulatedDistance = 0;
         return;
