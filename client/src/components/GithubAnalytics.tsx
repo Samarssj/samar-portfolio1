@@ -29,10 +29,22 @@ const greenAccent = `
     <stop offset="100%" stop-color="#86efac"/>
   </linearGradient>`;
 
+const greenWaveLine = `
+  <linearGradient id="waveLine" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="#15803d"/>
+    <stop offset="52%" stop-color="#22c55e"/>
+    <stop offset="100%" stop-color="#86efac"/>
+  </linearGradient>`;
+
 function greenifySvg(svg: string) {
   let themed = svg.replace(
     /<linearGradient id="accent"[\s\S]*?<\/linearGradient>/,
     greenAccent
+  );
+
+  themed = themed.replace(
+    /<linearGradient id="waveLine"[\s\S]*?<\/linearGradient>/,
+    greenWaveLine
   );
 
   themed = themed.replace(
