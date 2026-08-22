@@ -258,7 +258,7 @@ export default function CertificationsGallery() {
         >
           <div className="flex items-center justify-center gap-1">
             <span className="text-2xl font-bold text-accent">45+</span>
-            <span className="text-xs opacity-0 transition-opacity group-hover:opacity-100">
+            <span aria-hidden="true" className="text-xs text-accent/80 transition-transform duration-300 group-hover:translate-x-0.5">
               ↗
             </span>
           </div>
