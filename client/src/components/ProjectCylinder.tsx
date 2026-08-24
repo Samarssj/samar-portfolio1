@@ -36,6 +36,22 @@ const projects: Project[] = [
     },
   },
   {
+    title: 'OptimizerOS — AI Code Performance & Optimization Studio',
+    description: 'Full-stack AI developer platform that analyzes algorithmic complexity, identifies performance bottlenecks, generates optimized code with Gemini, and provides interactive side-by-side diffs, benchmarking, architectural refactors, persistent optimization history, and exportable performance reports.',
+    metrics: [
+      { value: 'AI', label: 'Code Optimization' },
+      { value: 'AST', label: 'Complexity Analysis' },
+      { value: 'Diff', label: 'Interactive Verification' },
+    ],
+    tech: ['React 18', 'TypeScript', 'Node.js', 'Express', 'MongoDB Atlas', 'Gemini AI', 'Recharts'],
+    demo: 'https://optimizeros.onrender.com',
+    github: 'https://github.com/Samarssj/OptimizerOS',
+    preview: {
+      src: '/optimizeros-preview.webp',
+      alt: 'OptimizerOS AI code optimization studio preview',
+    },
+  },
+  {
     title: 'Jarvis AI Voice Assistant',
     description: 'Modular AI-powered desktop assistant that combines offline speech recognition, Gemini reasoning, tool execution, and text-to-speech for hands-free automation and system control.',
     metrics: [
@@ -368,7 +384,7 @@ export default function ProjectCylinder() {
     <>
       <div ref={sectionRef} className="hidden md:block relative h-[520vh]" aria-label="Scroll-driven horizontal project cylinder">
         <div className="sticky top-0 h-screen overflow-hidden flex flex-col items-center justify-center py-20" style={{ perspective: '1800px' }}>
-          <div className="absolute inset-x-0 top-16 flex items-start justify-between px-10 lg:px-16 pointer-events-none">
+          <div className="absolute inset-x-0 top-24 flex items-start justify-between px-10 lg:px-16 pointer-events-none">
             <div>
               <div className="text-xs font-semibold text-accent uppercase tracking-[0.28em]">Scroll down to spin</div>
               <p className="mt-2 text-sm text-muted">A horizontal 3D cylinder of selected work</p>
@@ -387,7 +403,7 @@ export default function ProjectCylinder() {
             </div>
           </div>
 
-          <div className="relative h-[380px] w-[min(80vw,660px)]" style={{ transformStyle: 'preserve-3d' }}>
+          <div className="relative h-[380px] w-[min(80vw,660px)] translate-y-8" style={{ transformStyle: 'preserve-3d' }}>
             <div
               ref={cylinderRef}
               className="absolute inset-0"
@@ -410,11 +426,12 @@ export default function ProjectCylinder() {
                       WebkitBackfaceVisibility: 'hidden',
                       pointerEvents: isActive ? 'auto' : 'none',
                       opacity: isActive ? 1 : 0.1,
+                      zIndex: isActive ? 10 : 0,
                       boxShadow: isActive ? '0 0 34px rgba(16, 185, 129, 0.24)' : '0 18px 50px rgba(0, 0, 0, 0.12)',
                     }}
                     aria-hidden={!isActive}
                   >
-                    <div className="flex h-full flex-col">
+                    <div className="flex h-full flex-col" style={{ opacity: isActive ? 1 : 0 }}>
                       <div className="flex items-start justify-between gap-4">
                         <div className="min-w-0">
                           <p className="font-mono text-xs text-accent">{String(index + 1).padStart(2, '0')} — SELECTED BUILD</p>
@@ -426,7 +443,7 @@ export default function ProjectCylinder() {
                             target="_blank"
                             rel="noopener noreferrer"
                             tabIndex={isActive ? 0 : -1}
-                            className="group/preview relative block w-40 shrink-0 overflow-hidden rounded-xl border border-accent/35 bg-background shadow-[0_0_18px_rgba(16,185,129,0.12)] transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-0.5 hover:border-accent hover:shadow-[0_0_24px_rgba(16,185,129,0.28)]"
+                            className={`group/preview relative block w-40 shrink-0 overflow-hidden rounded-xl border border-accent/35 bg-background shadow-[0_0_18px_rgba(16,185,129,0.12)] transition-[transform,border-color,box-shadow] duration-300 ${project.title.startsWith('OptimizerOS') ? '-translate-y-2 hover:-translate-y-2.5' : 'hover:-translate-y-0.5'} hover:border-accent hover:shadow-[0_0_24px_rgba(16,185,129,0.28)]`}
                             aria-label={`Open ${project.title} live preview`}
                           >
                             <img src={project.preview.src} alt={project.preview.alt} loading="lazy" className="aspect-video w-full object-cover transition-transform duration-500 group-hover/preview:scale-105" />
