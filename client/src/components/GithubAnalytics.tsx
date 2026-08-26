@@ -140,18 +140,18 @@ export default function GithubAnalytics() {
   return (
     <section
       aria-labelledby="github-analytics-title"
-      className="mt-14 rounded-3xl border border-emerald-400/25 bg-background/70 p-3 shadow-[0_0_45px_rgba(34,197,94,0.08)] backdrop-blur-xl sm:p-5 lg:mt-20 lg:p-7"
+      className="mt-14 rounded-3xl border border-emerald-600/25 bg-background/70 p-3 shadow-[0_0_45px_rgba(34,197,94,0.08)] backdrop-blur-xl dark:border-emerald-400/25 sm:p-5 lg:mt-20 lg:p-7"
     >
-      <div className="mb-5 flex flex-col gap-4 border-b border-emerald-400/35 pb-5 sm:flex-row sm:items-end sm:justify-between">
+      <div className="mb-5 flex flex-col gap-4 border-b border-emerald-600/35 pb-5 dark:border-emerald-400/35 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <div className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.24em] text-emerald-300">
+          <div className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.24em] text-emerald-700 dark:text-emerald-300">
             <Activity className="h-4 w-4" />
             Live GitHub telemetry
           </div>
-          <h2 id="github-analytics-title" className="text-2xl font-bold tracking-tight text-emerald-200 sm:text-3xl">
+          <h2 id="github-analytics-title" className="text-2xl font-bold tracking-tight text-emerald-800 dark:text-emerald-200 sm:text-3xl">
             Built in public. Measured in real time.
           </h2>
-          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
+          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-slate-700 dark:text-muted sm:text-base">
             The same GitHub Pulse, Repository DNA, and Contribution Wave visuals from my profile, refreshed directly from the repository’s live analytics feed.
           </p>
         </div>
@@ -160,7 +160,7 @@ export default function GithubAnalytics() {
           <button
             type="button"
             onClick={refresh}
-            className="inline-flex items-center gap-2 rounded-lg border border-emerald-400/45 bg-emerald-400/10 px-3 py-2 text-xs font-semibold uppercase tracking-wider text-emerald-200 transition hover:border-emerald-300 hover:bg-emerald-400/20 active:scale-[0.98]"
+            className="inline-flex items-center gap-2 rounded-lg border border-emerald-600/45 bg-emerald-500/10 px-3 py-2 text-xs font-semibold uppercase tracking-wider text-emerald-800 transition hover:border-emerald-700 hover:bg-emerald-500/20 active:scale-[0.98] dark:border-emerald-400/45 dark:bg-emerald-400/10 dark:text-emerald-200 dark:hover:border-emerald-300 dark:hover:bg-emerald-400/20"
             aria-label="Refresh live GitHub analytics"
           >
             <RefreshCw className={`h-4 w-4 ${isRefreshing ? "animate-spin" : ""}`} />
@@ -170,7 +170,7 @@ export default function GithubAnalytics() {
             href="https://github.com/Samarssj/Samarssj"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-lg border border-border px-3 py-2 text-xs font-semibold uppercase tracking-wider text-muted transition hover:border-emerald-400/60 hover:text-emerald-200"
+            className="inline-flex items-center gap-2 rounded-lg border border-border px-3 py-2 text-xs font-semibold uppercase tracking-wider text-slate-700 transition hover:border-emerald-600/60 hover:text-emerald-800 dark:text-muted dark:hover:border-emerald-400/60 dark:hover:text-emerald-200"
           >
             <Github className="h-4 w-4" />
             Source
@@ -195,8 +195,8 @@ export default function GithubAnalytics() {
         ))}
       </div>
 
-      <div className="mt-5 flex flex-wrap items-center justify-between gap-2 border-t border-emerald-400/25 pt-4 text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-muted">
-        <span className="text-emerald-200/80">Live source · Samarssj/Samarssj</span>
+      <div className="mt-5 flex flex-wrap items-center justify-between gap-2 border-t border-emerald-600/25 pt-4 text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-slate-700 dark:border-emerald-400/25 dark:text-muted">
+        <span className="text-emerald-800/85 dark:text-emerald-200/80">Live source · Samarssj/Samarssj</span>
         <span>Refreshes on page load, focus, and manual refresh</span>
       </div>
     </section>
