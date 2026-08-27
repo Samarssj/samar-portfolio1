@@ -67,7 +67,7 @@ export default function Home() {
   }, []);
 
   const stats = [
-    { value: '2+', label: 'Internships' },
+    { value: '2+', label: 'Companies' },
     { value: '11+', label: 'Projects' },
     { value: '11+', label: 'Certifications' },
     { value: '74%↑', label: 'AI Accuracy' },

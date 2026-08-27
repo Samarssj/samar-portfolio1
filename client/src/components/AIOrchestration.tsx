@@ -50,9 +50,10 @@ export default function AIOrchestration() {
 
     // Set canvas size
     const resizeCanvas = () => {
-      canvas.width = canvas.offsetWidth * window.devicePixelRatio;
-      canvas.height = canvas.offsetHeight * window.devicePixelRatio;
-      ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+      const devicePixelRatio = window.devicePixelRatio || 1;
+      canvas.width = canvas.offsetWidth * devicePixelRatio;
+      canvas.height = canvas.offsetHeight * devicePixelRatio;
+      ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
     };
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
@@ -102,8 +103,17 @@ export default function AIOrchestration() {
         ctx.stroke();
       }
 
+      // A slow diagnostic sweep makes the Hero workflow feel live without changing its geometry.
+      const sweepX = ((timeRef.current * 1.8) % (canvas.offsetWidth + 120)) - 60;
+      const sweepGradient = ctx.createLinearGradient(sweepX - 45, 0, sweepX + 45, 0);
+      sweepGradient.addColorStop(0, 'rgba(16, 185, 129, 0)');
+      sweepGradient.addColorStop(0.5, 'rgba(16, 185, 129, 0.22)');
+      sweepGradient.addColorStop(1, 'rgba(16, 185, 129, 0)');
+      ctx.fillStyle = sweepGradient;
+      ctx.fillRect(sweepX - 45, 0, 90, canvas.offsetHeight);
+
       // Update and draw agents
-      agentsRef.current.forEach((agent) => {
+      agentsRef.current.forEach((agent, agentIndex) => {
         // Gentle floating motion
         agent.x += agent.vx;
         agent.y += agent.vy;
@@ -123,7 +133,8 @@ export default function AIOrchestration() {
 
         // Draw agent node
         const radius = agent.status === 'processing' ? 22 : 18;
-        
+        const pulse = (Math.sin(timeRef.current * 0.08 + agentIndex * 1.4) + 1) / 2;
+
         // Glow effect for active agents
         if (agent.status === 'active' || agent.status === 'processing') {
           const gradient = ctx.createRadialGradient(agent.x, agent.y, 0, agent.x, agent.y, radius * 2);
@@ -135,8 +146,19 @@ export default function AIOrchestration() {
           ctx.fill();
         }
 
-        // Main node circle
-        ctx.fillStyle = agent.color;
+        // Soft orbit pulse around every node keeps the network visually alive.
+        ctx.strokeStyle = agent.color + '55';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.arc(agent.x, agent.y, radius + 5 + pulse * 4, 0, Math.PI * 2);
+        ctx.stroke();
+
+        // Main node circle with a subtle color bloom.
+        const nodeGradient = ctx.createRadialGradient(agent.x - radius * 0.35, agent.y - radius * 0.4, 2, agent.x, agent.y, radius);
+        nodeGradient.addColorStop(0, '#ffffff55');
+        nodeGradient.addColorStop(0.28, agent.color);
+        nodeGradient.addColorStop(1, agent.color + 'b5');
+        ctx.fillStyle = nodeGradient;
         ctx.beginPath();
         ctx.arc(agent.x, agent.y, radius, 0, Math.PI * 2);
         ctx.fill();
@@ -169,17 +191,24 @@ export default function AIOrchestration() {
         });
       });
 
-      // Draw connections between agents
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)';
-      ctx.lineWidth = 1;
+      // Draw color-linked connections with a gentle traveling dash.
+      ctx.lineWidth = 1.25;
+      ctx.setLineDash([6, 9]);
+      ctx.lineDashOffset = -timeRef.current * 0.45;
       for (let i = 0; i < agentsRef.current.length - 1; i++) {
         const from = agentsRef.current[i];
         const to = agentsRef.current[i + 1];
+        const connectionGradient = ctx.createLinearGradient(from.x, from.y, to.x, to.y);
+        connectionGradient.addColorStop(0, from.color + '70');
+        connectionGradient.addColorStop(0.5, 'rgba(255, 255, 255, 0.2)');
+        connectionGradient.addColorStop(1, to.color + '70');
+        ctx.strokeStyle = connectionGradient;
         ctx.beginPath();
         ctx.moveTo(from.x, from.y);
         ctx.lineTo(to.x, to.y);
         ctx.stroke();
       }
+      ctx.setLineDash([]);
 
       // Generate data packets
       if (timeRef.current % 40 === 0 && agentsRef.current.length > 1) {
@@ -208,33 +237,49 @@ export default function AIOrchestration() {
         const x = fromAgent.x + (toAgent.x - fromAgent.x) * packet.progress;
         const y = fromAgent.y + (toAgent.y - fromAgent.y) * packet.progress;
 
-        // Draw packet
+        // Draw a luminous packet trail so each handoff reads clearly.
+        for (let trail = 4; trail >= 1; trail--) {
+          const trailProgress = Math.max(0, packet.progress - trail * 0.045);
+          const trailX = fromAgent.x + (toAgent.x - fromAgent.x) * trailProgress;
+          const trailY = fromAgent.y + (toAgent.y - fromAgent.y) * trailProgress;
+          ctx.globalAlpha = 0.1 + (4 - trail) * 0.06;
+          ctx.fillStyle = packet.color;
+          ctx.beginPath();
+          ctx.arc(trailX, trailY, 2.5 + (4 - trail) * 0.45, 0, Math.PI * 2);
+          ctx.fill();
+        }
+        ctx.globalAlpha = 1;
+
+        // Draw packet core.
         ctx.fillStyle = packet.color;
         ctx.beginPath();
-        ctx.arc(x, y, 4, 0, Math.PI * 2);
+        ctx.arc(x, y, 4.5, 0, Math.PI * 2);
         ctx.fill();
 
         // Glow
-        const gradient = ctx.createRadialGradient(x, y, 0, x, y, 12);
-        gradient.addColorStop(0, packet.color + '40');
+        const gradient = ctx.createRadialGradient(x, y, 0, x, y, 15);
+        gradient.addColorStop(0, packet.color + '80');
         gradient.addColorStop(1, packet.color + '00');
         ctx.fillStyle = gradient;
         ctx.beginPath();
-        ctx.arc(x, y, 12, 0, Math.PI * 2);
+        ctx.arc(x, y, 15, 0, Math.PI * 2);
         ctx.fill();
 
         return true;
       });
 
-      // Draw particle streams
-      ctx.fillStyle = 'rgba(16, 185, 129, 0.15)';
-      for (let i = 0; i < 3; i++) {
-        const x = Math.random() * canvas.offsetWidth;
-        const y = Math.random() * canvas.offsetHeight;
+      // Draw smooth ambient particles instead of per-frame random flicker.
+      for (let i = 0; i < 5; i++) {
+        const particleX = (Math.sin(timeRef.current * 0.012 + i * 2.1) * 0.5 + 0.5) * canvas.offsetWidth;
+        const particleY = (Math.cos(timeRef.current * 0.009 + i * 1.7) * 0.5 + 0.5) * canvas.offsetHeight;
+        const particleRadius = 1 + ((i + 1) % 2) * 0.7;
+        ctx.globalAlpha = 0.16 + ((Math.sin(timeRef.current * 0.04 + i) + 1) / 2) * 0.2;
+        ctx.fillStyle = i % 2 === 0 ? '#10b981' : '#06b6d4';
         ctx.beginPath();
-        ctx.arc(x, y, Math.random() * 2 + 1, 0, Math.PI * 2);
+        ctx.arc(particleX, particleY, particleRadius, 0, Math.PI * 2);
         ctx.fill();
       }
+      ctx.globalAlpha = 1;
 
       animationRef.current = requestAnimationFrame(animate);
     };
