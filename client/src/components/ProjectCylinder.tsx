@@ -20,7 +20,7 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: 'Enterprise AI Chatbot',
+    title: 'Enterprise AI Chat/Voice bot',
     description: 'Enterprise conversational AI platform for customer support automation, intent recognition, knowledge retrieval, multi-turn conversations, and escalations using Vertex AI and CX Agent Studio.',
     metrics: [
       { value: '85%', label: 'User Satisfaction' },
