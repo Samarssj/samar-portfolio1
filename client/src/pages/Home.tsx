@@ -460,7 +460,7 @@ export default function Home() {
                     Get in Touch
                   </Button>
                 </a>
-                <a href="https://drive.google.com/file/d/1ygq4aSNoREhRY-VxNdygpeVU2-_NCUVX/view?usp=drivesdk" target="_blank" rel="noopener noreferrer">
+                <a href="https://drive.google.com/file/d/1ljMPHlfczbXKMITfTiXdypV8i8FmFVaG/view?usp=drivesdk" target="_blank" rel="noopener noreferrer">
                   <Button variant="outline" className="gap-2 hover:border-accent active:bg-accent/10 transition-all">
                     <Download className="w-4 h-4" />
                     Resume
@@ -522,7 +522,7 @@ export default function Home() {
       {/* About Section */}
       <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 border-t border-border">
         <div className="max-w-4xl mx-auto">
-          <div className="p-8 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer scroll-reveal">
+          <div className="p-8 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] transition-all duration-300">
             <div className="space-y-6">
               <div className="space-y-2">
                 <div className="text-xs font-semibold text-accent uppercase tracking-widest">About</div>
@@ -531,11 +531,11 @@ export default function Home() {
 
               <div className="space-y-4 text-muted leading-relaxed">
                 <p>
-                  I'm an AI Engineer and Full-Stack Developer passionate about building intelligent systems that solve real-world problems. With experience of <strong className="text-foreground">EXL Service</strong> as an AI Engineer Intern and then being transitioned to Associate AI Developer, where I develop and deploy Generative AI solutions using Google Cloud technologies.
+                  I'm an AI Engineer and Full-Stack Developer passionate about building intelligent systems that solve real-world problems. With experience of <strong className="text-foreground">[...]
                 </p>
 
                 <p>
-                  My expertise spans across AI/ML, cloud computing, and modern web development. I specialize in building agentic AI workflows, LLM-powered applications, and scalable backend systems. I'm particularly interested in autonomous agent orchestration, prompt engineering, and production-ready AI systems.
+                  My expertise spans across AI/ML, cloud computing, and modern web development. I specialize in building agentic AI workflows, LLM-powered applications, and scalable backend systems.
                 </p>
 
                 <p>
@@ -566,12 +566,12 @@ export default function Home() {
             {skillGroups.map((group, groupIndex) => (
               <article
                 key={group.title}
-                className={`group relative overflow-hidden rounded-2xl border border-accent/25 bg-background/65 p-5 shadow-[0_0_24px_rgba(16,185,129,0.08)] transition-[transform,opacity,box-shadow,border-color,background-color] duration-700 ease-out hover:-translate-y-2 hover:scale-[1.025] hover:border-accent hover:bg-accent/[0.06] hover:shadow-[0_0_42px_rgba(16,185,129,0.28)] hover:ring-1 hover:ring-accent/40 sm:p-6 ${skillsVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}
+                className={`group relative overflow-hidden rounded-2xl border border-accent/25 bg-background/65 p-5 shadow-[0_0_24px_rgba(16,185,129,0.08)] transition-[transform,opacity,box-shadow] duration-500 ${skillsVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}
                 style={{ transitionDelay: `${groupIndex * 90}ms` }}
               >
                 <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent to-transparent opacity-80" />
                 <div className="mb-6 flex items-center gap-3">
-                  <span className="grid h-10 w-10 place-items-center rounded-xl border border-accent/40 bg-accent/10 font-mono text-sm font-bold text-accent shadow-[0_0_18px_rgba(16,185,129,0.16)] transition-[transform,box-shadow,background-color] duration-300 group-hover:rotate-6 group-hover:scale-110 group-hover:bg-accent/20 group-hover:shadow-[0_0_26px_rgba(16,185,129,0.42)]">
+                  <span className="grid h-10 w-10 place-items-center rounded-xl border border-accent/40 bg-accent/10 font-mono text-sm font-bold text-accent shadow-[0_0_18px_rgba(16,185,129,0.16)]">
                     {group.marker}
                   </span>
                   <h3 className="text-lg font-semibold text-foreground sm:text-xl">{group.title}</h3>
@@ -589,7 +589,7 @@ export default function Home() {
                       </div>
                       <div className="h-2 overflow-hidden rounded-full bg-accent/10 ring-1 ring-inset ring-accent/10">
                         <div
-                          className={`h-full origin-left rounded-full bg-gradient-to-r from-emerald-600 via-emerald-400 to-cyan-300 shadow-[0_0_12px_rgba(16,185,129,0.55)] transition-transform duration-[1000ms] ease-out group-hover:brightness-125 ${skillsVisible ? 'scale-x-100' : 'scale-x-0'}`}
+                          className={`h-full origin-left rounded-full bg-gradient-to-r from-emerald-600 via-emerald-400 to-cyan-300 shadow-[0_0_12px_rgba(16,185,129,0.55)] transition-transform duration-700 ${skillsVisible ? 'scale-x-100' : 'scale-x-0'}`}
                           style={{ width: `${skill.level}%`, transitionDelay: `${groupIndex * 90 + skillIndex * 55}ms` }}
                         />
                       </div>
@@ -610,15 +610,15 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Open SamarScope AI Personal RAG Assistant"
-            className="group relative flex flex-col gap-5 overflow-hidden rounded-2xl border border-accent/30 bg-accent/[0.06] p-6 shadow-[0_0_28px_rgba(16,185,129,0.08)] transition-[transform,box-shadow,border-color,background-color] duration-300 hover:-translate-y-1 hover:border-accent/70 hover:bg-accent/[0.1] hover:shadow-[0_0_40px_rgba(16,185,129,0.2)] sm:flex-row sm:items-center sm:justify-between sm:p-7"
+            className="group relative flex flex-col gap-5 overflow-hidden rounded-2xl border border-accent/30 bg-accent/[0.06] p-6 shadow-[0_0_28px_rgba(16,185,129,0.08)] transition-[transform,box-shadow] duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_28px_rgba(16,185,129,0.16)]"
           >
             <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent to-transparent opacity-80" />
             <div className="space-y-2">
               <div className="text-xs font-semibold uppercase tracking-[0.28em] text-accent">Personal AI</div>
               <h2 className="text-xl font-bold text-foreground sm:text-2xl">Get to know me more personally through SamarScope AI — Personal RAG Assistant</h2>
-              <p className="text-sm leading-relaxed text-muted sm:text-base">Score my resume against any JD or another user&apos;s resume with a built-in Gemini-powered ATS scoring system.</p>
+              <p className="text-sm leading-relaxed text-muted sm:text-base">Score my resume against any JD or another user's resume with a built-in Gemini-powered ATS scoring system.</p>
             </div>
-            <span className="inline-flex w-fit shrink-0 items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-4 py-2 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-accent transition-[transform,background-color,box-shadow] duration-300 group-hover:translate-x-1 group-hover:bg-accent/20 group-hover:shadow-[0_0_20px_rgba(16,185,129,0.25)]">
+            <span className="inline-flex w-fit shrink-0 items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-4 py-2 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-accent transition-colors group-hover:bg-accent/15">
               Click to try SamarScope
               <ArrowUpRight className="h-4 w-4" />
             </span>
@@ -674,7 +674,7 @@ export default function Home() {
               {/* Timeline Dot */}
               <div className="absolute -left-[25px] md:-left-[33px] top-8 w-4 h-4 rounded-full bg-background border-2 border-accent z-10 shadow-[0_0_12px_#10b981]" />
 
-              <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer scroll-reveal">
+              <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] transition-all duration-300">
                 <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
                   <div>
                     <h3 className="text-xl font-semibold">Associate AI Developer</h3>
@@ -696,7 +696,7 @@ export default function Home() {
               {/* Timeline Dot */}
               <div className="absolute -left-[25px] md:-left-[33px] top-8 w-4 h-4 rounded-full bg-background border-2 border-accent z-10 shadow-[0_0_12px_#10b981]" />
 
-              <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer scroll-reveal">
+              <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] transition-all duration-300">
                 <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
                   <div>
                     <h3 className="text-xl font-semibold">AI Engineer Intern</h3>
@@ -719,7 +719,7 @@ export default function Home() {
               {/* Timeline Dot */}
               <div className="absolute -left-[25px] md:-left-[33px] top-8 w-4 h-4 rounded-full bg-background border-2 border-accent z-10 shadow-[0_0_12px_#10b981]" />
 
-              <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer scroll-reveal">
+              <div className="p-6 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] transition-all duration-300">
                 <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
                   <div>
                     <h3 className="text-xl font-semibold">ABM Intern</h3>
@@ -770,10 +770,10 @@ export default function Home() {
             <div className="relative flex h-2 w-2">
             <div className="animate-ping [animation-duration:0.7s] absolute inline-flex h-full w-full rounded-full bg-accent opacity-75 shadow-[0_0_12px_#22c55e]"></div>
              <div className="relative inline-flex rounded-full h-2 w-2 bg-accent shadow-[0_0_8px_#22c55e]"></div>
-           </div>
-  
+            </div>
+   
   {/* 2. Pulsing Subtitle Text */}
-     <span className="text-xs font-semibold uppercase tracking-widest text-accent animate-pulse [animation-duration:1.5s] drop-shadow-[0_0_4px_rgba(34,197,94,0.5)]">
+      <span className="text-xs font-semibold uppercase tracking-widest text-accent animate-pulse [animation-duration:1.5s] drop-shadow-[0_0_4px_rgba(34,197,94,0.5)]">
     Get in Touch
   </span>
 </div>
@@ -783,7 +783,7 @@ export default function Home() {
             </p>
           </div>
 
-          <form onSubmit={handleFormSubmit} className="p-8 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer scroll-reveal">
+          <form onSubmit={handleFormSubmit} className="p-8 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] transition-all duration-300">
             {/* Name Field */}
             <div className="space-y-2">
               <label htmlFor="name" className="block text-sm font-medium text-foreground">Name</label>
@@ -795,7 +795,7 @@ export default function Home() {
                 onChange={handleFormChange}
                 required
                 placeholder="Your name"
-                className="w-full px-4 py-3 rounded-lg border border-border bg-background/50 text-foreground placeholder:text-muted focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/50 transition-colors"
+                className="w-full px-4 py-3 rounded-lg border border-border bg-background/50 text-foreground placeholder:text-muted focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/30 transition-all"
               />
             </div>
 
@@ -810,7 +810,7 @@ export default function Home() {
                 onChange={handleFormChange}
                 required
                 placeholder="your@email.com"
-                className="w-full px-4 py-3 rounded-lg border border-border bg-background/50 text-foreground placeholder:text-muted focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/50 transition-colors"
+                className="w-full px-4 py-3 rounded-lg border border-border bg-background/50 text-foreground placeholder:text-muted focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/30 transition-all"
               />
             </div>
 
@@ -825,7 +825,7 @@ export default function Home() {
                 required
                 placeholder="Tell me about your project or inquiry..."
                 rows={5}
-                className="w-full px-4 py-3 rounded-lg border border-border bg-background/50 text-foreground placeholder:text-muted focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/50 transition-colors resize-none"
+                className="w-full px-4 py-3 rounded-lg border border-border bg-background/50 text-foreground placeholder:text-muted focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/30 transition-all"
               />
             </div>
 
@@ -853,16 +853,16 @@ export default function Home() {
 
           {/* Alternative Contact Methods */}
           <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
-            <a href="mailto:ssjsamar453@gmail.com" className="p-4 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
+            <a href="mailto:ssjsamar453@gmail.com" className="p-4 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] transition-all duration-300">
               <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4"></div>
               <div className="text-accent font-semibold mb-2">Email</div>
               <div className="text-sm text-muted">ssjsamar453@gmail.com</div>
             </a>
-            <a href="https://www.linkedin.com/in/samarssj/" target="_blank" rel="noopener noreferrer" className="p-4 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
+            <a href="https://www.linkedin.com/in/samarssj/" target="_blank" rel="noopener noreferrer" className="p-4 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] transition-all duration-300">
               <div className="text-accent font-semibold mb-2">LinkedIn</div>
               <div className="text-sm text-muted">samarssj</div>
             </a>
-            <a href="https://github.com/Samarssj" target="_blank" rel="noopener noreferrer" className="p-4 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] md:hover:border-accent md:hover:shadow-[0_0_20px_#22c55e] transition-all duration-300 cursor-pointer">
+            <a href="https://github.com/Samarssj" target="_blank" rel="noopener noreferrer" className="p-4 rounded-lg border border-accent bg-background/50 shadow-[0_0_20px_#22c55e] active:bg-accent/10 active:scale-[0.99] md:border-border md:shadow-none hover:scale-[1.01] transition-all duration-300">
               <div className="text-accent font-semibold mb-2">GitHub</div>
               <div className="text-sm text-muted">Samarssj</div>
             </a>
